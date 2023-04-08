@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Inserarea bilelor la inceput tine cont de pozitia primei bile">
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_ALBASTRE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_ALBE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_GALBENE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_MOV.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_ROSII.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/BILE_VERZI.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Traseu functional, bile randate frumos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +106,7 @@
       <workItem from="1680590364926" duration="32257000" />
       <workItem from="1680839970999" duration="790000" />
       <workItem from="1680841588667" duration="1181000" />
-      <workItem from="1680937924314" duration="20002000" />
+      <workItem from="1680937924314" duration="24164000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680939108408</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Traseu functional, bile randate frumos">
+      <created>1680987214453</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680987214453</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +138,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Inserarea bilelor la inceput tine cont de pozitia primei bile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserarea bilelor la inceput tine cont de pozitia primei bile" />
+    <MESSAGE value="Traseu functional, bile randate frumos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Traseu functional, bile randate frumos" />
   </component>
 </project>

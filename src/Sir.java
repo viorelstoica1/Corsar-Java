@@ -6,14 +6,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Sir {
-    private LinkedList<Bila> listaBile;
+    private final LinkedList<Bila> listaBile;
     int marime, ramaseDeIntrodus;
     float viteza,acceleratie, viteza_max;
     GameObject[] traseu;
-    BufferedImage tex2;
     ResourceManager manager;
-    public Sir(GameObject[] s, int bile_de_introdus, float viteza_sir_intrare, float viteza_max_generala, BufferedImage img) {
-        tex2 = img;
+    public Sir(GameObject[] s, int bile_de_introdus, float viteza_sir_intrare, float viteza_max_generala, ResourceManager manager) {
+        this.manager = manager;
         listaBile = new LinkedList<>();
         ramaseDeIntrodus = bile_de_introdus;
         traseu = s; marime = 0;
@@ -164,7 +163,7 @@ public class Sir {
         if(ramaseDeIntrodus >0 && marime !=0){
             if(listaBile.getFirst().index > listaBile.getFirst().GetMarimeSpriteX()){
                 //listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
-                listaBile.addFirst(new Bila(tex2, 60, 10, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+                listaBile.addFirst(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
                 listaBile.get(0).index += listaBile.get(1).index % listaBile.get(1).GetMarimeSpriteX();
                 marime++;
                 ramaseDeIntrodus--;
@@ -172,12 +171,12 @@ public class Sir {
         }
         else if(ramaseDeIntrodus > 0){
             //listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
-            listaBile.addFirst(new Bila(tex2, 60, 10, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+            listaBile.addFirst(new Bila((Spritesheet) manager.getBilaRandom(), traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
             marime++;
             ramaseDeIntrodus--;
         }
         for(int i=0;i<marime;i++){
-            listaBile.get(i).index+= 1;
+            listaBile.get(i).index+= 2;
             if(listaBile.get(i).index > 3089){
                 listaBile.remove(i);
                 marime--;

@@ -57,25 +57,25 @@ public class Tun extends Textura{
         proiectilIncarcat.SetUnghi(GetUnghi());
         System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
     }
-    Proiectil GetProiectilIncarcat(){
+    public Proiectil GetProiectilIncarcat(){
         return proiectilIncarcat;
     }
-    Proiectil GetProiectilRezerva(){
+    public Proiectil GetProiectilRezerva(){
         return proiectilRezerva;
     }
-    void SetProiectilCurent(Proiectil p){
+    public void SetProiectilCurent(Proiectil p){
         proiectilIncarcat = p;
     }
-    void SetProiectilRezerva(Proiectil p){
+    public void SetProiectilRezerva(Proiectil p){
         proiectilRezerva = p;
     }
-    void CicleazaProiectil(Proiectil p) {
+    public void CicleazaProiectil(Proiectil p) {
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = p;
     }
-    void SetGataTras(boolean x) { gataDeTras = x; };
-    boolean isGataDeTras() { return gataDeTras; };
-    void SchimbaOrdineProiectile(){
+    public void SetGataTras(boolean x) { gataDeTras = x; };
+    public boolean isGataDeTras() { return gataDeTras; };
+    public void SchimbaOrdineProiectile(){
         Proiectil aux = proiectilIncarcat;
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = aux;

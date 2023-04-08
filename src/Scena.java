@@ -21,8 +21,10 @@ public class Scena extends JPanel {
     private static final int targetScreenX = 1920, targetScreenY = 1080;
     private GameObject[] traseuBile;
     private final Sir sirBile;
+    private final ResourceManager texturi;
     public Scena() {
         this.setLayout(null);
+        texturi = new ResourceManager();
         //mouse clicks
         addMouseListener(new MouseAdapter() {
             @Override
@@ -31,7 +33,9 @@ public class Scena extends JPanel {
                     System.out.println("Click stanga la coordonatele " + e.getX() + " " + e.getY());
                     listaProiectile.add(tunar.GetProiectilIncarcat());
                     tunar.Trage();
-                    tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                    //tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                    tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) texturi.getBilaRandom(),tunar.GetCoordX(),tunar.GetCoordY(),tunar.GetUnghi(), tunar.vitezaTragere));
+                    //tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) texturi.getBilaRandom(),tunar.GetCoordX(),tunar.GetCoordY(),tunar.GetUnghi(), tunar.vitezaTragere));
                     System.out.println("Nr proiectile: " + listaProiectile.size());
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
@@ -40,6 +44,7 @@ public class Scena extends JPanel {
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     System.out.println("Click dreapta la coordonatele " + e.getX() + " " + e.getY());
+                    tunar.SchimbaOrdineProiectile();
                 }
             }
         });
@@ -70,7 +75,7 @@ public class Scena extends JPanel {
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile,50,20,5,tex2);
+        sirBile = new Sir(traseuBile,50,20,5,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {
@@ -85,8 +90,11 @@ public class Scena extends JPanel {
         tunar.SetCoordY((float) sizeY / 2 + (float) sizeY / 4);
         tunar.SetTexRaw(tex);
         tunar.SetTexSus(tunSus);
-        tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
+        //tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) texturi.getBilaRandom(),tunar.GetCoordX(),tunar.GetCoordY(),tunar.GetUnghi(), tunar.vitezaTragere));
+        //tunar.SetProiectilRezerva(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) texturi.getBilaRandom(),tunar.GetCoordX(),tunar.GetCoordY(),tunar.GetUnghi(), tunar.vitezaTragere));
+
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 4);
 
         fundal.SetTexRaw(texfundal);

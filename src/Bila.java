@@ -9,6 +9,10 @@ public class Bila extends Spritesheet{
         super(imagine, nrcadre, coloane, poz_x, poz_y, angel);
         frameCurent = 0;
     }
+    public Bila(Spritesheet imagine, float poz_x, float poz_y, float angel) {
+        super(imagine, poz_x, poz_y, angel);
+        frameCurent = 0;
+    }
     public boolean isSameColour(Bila bila){
         if (this.imagineRaw == bila.imagineRaw){
             return true;
