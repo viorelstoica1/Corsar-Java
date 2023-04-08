@@ -163,20 +163,29 @@ public class Sir {
         return 0;*/
         if(ramaseDeIntrodus >0 && marime !=0){
             if(listaBile.getFirst().index > listaBile.getFirst().GetMarimeSpriteX()){
-                listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+                //listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+                listaBile.addFirst(new Bila(tex2, 60, 10, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
                 listaBile.get(0).index += listaBile.get(1).index % listaBile.get(1).GetMarimeSpriteX();
                 marime++;
                 ramaseDeIntrodus--;
             }
         }
         else if(ramaseDeIntrodus > 0){
-            listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+            //listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+            listaBile.addFirst(new Bila(tex2, 60, 10, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
             marime++;
             ramaseDeIntrodus--;
         }
         for(int i=0;i<marime;i++){
-            listaBile.get(i).index+= 2;
-            listaBile.get(i).Copiaza(traseu[listaBile.get(i).index]);
+            listaBile.get(i).index+= 1;
+            if(listaBile.get(i).index > 3089){
+                listaBile.remove(i);
+                marime--;
+                i++;
+            }else {
+                listaBile.get(i).ScadeCadru();
+                listaBile.get(i).Copiaza(traseu[listaBile.get(i).index]);
+            }
         }
 
     }

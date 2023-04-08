@@ -31,7 +31,7 @@ public class Scena extends JPanel {
                     System.out.println("Click stanga la coordonatele " + e.getX() + " " + e.getY());
                     listaProiectile.add(tunar.GetProiectilIncarcat());
                     tunar.Trage();
-                    tunar.SetProiectilCurent(new ProiectilBila(tex2, 32, 6, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                    tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
                     System.out.println("Nr proiectile: " + listaProiectile.size());
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
@@ -59,7 +59,8 @@ public class Scena extends JPanel {
 
         try {
             tex = ImageIO.read(new File("src/resources/Cannon.png"));
-            tex2 = ImageIO.read(new File("src/resources/galben2.png"));
+            //tex2 = ImageIO.read(new File("src/resources/galben2.png"));
+            tex2 = ImageIO.read(new File("src/resources/BILE_GALBENE.png"));
             tunSus = ImageIO.read(new File("src/resources/Cannon_no_shade.png"));
             texfundal = ImageIO.read(new File("src/resources/Traseu1.png"));
         } catch (IOException e) {
@@ -69,14 +70,14 @@ public class Scena extends JPanel {
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile,20,20,5,tex2);
+        sirBile = new Sir(traseuBile,50,20,5,tex2);
     }
 
     public void onStart(int sizeX, int sizeY) {
         rezolutieY = sizeY;
         rezolutieX = sizeX;
         //resizeTraseu((float)rezolutieX/targetScreenX,(float)rezolutieY/targetScreenY);
-        tex2 = resize(tex2, rezolutieX * tex2.getWidth() / targetScreenX, rezolutieY * tex2.getHeight() / targetScreenY);
+        //tex2 = resize(tex2, rezolutieX * tex2.getWidth() / targetScreenX, rezolutieY * tex2.getHeight() / targetScreenY);
         tex = resize(tex, rezolutieX * tex.getWidth() / targetScreenX, rezolutieY * tex.getHeight() / targetScreenY);
         texfundal = resize(texfundal, rezolutieX * texfundal.getWidth() / targetScreenX, rezolutieY * texfundal.getHeight() / targetScreenY);
         tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
@@ -84,8 +85,8 @@ public class Scena extends JPanel {
         tunar.SetCoordY((float) sizeY / 2 + (float) sizeY / 4);
         tunar.SetTexRaw(tex);
         tunar.SetTexSus(tunSus);
-        tunar.SetProiectilCurent(new ProiectilBila(tex2, 32, 6, 250, 150, 0, tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila(tex2, 32, 6, 250, 150, 0, tunar.vitezaTragere));
+        tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 4);
 
         fundal.SetTexRaw(texfundal);
@@ -133,112 +134,154 @@ public class Scena extends JPanel {
     }
 
     private void AlocareTraseuBile() {
-        traseuBile = new GameObject[7000];//6682
-        for(int i=0;i<7000;i++){
+        traseuBile = new GameObject[3300];//3089
+        for(int i=0;i<3300;i++){
             traseuBile[i] = new GameObject();
         }
         int i = 0;
-        for (int j = -50; j < 50; j++) {
-            traseuBile[i].SetCoordX(700);
+        for (int j = -50; j < 160; j++) {
+            traseuBile[i].SetCoordX(390);
             traseuBile[i].SetCoordY(j);
-            traseuBile[i].SetUnghi(1.57F);
+            traseuBile[i].SetUnghi(0);
             i++;
         }
-        for (float unghi = 3.14F; unghi > 1.57; unghi = (float) (unghi - 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 800));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 50));
+        for (float unghi = 0; unghi < Math.PI/2; unghi = (float) (unghi + 0.0125)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 80 + 310));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 80 + 160));
+            traseuBile[i].SetUnghi((float) (unghi));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi - 1.57));
         }
-        for (int j = 800; j < 1600; j++) {
+        for (int j = 310; j > 120; j--) {
             traseuBile[i].SetCoordX(j);
-            traseuBile[i].SetCoordY(150);
+            traseuBile[i].SetCoordY(240);
+            traseuBile[i].SetUnghi((float) (Math.PI/2));
             i++;
         }
-        for (float unghi = 4.71F; unghi < 6.28; unghi = (float) (unghi + 0.005)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 200 + 1600));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 200 + 350));
+        for (float unghi = (float) (Math.PI*3/2); unghi > Math.PI; unghi = (float) (unghi - 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 120));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 290));
+            traseuBile[i].SetUnghi((float) (unghi-Math.PI));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi - 4.71));
         }
-        for (int j = 350; j < 750; j++) {
-            traseuBile[i].SetCoordX(1800);
+        for (int j = 290; j < 400; j++) {
+            traseuBile[i].SetCoordX(70);
             traseuBile[i].SetCoordY(j);
+            traseuBile[i].SetUnghi(0);
             i++;
-            traseuBile[i].SetUnghi(1.57F);
         }
-        for (float unghi = 0; unghi < 1.57; unghi = (float) (unghi + 0.005)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 200 + 1600));//inmultesti cu raza cercului
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 200 + 750));//si aduni cu centrul cercului
+        for (float unghi = (float) (Math.PI); unghi > Math.PI/2; unghi = (float) (unghi - 0.0125)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 80 + 150));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 80 + 400));
+            traseuBile[i].SetUnghi((float) (unghi+Math.PI));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi + 1.57));
         }
-        for (int j = 1600; j > 800; j--) {
+        for (int j = 150; j < 310; j++) {
             traseuBile[i].SetCoordX(j);
-            traseuBile[i].SetCoordY(950);
+            traseuBile[i].SetCoordY(480);
+            traseuBile[i].SetUnghi((float) (Math.PI*3/2));
             i++;
-            traseuBile[i].SetUnghi(3.14F);
         }
-        for (float unghi = 1.57F; unghi < 3.14; unghi = (float) (unghi + 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 800));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 850));
+        for (float unghi = (float) (Math.PI*3/2); unghi < Math.PI*2; unghi = (float) (unghi + 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 310));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 530));
+            traseuBile[i].SetUnghi(unghi);
             i++;
-            traseuBile[i].SetUnghi((float) (unghi + 1.57));
         }
-        for (int j = 850; j > 500; j--) {
-            traseuBile[i].SetCoordX(700);
+        for (int j = 530; j < 760; j++) {
+            traseuBile[i].SetCoordX(360);
             traseuBile[i].SetCoordY(j);
+            traseuBile[i].SetUnghi(0);
             i++;
-            traseuBile[i].SetUnghi(4.71F);
         }
-        for (float unghi = 3.14F; unghi < 6.28; unghi = (float) (unghi + 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 800));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 500));
+        for (float unghi = (float) Math.PI; unghi > Math.PI/2; unghi = (float) (unghi - 0.025)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 40 + 400));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 40 + 760));
+            traseuBile[i].SetUnghi((float) (unghi+Math.PI));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi + 1.57));
         }
-        for (int j = 500; j < 750; j++) {
-            traseuBile[i].SetCoordX(900);
-            traseuBile[i].SetCoordY(j);
-            i++;
-            traseuBile[i].SetUnghi(1.57F);
-        }
-        for (float unghi = 3.14F; unghi > 1.57; unghi = (float) (unghi - 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 1000));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 750));
-            i++;
-            traseuBile[i].SetUnghi((float) (unghi - 1.57));
-        }
-        for (int j = 1000; j < 1600; j++) {
+        for (int j = 400; j < 470; j++) {
             traseuBile[i].SetCoordX(j);
-            traseuBile[i].SetCoordY(850);
+            traseuBile[i].SetCoordY(800);
+            traseuBile[i].SetUnghi((float) (Math.PI*3/2));
             i++;
         }
-        for (float unghi = 1.57F; unghi > 0; unghi = (float) (unghi - 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 1600));//inmultesti cu raza cercului
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 750));//si aduni cu centrul cercului
+        for (float unghi = (float) Math.PI/2; unghi > Math.PI/6; unghi = (float) (unghi - 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 470));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 750));
+            traseuBile[i].SetUnghi((float) (unghi+Math.PI));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi - 1.57));
         }
-        for (int j = 750; j > 400; j--) {
-            traseuBile[i].SetCoordX(1700);
+        for (int j = 0; j < 461; j++) {
+            int xinceput = 513, xsfarsit = 770;
+            int yinceput = 775, ysfarsit = 390;
+            traseuBile[i].SetCoordX(xinceput+(xsfarsit-xinceput)*j/461);
+            traseuBile[i].SetCoordY(yinceput+(ysfarsit-yinceput)*j/461);
+            traseuBile[i].SetUnghi((float) (Math.PI*7/6));
+            i++;
+        }
+        for (float unghi = (float) Math.PI/6; unghi > 0; unghi = (float) (unghi - 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 725));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 365));
+            traseuBile[i].SetUnghi((float) (unghi+Math.PI));
+            i++;
+        }
+        for (int j = 365; j > 220; j--) {
+            traseuBile[i].SetCoordX(775);
+            traseuBile[i].SetCoordY(j);
+            traseuBile[i].SetUnghi((float) (Math.PI));
+            i++;
+        }
+        for (float unghi = (float) Math.PI; unghi < Math.PI*2; unghi = (float) (unghi + 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 825));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 220));
+            traseuBile[i].SetUnghi((float) (unghi));
+            i++;
+        }
+        for (int j = 220; j < 320; j++) {
+            traseuBile[i].SetCoordX(875);
             traseuBile[i].SetCoordY(j);
             i++;
-            traseuBile[i].SetUnghi(4.71F);
         }
-        for (float unghi = 6.28F; unghi > 4.71; unghi = (float) (unghi - 0.01)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 100 + 1600));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 100 + 400));
+        for (float unghi = (float) Math.PI; unghi > Math.PI/2; unghi = (float) (unghi - 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 925));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 320));
+            traseuBile[i].SetUnghi((float) (unghi+ Math.PI));
             i++;
-            traseuBile[i].SetUnghi((float) (unghi - 1.57));
         }
-        for (int j = 1600; j > 250; j--) {
+        for (int j = 925; j < 1090; j++) {
             traseuBile[i].SetCoordX(j);
-            traseuBile[i].SetCoordY(300);
+            traseuBile[i].SetCoordY(370);
+            traseuBile[i].SetUnghi((float) (Math.PI*3/2));
             i++;
-            traseuBile[i].SetUnghi(3.14F);
         }
-        System.out.println("Traseul are "+i+"puncte");
+        for (float unghi = (float) Math.PI*3/2; unghi < Math.PI*2; unghi = (float) (unghi + 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 1090));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 420));
+            traseuBile[i].SetUnghi((float) (unghi));
+            i++;
+        }
+        for (int j = 420; j < 670; j++) {
+            traseuBile[i].SetCoordX(1140);
+            traseuBile[i].SetCoordY(j);
+            //traseuBile[i].SetUnghi((float) (Math.PI*3/2));
+            i++;
+        }
+        for (float unghi = (float) Math.PI; unghi > Math.PI/2; unghi = (float) (unghi - 0.02)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 1190));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 670));
+            traseuBile[i].SetUnghi((float) (unghi+Math.PI));
+            i++;
+        }
+        for (int j = 1190; j < 1240; j++) {
+            traseuBile[i].SetCoordX(j);
+            traseuBile[i].SetCoordY(720);
+            traseuBile[i].SetUnghi((float) (Math.PI*3/2));
+            i++;
+        }
+        for(int j=0;j<3300;j++){
+            traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()+Math.PI));
+        }
+        System.out.println("Traseul are "+i+" puncte");
     }
     private void resizeTraseu(float sizeX, float sizeY){
         for(int i=0;i<traseuBile.length;i++){

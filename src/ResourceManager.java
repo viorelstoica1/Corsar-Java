@@ -9,8 +9,8 @@ public class ResourceManager {
     private HashMap<String,Integer> numarTexturi;
     public ResourceManager(){
         try {
-            BufferedImage tex = ImageIO.read(new File("src/resources/galben2.png"));
-            texturi.put("galben",new Textura(tex,0,0,0));
+            BufferedImage tex = ImageIO.read(new File("src/resources/BILE_GALBENE"));
+            texturi.put("galben",new Spritesheet(tex,60,10,0,0,0));
             numarTexturi.put("galben",0);
         } catch (IOException e) {
             throw new RuntimeException(e);
