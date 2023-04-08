@@ -29,29 +29,11 @@ public class Sir {
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaDreaptaBilei(Bila membru, Bila de_introdus){
-        //de_introdus->SetBilaStanga(membru);
-        //de_introdus->SetBilaDreapta(membru->GetBilaDreapta());
-        /*if (Coada == membru) {
-            Coada = de_introdus;
-        }
-        else {
-            membru->GetBilaDreapta()->SetBilaStanga(de_introdus);
-        }
-        membru->SetBilaDreapta(de_introdus);*/
         listaBile.add(membru.index+1,de_introdus);
         marime++;
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaStangaBilei(Bila membru, Bila de_introdus){
-        /*de_introdus->SetBilaDreapta(membru);
-        de_introdus->SetBilaStanga(membru->GetBilaStanga());
-        if (Cap == membru) {
-            Cap = de_introdus;
-        }
-        else {
-            membru->GetBilaStanga()->SetBilaDreapta(de_introdus);
-        }
-        membru->SetBilaStanga(de_introdus);*/
         listaBile.add(membru.index,de_introdus);
         marime++;
     }
@@ -102,7 +84,7 @@ public class Sir {
             return winlose;
         }
         //pentru inceputul nivelului
-        if (index->GetIndex()>=index->GetMarimeSpriteX() && de_introdus) {
+        if (index.GetIndex()>=index->GetMarimeSpriteX() && de_introdus) {
             this->adaugaLaStangaListei(CreeazaBilaRandom());
             //Cap->SetTex(GetRandomBila());
             Cap->CresteNumar(index->GetIndex()%index->GetMarimeSpriteX());
@@ -182,6 +164,7 @@ public class Sir {
         if(ramaseDeIntrodus >0 && marime !=0){
             if(listaBile.getFirst().index > listaBile.getFirst().GetMarimeSpriteX()){
                 listaBile.addFirst(new Bila(tex2, 32, 6, traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi()));
+                listaBile.get(0).index += listaBile.get(1).index % listaBile.get(1).GetMarimeSpriteX();
                 marime++;
                 ramaseDeIntrodus--;
             }

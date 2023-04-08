@@ -15,4 +15,10 @@ public class Bila extends Spritesheet{
         }
         return false;//TODO VERIFICA FUNCTIA
     }
+    public void CresteIndex(int index){
+        this.index += index;
+    }
+    public void SetIndex(int index){
+        this.index = index;
+    }
 }
