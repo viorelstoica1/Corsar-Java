@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Proiect_PAOO.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Proiect_PAOO\exportToHTML" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MXgbdom0pl8QYFvtpkcOXV9NEi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Application" />
+      <module name="Proiect_PAOO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="" />
+      <created>1677919417869</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677919417869</updated>
+      <workItem from="1677919418481" duration="647000" />
+      <workItem from="1678559244490" duration="1935000" />
+      <workItem from="1678561215650" duration="4806000" />
+      <workItem from="1678715961418" duration="86000" />
+      <workItem from="1679129069212" duration="11820000" />
+      <workItem from="1679210834096" duration="18574000" />
+      <workItem from="1679313845504" duration="1982000" />
+      <workItem from="1679386461196" duration="7202000" />
+      <workItem from="1679739028293" duration="4080000" />
+      <workItem from="1679812237697" duration="20640000" />
+      <workItem from="1679848132416" duration="9110000" />
+      <workItem from="1679989004160" duration="7293000" />
+      <workItem from="1680072374539" duration="22354000" />
+      <workItem from="1680240633940" duration="2907000" />
+      <workItem from="1680428499960" duration="13343000" />
+      <workItem from="1680521403022" duration="10011000" />
+      <workItem from="1680590364926" duration="32257000" />
+      <workItem from="1680839970999" duration="790000" />
+      <workItem from="1680841588667" duration="1181000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
