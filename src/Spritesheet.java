@@ -22,14 +22,14 @@ public class Spritesheet extends Textura{
                 //System.out.print("("+pozitii_cadre[i*coloane+j].x+","+pozitii_cadre[i*coloane+j].y+")");
             }
         }
-        System.out.println("Am construit un spritesheet cu "+numar_cadre+" cadre");
+        //System.out.println("Am construit un spritesheet cu "+numar_cadre+" cadre");
     }
     public Spritesheet(Spritesheet sprite,float poz_x,float poz_y,float angel){
         super(sprite.imagineRaw,poz_x,poz_y,angel);
         this.numar_cadre = sprite.numar_cadre;
         this.cadru_curent = 0;
         this.pozitii_cadre = sprite.pozitii_cadre;
-        System.out.println("Am COPIAT un spritesheet cu "+numar_cadre+" cadre");
+        //System.out.println("Am COPIAT un spritesheet cu "+numar_cadre+" cadre");
     }
     public int GetMarimeSpriteX()
     {

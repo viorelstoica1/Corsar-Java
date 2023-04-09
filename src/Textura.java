@@ -8,7 +8,7 @@ public class Textura extends GameObject{
         imagineRaw = imagine;
         marime_x = imagine.getWidth();
         marime_y = imagine.getHeight();
-        System.out.println("Imagine incarcata");
+        //System.out.println("Imagine incarcata");
     }
     public BufferedImage rotate(BufferedImage imagineAux) {
         int widthOfImage = imagineAux.getWidth();

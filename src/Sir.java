@@ -24,28 +24,29 @@ public class Sir {
     public void adaugaLaStangaListei(Bila de_introdus){
         listaBile.addFirst(de_introdus);
         marime++;
-        System.out.println("Am adaugat element la inceputul listei, marime: "+marime);
+        //System.out.println("Am adaugat element la inceputul listei, marime: "+marime);
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaDreaptaBilei(Bila membru, Bila de_introdus){
         listaBile.add(listaBile.indexOf(membru)+1,de_introdus);
+        //System.out.println("Dreapta");
         marime++;
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaStangaBilei(Bila membru, Bila de_introdus){
         listaBile.add(listaBile.indexOf(membru),de_introdus);
+        //System.out.println("Stanga");
         marime++;
     }
     //verifica daca trebuie adaugat in stanga sau in dreapta si adauga
-    public boolean adaugaPeBila(Bila membru, Bila de_introdus){
+    public Bila adaugaPeBila(Bila membru, Bila de_introdus){
         if (membru.DirectieColiziune(de_introdus)/*de_introdus->GetCoordX() > membru->GetCoordX()*/) {//deocamdata las inserarea fara sa tin cont de unghi
             adaugaLaDreaptaBilei(membru, de_introdus);
-            return true;
         }
         else {
             adaugaLaStangaBilei(membru, de_introdus);
-            return false;
         }
+        return de_introdus;
     }
     public void StergereLista(){
         int x = marime;
@@ -178,7 +179,7 @@ public class Sir {
         }
         for(int i=0;i<marime;i++){
             if(i==0){//daca e prima bila
-                listaBile.get(i).index+= 1;
+                listaBile.get(i).index+= 2;
             }else{
                 listaBile.get(i).index = listaBile.get(i-1).index + listaBile.get(i).GetMarimeSpriteX();
             }
@@ -187,7 +188,7 @@ public class Sir {
                 marime--;
                 i++;
             }else {
-                listaBile.get(i).ScadeCadru();
+                listaBile.get(i).CresteCadru();
                 listaBile.get(i).Copiaza(traseu[listaBile.get(i).index]);
             }
         }
@@ -206,21 +207,23 @@ public class Sir {
     }
     //verifica cate bile identice sunt legate de bila data parametru
     public int NrBileIdentice(Bila membru){
-        int nr = 1, stanga = membru.index-1,dreapta = membru.index+1;
+        int nr = 1, stanga = listaBile.indexOf(membru)-1,dreapta = listaBile.indexOf(membru)+1;
         while(stanga >= 0){
             if(!listaBile.get(stanga).isSameColour(membru)){
              break;
             }
+            nr++;
             stanga--;
         }
         while(dreapta < listaBile.size()){
             if(!listaBile.get(dreapta).isSameColour(membru)){
                 break;
             }
+            nr++;
             dreapta++;
         }
-        System.out.println("Bile identice gasite: ");
-        return dreapta-stanga;
+        System.out.println("Bile identice gasite: "+(nr));
+        return nr;
     }
     //Merge la stanga de bila data ca parametru, apoi sterge bilele identice si muta totul de dupa la stanga
     public void StergeBileInterval(int inceput, int nrBileDeSters){
@@ -228,6 +231,7 @@ public class Sir {
         while(nrBileDeSters != 0){
             listaBile.remove(inceput);
             nrBileDeSters--;
+            marime--;
         }
         System.out.println("Am sters "+aux+" bile");
         /*int nr = 1;
@@ -284,19 +288,11 @@ public class Sir {
     public Bila TestColiziune(Proiectil obuz){
         for ( Bila index : listaBile) {
             if (index.DistantaPatrat(obuz) <= Math.pow((obuz.GetMarimeSpriteX() + (float) index.GetMarimeSpriteX()) / 2, 2)) {
-                System.out.println("Coliziune!" + index.DistantaPatrat(obuz));
+                //System.out.println("Coliziune!" + index.DistantaPatrat(obuz));
                 return index;
             }
         }
         return null;
-        /*while (index){
-            //verificare coliziune
-            if (DistantaPatrat(obuz.GetCoordX(), index.GetCoordX(), obuz.GetCoordY(), index.GetCoordY()) <= pow((obuz->GetMarimeX() + (float)index->GetMarimeSpriteX())/2, 2)) {
-                return index;
-            }
-            index = index->GetBilaDreapta();
-        }
-        return index;//returnare coliziune gasita*/
     }
     //sterge o bila din lista si reface legaturile
     public void stergeBila(Bila membru){
@@ -309,5 +305,35 @@ public class Sir {
             return new Bila(obuz.getSprite(),obuz.GetCoordX(),obuz.GetCoordY(),obuz.GetUnghi());
         }
         return null;
+    }
+    public void StergeBileIdentice(Bila membru){
+        /*int nr = 1;
+        int index = listaBile.indexOf(membru);
+        if(index <marime-1){
+            while(listaBile.get(index+1).isSameColour(membru)){
+                index++;
+                nr++;
+            }
+        }
+        index = listaBile.indexOf(membru);
+        if(index>0){
+            while(listaBile.get(index-1).isSameColour(membru)){
+                index--;
+                nr++;
+            }
+        }
+        StergeBileInterval(index,nr);*/
+        int index = listaBile.indexOf(membru);
+        if(index>0){
+            while(listaBile.get(index-1).isSameColour(membru)){
+                index--;
+            }
+        }
+        while((index < marime-1) && listaBile.get(index).isSameColour(listaBile.get(index+1))){
+            listaBile.remove(index);
+            marime--;
+        }
+        listaBile.remove(index);
+        marime--;
     }
 }

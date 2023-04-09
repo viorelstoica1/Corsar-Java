@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Bila extends Spritesheet{
@@ -13,6 +14,7 @@ public class Bila extends Spritesheet{
         super(imagine, poz_x, poz_y, angel);
         frameCurent = 0;
     }
+
     public boolean isSameColour(Bila bila){
         if (this.imagineRaw == bila.imagineRaw){
             return true;

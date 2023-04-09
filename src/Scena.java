@@ -114,8 +114,11 @@ public class Scena extends JPanel {
             }else{
                 Bila aux = sirBile.TestColiziune(proiectil);
                 if(aux != null){
-                    sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi()));
+                     aux = sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi()));
                     iterator.remove();
+                    if(sirBile.NrBileIdentice(aux) >=3){
+                        sirBile.StergeBileIdentice(aux);
+                    }
                 }
             }
         }
@@ -293,7 +296,7 @@ public class Scena extends JPanel {
             i++;
         }
         for(int j=0;j<3300;j++){
-            traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()+Math.PI));
+            traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()));
         }
         System.out.println("Traseul are "+i+" puncte");
     }

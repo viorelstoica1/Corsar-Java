@@ -1,6 +1,6 @@
 public class GameObject {
     private float x, y;//coordonate
-    private float unghi;//unghi in RADIANI
+    private float unghi;//unghi in GRADE
     public GameObject() {
         x = y = unghi = 0;
     }
@@ -25,11 +25,9 @@ public class GameObject {
         return unghi;
     }
     public void SetUnghi(float angel){
-        unghi = angel;
+        unghi = angel%360;
     }
-//    public void Update() {
-//
-//    }
+
     public void Copiaza(GameObject x){
         this.x = x.x;
         this.y = x.y;
@@ -37,10 +35,12 @@ public class GameObject {
     }
 
     public boolean DirectieColiziune(GameObject de_introdus) {
-        float x1, x2;
-        x1 = (float) (Math.cos(Math.toRadians(GetUnghi()) * -1) * GetCoordX() - Math.sin(Math.toRadians(GetUnghi()) * -1) * GetCoordY());
-        x2 = (float) (Math.cos(Math.toRadians(GetUnghi()) * -1) * de_introdus.GetCoordX() - Math.sin(Math.toRadians(GetUnghi()) * -1) * de_introdus.GetCoordY());
-        System.out.println("Obuzul rotit are pozitia "+x2+" iar bila rotita are pozitia "+x1+", la unghiul "+unghi+", introduc in stanga");
+        float x1, x2;//+90 pentru ca bilele din asta sunt randate cu -90 ca sa arate corect
+        x1 = (float) (Math.cos(Math.toRadians(GetUnghi()+90) * -1) * GetCoordX() - Math.sin(Math.toRadians(GetUnghi()+90) * -1) * GetCoordY());
+        //x1 = (float) (Math.cos(GetUnghi() * -1) * GetCoordX() - Math.sin(GetUnghi() * -1) * GetCoordY());
+        x2 = (float) (Math.cos(Math.toRadians(GetUnghi()+90) * -1) * de_introdus.GetCoordX() - Math.sin(Math.toRadians(GetUnghi()+90) * -1) * de_introdus.GetCoordY());
+        //x2 = (float) (Math.cos(GetUnghi() * -1) * de_introdus.GetCoordX() - Math.sin(GetUnghi() * -1) * de_introdus.GetCoordY());
+        //System.out.println("Obuzul rotit are pozitia "+x2+" iar bila rotita are pozitia "+x1+", la unghiul "+unghi);
         return !(x1 > x2);//stanga
     }
     public float DistantaPatrat(GameObject obiect){
