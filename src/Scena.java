@@ -71,7 +71,7 @@ public class Scena extends JPanel {
         } catch (IOException e) {
             System.out.println("Nu am putut incarca textura !");
         }
-        tunar = new Tun(tex, tunSus, mousex, 0, 270, 10);
+        tunar = new Tun(tex, tunSus, mousex, 0, 270, 15);
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
@@ -111,6 +111,12 @@ public class Scena extends JPanel {
             proiectil.UpdateProiectil();
             if (proiectil.isOutOfBounds(rezolutieX, rezolutieY)) {
                 iterator.remove();
+            }else{
+                Bila aux = sirBile.TestColiziune(proiectil);
+                if(aux != null){
+                    sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi()));
+                    iterator.remove();
+                }
             }
         }
         sirBile.Update();

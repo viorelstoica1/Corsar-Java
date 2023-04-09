@@ -28,12 +28,12 @@ public class Sir {
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaDreaptaBilei(Bila membru, Bila de_introdus){
-        listaBile.add(membru.index+1,de_introdus);
+        listaBile.add(listaBile.indexOf(membru)+1,de_introdus);
         marime++;
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaStangaBilei(Bila membru, Bila de_introdus){
-        listaBile.add(membru.index,de_introdus);
+        listaBile.add(listaBile.indexOf(membru),de_introdus);
         marime++;
     }
     //verifica daca trebuie adaugat in stanga sau in dreapta si adauga
@@ -58,7 +58,8 @@ public class Sir {
     }
 
     public void paintComponent(Graphics g){
-        for (Bila bila : listaBile) {
+        LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
+        for (Bila bila : listaRandare) {
             bila.paintComponent(g);
         }
     }
@@ -176,7 +177,11 @@ public class Sir {
             ramaseDeIntrodus--;
         }
         for(int i=0;i<marime;i++){
-            listaBile.get(i).index+= 2;
+            if(i==0){//daca e prima bila
+                listaBile.get(i).index+= 1;
+            }else{
+                listaBile.get(i).index = listaBile.get(i-1).index + listaBile.get(i).GetMarimeSpriteX();
+            }
             if(listaBile.get(i).index > 3089){
                 listaBile.remove(i);
                 marime--;
@@ -274,16 +279,12 @@ public class Sir {
             cadre--;
         }
     }*/
-    /*public Bila CreeazaBilaRandom()
-    {
-        Bila* aux = new Bila(0, 0, GetRandomBila(), 8, 0, 0, 0);
-        ScadereNumarBileExistente(aux->GetTex());
-        return aux;
-    }*/
+
 //parcurge lista si returneaza obiectul cu care s-a facut coliziunea
     public Bila TestColiziune(Proiectil obuz){
         for ( Bila index : listaBile) {
-            if (index.DistantaPatrat(obuz) <= Math.pow((obuz.GetMarimeTexX() + (float) index.GetMarimeTexX()) / 2, 2)) {
+            if (index.DistantaPatrat(obuz) <= Math.pow((obuz.GetMarimeSpriteX() + (float) index.GetMarimeSpriteX()) / 2, 2)) {
+                System.out.println("Coliziune!" + index.DistantaPatrat(obuz));
                 return index;
             }
         }
@@ -305,7 +306,7 @@ public class Sir {
     }
     public Bila CreeazaBila(Proiectil obuz){
         if(obuz != null){
-            return new Bila(obuz.GetTex(),32,6,obuz.GetCoordX(),obuz.GetCoordY(),obuz.GetUnghi());
+            return new Bila(obuz.getSprite(),obuz.GetCoordX(),obuz.GetCoordY(),obuz.GetUnghi());
         }
         return null;
     }

@@ -33,5 +33,7 @@ public abstract class Proiectil extends Spritesheet{
                 GetCoordY() <= (float) GetMarimeTexY() / (-2) ||
                 GetCoordY() >= (float) GetMarimeTexY() / 2 + ecranY;
     }
-
+    public Spritesheet getSprite(){
+        return this;
+    }
 }

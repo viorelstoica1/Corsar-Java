@@ -38,15 +38,14 @@ public class GameObject {
 
     public boolean DirectieColiziune(GameObject de_introdus) {
         float x1, x2;
-        x1 = (float) (Math.cos(GetUnghi() * -1) * GetCoordX() - Math.sin(GetUnghi() * -1) * GetCoordY());
-        x2 = (float) (Math.cos(GetUnghi() * -1) * de_introdus.GetCoordX() - Math.sin(GetUnghi() * -1) * de_introdus.GetCoordY());
-        //printf("Obuzul rotit are pozitia %f iar bila rotita are pozitia %f, la unghiul %f, introduc in stanga", x2, x1, membru->GetUnghi() * 180 / 3.14);
-        //printf("Obuzul rotit are pozitia %f iar bila rotita are pozitia %f, la unghiul %f, introduc in dreapta", x2, x1, membru->GetUnghi() * 180 / 3.14);
+        x1 = (float) (Math.cos(Math.toRadians(GetUnghi()) * -1) * GetCoordX() - Math.sin(Math.toRadians(GetUnghi()) * -1) * GetCoordY());
+        x2 = (float) (Math.cos(Math.toRadians(GetUnghi()) * -1) * de_introdus.GetCoordX() - Math.sin(Math.toRadians(GetUnghi()) * -1) * de_introdus.GetCoordY());
+        System.out.println("Obuzul rotit are pozitia "+x2+" iar bila rotita are pozitia "+x1+", la unghiul "+unghi+", introduc in stanga");
         return !(x1 > x2);//stanga
     }
     public float DistantaPatrat(GameObject obiect){
-        float xa = x - obiect.x;
-        float ya = y - obiect.y;
+        float xa = this.x - obiect.x;
+        float ya = this.y - obiect.y;
         return xa * xa + ya * ya;
     }
 }
