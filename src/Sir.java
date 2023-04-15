@@ -59,8 +59,11 @@ public class Sir {
     }
 
     public void paintComponent(Graphics g){
-        LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
+        /*LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
         for (Bila bila : listaRandare) {
+            bila.paintComponent(g);
+        }*/
+        for(Bila bila:listaBile){
             bila.paintComponent(g);
         }
     }
@@ -225,49 +228,7 @@ public class Sir {
         System.out.println("Bile identice gasite: "+(nr));
         return nr;
     }
-    //Merge la stanga de bila data ca parametru, apoi sterge bilele identice si muta totul de dupa la stanga
-    public void StergeBileInterval(int inceput, int nrBileDeSters){
-        int aux = nrBileDeSters;
-        while(nrBileDeSters != 0){
-            listaBile.remove(inceput);
-            nrBileDeSters--;
-            marime--;
-        }
-        System.out.println("Am sters "+aux+" bile");
-        /*int nr = 1;
-        Bila pstanga = membru->GetBilaStanga();
-        Bila pdreapta = membru->GetBilaDreapta();
-        Bila aux = 0;
-        while (pstanga) {
-            if (pstanga->GetTex() != membru->GetTex()) {
-                pstanga = 0;
-            }
-            else {
-                nr++;
-                aux = pstanga->GetBilaStanga();
-                stergeBila(pstanga);
-                pstanga = aux;
-            }
-        }
-        while (pdreapta) {
-            if (pdreapta->GetTex() != membru->GetTex()) {
-                pdreapta = 0;
-            }
-            else {
-                nr++;
-                aux = pdreapta->GetBilaDreapta();
-                stergeBila(pdreapta);
-                pdreapta = aux;
-            }
-        }
-        pdreapta = Coada;
-        while (pdreapta != membru) {
-            pdreapta->ScadeNumar(pdreapta->GetMarimeSpriteX() * nr);
-            pdreapta = pdreapta->GetBilaStanga();
-        }
-        stergeBila(membru);
-        printf("Am sters %d bile\n", nr);*/
-    }
+
     //animeaza inserarea bilei in sir
     /*public void AnimatieInserare(Bila membru){
         static int cadre = 8;

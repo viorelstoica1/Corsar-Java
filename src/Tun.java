@@ -7,17 +7,21 @@ public class Tun extends Textura{
     private boolean gataDeTras;
     public int vitezaTragere;
     private int limitaStanga, limitaDreapta, limitaJos, limitaSus;
-    private Textura tunSus;
+    private Spritesheet tunJos;
+    private int cadruAnimatie;
+    private final int vitezaAnimatie;
     public Tun(BufferedImage imagine, BufferedImage imagineSus, float poz_x, float poz_y, float angel, int viteza) {
-        super(imagine, poz_x, poz_y, angel);
+        super(imagineSus,poz_x, poz_y, angel);
+        tunJos = new Spritesheet(imagine,5,5,poz_x,poz_y,angel);
         vitezaTragere = viteza;
         proiectilIncarcat = null;
         proiectilRezerva = null;
-        tunSus = new Textura(imagineSus,0,0,GetUnghi());
-        System.out.println(limitaJos + " " + limitaSus + " " + limitaStanga + " " + limitaDreapta);
+        gataDeTras = true;
+        cadruAnimatie = 0;
+        vitezaAnimatie = 25;
     }
     public void SetTexSus(BufferedImage imagineSus){
-        tunSus = new Textura(imagineSus,0,0,GetUnghi());
+        this.SetTexRaw(imagineSus);
     }
     public void SetLimite( int stangaX, int dreaptaX, int josY, int susY){
         limitaDreapta = dreaptaX;
@@ -25,7 +29,14 @@ public class Tun extends Textura{
         limitaJos = josY;
         limitaSus = susY;
     }
-    void UpdateTun(int mousex, int mousey){
+    public void UpdateTun(int mousex, int mousey){
+        if(!gataDeTras){
+            cadruAnimatie++;
+            if(cadruAnimatie >= vitezaAnimatie){
+                cadruAnimatie = 0;
+                gataDeTras = true;
+            }
+        }
         SetCoordX(mousex);
         SetCoordY(mousey);
         if(GetCoordX() < limitaStanga){
@@ -38,24 +49,28 @@ public class Tun extends Textura{
         }else if(GetCoordY() > limitaJos){
             SetCoordY(limitaJos);
         }
-        proiectilIncarcat.SetCoordX(this.GetCoordX());
-        proiectilIncarcat.SetCoordY((this.GetCoordY()-35));
-        proiectilRezerva.SetCoordX(this.GetCoordX());
-        proiectilRezerva.SetCoordY(this.GetCoordY());
-        tunSus.SetCoordX(GetCoordX());
-        tunSus.SetCoordY(GetCoordY());
-
-        proiectilIncarcat.SetCoordX((float) (GetCoordX() + Math.cos(Math.toRadians(GetUnghi()-90)) * 50));
-        proiectilIncarcat.SetCoordY((float) (GetCoordY() + Math.sin(Math.toRadians(GetUnghi()-90)) * 50));
-        proiectilRezerva.SetCoordX((float) (GetCoordX() - Math.cos(Math.toRadians(GetUnghi()-90)) * 15));
-        proiectilRezerva.SetCoordY((float) (GetCoordY() - Math.sin(Math.toRadians(GetUnghi()-90)) * 15));
+        tunJos.SetCoordX((float) (GetCoordX()-GetMarimeTexX()/2.25));
+        tunJos.SetCoordY(GetCoordY());
+        tunJos.SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/tunJos.GetNrCadre())));
+        if(proiectilIncarcat != null){
+            proiectilIncarcat.SetCoordX((float) (GetCoordX() + Math.cos(Math.toRadians(GetUnghi()-90)) * 50));
+            proiectilIncarcat.SetCoordY((float) (GetCoordY() + Math.sin(Math.toRadians(GetUnghi()-90)) * 50));
+        }
+        if(proiectilRezerva != null){
+            proiectilRezerva.SetCoordX((float) (GetCoordX() - Math.cos(Math.toRadians(GetUnghi()-90)) * 15));
+            proiectilRezerva.SetCoordY((float) (GetCoordY() - Math.sin(Math.toRadians(GetUnghi()-90)) * 15));
+        }
     }
     void Trage(){
-        this.GetProiectilIncarcat().viteza_y = -vitezaTragere;
-        proiectilIncarcat.viteza_x = (float) (Math.cos(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
-        proiectilIncarcat.viteza_y = (float) (Math.sin(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
-        proiectilIncarcat.SetUnghi(GetUnghi());
-        System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
+        if(gataDeTras){
+            gataDeTras = false;
+            this.GetProiectilIncarcat().viteza_y = -vitezaTragere;
+            proiectilIncarcat.viteza_x = (float) (Math.cos(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
+            proiectilIncarcat.viteza_y = (float) (Math.sin(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
+            proiectilIncarcat.SetUnghi(GetUnghi());
+            System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
+            proiectilIncarcat = null;
+        }
     }
     public Proiectil GetProiectilIncarcat(){
         return proiectilIncarcat;
@@ -72,6 +87,7 @@ public class Tun extends Textura{
     public void CicleazaProiectil(Proiectil p) {
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = p;
+        System.out.println("cicleaza proiectil");
     }
     public void SetGataTras(boolean x) { gataDeTras = x; };
     public boolean isGataDeTras() { return gataDeTras; };
@@ -80,12 +96,17 @@ public class Tun extends Textura{
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = aux;
     }
-    @Override public void paintComponent(Graphics g){
-        super.paintComponent(g);
+    public void paintComponent(Graphics g){
         if(proiectilIncarcat != null)
             proiectilIncarcat.paintComponent(g);
         if(proiectilRezerva != null)
             proiectilRezerva.paintComponent(g);
-        tunSus.paintComponent(g);
+        tunJos.paintComponent(g);
+        super.paintComponent(g);
+
+    }
+
+    public void SetTexJos(BufferedImage tunJos) {
+        this.tunJos = new Spritesheet(tunJos,5,5,this.tunJos.GetCoordX(),this.tunJos.GetCoordY(),this.GetUnghi());
     }
 }

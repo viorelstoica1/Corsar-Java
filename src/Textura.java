@@ -1,29 +1,30 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 public class Textura extends GameObject{
-    protected int marime_x,marime_y;
-    protected BufferedImage imagineRaw;
+    protected int marime_x,marime_y;//, typeOfImage;
+    protected BufferedImage imagineRaw;//, imagineRotita;
+    //protected Graphics2D contextGrafic;
+    //float unghiRandat;
     public Textura(BufferedImage imagine, float poz_x, float poz_y, float angel){
         super(poz_x, poz_y, angel);
         imagineRaw = imagine;
+        //typeOfImage = imagineRaw.getType();
         marime_x = imagine.getWidth();
         marime_y = imagine.getHeight();
+        //imagineRotita = new BufferedImage(marime_x, marime_y, typeOfImage);
+        //contextGrafic = imagineRotita.createGraphics();
+        //contextGrafic.setBackground(new Color(255, 255, 255, 0));
+        //contextGrafic.rotate(Math.toRadians(angel),marime_x/2,marime_y/2);
+        //unghiRandat = 0;
         //System.out.println("Imagine incarcata");
     }
-    public BufferedImage rotate(BufferedImage imagineAux) {
-        int widthOfImage = imagineAux.getWidth();
-        int heightOfImage = imagineAux.getHeight();
-        int typeOfImage = imagineAux.getType();
-
-        BufferedImage newImageFromBuffer = new BufferedImage(widthOfImage, heightOfImage, typeOfImage);
-
-        Graphics2D graphics2D = newImageFromBuffer.createGraphics();
-
-        graphics2D.rotate(Math.toRadians(GetUnghi()), widthOfImage / 2, heightOfImage / 2);
-        graphics2D.drawImage(imagineAux, null, 0, 0);
-        graphics2D.dispose();
-        return newImageFromBuffer;
-    }
+    /*public BufferedImage rotate() {
+        contextGrafic.clearRect(0,0,marime_x,marime_y);
+        contextGrafic.rotate(Math.toRadians(GetUnghi() - unghiRandat), marime_x/2, marime_y/2);
+        unghiRandat = GetUnghi();
+        contextGrafic.drawImage(imagineRaw, null, 0, 0);
+        return imagineRotita;
+    }*/
     public void SetTexRaw(BufferedImage imagine){
         imagineRaw = imagine;
         marime_x = imagine.getWidth();
@@ -55,6 +56,14 @@ public class Textura extends GameObject{
     }
 
     public void paintComponent(Graphics g){
-        g.drawImage(this.rotate(imagineRaw),(int)CenterX(),(int)CenterY(),null);
+        Graphics2D g2d = (Graphics2D)g;
+        if(GetUnghi() !=0){
+            g2d.rotate(Math.toRadians(GetUnghi()),GetCoordX(),GetCoordY());
+            g2d.drawImage(imagineRaw,CenterX(),CenterY(),null);
+            g2d.rotate(-Math.toRadians(GetUnghi()),GetCoordX(),GetCoordY());
+        }else{
+            g2d.drawImage(imagineRaw,CenterX(),CenterY(),null);
+        }
+        //g.drawImage(imagineRaw,CenterX(),CenterY(),marime_x,marime_y,null);
     }
 }

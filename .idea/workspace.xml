@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Adaugat verificari coliziuni intre proiectile si bile">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Stergere bile cand sunt 3 sau mai multe">
+      <change afterPath="$PROJECT_DIR$/src/resources/BANAN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Background_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Cannon_explosion-sheet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +109,12 @@
       <workItem from="1680839970999" duration="790000" />
       <workItem from="1680841588667" duration="1181000" />
       <workItem from="1680937924314" duration="24275000" />
-      <workItem from="1681024154547" duration="9247000" />
+      <workItem from="1681024154547" duration="10231000" />
+      <workItem from="1681287571200" duration="593000" />
+      <workItem from="1681459038020" duration="1074000" />
+      <workItem from="1681469675163" duration="18228000" />
+      <workItem from="1681493220455" duration="3277000" />
+      <workItem from="1681537322355" duration="6421000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -143,11 +151,29 @@
       <option name="project" value="LOCAL" />
       <updated>1681026989370</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Stergere bile cand sunt 3 sau mai multe">
+      <created>1681035718727</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681035718727</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
@@ -155,6 +181,17 @@
     <MESSAGE value="Traseu functional, bile randate frumos" />
     <MESSAGE value="Resource manager primitiv implementat, cu functie de random" />
     <MESSAGE value="Adaugat verificari coliziuni intre proiectile si bile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adaugat verificari coliziuni intre proiectile si bile" />
+    <MESSAGE value="Stergere bile cand sunt 3 sau mai multe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stergere bile cand sunt 3 sau mai multe" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
