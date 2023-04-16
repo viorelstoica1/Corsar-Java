@@ -1,7 +1,4 @@
-import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -29,13 +26,13 @@ public class Sir {
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaDreaptaBilei(Bila membru, Bila de_introdus){
         listaBile.add(listaBile.indexOf(membru)+1,de_introdus);
-        //System.out.println("Dreapta");
+        de_introdus.index = membru.index+membru.GetMarimeSpriteX();
         marime++;
     }
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaStangaBilei(Bila membru, Bila de_introdus){
         listaBile.add(listaBile.indexOf(membru),de_introdus);
-        //System.out.println("Stanga");
+        de_introdus.index = membru.index-membru.GetMarimeSpriteX();
         marime++;
     }
     //verifica daca trebuie adaugat in stanga sau in dreapta si adauga
@@ -182,7 +179,7 @@ public class Sir {
         }
         for(int i=0;i<marime;i++){
             if(i==0){//daca e prima bila
-                listaBile.get(i).index+= 2;
+                listaBile.get(i).index+= 1;
             }else{
                 listaBile.get(i).index = listaBile.get(i-1).index + listaBile.get(i).GetMarimeSpriteX();
             }
@@ -191,7 +188,7 @@ public class Sir {
                 marime--;
                 i++;
             }else {
-                listaBile.get(i).CresteCadru();
+                listaBile.get(i).ScadeCadru();
                 listaBile.get(i).Copiaza(traseu[listaBile.get(i).index]);
             }
         }

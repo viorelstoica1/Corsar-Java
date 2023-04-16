@@ -13,23 +13,23 @@ public class ResourceManager {
         try {
             texturi = new HashMap<>();
             nume = new ArrayList<String>();
-            BufferedImage tex = ImageIO.read(new File("src/resources/BILE_GALBENE.png"));
-            texturi.put("galben",new Spritesheet(tex,60,10,0,0,0));
+            BufferedImage tex = ImageIO.read(new File("src/resources/BILE_GALBENE2.png"));
+            texturi.put("galben",new Spritesheet(tex,32,6,0,0,0));
             nume.add("galben");
-            tex = ImageIO.read(new File("src/resources/BILE_ALBASTRE.png"));
-            texturi.put("albastru",new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/BILE_ALBASTRE2.png"));
+            texturi.put("albastru",new Spritesheet(tex,32,6,0,0,0));
             nume.add("albastru");
-            tex = ImageIO.read(new File("src/resources/BILE_ALBE.png"));
-            texturi.put("alb",new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/BILE_ALBE2.png"));
+            texturi.put("alb",new Spritesheet(tex,32,6,0,0,0));
             nume.add("alb");
-            tex = ImageIO.read(new File("src/resources/BILE_MOV.png"));
-            texturi.put("mov",new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/BILE_MOV2.png"));
+            texturi.put("mov",new Spritesheet(tex,32,6,0,0,0));
             nume.add("mov");
-            tex = ImageIO.read(new File("src/resources/BILE_ROSII.png"));
-            texturi.put("rosu",new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/BILE_ROSII2.png"));
+            texturi.put("rosu",new Spritesheet(tex,32,6,0,0,0));
             nume.add("rosu");
-            tex = ImageIO.read(new File("src/resources/BILE_VERZI.png"));
-            texturi.put("verde",new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/BILE_VERZI2.png"));
+            texturi.put("verde",new Spritesheet(tex,32,6,0,0,0));
             nume.add("verde");
 
         } catch (IOException e) {
