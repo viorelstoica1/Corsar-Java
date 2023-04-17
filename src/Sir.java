@@ -138,7 +138,7 @@ public class Sir {
                     if(listaBile.get(i-1).isSameColour(listaBile.get(i))){
                         //daca sunt aceeasi culoare
                         //seteaza viteza maxima invers rapid
-                        listaBile.get(i).vitezaMax = -viteza_max;
+                        listaBile.get(i).vitezaMax = -viteza;
                     }
                     else{
                         //daca nu sunt aceeasi culoare
@@ -292,7 +292,7 @@ public class Sir {
             }
             listaBile.remove(index);
         }
-    }//TODO TINE CONT DE FLAGURI
+    }
     public int marime(){
         return listaBile.size();
     }

@@ -19,14 +19,32 @@ public class Bila extends Spritesheet{
     }
 
     public void calculeazaViteza(){
-        if(viteza < vitezaMax){
+        if(vitezaMax > 0){
             viteza += acceleratie;
-        }else if(viteza > vitezaMax){
+            if(viteza>vitezaMax){
+                viteza = vitezaMax;
+            }
+        }else if(vitezaMax < 0){
             viteza -= acceleratie;
+            if(viteza<vitezaMax){
+                viteza = vitezaMax;
+            }
         }
-        if(vitezaMax%viteza < acceleratie){
+        else{
+            if(Math.abs(viteza)<acceleratie){
+                viteza = 0;
+            }
+            else{
+                if(viteza>0){
+                    viteza-=acceleratie;
+                }else{
+                    viteza+=acceleratie;
+                }
+            }
+        }
+        /*if(vitezaMax%viteza < acceleratie){
             viteza = vitezaMax;
-        }
+        }*/
     }
 
 }
