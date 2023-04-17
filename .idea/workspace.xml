@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="-scoatere functie de rotatie si animare tun">
-      <change afterPath="$PROJECT_DIR$/src/resources/BANAN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_albastre2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_albe2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_curcubeu2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_galbene2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_mov2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_rosii2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile_verzi2.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="-adaugat bile noi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +112,8 @@
       <workItem from="1681469675163" duration="18228000" />
       <workItem from="1681493220455" duration="3277000" />
       <workItem from="1681537322355" duration="15059000" />
+      <workItem from="1681639632128" duration="8538000" />
+      <workItem from="1681713884768" duration="15626000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -167,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681543840978</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="-adaugat bile noi">
+      <created>1681639792791</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681639792791</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +196,8 @@
     <MESSAGE value="Adaugat verificari coliziuni intre proiectile si bile" />
     <MESSAGE value="Stergere bile cand sunt 3 sau mai multe" />
     <MESSAGE value="-scoatere functie de rotatie si animare tun" />
-    <option name="LAST_COMMIT_MESSAGE" value="-scoatere functie de rotatie si animare tun" />
+    <MESSAGE value="-adaugat bile noi" />
+    <option name="LAST_COMMIT_MESSAGE" value="-adaugat bile noi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

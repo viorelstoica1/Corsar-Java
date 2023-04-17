@@ -30,9 +30,7 @@ public class Textura extends GameObject{
         marime_x = imagine.getWidth();
         marime_y = imagine.getHeight();
     }
-    public boolean CheckColiziuneBila(Textura obuz){
-        return DistantaPatrat(obuz) <= Math.pow((obuz.GetMarimeTexX() + (float) GetMarimeTexX()) / 2, 2);
-    }
+
     public BufferedImage GetTex(){
         return imagineRaw;
     }
@@ -65,5 +63,16 @@ public class Textura extends GameObject{
             g2d.drawImage(imagineRaw,CenterX(),CenterY(),null);
         }
         //g.drawImage(imagineRaw,CenterX(),CenterY(),marime_x,marime_y,null);
+    }
+    public Textura resize(int newW, int newH) {
+        marime_x = newW;
+        marime_y = newH;
+        Image tmp = imagineRaw.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        imagineRaw = dimg;
+        g2d.dispose();
+        return this;
     }
 }

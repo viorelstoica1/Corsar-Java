@@ -78,7 +78,7 @@ public class Scena extends JPanel {
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 50, 20, 5, texturi);
+        sirBile = new Sir(traseuBile, 15, 4, 2, 1,0.1f,2700,300,3100,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {
@@ -115,7 +115,7 @@ public class Scena extends JPanel {
             } else {
                 Bila aux = sirBile.TestColiziune(proiectil);
                 if (aux != null) {
-                    aux = sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi()));
+                    aux = sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
                     iterator.remove();
                     if (sirBile.NrBileIdentice(aux) >= 3) {
                         sirBile.StergeBileIdentice(aux);
@@ -141,7 +141,10 @@ public class Scena extends JPanel {
         sirBile.paintComponent(g);
         g.drawString(cuvantAfisat, 10, 20);
         g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 30);
-        g.drawString("Nr bile: " + sirBile.marime, 10, 40);
+        g.drawString("Nr bile: " + sirBile.marime(), 10, 40);
+        g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,50);
+        g.drawString("Nr sir leaderi: "+ sirBile.nrSirLeaderi,10,60);
+        g.drawString("Nr animati: "+ sirBile.nrAnimate,10,70);
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
