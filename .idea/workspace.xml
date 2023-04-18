@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="reparat viteze, acum merge mai smooth">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="reparat acceleratie, nu mergea in unele cazuri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +109,7 @@
       <workItem from="1681537322355" duration="15059000" />
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
+      <workItem from="1681806693725" duration="6178000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -182,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681742819193</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="reparat acceleratie, nu mergea in unele cazuri">
+      <created>1681806736052</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681806736052</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +216,8 @@
     <MESSAGE value="-adaugat bile noi" />
     <MESSAGE value="dupa plansete si urlete am facut sirul mult mai destept" />
     <MESSAGE value="reparat viteze, acum merge mai smooth" />
-    <option name="LAST_COMMIT_MESSAGE" value="reparat viteze, acum merge mai smooth" />
+    <MESSAGE value="reparat acceleratie, nu mergea in unele cazuri" />
+    <option name="LAST_COMMIT_MESSAGE" value="reparat acceleratie, nu mergea in unele cazuri" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
