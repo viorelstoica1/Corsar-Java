@@ -78,7 +78,7 @@ public class Scena extends JPanel {
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 15, 4, 2, 1,0.2f,2700,300,3100,texturi);
+        sirBile = new Sir(traseuBile, 35, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {

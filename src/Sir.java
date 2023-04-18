@@ -138,7 +138,7 @@ public class Sir {
                     if(listaBile.get(i-1).isSameColour(listaBile.get(i))){
                         //daca sunt aceeasi culoare
                         //seteaza viteza maxima invers rapid
-                        listaBile.get(i).vitezaMax = -viteza;
+                        listaBile.get(i).vitezaMax = -viteza_max;
                     }
                     else{
                         //daca nu sunt aceeasi culoare
@@ -193,7 +193,12 @@ public class Sir {
                 listaBile.get(i).index = listaBile.get(i+1).index-listaBile.get(i).GetMarimeSpriteX();
                 //listaBile.get(i).index += listaBile.get(i).viteza;
             }
-            listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+            if(listaBile.get(i).index >=0){
+                listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+            }
+            else{
+                listaBile.get(i).Copiaza(traseu[0]);
+            }
             if(listaBile.get(i).index > indexFinal){//a pierdut jocul
                 listaBile.remove(i);
             }
