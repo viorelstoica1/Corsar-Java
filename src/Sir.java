@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Sir {
     private final LinkedList<Bila> listaBile;
-    public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0;
+    public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0;
     private final int indexRapid, indexIncet, indexFinal;
     private int ramaseDeIntrodus;
     float viteza,acceleratie, viteza_max, viteza_min;
@@ -102,7 +102,7 @@ public class Sir {
     }
 
     public void Update(){
-        nrWaveLeaderi = 0;nrSirLeaderi = 0;nrAnimate = 0;//incepe numararea de bile speciale la fiecare cadru
+        nrWaveLeaderi = 0;nrSirLeaderi = 0;nrAnimate = 0;nrInstabile = 0;///incepe numararea de bile speciale la fiecare cadru
         if(ramaseDeIntrodus >0 && !listaBile.isEmpty()){
             if(listaBile.getFirst().index > listaBile.getFirst().GetMarimeSpriteX()){
                 adaugaLaInceputulListei(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
@@ -127,7 +127,8 @@ public class Sir {
                     //daca s-a ciocnit cu bila din urma lui
                     if(listaBile.get(i-1).isSameColour(listaBile.get(i)) && NrBileIdentice(listaBile.get(i))>=3){
                         //daca sunt aceeasi culoare SI sunt destule bile
-                        StergeBileIdentice(listaBile.get(i));
+                        //StergeBileIdentice(listaBile.get(i));
+                        listaBile.get(i).isStable = false;
                         //in functia de stergere am grija de flaguri
                     }
                     else{
@@ -137,7 +138,8 @@ public class Sir {
                         getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                         //listaBile.get(i).viteza = (listaBile.get(i-1).viteza + listaBile.get(i).viteza)/2;
                     }
-                    //System.out.println("S-au ciocnit sirurile");
+                    //seteaza viteza maxima a bilei din urma
+                    getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                 }
                 else{
                     //daca nu s-a ciocnit
@@ -151,16 +153,22 @@ public class Sir {
                         //seteaza viteza maxima oprire
                         listaBile.get(i).vitezaMax = 0;
                     }
-                    //System.out.println("NU S-au ciocnit sirurile");
                 }
             }
+
             else{//este bila normala
                 //seteaza viteza maxima la bila din urma
                 listaBile.get(i).vitezaMax = listaBile.get(i-1).vitezaMax;
             }
-            /*if(i>0 && listaBile.get(i-1).isAnimating && listaBile.get(i-1).CheckColiziuneBila(listaBile.get(i))){
-                listaBile.get(i).index += listaBile.get(i-1).MarimeAnimatie();//daca bila de dianainte e in animatie
-            }*/
+            if(i > 0 && !listaBile.get(i).isStable) {
+                if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1)) /*&& listaBile.get(i-1).isSameColour(listaBile.get(i))*/ && NrBileIdentice(listaBile.get(i))>=3){
+                    //daca bila curenta nu e stabila SI sunt aceeasi culoare SI sunt destule bile
+                    StergeBileIdentice(listaBile.get(i));
+                }
+                /*else
+                    //stabilizeaza bila
+                    listaBile.get(i).isStable = true;*/
+            }
             i++;
         }
        /* i = listaBile.size()-1;
@@ -264,6 +272,9 @@ public class Sir {
         }
         if(listaBile.get(i).isAnimating){
             nrAnimate++;
+        }
+        if(!listaBile.get(i).isStable){
+            nrInstabile++;
         }
     }
 

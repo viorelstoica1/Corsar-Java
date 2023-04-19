@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris logica de viteze la sir pentru mai multe cazuri acoperite">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris logice de viteza iar, adaugat animatii de inserare">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +125,7 @@
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
       <workItem from="1681806693725" duration="9522000" />
-      <workItem from="1681885700469" duration="5957000" />
+      <workItem from="1681885700469" duration="8846000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -215,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681814477943</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="rescris logice de viteza iar, adaugat animatii de inserare">
+      <created>1681891824870</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681891824870</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +248,8 @@
     <MESSAGE value="reparat viteze, acum merge mai smooth" />
     <MESSAGE value="reparat acceleratie, nu mergea in unele cazuri" />
     <MESSAGE value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
-    <option name="LAST_COMMIT_MESSAGE" value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
+    <MESSAGE value="rescris logice de viteza iar, adaugat animatii de inserare" />
+    <option name="LAST_COMMIT_MESSAGE" value="rescris logice de viteza iar, adaugat animatii de inserare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -114,9 +114,6 @@ public class Scena extends JPanel {
                 if (aux != null) {
                     aux = sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
                     iterator.remove();
-                    if (sirBile.NrBileIdentice(aux) >= 3) {
-                        sirBile.StergeBileIdentice(aux);
-                    }
                 }
             }
         }
@@ -142,6 +139,7 @@ public class Scena extends JPanel {
         g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,50);
         g.drawString("Nr sir leaderi: "+ sirBile.nrSirLeaderi,10,60);
         g.drawString("Nr animati: "+ sirBile.nrAnimate,10,70);
+        g.drawString("Nr instabile: "+sirBile.nrInstabile,10,80);
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
