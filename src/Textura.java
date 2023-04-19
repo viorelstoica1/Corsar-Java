@@ -1,30 +1,17 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
 public class Textura extends GameObject{
-    protected int marime_x,marime_y;//, typeOfImage;
-    protected BufferedImage imagineRaw;//, imagineRotita;
-    //protected Graphics2D contextGrafic;
-    //float unghiRandat;
+    protected int marime_x,marime_y;
+    protected BufferedImage imagineRaw;
+
     public Textura(BufferedImage imagine, float poz_x, float poz_y, float angel){
         super(poz_x, poz_y, angel);
         imagineRaw = imagine;
-        //typeOfImage = imagineRaw.getType();
+
         marime_x = imagine.getWidth();
         marime_y = imagine.getHeight();
-        //imagineRotita = new BufferedImage(marime_x, marime_y, typeOfImage);
-        //contextGrafic = imagineRotita.createGraphics();
-        //contextGrafic.setBackground(new Color(255, 255, 255, 0));
-        //contextGrafic.rotate(Math.toRadians(angel),marime_x/2,marime_y/2);
-        //unghiRandat = 0;
-        //System.out.println("Imagine incarcata");
     }
-    /*public BufferedImage rotate() {
-        contextGrafic.clearRect(0,0,marime_x,marime_y);
-        contextGrafic.rotate(Math.toRadians(GetUnghi() - unghiRandat), marime_x/2, marime_y/2);
-        unghiRandat = GetUnghi();
-        contextGrafic.drawImage(imagineRaw, null, 0, 0);
-        return imagineRotita;
-    }*/
+
     public void SetTexRaw(BufferedImage imagine){
         imagineRaw = imagine;
         marime_x = imagine.getWidth();
@@ -34,10 +21,7 @@ public class Textura extends GameObject{
     public BufferedImage GetTex(){
         return imagineRaw;
     }
-    /*public JLabel getLabel()
-    {
-        return tex;
-    }*/
+
     public int GetMarimeTexX() {
         return marime_x;
     }

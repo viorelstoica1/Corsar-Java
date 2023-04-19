@@ -2,9 +2,9 @@ import java.awt.image.BufferedImage;
 
 public class Bila extends Spritesheet{
     public float index = 0;
-    public int frameAnimatie = 0;
+    public int frameAnimatie = 8;
     public float acceleratie = 0,viteza = 0, vitezaMax = 0;
-    public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false;
+    public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable = true;
     public Bila(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel, float acceleratie) {
         super(imagine, nrcadre, coloane, poz_x, poz_y, angel);
         this.acceleratie = acceleratie;
@@ -50,5 +50,23 @@ public class Bila extends Spritesheet{
             viteza = vitezaMax;
         }*/
     }
-
+    public void AnimatieInserare(GameObject traseuCurentBila){
+        if (frameAnimatie == 0) {
+            isAnimating = false;
+            isStable = false;
+        }
+        else {
+            float x = (traseuCurentBila.GetCoordX() - GetCoordX()) / frameAnimatie;
+            float y = (traseuCurentBila.GetCoordY() - GetCoordY()) / frameAnimatie;
+            SetCoordX(GetCoordX() + x);
+            SetCoordY(GetCoordY() + y);
+            frameAnimatie--;
+        }
+    }
+    public float MarimeAnimatie(){
+        if(frameAnimatie == 0){
+            return (float)GetMarimeSpriteX();
+        }
+        return (float)GetMarimeSpriteX() * (8-frameAnimatie)/8;
+    }
 }

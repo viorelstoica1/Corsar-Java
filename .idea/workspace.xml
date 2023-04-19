@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="reparat acceleratie, nu mergea in unele cazuri">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris logica de viteze la sir pentru mai multe cazuri acoperite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +32,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7a23d63d-46f1-40c9-806e-3f944f90e445" />
+        <option name="url" value="https://github.com/viorelstoica1/Corsar-Java.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -109,7 +128,8 @@
       <workItem from="1681537322355" duration="15059000" />
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
-      <workItem from="1681806693725" duration="6178000" />
+      <workItem from="1681806693725" duration="9522000" />
+      <workItem from="1681885700469" duration="5957000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -188,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681806736052</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="rescris logica de viteze la sir pentru mai multe cazuri acoperite">
+      <created>1681814477943</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681814477943</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +244,8 @@
     <MESSAGE value="dupa plansete si urlete am facut sirul mult mai destept" />
     <MESSAGE value="reparat viteze, acum merge mai smooth" />
     <MESSAGE value="reparat acceleratie, nu mergea in unele cazuri" />
-    <option name="LAST_COMMIT_MESSAGE" value="reparat acceleratie, nu mergea in unele cazuri" />
+    <MESSAGE value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
+    <option name="LAST_COMMIT_MESSAGE" value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

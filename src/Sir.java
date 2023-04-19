@@ -5,7 +5,8 @@ import java.util.LinkedList;
 public class Sir {
     private final LinkedList<Bila> listaBile;
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0;
-    private int indexRapid,indexIncet,indexFinal,ramaseDeIntrodus;
+    private final int indexRapid, indexIncet, indexFinal;
+    private int ramaseDeIntrodus;
     float viteza,acceleratie, viteza_max, viteza_min;
     GameObject[] traseu;
     ResourceManager manager;
@@ -76,6 +77,9 @@ public class Sir {
         else {
             adaugaLaStangaBilei(membru, de_introdus);
         }
+        de_introdus.isAnimating = true;
+        de_introdus.viteza = membru.viteza;
+        //getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
         return de_introdus;
     }
     public void StergereLista(){
@@ -96,7 +100,6 @@ public class Sir {
             bila.paintComponent(g);
         }
     }
-
 
     public void Update(){
         nrWaveLeaderi = 0;nrSirLeaderi = 0;nrAnimate = 0;//incepe numararea de bile speciale la fiecare cadru
@@ -123,17 +126,18 @@ public class Sir {
                 if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1))){
                     //daca s-a ciocnit cu bila din urma lui
                     if(listaBile.get(i-1).isSameColour(listaBile.get(i)) && NrBileIdentice(listaBile.get(i))>=3){
-                        //daca sunt aceeasi culoare
+                        //daca sunt aceeasi culoare SI sunt destule bile
                         StergeBileIdentice(listaBile.get(i));
                         //in functia de stergere am grija de flaguri
                     }
                     else{
-                        //daca nu sunt aceeasi culoare, se unesc sirurile
+                        //daca nu sunt aceeasi culoare SAU nu sunt destule bile, se unesc sirurile
                         listaBile.get(i).isSirLeader = false;
                         //seteaza viteza maxima a bilei din urma
-                        listaBile.get(i).viteza = (listaBile.get(i-1).viteza + listaBile.get(i).viteza)/2;
+                        getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
+                        //listaBile.get(i).viteza = (listaBile.get(i-1).viteza + listaBile.get(i).viteza)/2;
                     }
-                    System.out.println("S-au ciocnit sirurile");
+                    //System.out.println("S-au ciocnit sirurile");
                 }
                 else{
                     //daca nu s-a ciocnit
@@ -147,16 +151,19 @@ public class Sir {
                         //seteaza viteza maxima oprire
                         listaBile.get(i).vitezaMax = 0;
                     }
-                    System.out.println("NU S-au ciocnit sirurile");
+                    //System.out.println("NU S-au ciocnit sirurile");
                 }
             }
             else{//este bila normala
                 //seteaza viteza maxima la bila din urma
                 listaBile.get(i).vitezaMax = listaBile.get(i-1).vitezaMax;
             }
+            /*if(i>0 && listaBile.get(i-1).isAnimating && listaBile.get(i-1).CheckColiziuneBila(listaBile.get(i))){
+                listaBile.get(i).index += listaBile.get(i-1).MarimeAnimatie();//daca bila de dianainte e in animatie
+            }*/
             i++;
         }
-        i = listaBile.size()-1;
+       /* i = listaBile.size()-1;
         while(i >= 0){//parcurgere sir de bile (CALCUL VITEZA)
             if(i+1 == listaBile.size() || listaBile.get(i+1).isWaveLeader || listaBile.get(i+1).isSirLeader){
                 //daca bila e capatul drept al unui sir
@@ -183,7 +190,12 @@ public class Sir {
                 //listaBile.get(i).index += listaBile.get(i).viteza;
             }
             if(listaBile.get(i).index >=0){
-                listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+                if(!listaBile.get(i).isAnimating){
+                    listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+
+                }else{
+                    AnimatieInserare(listaBile.get(i));
+                }
             }
             else{
                 listaBile.get(i).Copiaza(traseu[0]);
@@ -193,17 +205,17 @@ public class Sir {
             }
             listaBile.get(i).CresteCadru(listaBile.get(i).viteza);
             i--;
-        }
-        /*i = 0;
+        }*/
+        i = 0;
         while(i<listaBile.size()){
             if(listaBile.get(i).isWaveLeader || listaBile.get(i).isSirLeader){
                 //daca bila e capatul drept al unui sir
-                if(getIndexFinalSir(i) < indexRapid){
+                if(getBilaFinalSir(i).index < indexRapid){
                     //daca bila e la inceput, merge rapid
                     if(listaBile.get(i).vitezaMax > 0){
                         listaBile.get(i).vitezaMax = viteza_max;
                     }
-                }else if(getIndexFinalSir(i) > indexIncet){
+                }else if(getBilaFinalSir(i).index > indexIncet){
                     //daca bila e la sfarsit, merge incet
                     if(listaBile.get(i).vitezaMax > 0){
                         listaBile.get(i).vitezaMax = viteza_min;
@@ -214,24 +226,33 @@ public class Sir {
                 //System.out.println(listaBile.get(i).viteza);
             }
             else{
-                //daca bila nu e capatul unui
-                // sir, ia viteza bilei din stanga
+                //daca bila nu e capatul unui sir, ia viteza bilei din stanga
                 listaBile.get(i).viteza = listaBile.get(i-1).viteza;
-                listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
-                //listaBile.get(i).index += listaBile.get(i).viteza;
+                if(listaBile.get(i-1).isAnimating){
+                    listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i-1).MarimeAnimatie();
+
+                }
+                else listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
+                //listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
             }
+
             if(listaBile.get(i).index >=0){
-                listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+                if(!listaBile.get(i).isAnimating){
+                    listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
+                }else{
+                    listaBile.get(i).AnimatieInserare(traseu[(int) listaBile.get(i).index]);
+                }
+                //listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
             }
             else{
                 listaBile.get(i).Copiaza(traseu[0]);
             }
             listaBile.get(i).CresteCadru(listaBile.get(i).viteza);
-            if(getIndexFinalSir(i) > indexFinal){//a pierdut jocul
+            if(getBilaFinalSir(i).index > indexFinal){//a pierdut jocul
                 listaBile.remove(i);
             }
             i++;
-        }*/
+        }
     }
     public void NumaraStatusBile(int i){
         //numarare statusuri bile
@@ -247,20 +268,19 @@ public class Sir {
     }
 
     //animeaza inserarea bilei in sir
-    /*public void AnimatieInserare(Bila membru){
-        static int cadre = 8;
-        if (cadre == 0) {
-            membru.SetInserare(0);
-            cadre = 8;
+    public void AnimatieInserare(Bila membru){
+        if (membru.frameAnimatie == 0) {
+            membru.isAnimating = false;
+            membru.isStable = false;
         }
         else {
-            float x = (traseu[membru->GetIndex()].GetCoordX() - membru->GetCoordX()) / (float)cadre;
-            float y = (traseu[membru->GetIndex()].GetCoordY() - membru->GetCoordY()) / (float)cadre;
-            membru->SetCoordX(membru->GetCoordX() + x);
-            membru->SetCoordY(membru->GetCoordY() + y);
-            cadre--;
+            float x = (traseu[(int) membru.index].GetCoordX() - membru.GetCoordX()) / membru.frameAnimatie;
+            float y = (traseu[(int) membru.index].GetCoordY() - membru.GetCoordY()) / membru.frameAnimatie;
+            membru.SetCoordX(membru.GetCoordX() + x);
+            membru.SetCoordY(membru.GetCoordY() + y);
+            membru.frameAnimatie--;
         }
-    }*/
+    }
 
 //parcurge lista si returneaza obiectul cu care s-a facut coliziunea
     public Bila TestColiziune(Proiectil obuz){
@@ -290,12 +310,13 @@ public class Sir {
         while(index < listaBile.size()){
             if(!listaBile.get(index).isSameColour(membru)){//daca nu sunt aceeasi culoare
                 if(waveLeader){//nu sunt sigur ca e buna
-                    listaBile.get(index).isWaveLeader = waveLeader;
+                    listaBile.get(index).isWaveLeader = true;
                     System.out.println("Nou wave leader, pozitia "+index);
                 }
                 else{
                     listaBile.get(index).isSirLeader = true;
-                    listaBile.get(index-1).viteza = (viteza+listaBile.get(index-1).viteza)/2;//(listaBile.get(index).viteza + listaBile.get(index-1).viteza)/2;
+                    getBilaInceputSir(index-1).viteza = (viteza+listaBile.get(index-1).viteza)/2;
+                    //listaBile.get(index-1).viteza = (viteza+listaBile.get(index).viteza)/2;//(listaBile.get(index).viteza + listaBile.get(index-1).viteza)/2;
                     //getBilaFinalSir(index).viteza = listaBile.get(index).viteza;
                     System.out.println("Nou sir leader, pozitia "+index);
                 }
@@ -315,12 +336,28 @@ public class Sir {
         index++;
         while(index < listaBile.size()){
             if(listaBile.get(index).isSirLeader || listaBile.get(index).isWaveLeader){
-                index--;
+                //index--;
                 break;
             }
             index++;
         }
-        System.out.println(listaBile.get(index-1)+" ");
-        return listaBile.get(index-1);
+        //System.out.println(listaBile.get(index-1).index+" ");
+        if(index == listaBile.size()){
+            return listaBile.get(index-1);
+        }
+        return listaBile.get(index);
+    }
+
+    public Bila getBilaInceputSir(int index){
+        index--;
+        while(index >= 0){
+            if(listaBile.get(index).isSirLeader || listaBile.get(index).isWaveLeader){
+                index--;
+                break;
+            }
+            index--;
+        }
+        //System.out.println(listaBile.get(index-1).index+" ");
+        return listaBile.get(index+1);
     }
 }

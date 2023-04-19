@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Scena extends JPanel {
-    public String cuvantAfisat = "ceva";
+    public String FrameTime = "Frame: 0";
     private int mousex, mousey, rezolutieX, rezolutieY;
     private final Textura fundal;
     private BufferedImage tex, texfundal, tunJos, tunSus = null;
@@ -78,13 +78,12 @@ public class Scena extends JPanel {
         fundal = new Textura(texfundal, 0, 0, 0);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 35, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
+        sirBile = new Sir(traseuBile, 35, 10, 1, 0.5f,0.1f,2700,500,3100,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {
         rezolutieY = sizeY;
         rezolutieX = sizeX;
-        //resizeTraseu((float)rezolutieX/targetScreenX,(float)rezolutieY/targetScreenY);
         tex = resize(tex, rezolutieX * tex.getWidth() / targetScreenX, rezolutieY * tex.getHeight() / targetScreenY);
         texfundal = resize(texfundal, rezolutieX, rezolutieY);
         tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
@@ -93,9 +92,7 @@ public class Scena extends JPanel {
         tunar.SetCoordY((float) sizeY / 2 + (float) sizeY / 4);
         tunar.SetTexSus(tunSus);
         tunar.SetTexJos(tunJos);
-        //tunar.SetProiectilCurent(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        //tunar.SetProiectilRezerva(new ProiectilBila(tex2, 60, 10, 250, 150, 0, tunar.vitezaTragere));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
 
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
@@ -139,7 +136,7 @@ public class Scena extends JPanel {
             proiectil.paintComponent(g);
         }
         sirBile.paintComponent(g);
-        g.drawString(cuvantAfisat, 10, 20);
+        g.drawString(FrameTime, 10, 20);
         g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 30);
         g.drawString("Nr bile: " + sirBile.marime(), 10, 40);
         g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,50);
@@ -171,7 +168,7 @@ public class Scena extends JPanel {
         for (float unghi = 0; unghi < Math.PI / 2; unghi = (float) (unghi + 0.0125)) {
             traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 80 + 310));
             traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 80 + 160));
-            traseuBile[i].SetUnghi((float) (unghi));
+            traseuBile[i].SetUnghi((unghi));
             i++;
         }
         for (int j = 310; j > 120; j--) {
@@ -237,8 +234,8 @@ public class Scena extends JPanel {
         for (int j = 0; j < 461; j++) {
             int xinceput = 513, xsfarsit = 770;
             int yinceput = 775, ysfarsit = 390;
-            traseuBile[i].SetCoordX(xinceput + (xsfarsit - xinceput) * j / 461);
-            traseuBile[i].SetCoordY(yinceput + (ysfarsit - yinceput) * j / 461);
+            traseuBile[i].SetCoordX(xinceput + (float)((xsfarsit - xinceput) * j) / 461);
+            traseuBile[i].SetCoordY(yinceput + (float)((ysfarsit - yinceput) * j) / 461);
             traseuBile[i].SetUnghi((float) (Math.PI * 7 / 6));
             i++;
         }
@@ -257,7 +254,7 @@ public class Scena extends JPanel {
         for (float unghi = (float) Math.PI; unghi < Math.PI * 2; unghi = (float) (unghi + 0.02)) {
             traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 825));
             traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 220));
-            traseuBile[i].SetUnghi((float) (unghi));
+            traseuBile[i].SetUnghi( (unghi));
             i++;
         }
         for (int j = 220; j < 320; j++) {
@@ -280,13 +277,12 @@ public class Scena extends JPanel {
         for (float unghi = (float) Math.PI * 3 / 2; unghi < Math.PI * 2; unghi = (float) (unghi + 0.02)) {
             traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 50 + 1090));
             traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 50 + 420));
-            traseuBile[i].SetUnghi((float) (unghi));
+            traseuBile[i].SetUnghi( (unghi));
             i++;
         }
         for (int j = 420; j < 670; j++) {
             traseuBile[i].SetCoordX(1140);
             traseuBile[i].SetCoordY(j);
-            //traseuBile[i].SetUnghi((float) (Math.PI*3/2));
             i++;
         }
         for (float unghi = (float) Math.PI; unghi > Math.PI / 2; unghi = (float) (unghi - 0.02)) {
@@ -314,16 +310,4 @@ public class Scena extends JPanel {
         }
     }
 
-    private void conversieImagine(BufferedImage image) {
-        BufferedImage convertedImage;
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gd = ge.getDefaultScreenDevice();
-        GraphicsConfiguration gc = gd.getDefaultConfiguration();
-        convertedImage = gc.createCompatibleImage(image.getWidth(),
-                image.getHeight(),
-                image.getTransparency());
-        Graphics2D g2d = convertedImage.createGraphics();
-        g2d.drawImage(image, 0, 0, image.getWidth(), image.getHeight(), null);
-        g2d.dispose();
-    }
 }

@@ -63,11 +63,10 @@ public class Tun extends Textura{
     void Trage(){
         if(gataDeTras){
             gataDeTras = false;
-            this.GetProiectilIncarcat().viteza_y = -vitezaTragere;
             proiectilIncarcat.viteza_x = (float) (Math.cos(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
             proiectilIncarcat.viteza_y = (float) (Math.sin(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
             proiectilIncarcat.SetUnghi(GetUnghi());
-            System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
+            //System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
             proiectilIncarcat = null;
         }
     }
@@ -88,7 +87,6 @@ public class Tun extends Textura{
         proiectilRezerva = p;
         System.out.println("cicleaza proiectil");
     }
-    public void SetGataTras(boolean x) { gataDeTras = x; };
     public boolean isGataDeTras() { return gataDeTras; };
     public void SchimbaOrdineProiectile(){
         Proiectil aux = proiectilIncarcat;
