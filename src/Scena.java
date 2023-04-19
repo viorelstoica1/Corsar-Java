@@ -88,7 +88,6 @@ public class Scena extends JPanel {
         texfundal = resize(texfundal, rezolutieX, rezolutieY);
         tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
         tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
-        System.out.println(tunJos.getHeight()+"  "+tunJos.getWidth());
         tunar.SetCoordY((float) sizeY / 2 + (float) sizeY / 4);
         tunar.SetTexSus(tunSus);
         tunar.SetTexJos(tunJos);
@@ -112,13 +111,19 @@ public class Scena extends JPanel {
             } else {
                 Bila aux = sirBile.TestColiziune(proiectil);
                 if (aux != null) {
-                    aux = sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
+                    sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
                     iterator.remove();
                 }
             }
         }
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
-            tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
+            if(bilaDinSir != null){
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            }
+            else{
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            }
         }
         sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce

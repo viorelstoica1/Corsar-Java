@@ -8,7 +8,8 @@ public class Tun extends Textura{
     public int vitezaTragere;
     private int limitaStanga, limitaDreapta, limitaJos, limitaSus;
     private Spritesheet tunJos;
-    private int cadruAnimatie, vitezaAnimatie;
+    private int cadruAnimatie;
+    private final int vitezaAnimatie;
     public Tun(BufferedImage imagine, BufferedImage imagineSus, float poz_x, float poz_y, float angel, int viteza) {
         super(imagineSus,poz_x, poz_y, angel);
         tunJos = new Spritesheet(imagine,5,5,poz_x,poz_y,angel);

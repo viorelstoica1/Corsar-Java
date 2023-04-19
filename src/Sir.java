@@ -1,5 +1,5 @@
 import java.awt.*;
-import java.util.Iterator;
+import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
 public class Sir {
@@ -82,14 +82,6 @@ public class Sir {
         //getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
         return de_introdus;
     }
-    public void StergereLista(){
-        int x = listaBile.size();
-        for (Iterator<Bila> iterator = listaBile.iterator(); iterator.hasNext();) {
-            Bila bila = iterator.next();
-            iterator.remove();
-        }
-        System.out.println("Am sters lista cu "+x+" elemente");
-    }
 
     public void paintComponent(Graphics g){
         /*LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
@@ -125,22 +117,9 @@ public class Sir {
             else if(listaBile.get(i).isSirLeader){//daca este sir leader
                 if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1))){
                     //daca s-a ciocnit cu bila din urma lui
-                    /*if(listaBile.get(i-1).isSameColour(listaBile.get(i)) && NrBileIdentice(listaBile.get(i))>=3){
-                        //daca sunt aceeasi culoare SI sunt destule bile
-                        //StergeBileIdentice(listaBile.get(i));
-                        listaBile.get(i).isStable = false;
-                        //in functia de stergere am grija de flaguri
-                    }
-                    else{
-                        //daca nu sunt aceeasi culoare SAU nu sunt destule bile, se unesc sirurile
-                        listaBile.get(i).isSirLeader = false;
-                        //seteaza viteza maxima a bilei din urma
-                        getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
-                        //listaBile.get(i).viteza = (listaBile.get(i-1).viteza + listaBile.get(i).viteza)/2;
-                    }*/
-                    //seteaza viteza maxima a bilei din urma
                     listaBile.get(i).isSirLeader = false;
                     listaBile.get(i).isStable = false;
+                    //seteaza viteza maxima a bilei din urma
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                 }
                 else{
@@ -157,13 +136,16 @@ public class Sir {
                     }
                 }
             }
-
             else{//este bila normala
                 //seteaza viteza maxima la bila din urma
                 listaBile.get(i).vitezaMax = listaBile.get(i-1).vitezaMax;
             }
-            if(i > 0 && !listaBile.get(i).isStable) {
-                if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1)) /*&& listaBile.get(i-1).isSameColour(listaBile.get(i))*/ && NrBileIdentice(listaBile.get(i))>=3){
+            if(!listaBile.get(i).isStable) {
+                if(i == 0){
+                    if(NrBileIdentice(listaBile.get(i))>=3){
+                        StergeBileIdentice(listaBile.get(i));
+                    }
+                }else if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1)) /*&& listaBile.get(i-1).isSameColour(listaBile.get(i))*/ && NrBileIdentice(listaBile.get(i))>=3){
                     //daca bila curenta nu e stabila SI sunt aceeasi culoare SI sunt destule bile
                     StergeBileIdentice(listaBile.get(i));
                 }
@@ -271,7 +253,6 @@ public class Sir {
                     listaBile.get(index).isSirLeader = true;
                     getBilaInceputSir(index-1).viteza = (viteza+listaBile.get(index-1).viteza)/2;
                     //listaBile.get(index-1).viteza = (viteza+listaBile.get(index).viteza)/2;//(listaBile.get(index).viteza + listaBile.get(index-1).viteza)/2;
-                    //getBilaFinalSir(index).viteza = listaBile.get(index).viteza;
                     System.out.println("Nou sir leader, pozitia "+index);
                 }
                 break;
@@ -284,6 +265,13 @@ public class Sir {
     }
     public int marime(){
         return listaBile.size();
+    }
+
+    public Spritesheet getTexturaBilaRandom(){
+        if(listaBile.size() >0){
+            return listaBile.get((int)(Math.random() * listaBile.size()));
+        }
+        return null;
     }
 
     public Bila getBilaFinalSir(int index){
