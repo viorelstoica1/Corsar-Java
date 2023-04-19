@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="reparat erori in logica">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="tunul primeste doar culori din sir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
       <workItem from="1681806693725" duration="9522000" />
-      <workItem from="1681885700469" duration="14884000" />
+      <workItem from="1681885700469" duration="21462000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -233,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681897064710</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="tunul primeste doar culori din sir">
+      <created>1681902285098</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681902285098</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +271,8 @@
     <MESSAGE value="rescris logice de viteza iar, adaugat animatii de inserare" />
     <MESSAGE value="reparat erori in logica, animatia nu merge la sir leader si wave leader" />
     <MESSAGE value="reparat erori in logica" />
-    <option name="LAST_COMMIT_MESSAGE" value="reparat erori in logica" />
+    <MESSAGE value="tunul primeste doar culori din sir" />
+    <option name="LAST_COMMIT_MESSAGE" value="tunul primeste doar culori din sir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

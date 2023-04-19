@@ -2,7 +2,8 @@ import java.awt.image.BufferedImage;
 
 public class Bila extends Spritesheet{
     public float index = 0;
-    public int frameAnimatie = 8;
+    private final int marimeAnimatie = 16;
+    public int frameAnimatie = marimeAnimatie;
     public float acceleratie, viteza = 0, vitezaMax = 0;
     public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable;
     public Bila(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel, float acceleratie) {
@@ -48,9 +49,6 @@ public class Bila extends Spritesheet{
                 }
             }
         }
-        /*if(vitezaMax%viteza < acceleratie){
-            viteza = vitezaMax;
-        }*/
     }
     public void AnimatieInserare(GameObject traseuCurentBila){
         if (frameAnimatie == 0) {
@@ -60,8 +58,15 @@ public class Bila extends Spritesheet{
         else {
             float x = (traseuCurentBila.GetCoordX() - GetCoordX()) / frameAnimatie;
             float y = (traseuCurentBila.GetCoordY() - GetCoordY()) / frameAnimatie;
+            float unghi;
+            if((GetUnghi() - traseuCurentBila.GetUnghi())%360 < 180 && (GetUnghi() - traseuCurentBila.GetUnghi())%360 > -180){
+                unghi = (traseuCurentBila.GetUnghi() - GetUnghi()) / frameAnimatie;
+            }else{
+                unghi = (traseuCurentBila.GetUnghi() + GetUnghi()) / frameAnimatie;
+            }
             SetCoordX(GetCoordX() + x);
             SetCoordY(GetCoordY() + y);
+            SetUnghi(GetUnghi() + unghi);
             frameAnimatie--;
         }
     }
@@ -69,6 +74,6 @@ public class Bila extends Spritesheet{
         if(frameAnimatie == 0){
             return (float)GetMarimeSpriteX();
         }
-        return (float)GetMarimeSpriteX() * (8-frameAnimatie)/8;
+        return (float)GetMarimeSpriteX() * (marimeAnimatie-frameAnimatie)/marimeAnimatie;
     }
 }

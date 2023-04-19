@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
 public class Sir {
@@ -118,7 +117,10 @@ public class Sir {
                 if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1))){
                     //daca s-a ciocnit cu bila din urma lui
                     listaBile.get(i).isSirLeader = false;
-                    listaBile.get(i).isStable = false;
+                    if(!listaBile.get(i).isAnimating){
+                        listaBile.get(i).isStable = false;
+
+                    }
                     //seteaza viteza maxima a bilei din urma
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                 }
@@ -141,17 +143,15 @@ public class Sir {
                 listaBile.get(i).vitezaMax = listaBile.get(i-1).vitezaMax;
             }
             if(!listaBile.get(i).isStable) {
-                if(i == 0){
-                    if(NrBileIdentice(listaBile.get(i))>=3){
-                        StergeBileIdentice(listaBile.get(i));
-                    }
-                }else if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1)) /*&& listaBile.get(i-1).isSameColour(listaBile.get(i))*/ && NrBileIdentice(listaBile.get(i))>=3){
-                    //daca bila curenta nu e stabila SI sunt aceeasi culoare SI sunt destule bile
+                //daca bila curenta nu e stabila
+                if(NrBileIdentice(listaBile.get(i))>=3){
+                    //daca sunt destule bile de aceeasi culoare
                     StergeBileIdentice(listaBile.get(i));
                 }
-                else
+                else{
                     //stabilizeaza bila
                     listaBile.get(i).isStable = true;
+                }
             }
             i++;
         }
@@ -177,11 +177,9 @@ public class Sir {
             else{
                 //daca bila nu e capatul unui sir, ia viteza bilei din stanga
                 listaBile.get(i).viteza = listaBile.get(i-1).viteza;
-                if(listaBile.get(i-1).isAnimating){
+                if(listaBile.get(i-1).isAnimating && !listaBile.get(i-1).isWaveLeader && !listaBile.get(i-1).isSirLeader){
                     listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i-1).MarimeAnimatie();
-
-                }
-                else listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
+                }else listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
                 //listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
             }
 
@@ -299,7 +297,7 @@ public class Sir {
             }
             index--;
         }
-        //System.out.println(listaBile.get(index-1).index+" ");
+        //System.out.println(listaBile.get(index+1).index+" ");
         return listaBile.get(index+1);
     }
 }
