@@ -35,6 +35,9 @@ public class Sir {
         //System.out.println("Am adaugat element la inceputul listei, marime: "+marime);
     }
 
+    public LinkedList<Bila> getListaBile(){
+        return listaBile;
+    }
     public int NrBileIdentice(Bila membru){
         int nr = 1, stanga = listaBile.indexOf(membru)-1,dreapta = listaBile.indexOf(membru)+1;
         while(stanga >= 0){

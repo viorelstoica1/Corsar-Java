@@ -8,13 +8,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Scena extends JPanel {
     public String FrameTime = "Frame: 0";
     private int mousex, mousey, rezolutieX, rezolutieY;
-    private final Textura fundal;
-    private BufferedImage tex, texfundal, tunJos, tunSus = null;
+    private final Textura fundal, cursor;
+    private BufferedImage tex, texfundal, tunJos, tunSus , texCursor= null;
     private final List<Proiectil> listaProiectile;
     private int scena = 1;
     private final Tun tunar;
@@ -65,17 +66,17 @@ public class Scena extends JPanel {
 
         try {
             tex = ImageIO.read(new File("src/resources/Cannon.png"));
-            //conversieImagine(tex);
             tunSus = ImageIO.read(new File("src/resources/Cannon_no_shade.png"));
-            //conversieImagine(tunSus);
             texfundal = ImageIO.read(new File("src/resources/Background_2.png"));
-            //conversieImagine(texfundal);
             tunJos = ImageIO.read(new File("src/resources/Cannon_explosion-sheet.png"));
+            texCursor = ImageIO.read(new File("src/resources/CursorFurat.png"));
         } catch (IOException e) {
-            System.out.println("Nu am putut incarca textura !");
+            System.out.println("Nu am putut incarca texturile !");
         }
         tunar = new Tun(tunJos, tunSus, mousex, 0, 270, 20);
         fundal = new Textura(texfundal, 0, 0, 0);
+        cursor = new Textura(texCursor,0,0,270);
+        cursor.resize(36,36);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
         sirBile = new Sir(traseuBile, 35, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
@@ -102,7 +103,7 @@ public class Scena extends JPanel {
     }
 
     public int Actualizare() {
-        tunar.UpdateTun(mousex, mousey);
+        //actualizari proiectile
         for (Iterator<Proiectil> iterator = listaProiectile.iterator(); iterator.hasNext(); ) {
             Proiectil proiectil = iterator.next();
             proiectil.UpdateProiectil();
@@ -116,6 +117,30 @@ public class Scena extends JPanel {
                 }
             }
         }
+        //actualizari cursor
+        cursor.SetCoordX(0);
+        cursor.SetCoordY(tunar.GetCoordY());
+        LinkedList<Bila> lista = sirBile.getListaBile();
+         for(Bila iterator : lista){
+            if(iterator.GetCoordY() > cursor.GetCoordY()-iterator.GetMarimeSpriteX() && iterator.GetCoordY() < cursor.GetCoordY()+iterator.GetMarimeSpriteX()/* && iterator.GetCoordX() > cursor.GetCoordX()*/){
+                float coordonataX = (float) (iterator.GetCoordX() + (Math.sqrt(Math.pow(iterator.GetMarimeSpriteX(),2)-Math.pow((tunar.GetCoordY()-iterator.GetCoordY()),2))));
+                if(cursor.GetCoordX() < coordonataX){
+                    cursor.SetCoordX(coordonataX );
+                }
+            }
+        }
+        if(cursor.GetCoordX() == 0){
+            cursor.SetCoordX(-cursor.GetMarimeTexX());
+        }
+        /*else{
+            //cursor.SetCoordX(cursor.GetCoordX()+lista.get(0).GetMarimeSpriteX());
+            if(aux != null){
+                float distanta = (float) (Math.sqrt(Math.pow(cursor.GetMarimeTexX(),2)-Math.pow((aux.GetCoordY()-cursor.GetCoordY()),2)));
+                cursor.SetCoordX(cursor.GetCoordX()+distanta );
+            }
+        }*/
+        tunar.UpdateTun(mousex, mousey);
+        //actualizari tunar
         Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
             if(bilaDinSir != null){
@@ -138,10 +163,11 @@ public class Scena extends JPanel {
         //ordinea elementelor aici arata
         fundal.paintComponent(g);
         tunar.paintComponent(g);
+        sirBile.paintComponent(g);
         for (Proiectil proiectil : listaProiectile) {
             proiectil.paintComponent(g);
         }
-        sirBile.paintComponent(g);
+        cursor.paintComponent(g);
         g.drawString(FrameTime, 10, 20);
         g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 30);
         g.drawString("Nr bile: " + sirBile.marime(), 10, 40);
