@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="tunul ia doar bile din sir, facut smart">
-      <change afterPath="$PROJECT_DIR$/src/resources/CursorFurat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/CursorFurat2.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="cursor smart pe sir, deocamdata fara culori facute">
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_alb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_albastru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_galben.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_mov.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_rosu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_verde.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_alb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_albastru.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_galben.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_mov.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_rosu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_verde.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/CursorFurat2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +88,7 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
   </component>
@@ -126,7 +138,7 @@
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
       <workItem from="1681806693725" duration="9522000" />
-      <workItem from="1681885700469" duration="34253000" />
+      <workItem from="1681885700469" duration="40049000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -254,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681910145509</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="cursor smart pe sir, deocamdata fara culori facute">
+      <created>1681939709949</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1681939709949</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +309,8 @@
     <MESSAGE value="tunul primeste doar culori din sir" />
     <MESSAGE value="bila introdusa se roteste in animatie" />
     <MESSAGE value="tunul ia doar bile din sir, facut smart" />
-    <option name="LAST_COMMIT_MESSAGE" value="tunul ia doar bile din sir, facut smart" />
+    <MESSAGE value="cursor smart pe sir, deocamdata fara culori facute" />
+    <option name="LAST_COMMIT_MESSAGE" value="cursor smart pe sir, deocamdata fara culori facute" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
