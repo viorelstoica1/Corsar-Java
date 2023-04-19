@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.LinkedList;
 
 public class Sir {
@@ -64,6 +65,10 @@ public class Sir {
         if(membru.isWaveLeader){
             de_introdus.isWaveLeader = true;
             membru.isWaveLeader = false;
+        }
+        if(membru.isSirLeader){
+            de_introdus.isSirLeader = true;
+            membru.isSirLeader = false;
         }
         listaBile.add(listaBile.indexOf(membru),de_introdus);
         de_introdus.index = membru.index-membru.GetMarimeSpriteX();
@@ -287,7 +292,14 @@ public class Sir {
         }
         return listaBile.get(index);
     }
-
+    public boolean isCuloareInSir(BufferedImage culoare){
+        for (Bila bila : listaBile) {
+            if (bila.GetTex() == culoare) {
+                return true;
+            }
+        }
+        return false;
+    }
     public Bila getBilaInceputSir(int index){
         index--;
         while(index >= 0){

@@ -116,14 +116,18 @@ public class Scena extends JPanel {
                 }
             }
         }
+        Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
-            Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
             if(bilaDinSir != null){
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             else{
                 tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
+        }
+        if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex())){
+            bilaDinSir = sirBile.getTexturaBilaRandom();
+            tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         }
         sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce
