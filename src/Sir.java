@@ -48,23 +48,18 @@ public class Sir {
         return listaBile;
     }
     public int NrBileIdentice(Bila membru){
-        int nr = 1, stanga = listaBile.indexOf(membru)-1,dreapta = listaBile.indexOf(membru)+1;
-        while(stanga >= 0){
-            if(!listaBile.get(stanga).isSameColour(membru) && !listaBile.get(stanga+1).isWaveLeader && !listaBile.get(stanga+1).isSirLeader){
-                break;
-            }
-            nr++;
-            stanga--;
+        int nrBileIdentice = 0;
+        int index = listaBile.indexOf(membru);
+        while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+            index--;
         }
-        while(dreapta < listaBile.size()){
-            if(!listaBile.get(dreapta).isSameColour(membru) && !listaBile.get(dreapta).isWaveLeader && !listaBile.get(dreapta).isSirLeader){
-                break;
-            }
-            nr++;
-            dreapta++;
+        index++;
+        nrBileIdentice++;
+        while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+            nrBileIdentice++;
+            index++;
         }
-        System.out.println("Bile identice gasite: "+(nr));
-        return nr;
+        return nrBileIdentice;
     }//merge pe wave-uri
 
     //presupunem ca pointerul membru nu este zero !!
@@ -134,7 +129,7 @@ public class Sir {
                     if(!listaBile.get(i).isAnimating){
                         listaBile.get(i).isStable = false;
                     }
-                    //seteaza viteza maxima a bilei din urma
+                    //seteaza viteza bilei din urma
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                 }
                 else{
@@ -288,7 +283,7 @@ public class Sir {
             return listaBile.get(index-1);
         }
         return listaBile.get(index-1);
-    }
+    }//merge pe wave-uri
     public boolean isCuloareInSir(BufferedImage culoare){
         for (Bila bila : listaBile) {
             if (bila.GetTex() == culoare) {

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat mai multe wave-uri, iar stergerea tine cont de ele">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="indexFinalSir tine cont de wave-uri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +126,7 @@
       <workItem from="1681806693725" duration="9522000" />
       <workItem from="1681885700469" duration="41284000" />
       <workItem from="1681978201069" duration="10097000" />
-      <workItem from="1682096633058" duration="11671000" />
+      <workItem from="1682096633058" duration="12327000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -276,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682109958752</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="indexFinalSir tine cont de wave-uri">
+      <created>1682111936714</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1682111936714</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,7 +321,8 @@
     <MESSAGE value="cursor smart pe sir, deocamdata fara culori facute" />
     <MESSAGE value="cursor pe culori, adaugat texturi culori" />
     <MESSAGE value="adaugat mai multe wave-uri, iar stergerea tine cont de ele" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat mai multe wave-uri, iar stergerea tine cont de ele" />
+    <MESSAGE value="indexFinalSir tine cont de wave-uri" />
+    <option name="LAST_COMMIT_MESSAGE" value="indexFinalSir tine cont de wave-uri" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
