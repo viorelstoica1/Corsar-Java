@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="cursor smart pe sir, deocamdata fara culori facute">
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_alb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_albastru.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_galben.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_mov.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_rosu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_verde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_alb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_albastru.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_galben.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_mov.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_rosu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_verde.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="cursor pe culori, adaugat texturi culori">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/CursorFurat2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,19 +21,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -63,26 +51,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
@@ -138,7 +126,9 @@
       <workItem from="1681639632128" duration="8538000" />
       <workItem from="1681713884768" duration="22118000" />
       <workItem from="1681806693725" duration="9522000" />
-      <workItem from="1681885700469" duration="40049000" />
+      <workItem from="1681885700469" duration="41284000" />
+      <workItem from="1681978201069" duration="10097000" />
+      <workItem from="1682096633058" duration="9583000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -273,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681939709949</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="cursor pe culori, adaugat texturi culori">
+      <created>1681946239196</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1681946239196</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +307,8 @@
     <MESSAGE value="bila introdusa se roteste in animatie" />
     <MESSAGE value="tunul ia doar bile din sir, facut smart" />
     <MESSAGE value="cursor smart pe sir, deocamdata fara culori facute" />
-    <option name="LAST_COMMIT_MESSAGE" value="cursor smart pe sir, deocamdata fara culori facute" />
+    <MESSAGE value="cursor pe culori, adaugat texturi culori" />
+    <option name="LAST_COMMIT_MESSAGE" value="cursor pe culori, adaugat texturi culori" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

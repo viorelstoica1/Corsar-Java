@@ -78,7 +78,7 @@ public class Scena extends JPanel {
         cursorSecundar = new Textura(texturi.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 35, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
+        sirBile = new Sir(traseuBile, 15, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {
@@ -116,6 +116,7 @@ public class Scena extends JPanel {
                 }
             }
         }
+        
         //actualizari cursor
         if(tunar.GetProiectilIncarcat() != null){
             cursorPrincipal.SetTexRaw(texturi.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
@@ -154,6 +155,9 @@ public class Scena extends JPanel {
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex())){
             bilaDinSir = sirBile.getTexturaBilaRandom();
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        }
+        if(sirBile.marime() < 5){
+            sirBile.WaveNou(10);
         }
         sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce

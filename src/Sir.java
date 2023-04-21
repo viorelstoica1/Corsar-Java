@@ -23,11 +23,22 @@ public class Sir {
         this.indexRapid = indexRapid;
         this.indexFinal = indexFinal;
     }
-
-    public void adaugaLaInceputulListei(Bila de_introdus){
+    public void WaveNou(int numarBile){
+        if(numarBile > 0){
+            listaBile.addFirst(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            listaBile.get(0).isWaveLeader = true;
+            numarBile--;
+        }
+        while(numarBile != 0){
+            adaugaLaWave(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            numarBile--;
+        }
+    }
+    public void adaugaLaWave(Bila de_introdus){
         if(!listaBile.isEmpty()){
             listaBile.get(0).isWaveLeader = false;
             de_introdus.viteza = listaBile.get(0).viteza;
+            de_introdus.index = listaBile.get(0).index-de_introdus.GetMarimeSpriteX();
         }
         de_introdus.isWaveLeader = true;
         de_introdus.vitezaMax = viteza_max;
@@ -86,7 +97,7 @@ public class Sir {
         }
         de_introdus.isAnimating = true;
         de_introdus.viteza = membru.viteza;
-        //getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
+        getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
         return de_introdus;
     }
 
@@ -102,18 +113,6 @@ public class Sir {
 
     public void Update(){
         nrWaveLeaderi = 0;nrSirLeaderi = 0;nrAnimate = 0;nrInstabile = 0;///incepe numararea de bile speciale la fiecare cadru
-        if(ramaseDeIntrodus >0 && !listaBile.isEmpty()){
-            if(listaBile.getFirst().index > listaBile.getFirst().GetMarimeSpriteX()){
-                adaugaLaInceputulListei(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
-                listaBile.get(0).index += listaBile.get(1).index % listaBile.get(1).GetMarimeSpriteX();
-                ramaseDeIntrodus--;
-            }
-        }
-        else if(ramaseDeIntrodus > 0){
-            adaugaLaInceputulListei(new Bila((Spritesheet) manager.getBilaRandom(), traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
-            ramaseDeIntrodus--;
-        }
-
         int i = 0;
         while(i <listaBile.size()){//parcurge lista de bile (update_wave)
             NumaraStatusBile(i);//contorizeaza numarul de bile speciale din lista
@@ -238,35 +237,24 @@ public class Sir {
         int index = listaBile.indexOf(membru);
         float viteza = membru.viteza;
         boolean waveLeader = false;
-        while(index >= 0){
-            if(!listaBile.get(index).isSameColour(membru)){
-                index++;
-                break;
-            }
+        while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             index--;
         }
-        if(index <= 0){
-            index = 0;
+        if(listaBile.get(index).isWaveLeader){
             waveLeader = true;
         }
-        while(index < listaBile.size()){
-            if(!listaBile.get(index).isSameColour(membru)){//daca nu sunt aceeasi culoare
-                if(waveLeader){//nu sunt sigur ca e buna
-                    listaBile.get(index).isWaveLeader = true;
-                    System.out.println("Nou wave leader, pozitia "+index);
-                }
-                else{
-                    listaBile.get(index).isSirLeader = true;
-                    getBilaInceputSir(index-1).viteza = (viteza+listaBile.get(index-1).viteza)/2;
-                    //listaBile.get(index-1).viteza = (viteza+listaBile.get(index).viteza)/2;//(listaBile.get(index).viteza + listaBile.get(index-1).viteza)/2;
-                    System.out.println("Nou sir leader, pozitia "+index);
-                }
-                break;
-            }
+        listaBile.remove(index);
+        while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             listaBile.remove(index);
-            if(index !=0){
-                listaBile.get(index-1).viteza = (viteza+listaBile.get(index-1).viteza)/2;//(listaBile.get(index).viteza + listaBile.get(index-1).viteza)/2;
+        }
+        if(index < listaBile.size()){
+            if(waveLeader){
+                listaBile.get(index).isWaveLeader = true;
             }
+            else{
+                listaBile.get(index).isSirLeader = true;
+            }
+            listaBile.get(index).viteza = viteza;
         }
     }
     public int marime(){
