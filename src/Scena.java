@@ -78,7 +78,7 @@ public class Scena extends JPanel {
         cursorSecundar = new Textura(texturi.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 15, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
+        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
     }
 
     public void onStart(int sizeX, int sizeY) {

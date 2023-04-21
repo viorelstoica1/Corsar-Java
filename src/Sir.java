@@ -6,14 +6,12 @@ public class Sir {
     private final LinkedList<Bila> listaBile;
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0;
     private final int indexRapid, indexIncet, indexFinal;
-    private int ramaseDeIntrodus;
     float viteza,acceleratie, viteza_max, viteza_min;
     GameObject[] traseu;
     ResourceManager manager;
-    public Sir(GameObject[] s, int bile_de_introdus, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal,ResourceManager manager) {
+    public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal,ResourceManager manager) {
         this.manager = manager;
         listaBile = new LinkedList<>();
-        ramaseDeIntrodus = bile_de_introdus;
         traseu = s;
         viteza_max = viteza_sir_intrare;
         acceleratie = acceleratie_bile;
@@ -52,14 +50,14 @@ public class Sir {
     public int NrBileIdentice(Bila membru){
         int nr = 1, stanga = listaBile.indexOf(membru)-1,dreapta = listaBile.indexOf(membru)+1;
         while(stanga >= 0){
-            if(!listaBile.get(stanga).isSameColour(membru)){
+            if(!listaBile.get(stanga).isSameColour(membru) && !listaBile.get(stanga+1).isWaveLeader && !listaBile.get(stanga+1).isSirLeader){
                 break;
             }
             nr++;
             stanga--;
         }
         while(dreapta < listaBile.size()){
-            if(!listaBile.get(dreapta).isSameColour(membru)){
+            if(!listaBile.get(dreapta).isSameColour(membru) && !listaBile.get(dreapta).isWaveLeader && !listaBile.get(dreapta).isSirLeader){
                 break;
             }
             nr++;
@@ -67,7 +65,7 @@ public class Sir {
         }
         System.out.println("Bile identice gasite: "+(nr));
         return nr;
-    }
+    }//merge pe wave-uri
 
     //presupunem ca pointerul membru nu este zero !!
     public void adaugaLaDreaptaBilei(Bila membru, Bila de_introdus){
@@ -118,6 +116,15 @@ public class Sir {
             NumaraStatusBile(i);//contorizeaza numarul de bile speciale din lista
             if(listaBile.get(i).isWaveLeader){//daca este wave leader
                 //seteaza viteza maxima fata normal
+                if(i > 0 && listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1))){
+                    //daca s-a ciocnit cu bila din urma lui
+                    listaBile.get(i).isWaveLeader = false;
+                    if(!listaBile.get(i).isAnimating){
+                        listaBile.get(i).isStable = false;
+                    }
+                    //seteaza viteza maxima a bilei din urma
+                    getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
+                }
                 listaBile.get(i).vitezaMax = viteza;
             }
             else if(listaBile.get(i).isSirLeader){//daca este sir leader
@@ -126,7 +133,6 @@ public class Sir {
                     listaBile.get(i).isSirLeader = false;
                     if(!listaBile.get(i).isAnimating){
                         listaBile.get(i).isStable = false;
-
                     }
                     //seteaza viteza maxima a bilei din urma
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
@@ -256,7 +262,7 @@ public class Sir {
             }
             listaBile.get(index).viteza = viteza;
         }
-    }
+    }//merge pe wave-uri
     public int marime(){
         return listaBile.size();
     }
@@ -281,7 +287,7 @@ public class Sir {
         if(index == listaBile.size()){
             return listaBile.get(index-1);
         }
-        return listaBile.get(index);
+        return listaBile.get(index-1);
     }
     public boolean isCuloareInSir(BufferedImage culoare){
         for (Bila bila : listaBile) {
