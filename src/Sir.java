@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Sir {
     private final LinkedList<Bila> listaBile;
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0, scor = 0;
+    public boolean lost = false;
     private final int indexRapid, indexIncet, indexFinal;
     float viteza,acceleratie, viteza_max, viteza_min;
     GameObject[] traseu;
@@ -212,7 +213,10 @@ public class Sir {
             }
             listaBile.get(i).CresteCadru(listaBile.get(i).viteza);
             if(getBilaFinalSir(i).index > indexFinal){//a pierdut jocul
-                listaBile.remove(i);
+                listaBile.remove(getBilaFinalSir(i));
+                lost = true;
+                viteza_min = viteza_max;
+                viteza = viteza_max;
             }
             i++;
         }

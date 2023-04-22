@@ -157,7 +157,7 @@ public class Scena extends JPanel {
             bilaDinSir = sirBile.getTexturaBilaRandom();
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         }
-        if(sirBile.marime() < 5){
+        if(sirBile.marime() < 5 && !sirBile.lost){
             sirBile.WaveNou(10);// =)
         }
         scor += sirBile.Update();
