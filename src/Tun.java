@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 public class Tun extends Textura{
     private Proiectil proiectilIncarcat,proiectilRezerva;
@@ -66,6 +65,8 @@ public class Tun extends Textura{
             gataDeTras = false;
             proiectilIncarcat.viteza_x = (float) (Math.cos(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
             proiectilIncarcat.viteza_y = (float) (Math.sin(Math.toRadians(GetUnghi()-90)) * vitezaTragere);
+            /*proiectilIncarcat.viteza_y = -6f;
+            proiectilIncarcat.acceleratie_y = 0.5f;*/
             proiectilIncarcat.SetUnghi(GetUnghi());
             //System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
             proiectilIncarcat = null;

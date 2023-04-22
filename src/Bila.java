@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 public class Bila extends Spritesheet{
     public float index = 0;
     private final int marimeAnimatie = 16;
-    public int frameAnimatie = marimeAnimatie;
+    public int frameAnimatie = marimeAnimatie, scoreMultiplier = 1;
     public float acceleratie, viteza = 0, vitezaMax = 0;
     public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable;
     public Bila(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel, float acceleratie) {

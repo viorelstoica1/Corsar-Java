@@ -17,16 +17,17 @@ public class Scena extends JPanel {
     private final Textura fundal, cursorPrincipal, cursorSecundar;
     private BufferedImage tex, texfundal, tunJos, tunSus;
     private final List<Proiectil> listaProiectile;
-    private int scena = 1;
+    private int scena = 1, scor = 0;
     private final Tun tunar;
     private static final int targetScreenX = 1920, targetScreenY = 1080;
     private GameObject[] traseuBile;
     private final Sir sirBile;
     private final ResourceManager texturi;
-
+    private final Font fontScor;
     public Scena() {
         this.setLayout(null);
         texturi = new ResourceManager();
+        fontScor = new Font("TimesRoman", Font.PLAIN, 25);
         //mouse clicks
         addMouseListener(new MouseAdapter() {
             @Override
@@ -157,15 +158,17 @@ public class Scena extends JPanel {
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         }
         if(sirBile.marime() < 5){
-            sirBile.WaveNou(10);
+            sirBile.WaveNou(10);// =)
         }
-        sirBile.Update();
+        scor += sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce
     }
 
     public void paintComponent(Graphics g) {
         //super.paintComponent(g);//rezolva trailingul
         //ordinea elementelor aici arata
+        g.setFont(fontScor);
+        g.setColor(Color.black);
         fundal.paintComponent(g);
         tunar.paintComponent(g);
         sirBile.paintComponent(g);
@@ -175,12 +178,13 @@ public class Scena extends JPanel {
         cursorPrincipal.paintComponent(g);
         cursorSecundar.paintComponent(g);
         g.drawString(FrameTime, 10, 20);
-        g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 30);
-        g.drawString("Nr bile: " + sirBile.marime(), 10, 40);
-        g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,50);
-        g.drawString("Nr sir leaderi: "+ sirBile.nrSirLeaderi,10,60);
-        g.drawString("Nr animati: "+ sirBile.nrAnimate,10,70);
-        g.drawString("Nr instabile: "+sirBile.nrInstabile,10,80);
+        g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 40);
+        g.drawString("Nr bile: " + sirBile.marime(), 10, 65);
+        g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,90);
+        g.drawString("Nr sir leaderi: "+ sirBile.nrSirLeaderi,10,115);
+        g.drawString("Nr animati: "+ sirBile.nrAnimate,10,140);
+        g.drawString("Nr instabile: "+sirBile.nrInstabile,10,165);
+        g.drawString("Scor: "+scor,rezolutieX/2,30);
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {

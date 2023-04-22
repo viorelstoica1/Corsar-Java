@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Sir {
     private final LinkedList<Bila> listaBile;
-    public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0;
+    public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0, scor = 0;
     private final int indexRapid, indexIncet, indexFinal;
     float viteza,acceleratie, viteza_max, viteza_min;
     GameObject[] traseu;
@@ -104,7 +104,8 @@ public class Sir {
         }
     }
 
-    public void Update(){
+    public int Update(){
+        scor = 0;
         nrWaveLeaderi = 0;nrSirLeaderi = 0;nrAnimate = 0;nrInstabile = 0;///incepe numararea de bile speciale la fiecare cadru
         int i = 0;
         while(i <listaBile.size()){//parcurge lista de bile (update_wave)
@@ -140,6 +141,7 @@ public class Sir {
                         listaBile.get(i).vitezaMax = -viteza_max;
                     }
                     else{
+                        listaBile.get(i).scoreMultiplier = 1;
                         //daca nu sunt aceeasi culoare
                         //seteaza viteza maxima oprire
                         listaBile.get(i).vitezaMax = 0;
@@ -154,7 +156,14 @@ public class Sir {
                 //daca bila curenta nu e stabila
                 if(NrBileIdentice(listaBile.get(i))>=3){
                     //daca sunt destule bile de aceeasi culoare
+                    scor+= NrBileIdentice(listaBile.get(i)) * GetMultiplier(listaBile.get(i));
                     StergeBileIdentice(listaBile.get(i));
+                    if(i<listaBile.size()) {
+                        while (!listaBile.get(i).isSirLeader && !listaBile.get(i).isWaveLeader) {
+                            i--;
+                        }
+                        listaBile.get(i).scoreMultiplier++;
+                    }
                 }
                 else{
                     //stabilizeaza bila
@@ -207,6 +216,7 @@ public class Sir {
             }
             i++;
         }
+        return scor;
     }
     public void NumaraStatusBile(int i){
         //numarare statusuri bile
@@ -258,6 +268,26 @@ public class Sir {
             listaBile.get(index).viteza = viteza;
         }
     }//merge pe wave-uri
+
+    public int GetMultiplier(Bila membru){
+        int multiplier = 1;
+        int index = listaBile.indexOf(membru);
+        while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+            index--;
+        }
+        if(listaBile.get(index).scoreMultiplier > multiplier){
+            multiplier = listaBile.get(index).scoreMultiplier;
+        }
+        index++;
+        while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+            if(listaBile.get(index).scoreMultiplier > multiplier){
+                multiplier = listaBile.get(index).scoreMultiplier;
+            }
+            index++;
+        }
+        System.out.println("Multiplier: "+multiplier);
+        return multiplier;
+    }
     public int marime(){
         return listaBile.size();
     }
