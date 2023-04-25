@@ -13,9 +13,14 @@ import java.util.List;
 
 public class Scena extends JPanel {
     public String FrameTime = "Frame: 0";
-    private int mousex, mousey, rezolutieX, rezolutieY;
+    public static boolean firstPaint = true;
+    private int mousex, mousey;
+    private static int rezolutieX, rezolutieY;
     private final Textura fundal, cursorPrincipal, cursorSecundar;
-    private BufferedImage tex, texfundal, tunJos, tunSus;
+    private BufferedImage tex;
+    private static BufferedImage texfundal;
+    private BufferedImage tunJos;
+    private BufferedImage tunSus;
     private final List<Proiectil> listaProiectile;
     private int scena = 1, scor = 0;
     private final Tun tunar;
@@ -24,8 +29,17 @@ public class Scena extends JPanel {
     private final Sir sirBile;
     private final ResourceManager texturi;
     private final Font fontScor;
-    public Scena() {
+    private LinkedList<GameObject> pozitiiBile,pozitiiProiectile;
+    private final GameObject pozitieTun, pozitieCursor;
+
+    public Scena(int Width, int Height) {
         this.setLayout(null);
+        pozitiiBile = new LinkedList<>();
+        pozitiiProiectile = new LinkedList<>();
+        pozitieTun = new GameObject();
+        pozitieCursor = new GameObject();
+        rezolutieX = Width;
+        rezolutieY = Height;
         texturi = new ResourceManager();
         fontScor = new Font("TimesRoman", Font.PLAIN, 25);
         //mouse clicks
@@ -80,29 +94,60 @@ public class Scena extends JPanel {
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
         sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
-    }
-
-    public void onStart(int sizeX, int sizeY) {
-        rezolutieY = sizeY;
-        rezolutieX = sizeX;
         tex = resize(tex, rezolutieX * tex.getWidth() / targetScreenX, rezolutieY * tex.getHeight() / targetScreenY);
         texfundal = resize(texfundal, rezolutieX, rezolutieY);
         tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
         tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
-        tunar.SetCoordY((float) sizeY / 2 + (float) sizeY / 4);
+        tunar.SetCoordY((float) rezolutieY / 2 + (float) rezolutieY / 4);
         tunar.SetTexSus(tunSus);
         tunar.SetTexJos(tunJos);
+        fundal.SetTexRaw(texfundal);
+        fundal.SetCoordX((float) rezolutieX / 2);
+        fundal.SetCoordY((float) rezolutieY / 2);
+    }
+    static public void repaintBackground(int x, int y, int marimeX, int marimeY, Graphics g){
+        if(x+marimeX > rezolutieX){
+            marimeX = rezolutieX-x;
+        }
+        if(x<0){
+            marimeX += x;
+            x = 0;
+        }
+        if(y+marimeY > rezolutieY){
+            marimeY = rezolutieY-y;
+        }
+        if(y<0){
+            marimeY += y;
+            y = 0;
+        }
+        if(marimeX > 0 && marimeY > 0){
+            g.drawImage(texfundal.getSubimage(x,y,marimeX,marimeY),x,y,null);
+        }
+        //System.out.println(x+" "+y+" "+marimeX+" "+marimeY);
+    }
+
+    public void onStart() {
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
+    }
 
-        fundal.SetTexRaw(texfundal);
-        fundal.SetCoordX((float) sizeX / 2);
-        fundal.SetCoordY((float) sizeY / 2);
+    private void salvarePozitii(){
+        pozitieTun.Copiaza(tunar);
+        pozitieCursor.Copiaza(cursorPrincipal);
+        GameObject aux = new GameObject();
+        for(Proiectil proiectil :listaProiectile){
+            aux.Copiaza(proiectil);
+            pozitiiProiectile.add(new GameObject().Copiaza(aux));
+        }
+        for(Bila bila : sirBile.getListaBile()){
+            aux.Copiaza(bila);
+            pozitiiBile.add(new GameObject().Copiaza(aux));
+        }
     }
 
     public int Actualizare() {
+        salvarePozitii();
         //actualizari proiectile
         for (Iterator<Proiectil> iterator = listaProiectile.iterator(); iterator.hasNext(); ) {
             Proiectil proiectil = iterator.next();
@@ -158,18 +203,45 @@ public class Scena extends JPanel {
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         }
         if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(10);// =)
+            sirBile.WaveNou(15);// =)
         }
         scor += sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce
     }
 
     public void paintComponent(Graphics g) {
-        //super.paintComponent(g);//rezolva trailingul
-        //ordinea elementelor aici arata
+        //background
+        if(firstPaint){
+            firstPaint = false;
+            fundal.paintComponent(g);
+        }
         g.setFont(fontScor);
         g.setColor(Color.black);
-        fundal.paintComponent(g);
+        if(!listaProiectile.isEmpty()){
+            for (GameObject proiectil : pozitiiProiectile) {
+                repaintBackground((int) (proiectil.GetCoordX()-listaProiectile.get(0).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-listaProiectile.get(0).GetMarimeSpriteY()/2)-1,listaProiectile.get(0).GetMarimeSpriteX()+2, listaProiectile.get(0).GetMarimeSpriteY()+2, g);
+            }
+        }
+        if(sirBile.marime() != 0){
+            for (GameObject bila : pozitiiBile) {
+                repaintBackground((int) (bila.GetCoordX()-sirBile.getListaBile().get(0).GetMarimeSpriteX()/2)-1,(int) (bila.GetCoordY()-sirBile.getListaBile().get(0).GetMarimeSpriteY()/2)-1,sirBile.getListaBile().get(0).GetMarimeSpriteX()+2, sirBile.getListaBile().get(0).GetMarimeSpriteY()+2, g);
+            }
+        }
+        pozitiiBile.clear();
+        pozitiiProiectile.clear();
+        repaintBackground((int) (pozitieCursor.GetCoordX()-cursorPrincipal.marime_x/2)-1, (int) (pozitieCursor.GetCoordY()-cursorPrincipal.marime_y/2)-1, cursorPrincipal.marime_x+2, cursorPrincipal.marime_y+2, g);
+        repaintBackground((int) (pozitieTun.GetCoordX()-tunar.marime_x/2)-1, (int) (pozitieTun.GetCoordY()-tunar.marime_y/2)-1, tunar.marime_x+2, tunar.marime_y+2, g);
+        Spritesheet tunjos = tunar.GetTexJos();
+        repaintBackground(tunjos.CenterX(),tunjos.CenterY(),tunjos.GetMarimeSpriteX(),tunjos.GetMarimeSpriteY(),g);
+        //textul de debug
+        repaintBackground(0,0, 180, 180, g);
+        //textul de scor
+        repaintBackground(rezolutieX/2,10, 120, 30, g);
+        LinkedList<Bila> listaBile = sirBile.getListaBile();
+        for(Bila bila : listaBile){
+            repaintBackground(bila.CenterX(), bila.CenterY(), bila.GetMarimeSpriteX(), bila.GetMarimeSpriteY(), g);
+        }
+        //restul
         tunar.paintComponent(g);
         sirBile.paintComponent(g);
         for (Proiectil proiectil : listaProiectile) {
@@ -178,13 +250,15 @@ public class Scena extends JPanel {
         cursorPrincipal.paintComponent(g);
         cursorSecundar.paintComponent(g);
         g.drawString(FrameTime, 10, 20);
-        g.drawString("Nr proiectile: " + listaProiectile.size(), 10, 40);
-        g.drawString("Nr bile: " + sirBile.marime(), 10, 65);
-        g.drawString("Nr wave leaderi: " + sirBile.nrWaveLeaderi,10,90);
-        g.drawString("Nr sir leaderi: "+ sirBile.nrSirLeaderi,10,115);
-        g.drawString("Nr animati: "+ sirBile.nrAnimate,10,140);
-        g.drawString("Nr instabile: "+sirBile.nrInstabile,10,165);
-        g.drawString("Scor: "+scor,rezolutieX/2,30);
+        g.drawString("Proiectile:" + listaProiectile.size(), 10, 40);
+        g.drawString("Bile:" + sirBile.marime(), 10, 65);
+        g.drawString("Wave leaderi:" + sirBile.nrWaveLeaderi,10,90);
+        g.drawString("Sir leaderi:"+ sirBile.nrSirLeaderi,10,115);
+        g.drawString("Animati:"+ sirBile.nrAnimate,10,140);
+        g.drawString("Instabile:"+sirBile.nrInstabile,10,165);
+        g.drawString("Scor:"+scor,rezolutieX/2,30);
+
+
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {
@@ -344,13 +418,6 @@ public class Scena extends JPanel {
             traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()));
         }
         System.out.println("Traseul are " + i + " puncte");
-    }
-
-    private void resizeTraseu(float sizeX, float sizeY) {
-        for (GameObject gameObject : traseuBile) {
-            gameObject.SetCoordX(gameObject.GetCoordX() * sizeX);
-            gameObject.SetCoordY(gameObject.GetCoordY() * sizeY);
-        }
     }
 
 }

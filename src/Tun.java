@@ -96,10 +96,14 @@ public class Tun extends Textura{
         proiectilRezerva = aux;
     }
     public void paintComponent(Graphics g){
-        if(proiectilIncarcat != null)
+        //Scena.repaintBackground((int)tunJos.CenterX(),(int)tunJos.CenterY(),tunJos.GetMarimeSpriteX(),tunJos.GetMarimeSpriteY(),g);
+        //Scena.repaintBackground((int)super.CenterX(),(int)super.CenterY(),super.GetMarimeTexX(),super.GetMarimeTexY(),g);
+        if(proiectilIncarcat != null){
             proiectilIncarcat.paintComponent(g);
-        if(proiectilRezerva != null)
+        }
+        if(proiectilRezerva != null){
             proiectilRezerva.paintComponent(g);
+        }
         tunJos.paintComponent(g);
         super.paintComponent(g);
 
@@ -107,5 +111,8 @@ public class Tun extends Textura{
 
     public void SetTexJos(BufferedImage tunJos) {
         this.tunJos = new Spritesheet(tunJos,5,5,this.tunJos.GetCoordX(),this.tunJos.GetCoordY(),this.GetUnghi());
+    }
+    public Spritesheet GetTexJos(){
+        return tunJos;
     }
 }

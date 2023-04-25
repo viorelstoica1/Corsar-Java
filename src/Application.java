@@ -1,5 +1,6 @@
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
 
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
@@ -7,10 +8,11 @@ public class Application implements Runnable {
     private static int refreshRate;
     private static int screenWidth,screenHeight;
     private static double frameTime;
+    public static BlackScreen panouNegru;
     private static Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
         Initializare();
-        ContextAfisare.onStart(screenWidth,screenHeight);
+        ContextAfisare.onStart();
         /*boolean game_is_running = true;
         double timp_incepere = System.nanoTime();
         double timp_trecut;
@@ -45,15 +47,21 @@ public class Application implements Runnable {
         ScheletAplicatie = new JFrame("Test Game Engine");
         ScheletAplicatie.setUndecorated(true);//scapa de marginile aplicatiei si da multe erori funny
         ScheletAplicatie.setExtendedState(Frame.MAXIMIZED_BOTH);//face aplicatia sa ocupe tot ecranul
-        ContextAfisare = new Scena();
+        panouNegru = new BlackScreen();
+        ScheletAplicatie.add(panouNegru);
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
-        ScheletAplicatie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ScheletAplicatie.add(ContextAfisare);
-        //ScheletAplicatie.createBufferStrategy(2);
-        //ScheletAplicatie.setResizable(false);
         screenWidth = ScheletAplicatie.getWidth();
         screenHeight = ScheletAplicatie.getHeight();
         System.out.println(screenWidth+" x "+screenHeight);
+        ContextAfisare = new Scena(screenWidth, screenHeight);
+        ScheletAplicatie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ScheletAplicatie.add(ContextAfisare);
+        ScheletAplicatie.remove(panouNegru);
+        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
+        System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
+
+        //ScheletAplicatie.createBufferStrategy(2);
+        //ScheletAplicatie.setResizable(false);
     }
     private static int GetRefreshRate(){
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -84,10 +92,10 @@ public class Application implements Runnable {
             if(timp_trecut >= frameTime){
                 timp_incepere = System.nanoTime();
                 scena = ContextAfisare.Actualizare();
-                timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
-                ContextAfisare.FrameTime = "Frame: "+timp_trecut;
-                //ContextAfisare.repaint();
                 ContextAfisare.paintImmediately(0,0,screenWidth,screenHeight);
+                timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
+                ContextAfisare.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
+                //ContextAfisare.repaint();
             }
         }
     }

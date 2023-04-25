@@ -28,10 +28,11 @@ public class GameObject {
         unghi = angel%360;
     }
 
-    public void Copiaza(GameObject x){
+    public GameObject Copiaza(GameObject x){
         this.x = x.x;
         this.y = x.y;
         this.unghi = x.unghi;
+        return this;
     }
 
     public boolean DirectieColiziune(GameObject de_introdus) {

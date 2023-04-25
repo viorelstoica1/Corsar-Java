@@ -101,6 +101,7 @@ public class Sir {
             bila.paintComponent(g);
         }*/
         for(Bila bila:listaBile){
+            //Scena.repaintBackground(bila.CenterX(), bila.CenterY(), bila.GetMarimeSpriteX(), bila.GetMarimeSpriteY(), g);
             bila.paintComponent(g);
         }
     }

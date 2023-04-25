@@ -1,13 +1,13 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
-public class Textura extends GameObject{
+import java.awt.image.ImageObserver;
+
+public class Textura extends GameObject {
     protected int marime_x,marime_y;
     protected BufferedImage imagineRaw;
-
     public Textura(BufferedImage imagine, float poz_x, float poz_y, float angel){
         super(poz_x, poz_y, angel);
         imagineRaw = imagine;
-
         marime_x = imagine.getWidth();
         marime_y = imagine.getHeight();
     }
@@ -44,7 +44,7 @@ public class Textura extends GameObject{
             g2d.drawImage(imagineRaw,CenterX(),CenterY(),null);
             g2d.rotate(-Math.toRadians(GetUnghi()),GetCoordX(),GetCoordY());
         }else{
-            g2d.drawImage(imagineRaw,CenterX(),CenterY(),null);
+            g2d.drawImage(imagineRaw,CenterX(),CenterY(), null);
         }
         //g.drawImage(imagineRaw,CenterX(),CenterY(),marime_x,marime_y,null);
     }
@@ -59,4 +59,5 @@ public class Textura extends GameObject{
         g2d.dispose();
         return this;
     }
+
 }

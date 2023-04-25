@@ -70,7 +70,7 @@ public class ResourceManager {
     }
 
     public Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*3/*nume.size())*/));
+        return texturiBile.get((int) (Math.random()*3/*nume.size()*/));
     }
 
     public Textura getTexturaCursorPrincipal(Textura bila){
