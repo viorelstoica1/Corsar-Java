@@ -29,7 +29,7 @@ public class Scena extends JPanel {
     private final Sir sirBile;
     private final ResourceManager texturi;
     private final Font fontScor;
-    private LinkedList<GameObject> pozitiiBile,pozitiiProiectile;
+    private final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     private final GameObject pozitieTun, pozitieCursor;
 
     public Scena(int Width, int Height) {
@@ -215,24 +215,27 @@ public class Scena extends JPanel {
             firstPaint = false;
             fundal.paintComponent(g);
         }
+        //fundal.paintComponent(g);
+
         g.setFont(fontScor);
         g.setColor(Color.black);
-        if(!listaProiectile.isEmpty()){
+        if(!pozitiiProiectile.isEmpty()){
             for (GameObject proiectil : pozitiiProiectile) {
-                repaintBackground((int) (proiectil.GetCoordX()-listaProiectile.get(0).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-listaProiectile.get(0).GetMarimeSpriteY()/2)-1,listaProiectile.get(0).GetMarimeSpriteX()+2, listaProiectile.get(0).GetMarimeSpriteY()+2, g);
+                repaintBackground((int) (proiectil.GetCoordX()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()/2)-1,((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()+2, ((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()+2, g);
             }
         }
-        if(sirBile.marime() != 0){
+        if(!pozitiiBile.isEmpty()){
             for (GameObject bila : pozitiiBile) {
-                repaintBackground((int) (bila.GetCoordX()-sirBile.getListaBile().get(0).GetMarimeSpriteX()/2)-1,(int) (bila.GetCoordY()-sirBile.getListaBile().get(0).GetMarimeSpriteY()/2)-1,sirBile.getListaBile().get(0).GetMarimeSpriteX()+2, sirBile.getListaBile().get(0).GetMarimeSpriteY()+2, g);
+                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
             }
         }
         pozitiiBile.clear();
         pozitiiProiectile.clear();
         repaintBackground((int) (pozitieCursor.GetCoordX()-cursorPrincipal.marime_x/2)-1, (int) (pozitieCursor.GetCoordY()-cursorPrincipal.marime_y/2)-1, cursorPrincipal.marime_x+2, cursorPrincipal.marime_y+2, g);
+        //tunul
         repaintBackground((int) (pozitieTun.GetCoordX()-tunar.marime_x/2)-1, (int) (pozitieTun.GetCoordY()-tunar.marime_y/2)-1, tunar.marime_x+2, tunar.marime_y+2, g);
         Spritesheet tunjos = tunar.GetTexJos();
-        repaintBackground(tunjos.CenterX(),tunjos.CenterY(),tunjos.GetMarimeSpriteX(),tunjos.GetMarimeSpriteY(),g);
+        repaintBackground(tunjos.CenterX(),(int)(pozitieTun.GetCoordY()-tunar.marime_y/2)-1,tunjos.GetMarimeSpriteX(),tunjos.GetMarimeSpriteY(),g);
         //textul de debug
         repaintBackground(0,0, 180, 180, g);
         //textul de scor

@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="pierdere implementata">
-      <change afterPath="$PROJECT_DIR$/src/BlackScreen.java" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +132,8 @@
       <workItem from="1682243298457" duration="418000" />
       <workItem from="1682274998432" duration="360000" />
       <workItem from="1682329274742" duration="2955000" />
-      <workItem from="1682396353946" duration="12143000" />
+      <workItem from="1682396353946" duration="12542000" />
+      <workItem from="1682699761239" duration="3318000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -316,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682156204623</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir">
+      <created>1682421356525</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1682421356525</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +335,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
     <MESSAGE value="Inserarea bilelor la inceput tine cont de pozitia primei bile" />
     <MESSAGE value="Traseu functional, bile randate frumos" />
     <MESSAGE value="Resource manager primitiv implementat, cu functie de random" />
@@ -359,7 +359,8 @@
     <MESSAGE value="numarBileIdentice tine cont de wave-uri" />
     <MESSAGE value="scor primitiv implementat" />
     <MESSAGE value="pierdere implementata" />
-    <option name="LAST_COMMIT_MESSAGE" value="pierdere implementata" />
+    <MESSAGE value="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir" />
+    <option name="LAST_COMMIT_MESSAGE" value="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
