@@ -17,7 +17,6 @@ public class Scena extends JPanel {
     private int mousex, mousey;
     private static int rezolutieX, rezolutieY;
     private final Textura fundal, cursorPrincipal, cursorSecundar;
-    private BufferedImage tex;
     private static BufferedImage texfundal;
     private BufferedImage tunJos;
     private BufferedImage tunSus;
@@ -80,7 +79,6 @@ public class Scena extends JPanel {
         });
 
         try {
-            tex = ImageIO.read(new File("src/resources/Cannon.png"));
             tunSus = ImageIO.read(new File("src/resources/Cannon_no_shade.png"));
             texfundal = ImageIO.read(new File("src/resources/Background_2.png"));
             tunJos = ImageIO.read(new File("src/resources/Cannon_explosion-sheet.png"));
@@ -94,13 +92,13 @@ public class Scena extends JPanel {
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
         sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
-        tex = resize(tex, rezolutieX * tex.getWidth() / targetScreenX, rezolutieY * tex.getHeight() / targetScreenY);
         texfundal = resize(texfundal, rezolutieX, rezolutieY);
-        tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
-        tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
+        //tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
+        //tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
         tunar.SetCoordY((float) rezolutieY / 2 + (float) rezolutieY / 4);
-        tunar.SetTexSus(tunSus);
-        tunar.SetTexJos(tunJos);
+        //tunar.SetTexSus(tunSus);
+        //tunar.SetTexJos(tunJos);
+        tunar.resizeTun( rezolutieX * tunSus.getWidth() / targetScreenX,rezolutieY * tunSus.getHeight() / targetScreenY);
         fundal.SetTexRaw(texfundal);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
@@ -240,10 +238,6 @@ public class Scena extends JPanel {
         repaintBackground(0,0, 180, 180, g);
         //textul de scor
         repaintBackground(rezolutieX/2,10, 120, 30, g);
-        LinkedList<Bila> listaBile = sirBile.getListaBile();
-        for(Bila bila : listaBile){
-            repaintBackground(bila.CenterX(), bila.CenterY(), bila.GetMarimeSpriteX(), bila.GetMarimeSpriteY(), g);
-        }
         //restul
         tunar.paintComponent(g);
         sirBile.paintComponent(g);

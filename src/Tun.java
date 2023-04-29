@@ -115,4 +115,9 @@ public class Tun extends Textura{
     public Spritesheet GetTexJos(){
         return tunJos;
     }
+
+    public void resizeTun(int newW, int newH){
+        super.resize(newW,newH);
+        tunJos.resize(super.marime_x*5,super.marime_y);
+    }
 }

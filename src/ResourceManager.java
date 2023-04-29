@@ -63,6 +63,22 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_verde.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             nume.add("verde");
+            //wildball
+            tex = ImageIO.read(new File("src/resources/bile_curcubeu.png"));
+            texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
+            tex = ImageIO.read(new File(("src/resources/cursor/cursor_verde.png")));
+            texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
+            tex = ImageIO.read(new File(("src/resources/cursor/craniu_verde.png")));
+            texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
+            nume.add("curcubeu");
+            //fireball
+            tex = ImageIO.read(new File("src/resources/bile_curcubeu.png"));
+            texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
+            tex = ImageIO.read(new File(("src/resources/cursor/cursor_rosu.png")));
+            texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
+            tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
+            texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
+            nume.add("fire");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -70,7 +86,7 @@ public class ResourceManager {
     }
 
     public Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*3/*nume.size()*/));
+        return texturiBile.get((int) (Math.random()*8/*nume.size()*/));
     }
 
     public Textura getTexturaCursorPrincipal(Textura bila){

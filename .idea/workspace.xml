@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rescris codul pentru repaint, e mult mai rapid, hardcodat la sir">
+      <change afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_curcubeu2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,28 +54,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources/cursor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -133,7 +139,8 @@
       <workItem from="1682274998432" duration="360000" />
       <workItem from="1682329274742" duration="2955000" />
       <workItem from="1682396353946" duration="12542000" />
-      <workItem from="1682699761239" duration="3318000" />
+      <workItem from="1682699761239" duration="4131000" />
+      <workItem from="1682761561316" duration="6974000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -317,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682421356525</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="rescris codul pentru repaint, e mult mai rapid, hardcodat la sir">
+      <created>1682714065455</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1682714065455</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +349,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Inserarea bilelor la inceput tine cont de pozitia primei bile" />
     <MESSAGE value="Traseu functional, bile randate frumos" />
     <MESSAGE value="Resource manager primitiv implementat, cu functie de random" />
     <MESSAGE value="Adaugat verificari coliziuni intre proiectile si bile" />
@@ -360,7 +373,8 @@
     <MESSAGE value="scor primitiv implementat" />
     <MESSAGE value="pierdere implementata" />
     <MESSAGE value="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir" />
-    <option name="LAST_COMMIT_MESSAGE" value="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir" />
+    <MESSAGE value="rescris codul pentru repaint, e mult mai rapid, hardcodat la sir" />
+    <option name="LAST_COMMIT_MESSAGE" value="rescris codul pentru repaint, e mult mai rapid, hardcodat la sir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -371,5 +385,8 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Proiect_PAOO$Application.ic" NAME="Application Coverage Results" MODIFIED="1682762027637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

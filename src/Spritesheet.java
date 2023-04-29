@@ -24,6 +24,39 @@ public class Spritesheet extends Textura{
         }
 
     }
+    public Spritesheet(BufferedImage imagine, int nrcadre, int coloane,int liniiComplet, float poz_x, float poz_y, float angel, int inceputTex) {
+        super(imagine, poz_x, poz_y, angel);
+        numar_cadre = nrcadre;
+        cadru_curent = 0;
+        pozitii_cadre = new Rectangle[numar_cadre];
+        int linii = (int)Math.ceil((float)(nrcadre+inceputTex)/coloane);
+        System.out.println("linii = "+linii+" coloane = "+coloane);
+        for(int i=(int)Math.ceil((float)(inceputTex/linii));i<linii;i++){
+            if(i==(int)Math.ceil((float)(inceputTex/linii))){
+                for (int j = inceputTex%coloane;j < coloane && i*coloane+j <nrcadre+inceputTex;j++){
+                    pozitii_cadre[i*coloane+j-inceputTex] = new Rectangle();
+                    pozitii_cadre[i*coloane+j-inceputTex].x = (int)Math.floor((float)this.GetMarimeTexX()*(j) / coloane);
+                    pozitii_cadre[i*coloane+j-inceputTex].y = (int)Math.floor((float)this.GetMarimeTexY()*(i) / liniiComplet);
+                    pozitii_cadre[i*coloane+j-inceputTex].width = this.GetMarimeTexX()/coloane;
+                    pozitii_cadre[i*coloane+j-inceputTex].height = this.GetMarimeTexY()/liniiComplet;
+                    System.out.print("("+pozitii_cadre[i*coloane+j-inceputTex].x+","+pozitii_cadre[i*coloane+j-inceputTex].y+")");
+                    //System.out.print("W:"+pozitii_cadre[i*coloane+j-inceputTex].width+","+pozitii_cadre[i*coloane+j-inceputTex].height);
+                }
+            }else{
+                for (int j = 0;j < coloane && i*coloane+j <nrcadre+inceputTex;j++){
+                    pozitii_cadre[i*coloane+j-inceputTex] = new Rectangle();
+                    pozitii_cadre[i*coloane+j-inceputTex].x = (int)Math.floor((float)this.GetMarimeTexX()*(j) / coloane);
+                    pozitii_cadre[i*coloane+j-inceputTex].y = (int)Math.floor((float)this.GetMarimeTexY()*(i) / liniiComplet);
+                    pozitii_cadre[i*coloane+j-inceputTex].width = this.GetMarimeTexX()/coloane;
+                    pozitii_cadre[i*coloane+j-inceputTex].height = this.GetMarimeTexY()/liniiComplet;
+                    System.out.print("("+pozitii_cadre[i*coloane+j-inceputTex].x+","+pozitii_cadre[i*coloane+j-inceputTex].y+")");
+                    //System.out.print("W:"+pozitii_cadre[i*coloane+j-inceputTex].width+","+pozitii_cadre[i*coloane+j-inceputTex].height);
+                }
+            }
+
+        }
+
+    }
     public Spritesheet(Spritesheet sprite,float poz_x,float poz_y,float angel){
         super(sprite.imagineRaw,poz_x,poz_y,angel);
         this.numar_cadre = sprite.numar_cadre;
@@ -82,8 +115,8 @@ public class Spritesheet extends Textura{
         imagineRaw = dimg;
         g2d.dispose();
         for(int i=0;i<numar_cadre;i++){
-                pozitii_cadre[i].x = (int)Math.floor((float)this.GetMarimeTexX()*pozitii_cadre[i].x / newW);
-                pozitii_cadre[i].y = (int)Math.floor((float)this.GetMarimeTexY()*pozitii_cadre[i].y / newH);
+                pozitii_cadre[i].x = (int)Math.floor(newW * pozitii_cadre[i].x / (float)this.GetMarimeTexX());
+                pozitii_cadre[i].y = (int)Math.floor(newH * pozitii_cadre[i].y / (float)this.GetMarimeTexY());
                 pozitii_cadre[i].width = pozitii_cadre[i].width*newW/this.GetMarimeTexX();
                 pozitii_cadre[i].height = pozitii_cadre[i].height*newH/this.GetMarimeTexY();
         }
