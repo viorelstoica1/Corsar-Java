@@ -26,7 +26,6 @@ public class Scena extends JPanel {
     private static final int targetScreenX = 1920, targetScreenY = 1080;
     private GameObject[] traseuBile;
     private final Sir sirBile;
-    private final ResourceManager texturi;
     private final Font fontScor;
     private final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     private final GameObject pozitieTun, pozitieCursor;
@@ -39,7 +38,8 @@ public class Scena extends JPanel {
         pozitieCursor = new GameObject();
         rezolutieX = Width;
         rezolutieY = Height;
-        texturi = new ResourceManager();
+        ResourceManager.initResourceManager();
+        //texturi = new ResourceManager();
         fontScor = new Font("TimesRoman", Font.PLAIN, 25);
         //mouse clicks
         addMouseListener(new MouseAdapter() {
@@ -87,11 +87,11 @@ public class Scena extends JPanel {
         }
         tunar = new Tun(tunJos, tunSus, mousex, 0, 270, 20);
         fundal = new Textura(texfundal, 0, 0, 0);
-        cursorPrincipal = new Textura(texturi.getTexturaCursorPrincipal().GetTex(),0,0,270);
-        cursorSecundar = new Textura(texturi.getTexturaCursorSecundar().GetTex(), 0,0,270);
+        cursorPrincipal = new Textura(ResourceManager.getTexturaCursorPrincipal().GetTex(),0,0,270);
+        cursorSecundar = new Textura(ResourceManager.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100,texturi);
+        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100);
         texfundal = resize(texfundal, rezolutieX, rezolutieY);
         //tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
         //tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
@@ -125,8 +125,8 @@ public class Scena extends JPanel {
     }
 
     public void onStart() {
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
     }
 
@@ -163,10 +163,10 @@ public class Scena extends JPanel {
         
         //actualizari cursor
         if(tunar.GetProiectilIncarcat() != null){
-            cursorPrincipal.SetTexRaw(texturi.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
+            cursorPrincipal.SetTexRaw(ResourceManager.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
         }
         if(tunar.GetProiectilRezerva() != null){
-            cursorSecundar.SetTexRaw(texturi.getTexturaCursorSecundar(tunar.GetProiectilRezerva()).GetTex());
+            cursorSecundar.SetTexRaw(ResourceManager.getTexturaCursorSecundar(tunar.GetProiectilRezerva()).GetTex());
         }
         cursorPrincipal.SetCoordX(0);
         cursorPrincipal.SetCoordY(tunar.GetCoordY());
@@ -193,7 +193,7 @@ public class Scena extends JPanel {
                 tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             else{
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) texturi.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
         }
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex())){
@@ -219,12 +219,12 @@ public class Scena extends JPanel {
         g.setColor(Color.black);
         if(!pozitiiProiectile.isEmpty()){
             for (GameObject proiectil : pozitiiProiectile) {
-                repaintBackground((int) (proiectil.GetCoordX()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()/2)-1,((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()+2, ((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()+2, g);
+                repaintBackground((int) (proiectil.GetCoordX()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()/2)-1,((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()+2, ((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()+2, g);
             }
         }
         if(!pozitiiBile.isEmpty()){
             for (GameObject bila : pozitiiBile) {
-                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)texturi.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
+                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
             }
         }
         pozitiiBile.clear();

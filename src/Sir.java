@@ -9,9 +9,7 @@ public class Sir {
     private final int indexRapid, indexIncet, indexFinal;
     float viteza,acceleratie, viteza_max, viteza_min;
     GameObject[] traseu;
-    ResourceManager manager;
-    public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal,ResourceManager manager) {
-        this.manager = manager;
+    public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal) {
         listaBile = new LinkedList<>();
         traseu = s;
         viteza_max = viteza_sir_intrare;
@@ -24,12 +22,12 @@ public class Sir {
     }
     public void WaveNou(int numarBile){
         if(numarBile > 0){
-            listaBile.addFirst(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            listaBile.addFirst(new Bila((Spritesheet) ResourceManager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
             listaBile.get(0).isWaveLeader = true;
             numarBile--;
         }
         while(numarBile != 0){
-            adaugaLaWave(new Bila((Spritesheet) manager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            adaugaLaWave(new Bila((Spritesheet) ResourceManager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
             numarBile--;
         }
     }
@@ -60,6 +58,7 @@ public class Sir {
             nrBileIdentice++;
             index++;
         }
+        System.out.println(nrBileIdentice+" bile identice");
         return nrBileIdentice;
     }//merge pe wave-uri
 

@@ -3,13 +3,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Vector;
 
 public class ResourceManager {
-    private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar;
-    private final ArrayList<String> nume;
-    public ResourceManager(){
+    private static Vector<Textura> texturiBile = null;
+    private static Vector<Textura> texturiCursorPrincipal = null;
+    private static Vector<Textura> texturiCursorSecundar = null;
+    private static ArrayList<String> nume = null;
+    public static void initResourceManager(){
         try {
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
@@ -85,11 +86,11 @@ public class ResourceManager {
         }
     }
 
-    public Textura getBilaRandom(){
+    public static Textura getBilaRandom(){
         return texturiBile.get((int) (Math.random()*8/*nume.size()*/));
     }
 
-    public Textura getTexturaCursorPrincipal(Textura bila){
+    public static Textura getTexturaCursorPrincipal(Textura bila){
         for(Textura textura: texturiBile){
             if(textura.GetTex() == bila.GetTex()){
                 return texturiCursorPrincipal.get(texturiBile.indexOf(textura));
@@ -97,14 +98,17 @@ public class ResourceManager {
         }
         return null;
     }
-    public Textura getTexturaCursorPrincipal(){
+    public static Textura getTexturaCursorPrincipal(){
         return texturiCursorPrincipal.get(0);
     }
-    public Textura getTexturaCursorSecundar(){
+    public static Textura getTexturaCursorSecundar(){
         return texturiCursorSecundar.get(0);
     }
 
-    public Textura getTexturaCursorSecundar(Textura bila){
+    public static Textura getTextura(String nume){
+        return texturiBile.get(ResourceManager.nume.indexOf(nume));
+    }
+    public static Textura getTexturaCursorSecundar(Textura bila){
         for(Textura textura: texturiBile){
             if(textura.GetTex() == bila.GetTex()){
                 return texturiCursorSecundar.get(texturiBile.indexOf(textura));
