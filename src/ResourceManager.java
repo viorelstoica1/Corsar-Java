@@ -9,13 +9,14 @@ public class ResourceManager {
     private static Vector<Textura> texturiBile = null;
     private static Vector<Textura> texturiCursorPrincipal = null;
     private static Vector<Textura> texturiCursorSecundar = null;
+    private static Textura fundal1, fundal2, fundal3, tunSus, tunJos;
     private static ArrayList<String> nume = null;
     public static void initResourceManager(){
         try {
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();
-            nume = new ArrayList<String>();
+            nume = new ArrayList<>();
             //galben
             BufferedImage tex = ImageIO.read(new File("src/resources/BILE_GALBENE.png"));
             texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
@@ -80,14 +81,47 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             nume.add("fire");
-
+            //fundaluri
+            tex = ImageIO.read(new File(("src/resources/fundal1.png")));
+            fundal1 = new Textura(tex,0,0,0).resize(1536,864);
+            /*tex = ImageIO.read(new File(("src/resources/fundal2.png")));
+            fundal2 = new Textura(tex,0,0,0);
+            tex = ImageIO.read(new File(("src/resources/fundal3.png")));
+            fundal3 = new Textura(tex,0,0,0);*/
+            //TODO fundal 2 si 3
+            //tun
+            tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
+            tunSus = new Textura(tex,0,0,0);
+            tex = ImageIO.read(new File(("src/resources/Cannon_explosion-sheet.png")));
+            tunJos = new Spritesheet(tex,5,5,0,0,0);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
+    public static Textura getFundal(int nrNivel){
+        switch (nrNivel) {
+            case 1 -> {
+                return fundal1;
+            }
+            case 2 -> {
+                return fundal2;
+            }
+            case 3 -> {
+                return fundal3;
+            }
+            default -> {
+                return null;
+            }
+        }
+    }
+    public static Textura getTunSus(){
+        return tunSus;
+    }
+    public static Textura getTunJos(){
+        return tunJos;
+    }
     public static Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*8/*nume.size()*/));
+        return texturiBile.get((int) (Math.random()*6/*nume.size()*/));
     }
 
     public static Textura getTexturaCursorPrincipal(Textura bila){
@@ -105,7 +139,7 @@ public class ResourceManager {
         return texturiCursorSecundar.get(0);
     }
 
-    public static Textura getTextura(String nume){
+    public static Textura getTexturaBila(String nume){
         return texturiBile.get(ResourceManager.nume.indexOf(nume));
     }
     public static Textura getTexturaCursorSecundar(Textura bila){

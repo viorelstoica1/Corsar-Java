@@ -17,9 +17,6 @@ public class Scena extends JPanel {
     private int mousex, mousey;
     private static int rezolutieX, rezolutieY;
     private final Textura fundal, cursorPrincipal, cursorSecundar;
-    private static BufferedImage texfundal;
-    private BufferedImage tunJos;
-    private BufferedImage tunSus;
     private final List<Proiectil> listaProiectile;
     private int scena = 1, scor = 0;
     private final Tun tunar;
@@ -39,7 +36,6 @@ public class Scena extends JPanel {
         rezolutieX = Width;
         rezolutieY = Height;
         ResourceManager.initResourceManager();
-        //texturi = new ResourceManager();
         fontScor = new Font("TimesRoman", Font.PLAIN, 25);
         //mouse clicks
         addMouseListener(new MouseAdapter() {
@@ -66,44 +62,34 @@ public class Scena extends JPanel {
         });
         addMouseMotionListener(new MouseAdapter() {
             public void mouseMoved(MouseEvent e) {
-                //moveSquare(e.getX(),e.getY());
                 mousex = e.getX();
                 mousey = e.getY();
             }
 
             public void mouseDragged(MouseEvent e) {
-                //moveSquare(e.getX(),e.getY());
                 mousex = e.getX();
                 mousey = e.getY();
             }
         });
 
-        try {
+        /*try {
             tunSus = ImageIO.read(new File("src/resources/Cannon_no_shade.png"));
-            texfundal = ImageIO.read(new File("src/resources/Background_2.png"));
             tunJos = ImageIO.read(new File("src/resources/Cannon_explosion-sheet.png"));
         } catch (IOException e) {
             System.out.println("Nu am putut incarca texturile !");
-        }
-        tunar = new Tun(tunJos, tunSus, mousex, 0, 270, 20);
-        fundal = new Textura(texfundal, 0, 0, 0);
+        }*/
+        tunar = new Tun(ResourceManager.getTunJos().GetTex(), ResourceManager.getTunSus().GetTex(), mousex, 0, 270, 20);
+        fundal = new Textura(ResourceManager.getFundal(1).GetTex(), 0, 0, 0);
         cursorPrincipal = new Textura(ResourceManager.getTexturaCursorPrincipal().GetTex(),0,0,270);
         cursorSecundar = new Textura(ResourceManager.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
         sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100);
-        texfundal = resize(texfundal, rezolutieX, rezolutieY);
-        //tunSus = resize(tunSus, rezolutieX * tunSus.getWidth() / targetScreenX, rezolutieY * tunSus.getHeight() / targetScreenY);
-        //tunJos = resize(tunJos,tunSus.getWidth()*5, tunSus.getHeight());
-        tunar.SetCoordY((float) rezolutieY / 2 + (float) rezolutieY / 4);
-        //tunar.SetTexSus(tunSus);
-        //tunar.SetTexJos(tunJos);
-        tunar.resizeTun( rezolutieX * tunSus.getWidth() / targetScreenX,rezolutieY * tunSus.getHeight() / targetScreenY);
-        fundal.SetTexRaw(texfundal);
+        tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
     }
-    static public void repaintBackground(int x, int y, int marimeX, int marimeY, Graphics g){
+    public void repaintBackground(int x, int y, int marimeX, int marimeY, Graphics g){
         if(x+marimeX > rezolutieX){
             marimeX = rezolutieX-x;
         }
@@ -119,7 +105,7 @@ public class Scena extends JPanel {
             y = 0;
         }
         if(marimeX > 0 && marimeY > 0){
-            g.drawImage(texfundal.getSubimage(x,y,marimeX,marimeY),x,y,null);
+            g.drawImage(fundal.GetTex().getSubimage(x,y,marimeX,marimeY),x,y,null);
         }
         //System.out.println(x+" "+y+" "+marimeX+" "+marimeY);
     }
