@@ -1,11 +1,7 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -17,7 +13,7 @@ public class Scena extends JPanel {
     private int mousex, mousey;
     private static int rezolutieX, rezolutieY;
     private final Textura fundal, cursorPrincipal, cursorSecundar;
-    private final List<Proiectil> listaProiectile;
+    private static List<Proiectil> listaProiectile;
     private int scena = 1, scor = 0;
     private final Tun tunar;
     private static final int targetScreenX = 1920, targetScreenY = 1080;
@@ -139,10 +135,17 @@ public class Scena extends JPanel {
             if (proiectil.isOutOfBounds(rezolutieX, rezolutieY)) {
                 iterator.remove();
             } else {
-                Bila aux = sirBile.TestColiziune(proiectil);
-                if (aux != null) {
-                    sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
-                    iterator.remove();
+                if(proiectil.getClass() == ProiectilBila.class){
+                    Bila aux = sirBile.TestColiziune(proiectil);
+                    if (aux != null) {
+                        sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
+                        iterator.remove();
+                    }
+                }
+                else if(proiectil.getClass() == ProiectilEfect.class){
+                    if(((ProiectilEfect) proiectil).shouldDissapear){
+                        iterator.remove();
+                    }
                 }
             }
         }
@@ -205,7 +208,7 @@ public class Scena extends JPanel {
         g.setColor(Color.black);
         if(!pozitiiProiectile.isEmpty()){
             for (GameObject proiectil : pozitiiProiectile) {
-                repaintBackground((int) (proiectil.GetCoordX()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()/2)-1,(int) (proiectil.GetCoordY()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()/2)-1,((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()+2, ((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()+2, g);
+                repaintBackground((int) (proiectil.GetCoordX()-(ResourceManager.getMarimeBilaSparta()/2)-1),(int) (proiectil.GetCoordY()-(ResourceManager.getMarimeBilaSparta()/2)-1),((ResourceManager.getMarimeBilaSparta())+2), ((ResourceManager.getMarimeBilaSparta())+2), g);
             }
         }
         if(!pozitiiBile.isEmpty()){
@@ -240,17 +243,9 @@ public class Scena extends JPanel {
         g.drawString("Animati:"+ sirBile.nrAnimate,10,140);
         g.drawString("Instabile:"+sirBile.nrInstabile,10,165);
         g.drawString("Scor:"+scor,rezolutieX/2,30);
-
-
     }
-
-    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
-        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2d = dimg.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
-        g2d.dispose();
-        return dimg;
+    public static void AdaugaEfect(Proiectil efect){
+        listaProiectile.add(efect);
     }
 
     private void AlocareTraseuBile() {

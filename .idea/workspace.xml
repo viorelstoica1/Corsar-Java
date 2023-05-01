@@ -4,13 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat sprite bile">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="cleanup incarcare texturi">
+      <change afterPath="$PROJECT_DIR$/src/ProiectilEfect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/bile/Boom_Albastru.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Background_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundal1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ALBASTRE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ALBASTRE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ALBE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ALBE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_GALBENE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_GALBENE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_MOV.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_MOV.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ROSII.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ROSII.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BILE_VERZI.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_VERZI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/CursorFurat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/cursor/CursorFurat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_albastre2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_albastre2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_albe2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_albe2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_curcubeu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_curcubeu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_galbene2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_galbene2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_mov2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_mov2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_rosii2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_rosii2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/bile_verzi2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_verzi2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/galben2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/galben2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +95,7 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\bile" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
@@ -141,7 +158,7 @@
       <workItem from="1682699761239" duration="4131000" />
       <workItem from="1682761561316" duration="10441000" />
       <workItem from="1682929210287" duration="690000" />
-      <workItem from="1682944729004" duration="3555000" />
+      <workItem from="1682944729004" duration="9733000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -353,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682774532986</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="cleanup incarcare texturi">
+      <created>1682948363237</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1682948363237</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Stergere bile cand sunt 3 sau mai multe" />
     <MESSAGE value="-scoatere functie de rotatie si animare tun" />
     <MESSAGE value="-adaugat bile noi" />
     <MESSAGE value="dupa plansete si urlete am facut sirul mult mai destept" />
@@ -396,7 +419,8 @@
     <MESSAGE value="adaugat texturi pentru powerup si suport pentru resize de tun" />
     <MESSAGE value="implementare simpla pentru wildball, trebuie imbunatatita" />
     <MESSAGE value="adaugat sprite bile" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat sprite bile" />
+    <MESSAGE value="cleanup incarcare texturi" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup incarcare texturi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
