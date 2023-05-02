@@ -42,6 +42,7 @@ public class Scena extends JPanel {
                     if(tunar.isGataDeTras()){
                         listaProiectile.add(tunar.GetProiectilIncarcat());
                         tunar.Trage();
+                        SoundManager.playSound("src/resources/sunete/launch_sphere.wav");
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
@@ -52,6 +53,7 @@ public class Scena extends JPanel {
                     if(tunar.isGataDeTras()){
                         System.out.println("Click dreapta la coordonatele " + e.getX() + " " + e.getY());
                         tunar.SchimbaOrdineProiectile();
+                        SoundManager.playSound("src/resources/sunete/bullet_swap.wav");
                     }
                 }
             }
@@ -104,6 +106,7 @@ public class Scena extends JPanel {
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
+        SoundManager.playSound("src/resources/sunete/Muzica1.wav");
     }
 
     private void salvarePozitii(){
@@ -134,6 +137,7 @@ public class Scena extends JPanel {
                     if (aux != null) {
                         sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
                         iterator.remove();
+                        SoundManager.playSound("src/resources/sunete/collide_spheres_shot.wav");
                     }
                 }
                 else if(proiectil.getClass() == ProiectilEfect.class){
@@ -178,6 +182,7 @@ public class Scena extends JPanel {
             else{
                 tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
+            SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
         }
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex())){
             bilaDinSir = sirBile.getTexturaBilaRandom();

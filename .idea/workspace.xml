@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="implementat animatie de spargere bile (o culoare)">
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.wav" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Boom la toate bilele">
+      <change afterPath="$PROJECT_DIR$/src/SoundManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/Muzica1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/bullet_reload.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/bullet_swap.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/collapse_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/collide_spheres_path.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/collide_spheres_shot.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/launch_sphere.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/spheres_roll.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sunete/level_intro.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sunete/level_intro.ogg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +155,7 @@
       <workItem from="1682929210287" duration="690000" />
       <workItem from="1682944729004" duration="10473000" />
       <workItem from="1682980011763" duration="319000" />
-      <workItem from="1683016466863" duration="5852000" />
+      <workItem from="1683016466863" duration="11912000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -371,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682954588119</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Boom la toate bilele">
+      <created>1683024736978</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1683024736978</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-adaugat bile noi" />
     <MESSAGE value="dupa plansete si urlete am facut sirul mult mai destept" />
     <MESSAGE value="reparat viteze, acum merge mai smooth" />
     <MESSAGE value="reparat acceleratie, nu mergea in unele cazuri" />
@@ -414,7 +430,8 @@
     <MESSAGE value="adaugat sprite bile" />
     <MESSAGE value="cleanup incarcare texturi" />
     <MESSAGE value="implementat animatie de spargere bile (o culoare)" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementat animatie de spargere bile (o culoare)" />
+    <MESSAGE value="Boom la toate bilele" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boom la toate bilele" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
