@@ -99,6 +99,12 @@ public class Application implements Runnable {
             }
         }
     }
+    public static int getScreenWidth(){
+        return screenWidth;
+    }
+    public static int getScreenHeight(){
+        return screenHeight;
+    }
 }
 
 

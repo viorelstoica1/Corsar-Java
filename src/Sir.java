@@ -96,13 +96,13 @@ public class Sir {
     }
 
     public void paintComponent(Graphics g){
-        /*LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
+        LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
         for (Bila bila : listaRandare) {
             bila.paintComponent(g);
-        }*/
-        for(Bila bila:listaBile){
-            bila.paintComponent(g);
         }
+        /*for(Bila bila:listaBile){
+            bila.paintComponent(g);
+        }*/
     }
 
     public int Update(){

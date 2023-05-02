@@ -129,24 +129,14 @@ public class Scena extends JPanel {
         for (Iterator<Proiectil> iterator = listaProiectile.iterator(); iterator.hasNext(); ) {
             Proiectil proiectil = iterator.next();
             proiectil.UpdateProiectil();
-            if (proiectil.isOutOfBounds(rezolutieX, rezolutieY)) {
+            Bila aux = sirBile.TestColiziune(proiectil);
+            if (aux != null) {
+                proiectil.HitSir(sirBile);
+            }
+            if (proiectil.shouldDissapear) {
                 iterator.remove();
-            } else {
-                if(proiectil.getClass() == ProiectilBila.class){
-                    Bila aux = sirBile.TestColiziune(proiectil);
-                    if (aux != null) {
-                        proiectil.HitSir(sirBile);
-                        iterator.remove();
-                    }
-                }
-                else if(proiectil.getClass() == ProiectilEfect.class){
-                    if(((ProiectilEfect) proiectil).shouldDissapear){
-                        iterator.remove();
-                    }
-                }
             }
         }
-        
         //actualizari cursor
         if(tunar.GetProiectilIncarcat() != null){
             cursorPrincipal.SetTexRaw(ResourceManager.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
@@ -182,8 +172,11 @@ public class Scena extends JPanel {
                 tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
+            if(Math.random()>0.5){
+                tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100));
+            }
         }
-        if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex())){
+        if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex()) && (tunar.GetProiectilIncarcat().getClass() == ProiectilBila.class)){
             bilaDinSir = sirBile.getTexturaBilaRandom();
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         }

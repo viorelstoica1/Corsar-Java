@@ -11,14 +11,14 @@ public class ResourceManager {
     private static Vector<Textura> texturiCursorSecundar = null;
     private static Vector<Textura> texturiSparte = null;
     private static Textura fundal1, fundal2, fundal3, tunSus, tunJos;
-    private static ArrayList<String> nume = null;
+    private static Vector<String> nume = null;
     public static void initResourceManager(){
         try {
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();
             texturiSparte = new Vector<>();
-            nume = new ArrayList<>();
+            nume = new Vector<>();
             //galben
             BufferedImage tex = ImageIO.read(new File("src/resources/bile/BILE_GALBENE.png"));
             texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
@@ -99,6 +99,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Rosu_Sheet.png")));
             texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("fire");
+
             //fundaluri
             tex = ImageIO.read(new File(("src/resources/fundal1.png")));
             fundal1 = new Textura(tex,0,0,0).resize(1536,864);
@@ -139,7 +140,7 @@ public class ResourceManager {
         return tunJos;
     }
     public static Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*6/*nume.size()*/));
+        return texturiBile.get((int) (Math.random()*4));
     }
 
     public static Textura getTexturaCursorPrincipal(Textura bila){
@@ -158,6 +159,7 @@ public class ResourceManager {
     }
 
     public static Textura getTexturaBila(String nume){
+        System.out.println("textura "+ResourceManager.nume.indexOf(nume));
         return texturiBile.get(ResourceManager.nume.indexOf(nume));
     }
     public static Textura getTexturaCursorSecundar(Textura bila){

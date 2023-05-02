@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat sunete de baza">
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/Music1.wav" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="modificat structura pentru proiectile">
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/collapse_fireball.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProiectilEfect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilEfect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +150,7 @@
       <workItem from="1682929210287" duration="690000" />
       <workItem from="1682944729004" duration="10473000" />
       <workItem from="1682980011763" duration="319000" />
-      <workItem from="1683016466863" duration="18539000" />
+      <workItem from="1683016466863" duration="25572000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -388,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683034141773</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="modificat structura pentru proiectile">
+      <created>1683044613570</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683044613570</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +415,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reparat viteze, acum merge mai smooth" />
     <MESSAGE value="reparat acceleratie, nu mergea in unele cazuri" />
     <MESSAGE value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
     <MESSAGE value="rescris logice de viteza iar, adaugat animatii de inserare" />
@@ -431,7 +439,8 @@
     <MESSAGE value="implementat animatie de spargere bile (o culoare)" />
     <MESSAGE value="Boom la toate bilele" />
     <MESSAGE value="adaugat sunete de baza" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat sunete de baza" />
+    <MESSAGE value="modificat structura pentru proiectile" />
+    <option name="LAST_COMMIT_MESSAGE" value="modificat structura pentru proiectile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
