@@ -4,29 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="cleanup incarcare texturi">
-      <change afterPath="$PROJECT_DIR$/src/ProiectilEfect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/bile/Boom_Albastru.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="implementat animatie de spargere bile (o culoare)">
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.ogg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sunete/level_intro.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ALBASTRE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ALBASTRE.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ALBE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ALBE.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_GALBENE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_GALBENE.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_MOV.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_MOV.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_ROSII.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_ROSII.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BILE_VERZI.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/BILE_VERZI.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/CursorFurat.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/cursor/CursorFurat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_albastre2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_albastre2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_albe2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_albe2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_curcubeu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_curcubeu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_galbene2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_galbene2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_mov2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_mov2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_rosii2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_rosii2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/bile_verzi2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/bile_verzi2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/galben2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/bile/galben2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,32 +52,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources/cursor&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/sunete",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\bile" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
@@ -158,7 +143,9 @@
       <workItem from="1682699761239" duration="4131000" />
       <workItem from="1682761561316" duration="10441000" />
       <workItem from="1682929210287" duration="690000" />
-      <workItem from="1682944729004" duration="9733000" />
+      <workItem from="1682944729004" duration="10473000" />
+      <workItem from="1682980011763" duration="319000" />
+      <workItem from="1683016466863" duration="5852000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -377,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682948363237</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="implementat animatie de spargere bile (o culoare)">
+      <created>1682954588119</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1682954588119</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +389,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-scoatere functie de rotatie si animare tun" />
     <MESSAGE value="-adaugat bile noi" />
     <MESSAGE value="dupa plansete si urlete am facut sirul mult mai destept" />
     <MESSAGE value="reparat viteze, acum merge mai smooth" />
@@ -420,7 +413,8 @@
     <MESSAGE value="implementare simpla pentru wildball, trebuie imbunatatita" />
     <MESSAGE value="adaugat sprite bile" />
     <MESSAGE value="cleanup incarcare texturi" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup incarcare texturi" />
+    <MESSAGE value="implementat animatie de spargere bile (o culoare)" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementat animatie de spargere bile (o culoare)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

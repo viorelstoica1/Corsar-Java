@@ -68,12 +68,6 @@ public class Scena extends JPanel {
             }
         });
 
-        /*try {
-            tunSus = ImageIO.read(new File("src/resources/Cannon_no_shade.png"));
-            tunJos = ImageIO.read(new File("src/resources/Cannon_explosion-sheet.png"));
-        } catch (IOException e) {
-            System.out.println("Nu am putut incarca texturile !");
-        }*/
         tunar = new Tun(ResourceManager.getTunJos().GetTex(), ResourceManager.getTunSus().GetTex(), mousex, 0, 270, 20);
         fundal = new Textura(ResourceManager.getFundal(1).GetTex(), 0, 0, 0);
         cursorPrincipal = new Textura(ResourceManager.getTexturaCursorPrincipal().GetTex(),0,0,270);
