@@ -92,6 +92,7 @@ public class Application implements Runnable {
                 timp_incepere = System.nanoTime();
                 scena = ContextAfisare.Actualizare();
                 ContextAfisare.paintImmediately(0,0,screenWidth,screenHeight);
+                //ContextAfisare.repaint(0,0,screenWidth,screenHeight);
                 timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
                 ContextAfisare.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
                 //ContextAfisare.repaint();

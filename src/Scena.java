@@ -106,7 +106,7 @@ public class Scena extends JPanel {
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
-        SoundManager.playSound("src/resources/sunete/Muzica1.wav");
+        SoundManager.playSound("src/resources/sunete/Music1.wav");
     }
 
     private void salvarePozitii(){
@@ -135,9 +135,8 @@ public class Scena extends JPanel {
                 if(proiectil.getClass() == ProiectilBila.class){
                     Bila aux = sirBile.TestColiziune(proiectil);
                     if (aux != null) {
-                        sirBile.adaugaPeBila(aux, new Bila(proiectil.getSprite(), proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(), aux.acceleratie));
+                        proiectil.HitSir(sirBile);
                         iterator.remove();
-                        SoundManager.playSound("src/resources/sunete/collide_spheres_shot.wav");
                     }
                 }
                 else if(proiectil.getClass() == ProiectilEfect.class){

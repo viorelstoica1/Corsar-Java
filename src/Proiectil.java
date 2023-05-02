@@ -36,4 +36,5 @@ public abstract class Proiectil extends Spritesheet{
     public Spritesheet getSprite(){
         return this;
     }
+    public abstract void HitSir(Sir sir);
 }

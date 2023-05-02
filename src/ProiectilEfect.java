@@ -24,4 +24,9 @@ public class ProiectilEfect extends Proiectil{
         }
         SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/GetNrCadre())));
     }
+
+    @Override
+    public void HitSir(Sir sir) {
+
+    }
 }
