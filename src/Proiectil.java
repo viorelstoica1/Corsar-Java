@@ -3,16 +3,16 @@ import java.awt.image.BufferedImage;
 public abstract class Proiectil extends Spritesheet{
     public boolean shouldDissapear = false;
     public float viteza_x,viteza_y,acceleratie_x,acceleratie_y, viteza_max;
+    protected int cadruAnimatie = 0;
+    protected final int vitezaAnimatie;
 
-    public Proiectil(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel, float viteza_max) {
-        super(imagine, nrcadre, coloane, poz_x, poz_y, angel);
-        this.viteza_max = viteza_max;
-    }
-    public Proiectil(Spritesheet sprite,float poz_x,float poz_y,float angel, float viteza_max){
+    public Proiectil(Spritesheet sprite,float poz_x,float poz_y,float angel, float viteza_max, int vitezaAnimatie){
         super( sprite, poz_x, poz_y, angel);
         this.viteza_max = viteza_max;
+        this.vitezaAnimatie = vitezaAnimatie;
+
     }
-    void UpdateProiectil() {
+    public void UpdateProiectil() {
         viteza_x += acceleratie_x;
         if(viteza_x > viteza_max){
             viteza_x = viteza_max;
@@ -27,6 +27,11 @@ public abstract class Proiectil extends Spritesheet{
         }
         SetCoordX(GetCoordX()+viteza_x);
         SetCoordY(GetCoordY()+viteza_y);
+        cadruAnimatie++;
+        if(cadruAnimatie >= vitezaAnimatie){
+            cadruAnimatie = 0;
+        }
+        SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/GetNrCadre())));
         if (isOutOfBounds(Application.getScreenWidth(), Application.getScreenHeight())) {
             shouldDissapear = true;
         }

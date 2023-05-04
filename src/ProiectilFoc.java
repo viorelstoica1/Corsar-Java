@@ -3,8 +3,8 @@ import java.util.LinkedList;
 public class ProiectilFoc extends Proiectil{
     float marimeZonaFoc;
 
-    public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, float marimeZonaFoc) {
-        super((Spritesheet) ResourceManager.get().getTexturaBila("fire"), poz_x, poz_y, angel, viteza_max);
+    public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, float marimeZonaFoc, int vitezaAnimatie) {
+        super((Spritesheet) ResourceManager.get().getTexturaBila("fire"), poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
         this.marimeZonaFoc = marimeZonaFoc;
     }
 
@@ -17,9 +17,8 @@ public class ProiectilFoc extends Proiectil{
         while(index < listaBile.size()){
             if(listaBile.get(index).DistantaPatrat(this) <= marimeZonaFoc*marimeZonaFoc){
                 //TODO gaseste o solutie sa mearga asta
-                //Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
+                Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
                 SoundManager.playSound("src/resources/sunete/collapse_fireball.wav");
-
                 listaBile.remove(index);
             }
             else{

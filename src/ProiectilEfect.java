@@ -1,24 +1,16 @@
 
 public class ProiectilEfect extends Proiectil{
-    private int cadruAnimatie = 0;
-    private final int vitezaAnimatie;
-
+    private int lastFrame = 0;
     public ProiectilEfect(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie) {
-        super(sprite, poz_x, poz_y, angel, viteza_max);
-        this.vitezaAnimatie = vitezaAnimatie;
+        super(sprite, poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
     }
-
-    @Override
-    void UpdateProiectil() {
+    @Override public void UpdateProiectil(){
         super.UpdateProiectil();
-        cadruAnimatie++;
-        if(cadruAnimatie >= vitezaAnimatie){
-            cadruAnimatie = 0;
+        if(lastFrame > cadruAnimatie){
             shouldDissapear = true;
         }
-        SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/GetNrCadre())));
+        lastFrame = cadruAnimatie;
     }
-
     @Override
     public void HitSir(Sir sir) {
 

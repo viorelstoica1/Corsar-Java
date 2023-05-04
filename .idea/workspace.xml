@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat bugul enervant cu sirul">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Transformat ResourceManager intr-un Singleton pentru a scapa de posibilitatea de null pointer in texturi + code cleanup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilEfect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilEfect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -103,8 +103,8 @@ public class Scena extends JPanel {
     }
 
     public void onStart() {
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
         SoundManager.playSound("src/resources/sunete/Music1.wav");
     }
@@ -126,16 +126,20 @@ public class Scena extends JPanel {
     public int Actualizare() {
         salvarePozitii();
         //actualizari proiectile
-        for (Iterator<Proiectil> iterator = listaProiectile.iterator(); iterator.hasNext(); ) {
-            Proiectil proiectil = iterator.next();
+        int index = 0;
+        while (index < listaProiectile.size()) {
+            Proiectil proiectil = listaProiectile.get(index);
             proiectil.UpdateProiectil();
             Bila aux = sirBile.TestColiziune(proiectil);
             if (aux != null) {
                 proiectil.HitSir(sirBile);
             }
             if (proiectil.shouldDissapear) {
-                iterator.remove();
+                //iterator.remove();
+                listaProiectile.remove(proiectil);
+                index--;
             }
+            index++;
         }
         //actualizari cursor
         if(tunar.GetProiectilIncarcat() != null){
@@ -166,19 +170,19 @@ public class Scena extends JPanel {
         Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
             if(bilaDinSir != null){
-                tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
             }
             else{
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
-            if(Math.random()>0.9){
-                tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100));
+            if(Math.random()>0.95){
+                tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100, 120));
             }
         }
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex()) && (tunar.GetProiectilIncarcat().getClass() == ProiectilBila.class)){
             bilaDinSir = sirBile.getTexturaBilaRandom();
-            tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         }
         if(sirBile.marime() < 5 && !sirBile.lost){
             sirBile.WaveNou(15);// =)
@@ -236,7 +240,7 @@ public class Scena extends JPanel {
         g.drawString("Scor:"+scor,rezolutieX/2,30);
     }
     public static void AdaugaEfect(Proiectil efect){
-        listaProiectile.add(efect);
+        listaProiectile.add(listaProiectile.size(),efect);
     }
 
     private void AlocareTraseuBile() {
