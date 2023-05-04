@@ -51,10 +51,12 @@ public class Tun extends Textura{
         if(proiectilIncarcat != null){
             proiectilIncarcat.SetCoordX((float) (GetCoordX() + Math.cos(Math.toRadians(GetUnghi()-90)) * 50));
             proiectilIncarcat.SetCoordY((float) (GetCoordY() + Math.sin(Math.toRadians(GetUnghi()-90)) * 50));
+            proiectilIncarcat.UpdateProiectil();
         }
         if(proiectilRezerva != null){
             proiectilRezerva.SetCoordX((float) (GetCoordX() - Math.cos(Math.toRadians(GetUnghi()-90)) * 15));
             proiectilRezerva.SetCoordY((float) (GetCoordY() - Math.sin(Math.toRadians(GetUnghi()-90)) * 15));
+            proiectilRezerva.UpdateProiectil();
         }
     }
     void Trage(){
