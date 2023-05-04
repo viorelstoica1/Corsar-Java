@@ -177,7 +177,7 @@ public class Scena extends JPanel {
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
             if(Math.random()>0.95){
-                tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100, 120));
+                tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100, 32));
             }
         }
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex()) && (tunar.GetProiectilIncarcat().getClass() == ProiectilBila.class)){
@@ -190,6 +190,8 @@ public class Scena extends JPanel {
         scor += sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce
     }
+
+//linia asta de cod a fost scrisa de un domn anonim
 
     public void paintComponent(Graphics g) {
         //background
