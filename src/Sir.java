@@ -133,7 +133,8 @@ public class Sir {
                         listaBile.get(i).isStable = false;
                     }
                     //seteaza viteza bilei din urma
-                    getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
+                    //TODO pe aici e un bug
+                    getBilaInceputSir(i).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                     SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav");
                 }
                 else{
@@ -252,7 +253,7 @@ public class Sir {
     }
     public void StergeBileIdentice(Bila membru){
         int index = listaBile.indexOf(membru);
-        float viteza = membru.viteza;
+        //float viteza = membru.viteza;
         boolean waveLeader = false;
         while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             index--;
@@ -273,7 +274,7 @@ public class Sir {
             else{
                 listaBile.get(index).isSirLeader = true;
             }
-            listaBile.get(index).viteza = viteza;
+            //listaBile.get(index).viteza = viteza;
         }
         SoundManager.playSound("src/resources/sunete/collapse_1.wav");
     }//merge pe wave-uri
@@ -334,13 +335,16 @@ public class Sir {
     public Bila getBilaInceputSir(int index){
         index--;
         while(index >= 0){
-            if(listaBile.get(index).isSirLeader || listaBile.get(index).isWaveLeader){
+            if(listaBile.get(index).isSirLeader){
                 index--;
                 break;
             }
+            else if(listaBile.get(index).isWaveLeader){
+                return listaBile.get(index);
+            }
             index--;
         }
-        //System.out.println(listaBile.get(index+1).index+" ");
+        //System.out.println(listaBile.indexOf(listaBile.get(index+1))+" ");
         return listaBile.get(index+1);
     }
 }

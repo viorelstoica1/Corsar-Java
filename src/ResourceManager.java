@@ -159,7 +159,7 @@ public class ResourceManager {
     }
 
     public static Textura getTexturaBila(String nume){
-        System.out.println("textura "+ResourceManager.nume.indexOf(nume));
+        //System.out.println("textura "+ResourceManager.nume.indexOf(nume));
         return texturiBile.get(ResourceManager.nume.indexOf(nume));
     }
     public static Textura getTexturaCursorSecundar(Textura bila){

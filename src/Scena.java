@@ -172,7 +172,7 @@ public class Scena extends JPanel {
                 tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
-            if(Math.random()>0.5){
+            if(Math.random()>0.9){
                 tunar.SetProiectilCurent(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100));
             }
         }
