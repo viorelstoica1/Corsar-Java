@@ -22,13 +22,13 @@ public class Sir {
     }
     public void WaveNou(int numarBile){
         if(numarBile > 0){
-            listaBile.addFirst(new Bila((Spritesheet) ResourceManager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            listaBile.addFirst(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
             listaBile.get(0).isWaveLeader = true;
             numarBile--;
             SoundManager.playSound("src/resources/sunete/spheres_roll.wav");
         }
         while(numarBile != 0){
-            adaugaLaWave(new Bila((Spritesheet) ResourceManager.getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            adaugaLaWave(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
             numarBile--;
         }
     }
@@ -59,7 +59,7 @@ public class Sir {
             nrBileIdentice++;
             index++;
         }
-        System.out.println(nrBileIdentice+" bile identice");
+        //System.out.println(nrBileIdentice+" bile identice");
         return nrBileIdentice;
     }//merge pe wave-uri
 
@@ -82,7 +82,7 @@ public class Sir {
         de_introdus.index = membru.index-membru.GetMarimeSpriteX();
     }
     //verifica daca trebuie adaugat in stanga sau in dreapta si adauga
-    public Bila adaugaPeBila(Bila membru, Bila de_introdus){
+    public void adaugaPeBila(Bila membru, Bila de_introdus){
         if (membru.DirectieColiziune(de_introdus)) {
             adaugaLaDreaptaBilei(membru, de_introdus);
         }
@@ -92,17 +92,13 @@ public class Sir {
         de_introdus.isAnimating = true;
         de_introdus.viteza = membru.viteza;
         getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
-        return de_introdus;
     }
 
     public void paintComponent(Graphics g){
-        LinkedList<Bila> listaRandare  = new LinkedList<Bila>(listaBile);
+        LinkedList<Bila> listaRandare  = new LinkedList<>(listaBile);
         for (Bila bila : listaRandare) {
             bila.paintComponent(g);
         }
-        /*for(Bila bila:listaBile){
-            bila.paintComponent(g);
-        }*/
     }
 
     public int Update(){
@@ -133,7 +129,6 @@ public class Sir {
                         listaBile.get(i).isStable = false;
                     }
                     //seteaza viteza bilei din urma
-                    //TODO pe aici e un bug
                     getBilaInceputSir(i).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                     SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav");
                 }
@@ -261,10 +256,10 @@ public class Sir {
         if(listaBile.get(index).isWaveLeader){
             waveLeader = true;
         }
-        Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
+        Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
         listaBile.remove(index);
         while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
-            Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
+            Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
             listaBile.remove(index);
         }
         if(index < listaBile.size()){
@@ -319,9 +314,6 @@ public class Sir {
             index++;
         }
         //System.out.println(listaBile.get(index-1).index+" ");
-        if(index == listaBile.size()){
-            return listaBile.get(index-1);
-        }
         return listaBile.get(index-1);
     }//merge pe wave-uri
     public boolean isCuloareInSir(BufferedImage culoare){

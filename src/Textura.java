@@ -1,7 +1,5 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-
 public class Textura extends GameObject {
     protected int marime_x,marime_y;
     protected BufferedImage imagineRaw;

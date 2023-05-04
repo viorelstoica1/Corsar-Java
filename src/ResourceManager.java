@@ -2,22 +2,19 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class ResourceManager {
-    private static Vector<Textura> texturiBile = null;
-    private static Vector<Textura> texturiCursorPrincipal = null;
-    private static Vector<Textura> texturiCursorSecundar = null;
-    private static Vector<Textura> texturiSparte = null;
-    private static Textura fundal1, fundal2, fundal3, tunSus, tunJos;
-    private static Vector<String> nume = null;
-    public static void initResourceManager(){
+    private static ResourceManager instanta = null;
+    private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
+    private final Textura fundal1, fundal2 = null, fundal3 = null, tunSus, tunJos;
+    private final Vector<String> nume;
+    private ResourceManager(){
         try {
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();
-            texturiSparte = new Vector<>();
+            texturiBileSparte = new Vector<>();
             nume = new Vector<>();
             //galben
             BufferedImage tex = ImageIO.read(new File("src/resources/bile/BILE_GALBENE.png"));
@@ -27,7 +24,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_galben.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Galben_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("galben");
             //albastru
             tex = ImageIO.read(new File("src/resources/bile/BILE_ALBASTRE.png"));
@@ -37,7 +34,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_albastru.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Albastru_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("albastru");
             //alb
             tex = ImageIO.read(new File("src/resources/bile/BILE_ALBE.png"));
@@ -47,7 +44,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_alb.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Alb_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("alb");
             //mov
             tex = ImageIO.read(new File("src/resources/bile/BILE_MOV.png"));
@@ -57,7 +54,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_mov.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Mov_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("mov");
             //rosu
             tex = ImageIO.read(new File("src/resources/bile/BILE_ROSII.png"));
@@ -67,7 +64,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Rosu_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("rosu");
             //verde
             tex = ImageIO.read(new File("src/resources/bile/BILE_VERZI.png"));
@@ -77,7 +74,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_verde.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Verde_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("verde");
             //wildball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
@@ -87,7 +84,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_verde.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Verde_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("curcubeu");
             //fireball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
@@ -97,7 +94,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Rosu_Sheet.png")));
-            texturiSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
+            texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("fire");
 
             //fundaluri
@@ -117,7 +114,13 @@ public class ResourceManager {
             throw new RuntimeException(e);
         }
     }
-    public static Textura getFundal(int nrNivel){
+    public static synchronized ResourceManager get(){
+        if(instanta == null){
+            instanta = new ResourceManager();
+        }
+        return instanta;
+    }
+    public Textura getFundal(int nrNivel){
         switch (nrNivel) {
             case 1 -> {
                 return fundal1;
@@ -133,17 +136,17 @@ public class ResourceManager {
             }
         }
     }
-    public static Textura getTunSus(){
+    public Textura getTunSus(){
         return tunSus;
     }
-    public static Textura getTunJos(){
+    public Textura getTunJos(){
         return tunJos;
     }
-    public static Textura getBilaRandom(){
+    public Textura getBilaRandom(){
         return texturiBile.get((int) (Math.random()*4));
     }
 
-    public static Textura getTexturaCursorPrincipal(Textura bila){
+    public  Textura getTexturaCursorPrincipal(Textura bila){
         for(Textura textura: texturiBile){
             if(textura.GetTex() == bila.GetTex()){
                 return texturiCursorPrincipal.get(texturiBile.indexOf(textura));
@@ -151,18 +154,18 @@ public class ResourceManager {
         }
         return null;
     }
-    public static Textura getTexturaCursorPrincipal(){
+    public Textura getTexturaCursorPrincipal(){
         return texturiCursorPrincipal.get(0);
     }
-    public static Textura getTexturaCursorSecundar(){
+    public Textura getTexturaCursorSecundar(){
         return texturiCursorSecundar.get(0);
     }
 
-    public static Textura getTexturaBila(String nume){
+    public Textura getTexturaBila(String numeTextura){
         //System.out.println("textura "+ResourceManager.nume.indexOf(nume));
-        return texturiBile.get(ResourceManager.nume.indexOf(nume));
+        return texturiBile.get(nume.indexOf(numeTextura));
     }
-    public static Textura getTexturaCursorSecundar(Textura bila){
+    public Textura getTexturaCursorSecundar(Textura bila){
         for(Textura textura: texturiBile){
             if(textura.GetTex() == bila.GetTex()){
                 return texturiCursorSecundar.get(texturiBile.indexOf(textura));
@@ -170,18 +173,18 @@ public class ResourceManager {
         }
         return null;
     }
-    public static Textura getTexturaBilaSparta(Textura bila){
+    public Textura getTexturaBilaSparta(Textura bila){
         for (Textura textura: texturiBile){
             if(textura.GetTex() == bila.GetTex()){
-                return texturiSparte.get(texturiBile.indexOf(textura));
+                return texturiBileSparte.get(texturiBile.indexOf(textura));
             }
         }
         return null;
     }
-    public static int getMarimeBila(){
+    public int getMarimeBila(){
         return ((Spritesheet)texturiBile.get(0)).GetMarimeSpriteX();
     }
-    public static int getMarimeBilaSparta(){
-        return texturiSparte.get(0).marime_x;
+    public int getMarimeBilaSparta(){
+        return texturiBileSparte.get(0).marime_x;
     }
 }

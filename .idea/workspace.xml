@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="implementat bila de foc de baza">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat bugul enervant cu sirul">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +148,7 @@
       <workItem from="1682944729004" duration="10473000" />
       <workItem from="1682980011763" duration="319000" />
       <workItem from="1683016466863" duration="27430000" />
-      <workItem from="1683187629767" duration="3508000" />
+      <workItem from="1683187629767" duration="6812000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -399,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683051683476</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="rezolvat bugul enervant cu sirul">
+      <created>1683191233249</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1683191233249</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +427,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rescris logica de viteze la sir pentru mai multe cazuri acoperite" />
     <MESSAGE value="rescris logice de viteza iar, adaugat animatii de inserare" />
     <MESSAGE value="reparat erori in logica, animatia nu merge la sir leader si wave leader" />
     <MESSAGE value="reparat erori in logica" />
@@ -442,7 +451,8 @@
     <MESSAGE value="adaugat sunete de baza" />
     <MESSAGE value="modificat structura pentru proiectile" />
     <MESSAGE value="implementat bila de foc de baza" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementat bila de foc de baza" />
+    <MESSAGE value="rezolvat bugul enervant cu sirul" />
+    <option name="LAST_COMMIT_MESSAGE" value="rezolvat bugul enervant cu sirul" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

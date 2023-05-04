@@ -4,7 +4,7 @@ public class ProiectilFoc extends Proiectil{
     float marimeZonaFoc;
 
     public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, float marimeZonaFoc) {
-        super((Spritesheet) ResourceManager.getTexturaBila("fire"), poz_x, poz_y, angel, viteza_max);
+        super((Spritesheet) ResourceManager.get().getTexturaBila("fire"), poz_x, poz_y, angel, viteza_max);
         this.marimeZonaFoc = marimeZonaFoc;
     }
 
@@ -31,7 +31,7 @@ public class ProiectilFoc extends Proiectil{
             if(index == 0){
                 listaBile.get(index).isWaveLeader = true;
             }
-            else if(listaBile.get(index).index - listaBile.get(index-1).index > ResourceManager.getMarimeBila())
+            else if(listaBile.get(index).index - listaBile.get(index-1).index > ResourceManager.get().getMarimeBila())
                 listaBile.get(index).isSirLeader = true;
             index++;
         }

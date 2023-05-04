@@ -22,7 +22,7 @@ public class Scena extends JPanel {
     private final Font fontScor;
     private final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     private final GameObject pozitieTun, pozitieCursor;
-
+    private final ResourceManager resurse = ResourceManager.get();
     public Scena(int Width, int Height) {
         this.setLayout(null);
         pozitiiBile = new LinkedList<>();
@@ -31,7 +31,7 @@ public class Scena extends JPanel {
         pozitieCursor = new GameObject();
         rezolutieX = Width;
         rezolutieY = Height;
-        ResourceManager.initResourceManager();
+        ResourceManager.get();
         fontScor = new Font("TimesRoman", Font.PLAIN, 25);
         //mouse clicks
         addMouseListener(new MouseAdapter() {
@@ -70,10 +70,10 @@ public class Scena extends JPanel {
             }
         });
 
-        tunar = new Tun(ResourceManager.getTunJos().GetTex(), ResourceManager.getTunSus().GetTex(), mousex, 0, 270, 20);
-        fundal = new Textura(ResourceManager.getFundal(1).GetTex(), 0, 0, 0);
-        cursorPrincipal = new Textura(ResourceManager.getTexturaCursorPrincipal().GetTex(),0,0,270);
-        cursorSecundar = new Textura(ResourceManager.getTexturaCursorSecundar().GetTex(), 0,0,270);
+        tunar = new Tun(resurse.getTunJos().GetTex(), resurse.getTunSus().GetTex(), mousex, 0, 270, 20);
+        fundal = new Textura(resurse.getFundal(1).GetTex(), 0, 0, 0);
+        cursorPrincipal = new Textura(resurse.getTexturaCursorPrincipal().GetTex(),0,0,270);
+        cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
         sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100);
@@ -103,8 +103,8 @@ public class Scena extends JPanel {
     }
 
     public void onStart() {
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
         SoundManager.playSound("src/resources/sunete/Music1.wav");
     }
@@ -139,10 +139,10 @@ public class Scena extends JPanel {
         }
         //actualizari cursor
         if(tunar.GetProiectilIncarcat() != null){
-            cursorPrincipal.SetTexRaw(ResourceManager.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
+            cursorPrincipal.SetTexRaw(resurse.getTexturaCursorPrincipal(tunar.GetProiectilIncarcat()).GetTex());
         }
         if(tunar.GetProiectilRezerva() != null){
-            cursorSecundar.SetTexRaw(ResourceManager.getTexturaCursorSecundar(tunar.GetProiectilRezerva()).GetTex());
+            cursorSecundar.SetTexRaw(resurse.getTexturaCursorSecundar(tunar.GetProiectilRezerva()).GetTex());
         }
         cursorPrincipal.SetCoordX(0);
         cursorPrincipal.SetCoordY(tunar.GetCoordY());
@@ -169,7 +169,7 @@ public class Scena extends JPanel {
                 tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             else{
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) ResourceManager.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
             if(Math.random()>0.9){
@@ -199,12 +199,12 @@ public class Scena extends JPanel {
         g.setColor(Color.black);
         if(!pozitiiProiectile.isEmpty()){
             for (GameObject proiectil : pozitiiProiectile) {
-                repaintBackground((int) (proiectil.GetCoordX()-(ResourceManager.getMarimeBilaSparta()/2)-1),(int) (proiectil.GetCoordY()-(ResourceManager.getMarimeBilaSparta()/2)-1),((ResourceManager.getMarimeBilaSparta())+2), ((ResourceManager.getMarimeBilaSparta())+2), g);
+                repaintBackground((int) (proiectil.GetCoordX()-(resurse.getMarimeBilaSparta()/2)-1),(int) (proiectil.GetCoordY()-(resurse.getMarimeBilaSparta()/2)-1),((resurse.getMarimeBilaSparta())+2), ((resurse.getMarimeBilaSparta())+2), g);
             }
         }
         if(!pozitiiBile.isEmpty()){
             for (GameObject bila : pozitiiBile) {
-                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)ResourceManager.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
+                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
             }
         }
         pozitiiBile.clear();

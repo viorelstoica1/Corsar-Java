@@ -6,7 +6,7 @@ public class Tun extends Textura{
     private boolean gataDeTras;
     public int vitezaTragere;
     private int limitaStanga, limitaDreapta, limitaJos, limitaSus;
-    private Spritesheet tunJos;
+    private final Spritesheet tunJos;
     private int cadruAnimatie;
     private final int vitezaAnimatie;
     public Tun(BufferedImage imagine, BufferedImage imagineSus, float poz_x, float poz_y, float angel, int viteza) {
@@ -18,9 +18,6 @@ public class Tun extends Textura{
         gataDeTras = true;
         cadruAnimatie = 0;
         vitezaAnimatie = 30;
-    }
-    public void SetTexSus(BufferedImage imagineSus){
-        this.SetTexRaw(imagineSus);
     }
     public void SetLimite( int stangaX, int dreaptaX, int josY, int susY){
         limitaDreapta = dreaptaX;
@@ -87,17 +84,15 @@ public class Tun extends Textura{
     public void CicleazaProiectil(Proiectil p) {
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = p;
-        System.out.println("cicleaza proiectil");
+        //System.out.println("cicleaza proiectil");
     }
-    public boolean isGataDeTras() { return gataDeTras; };
+    public boolean isGataDeTras() { return gataDeTras; }
     public void SchimbaOrdineProiectile(){
         Proiectil aux = proiectilIncarcat;
         proiectilIncarcat = proiectilRezerva;
         proiectilRezerva = aux;
     }
     public void paintComponent(Graphics g){
-        //Scena.repaintBackground((int)tunJos.CenterX(),(int)tunJos.CenterY(),tunJos.GetMarimeSpriteX(),tunJos.GetMarimeSpriteY(),g);
-        //Scena.repaintBackground((int)super.CenterX(),(int)super.CenterY(),super.GetMarimeTexX(),super.GetMarimeTexY(),g);
         if(proiectilIncarcat != null){
             proiectilIncarcat.paintComponent(g);
         }
@@ -109,9 +104,6 @@ public class Tun extends Textura{
 
     }
 
-    public void SetTexJos(BufferedImage tunJos) {
-        this.tunJos = new Spritesheet(tunJos,5,5,this.tunJos.GetCoordX(),this.tunJos.GetCoordY(),this.GetUnghi());
-    }
     public Spritesheet GetTexJos(){
         return tunJos;
     }
