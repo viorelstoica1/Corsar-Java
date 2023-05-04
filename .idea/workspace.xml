@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
-    </list>
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat exceptia cu bila de foc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -412,7 +408,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683221081221</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="proiectilele din tun isi iau update">
+      <created>1683222289551</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1683222289551</updated>
+    </task>
+    <task id="LOCAL-00040" summary="rezolvat exceptia cu bila de foc">
+      <created>1683222308011</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1683222308011</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,8 +440,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="reparat erori in logica, animatia nu merge la sir leader si wave leader" />
-    <MESSAGE value="reparat erori in logica" />
     <MESSAGE value="tunul primeste doar culori din sir" />
     <MESSAGE value="bila introdusa se roteste in animatie" />
     <MESSAGE value="tunul ia doar bile din sir, facut smart" />
@@ -455,7 +463,9 @@
     <MESSAGE value="implementat bila de foc de baza" />
     <MESSAGE value="rezolvat bugul enervant cu sirul" />
     <MESSAGE value="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele" />
-    <option name="LAST_COMMIT_MESSAGE" value="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele" />
+    <MESSAGE value="proiectilele din tun isi iau update" />
+    <MESSAGE value="rezolvat exceptia cu bila de foc" />
+    <option name="LAST_COMMIT_MESSAGE" value="rezolvat exceptia cu bila de foc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
