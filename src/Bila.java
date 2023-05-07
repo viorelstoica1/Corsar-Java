@@ -17,11 +17,13 @@ public class Bila extends Spritesheet{
     }
 
     public void calculeazaViteza(){
-        if(vitezaMax > 0){
+        if(Math.abs(vitezaMax - viteza)<acceleratie){
+            viteza = vitezaMax;
+        }else if(vitezaMax > 0){
             if(viteza < vitezaMax){
                 viteza += acceleratie;
             }
-            else if(viteza > vitezaMax){
+            else if(viteza > vitezaMax) {
                 viteza -= acceleratie;
             }
         }else if(vitezaMax < 0){
@@ -33,15 +35,10 @@ public class Bila extends Spritesheet{
             }
         }
         else{
-            if(Math.abs(viteza)<acceleratie){
-                viteza = 0;
-            }
-            else{
-                if(viteza>0){
-                    viteza-=acceleratie;
-                }else{
-                    viteza+=acceleratie;
-                }
+            if(viteza>0){
+                viteza-=acceleratie;
+            }else{
+                viteza+=acceleratie;
             }
         }
     }
