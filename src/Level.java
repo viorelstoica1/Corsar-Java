@@ -8,14 +8,14 @@ import java.util.List;
 
 public abstract class Level extends JPanel {
     public String FrameTime = "Frame: 0";
-    private static boolean firstPaint = true;
+    protected boolean firstPaint = true;
     protected int mousex, mousey;
     protected static int rezolutieX, rezolutieY;
     protected final Textura fundal, cursorPrincipal, cursorSecundar;
     protected static List<Proiectil> listaProiectile;
     protected int scena = 1, scor = 0;
     protected final Tun tunar;
-    protected static final int targetScreenX = 1920, targetScreenY = 1080;
+    protected final int targetScreenX = 1920, targetScreenY = 1080;
     protected GameObject[] traseuBile;
     protected final Sir sirBile;
     protected final Font fontScor;
@@ -42,7 +42,6 @@ public abstract class Level extends JPanel {
                     if(tunar.isGataDeTras()){
                         listaProiectile.add(tunar.GetProiectilIncarcat());
                         tunar.Trage();
-                        SoundManager.playSound("src/resources/sunete/launch_sphere.wav", -10, false);
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {

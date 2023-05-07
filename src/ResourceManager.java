@@ -7,7 +7,7 @@ import java.util.Vector;
 public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
-    private final Textura fundal1, fundal2 = null, fundal3 = null, tunSus, tunJos;
+    private final Textura fundal1, fundal2 = null, fundal3 = null, loadscreen, tunSus, tunJos;
     private final Vector<String> nume;
     private ResourceManager(){
         try {
@@ -100,6 +100,8 @@ public class ResourceManager {
             //fundaluri
             tex = ImageIO.read(new File(("src/resources/fundal1.png")));
             fundal1 = new Textura(tex,0,0,0).resize(1536,864);
+            tex = ImageIO.read(new File("src/resources/LoadScreen.png"));
+            loadscreen = new Textura(tex, 0 , 0, 0).resize(1536, 864);
             /*tex = ImageIO.read(new File(("src/resources/fundal2.png")));
             fundal2 = new Textura(tex,0,0,0);
             tex = ImageIO.read(new File(("src/resources/fundal3.png")));
@@ -186,5 +188,8 @@ public class ResourceManager {
     }
     public int getMarimeBilaSparta(){
         return texturiBileSparte.get(0).marime_x;
+    }
+    public Textura getLoadscreen(){
+        return loadscreen;
     }
 }

@@ -6,6 +6,9 @@ public class Level1 extends Level {
     }
 
     public void onStart() {
+        firstPaint = true;
+        tunar.SetCoordX(rezolutieX - (float)rezolutieX / 20);
+        tunar.SetCoordY(rezolutieY - (float)rezolutieY / 10);
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
@@ -35,6 +38,10 @@ public class Level1 extends Level {
 
         if(sirBile.marime() < 5 && !sirBile.lost){
             sirBile.WaveNou(15);// =)
+        }
+        if(sirBile.marime() == 0){
+            LoadingScreen.moveIn = true;
+            return 0;
         }
         return status;//cu asta poti returna ce scena sa se incarce
     }

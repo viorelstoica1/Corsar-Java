@@ -69,6 +69,7 @@ public class Tun extends Textura{
             proiectilIncarcat.SetUnghi(GetUnghi());
             //System.out.println("Proiectil: "+proiectilIncarcat.viteza_x+" "+ proiectilIncarcat.viteza_y);
             proiectilIncarcat = null;
+            SoundManager.playSound("src/resources/sunete/launch_sphere.wav", -10, false);
         }
     }
     public Proiectil GetProiectilIncarcat(){
