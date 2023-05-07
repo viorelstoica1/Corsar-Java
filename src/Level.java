@@ -8,7 +8,7 @@ import java.util.List;
 
 public abstract class Level extends JPanel {
     public String FrameTime = "Frame: 0";
-    public static boolean firstPaint = true;
+    private static boolean firstPaint = true;
     protected int mousex, mousey;
     protected static int rezolutieX, rezolutieY;
     protected final Textura fundal, cursorPrincipal, cursorSecundar;
@@ -161,9 +161,6 @@ public abstract class Level extends JPanel {
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex()) && (tunar.GetProiectilIncarcat().getClass() == ProiectilBila.class)){
             bilaDinSir = sirBile.getTexturaBilaRandom();
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
-        }
-        if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(15);// =)
         }
         scor += sirBile.Update();
         return scena;//cu asta poti returna ce scena sa se incarce

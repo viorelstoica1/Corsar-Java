@@ -1,7 +1,6 @@
 import java.util.LinkedList;
 
 public class Level1 extends Level {
-    public String FrameTime = "Frame: 0";
     public Level1(int Width, int Height) {
         super(Width, Height);
     }
@@ -15,7 +14,7 @@ public class Level1 extends Level {
         SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
     }
 
-    public int Actualizare() {
+    public int Actualizare() {//in actualizare trebuie implementat cursorul
         int status = super.Actualizare();
         cursorPrincipal.SetCoordX(0);
         cursorPrincipal.SetCoordY(tunar.GetCoordY());
@@ -33,6 +32,10 @@ public class Level1 extends Level {
             cursorPrincipal.SetCoordX(-cursorPrincipal.GetMarimeTexX());
         }
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
+
+        if(sirBile.marime() < 5 && !sirBile.lost){
+            sirBile.WaveNou(15);// =)
+        }
         return status;//cu asta poti returna ce scena sa se incarce
     }
 //linia asta de cod a fost scrisa de un domn anonim
