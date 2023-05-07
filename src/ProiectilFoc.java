@@ -18,7 +18,7 @@ public class ProiectilFoc extends Proiectil{
             if(listaBile.get(index).DistantaPatrat(this) <= marimeZonaFoc*marimeZonaFoc){
                 //TODO gaseste o solutie sa mearga asta
                 Scena.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
-                SoundManager.playSound("src/resources/sunete/collapse_fireball.wav");
+                SoundManager.playSound("src/resources/sunete/collapse_fireball.wav", -20, false);
                 listaBile.remove(index);
             }
             else{

@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat exceptia cu bila de foc" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="am realizat o prostie">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SoundManager.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +70,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -141,6 +149,12 @@
       <workItem from="1682980011763" duration="319000" />
       <workItem from="1683016466863" duration="27430000" />
       <workItem from="1683187629767" duration="6812000" />
+      <workItem from="1683236059576" duration="4998000" />
+      <workItem from="1683252446784" duration="1147000" />
+      <workItem from="1683254909140" duration="3295000" />
+      <workItem from="1683270093752" duration="1739000" />
+      <workItem from="1683298975883" duration="1877000" />
+      <workItem from="1683441135536" duration="3025000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1680938024667</created>
@@ -422,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683222308011</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="am realizat o prostie">
+      <created>1683222852209</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1683222852209</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tunul primeste doar culori din sir" />
     <MESSAGE value="bila introdusa se roteste in animatie" />
     <MESSAGE value="tunul ia doar bile din sir, facut smart" />
     <MESSAGE value="cursor smart pe sir, deocamdata fara culori facute" />
@@ -465,7 +485,8 @@
     <MESSAGE value="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele" />
     <MESSAGE value="proiectilele din tun isi iau update" />
     <MESSAGE value="rezolvat exceptia cu bila de foc" />
-    <option name="LAST_COMMIT_MESSAGE" value="rezolvat exceptia cu bila de foc" />
+    <MESSAGE value="am realizat o prostie" />
+    <option name="LAST_COMMIT_MESSAGE" value="am realizat o prostie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -476,6 +497,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Proiect_PAOO$Application.ic" NAME="Application Coverage Results" MODIFIED="1682762027637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

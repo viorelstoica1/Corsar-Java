@@ -9,7 +9,7 @@ public class ProiectilBila extends Proiectil{
     public void HitSir(Sir sir) {
         Bila aux = sir.TestColiziune(this);
         sir.adaugaPeBila(aux, new Bila(getSprite(), GetCoordX(), GetCoordY(), GetUnghi(), aux.acceleratie));
-        SoundManager.playSound("src/resources/sunete/collide_spheres_shot.wav");
+        SoundManager.playSound("src/resources/sunete/collide_spheres_shot.wav", -10, false);
         shouldDissapear = true;
     }
 }

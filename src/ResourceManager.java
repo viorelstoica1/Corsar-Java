@@ -143,7 +143,7 @@ public class ResourceManager {
         return tunJos;
     }
     public Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*4));
+        return texturiBile.get((int) (Math.random()*6));
     }
 
     public  Textura getTexturaCursorPrincipal(Textura bila){

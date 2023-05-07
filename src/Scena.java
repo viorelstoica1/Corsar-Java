@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class Scena extends JPanel {
                     if(tunar.isGataDeTras()){
                         listaProiectile.add(tunar.GetProiectilIncarcat());
                         tunar.Trage();
-                        SoundManager.playSound("src/resources/sunete/launch_sphere.wav");
+                        SoundManager.playSound("src/resources/sunete/launch_sphere.wav", -10, false);
                     }
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
@@ -53,7 +52,7 @@ public class Scena extends JPanel {
                     if(tunar.isGataDeTras()){
                         System.out.println("Click dreapta la coordonatele " + e.getX() + " " + e.getY());
                         tunar.SchimbaOrdineProiectile();
-                        SoundManager.playSound("src/resources/sunete/bullet_swap.wav");
+                        SoundManager.playSound("src/resources/sunete/bullet_swap.wav", -10, false);
                     }
                 }
             }
@@ -106,7 +105,7 @@ public class Scena extends JPanel {
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
-        SoundManager.playSound("src/resources/sunete/Music1.wav");
+        SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
     }
 
     private void salvarePozitii(){
@@ -175,7 +174,7 @@ public class Scena extends JPanel {
             else{
                 tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
             }
-            SoundManager.playSound("src/resources/sunete/bullet_reload.wav");
+            SoundManager.playSound("src/resources/sunete/bullet_reload.wav", -10, false);
             if(Math.random()>0.95){
                 tunar.SetProiectilRezerva(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100, 32));
             }
@@ -227,9 +226,13 @@ public class Scena extends JPanel {
         //restul
         tunar.paintComponent(g);
         sirBile.paintComponent(g);
-        for (Proiectil proiectil : listaProiectile) {
+        LinkedList<Proiectil> listaRandare  = new LinkedList<>(listaProiectile);
+        for (Proiectil proiectil : listaRandare) {
             proiectil.paintComponent(g);
         }
+        /*for (Proiectil proiectil : listaProiectile) {
+            proiectil.paintComponent(g);
+        }*/
         cursorPrincipal.paintComponent(g);
         cursorSecundar.paintComponent(g);
         g.drawString(FrameTime, 10, 20);

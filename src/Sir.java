@@ -25,7 +25,7 @@ public class Sir {
             listaBile.addFirst(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
             listaBile.get(0).isWaveLeader = true;
             numarBile--;
-            SoundManager.playSound("src/resources/sunete/spheres_roll.wav");
+            SoundManager.playSound("src/resources/sunete/spheres_roll.wav", -15, false);
         }
         while(numarBile != 0){
             adaugaLaWave(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
@@ -117,7 +117,7 @@ public class Sir {
                     }
                     //seteaza viteza maxima a bilei din urma
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
-                    SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav");
+                    SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav", -10, false);
                 }
                 listaBile.get(i).vitezaMax = viteza;
             }
@@ -130,7 +130,7 @@ public class Sir {
                     }
                     //seteaza viteza bilei din urma
                     getBilaInceputSir(i).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
-                    SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav");
+                    SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav", -10, false);
                 }
                 else{
                     //daca nu s-a ciocnit
@@ -271,7 +271,7 @@ public class Sir {
             }
             //listaBile.get(index).viteza = viteza;
         }
-        SoundManager.playSound("src/resources/sunete/collapse_1.wav");
+        SoundManager.playSound("src/resources/sunete/collapse_1.wav", -10, false);
     }//merge pe wave-uri
 
     public int GetMultiplier(Bila membru){
