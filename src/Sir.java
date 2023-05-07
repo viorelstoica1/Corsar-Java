@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class Sir {
     private final LinkedList<Bila> listaBile;
@@ -183,7 +186,8 @@ public class Sir {
                 }else if(getBilaFinalSir(i).index > indexIncet){
                     //daca bila e la sfarsit, merge incet
                     if(listaBile.get(i).vitezaMax > 0){
-                        listaBile.get(i).vitezaMax = viteza_min;
+                        listaBile.get(i).vitezaMax = viteza_min/2 + viteza_min * (float)(indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet);
+                        System.out.println(listaBile.get(i).viteza);
                     }
                 }
                 listaBile.get(i).calculeazaViteza();

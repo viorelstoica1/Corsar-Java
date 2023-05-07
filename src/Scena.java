@@ -75,7 +75,7 @@ public class Scena extends JPanel {
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
         listaProiectile = new ArrayList<>();
         AlocareTraseuBile();
-        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2700,700,3100);
+        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2500,700,3075);
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
