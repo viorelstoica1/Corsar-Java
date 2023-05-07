@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
-    private static Scena ContextAfisare;//display-ul propriu zis
+    private static Level1 ContextAfisare;//display-ul propriu zis
     private static int refreshRate;
     private static int screenWidth,screenHeight;
     private static double frameTime;
@@ -52,7 +52,7 @@ public class Application implements Runnable {
         screenWidth = ScheletAplicatie.getWidth();
         screenHeight = ScheletAplicatie.getHeight();
         System.out.println(screenWidth+" x "+screenHeight);
-        ContextAfisare = new Scena(screenWidth, screenHeight);
+        ContextAfisare = new Level1(screenWidth, screenHeight);
         ScheletAplicatie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ScheletAplicatie.add(ContextAfisare);
         ScheletAplicatie.remove(panouNegru);

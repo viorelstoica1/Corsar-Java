@@ -45,8 +45,8 @@ public class Tun extends Textura{
         }else if(GetCoordY() > limitaJos){
             SetCoordY(limitaJos);
         }
-        tunJos.SetCoordX((float) (GetCoordX()-GetMarimeTexX()/2.25));
-        tunJos.SetCoordY(GetCoordY());
+        tunJos.SetCoordX((float) (GetCoordX() - Math.cos(Math.toRadians(GetUnghi()+90))*GetMarimeTexX()/2.25));
+        tunJos.SetCoordY((float) (GetCoordY() - Math.sin(Math.toRadians(GetUnghi()+90))*GetMarimeTexY()/2.25));
         tunJos.SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/tunJos.GetNrCadre())));
         if(proiectilIncarcat != null){
             proiectilIncarcat.SetCoordX((float) (GetCoordX() + Math.cos(Math.toRadians(GetUnghi()-90)) * 50));
@@ -113,5 +113,11 @@ public class Tun extends Textura{
     public void resizeTun(int newW, int newH){
         super.resize(newW,newH);
         tunJos.resize(super.marime_x*5,super.marime_y);
+    }
+
+    @Override
+    public void SetUnghi(float angel) {
+        super.SetUnghi(angel);
+        tunJos.SetUnghi(angel);
     }
 }
