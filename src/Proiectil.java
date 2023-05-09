@@ -1,4 +1,3 @@
-import java.awt.image.BufferedImage;
 
 public abstract class Proiectil extends Spritesheet{
     public boolean shouldDissapear = false;
@@ -27,10 +26,14 @@ public abstract class Proiectil extends Spritesheet{
         }
         SetCoordX(GetCoordX()+viteza_x);
         SetCoordY(GetCoordY()+viteza_y);
-        cadruAnimatie++;
-        if(cadruAnimatie >= vitezaAnimatie){
+
+        if(cadruAnimatie >= vitezaAnimatie-1){
             cadruAnimatie = 0;
         }
+        else{
+            cadruAnimatie++;
+        }
+
         SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/GetNrCadre())));
         if (isOutOfBounds(Application.getScreenWidth(), Application.getScreenHeight())) {
             shouldDissapear = true;

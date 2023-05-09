@@ -77,7 +77,10 @@ public class Spritesheet extends Textura{
     }
     public void SetCadru(float x)
     {
-        cadru_curent = x;
+        if(x >= numar_cadre){
+            System.out.println("WARNING depasire marime spritesheet de marime "+numar_cadre+" cu indexul "+x);
+        }
+        cadru_curent = x%numar_cadre;
     }
     public void CresteCadru(float x) {
         cadru_curent+=x;
