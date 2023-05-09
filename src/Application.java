@@ -39,19 +39,24 @@ public class Application implements Runnable {
         System.exit(0);
     }
     private static synchronized void Initializare() {
+        BlackScreen ecranNegru = new BlackScreen();
         refreshRate = GetRefreshRate();
         frameTime = (double) 1000 / refreshRate;
         System.out.println("Frecventa monitorului: "+ refreshRate);
         ScheletAplicatie = new JFrame("Test Game Engine");
         ScheletAplicatie.setUndecorated(true);//scapa de marginile aplicatiei si da multe erori funny
         ScheletAplicatie.setExtendedState(Frame.MAXIMIZED_BOTH);//face aplicatia sa ocupe tot ecranul
-        panouloading = new LoadingScreen();
-        ScheletAplicatie.add(panouloading);
-        LoadingScreen.moveOut = true;
+        ScheletAplicatie.add(ecranNegru);
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         screenWidth = ScheletAplicatie.getWidth();
         screenHeight = ScheletAplicatie.getHeight();
+        //loading screen
+        panouloading = new LoadingScreen();
+        ScheletAplicatie.add(panouloading);
+        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
+        ScheletAplicatie.remove(ecranNegru);
         LoadingScreen.ResetLoadingDown();
+        LoadingScreen.moveOut = true;
         System.out.println(screenWidth+" x "+screenHeight);
         Nivel = new Level1(screenWidth, screenHeight);
         ScheletAplicatie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
