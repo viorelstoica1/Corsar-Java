@@ -13,7 +13,7 @@ public class Bila extends Spritesheet{
     }
 
     public boolean isSameColour(Bila bila){
-        return (this.imagineRaw == bila.imagineRaw) || (this.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu").GetTex());
+        return (this.imagineRaw == bila.imagineRaw) || (this.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu").GetTex()) || (bila.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu").GetTex());
     }
 
     public void calculeazaViteza(){

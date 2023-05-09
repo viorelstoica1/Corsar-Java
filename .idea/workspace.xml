@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="abstractizare mica">
-      <change afterPath="$PROJECT_DIR$/src/resources/LoadScreen.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="schimbat culoarea cursorului pentru wildball">
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_foc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_rgb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_foc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_rgb.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlackScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,10 +86,10 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\bile" />
-      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
     </key>
   </component>
   <component name="RunManager">
@@ -480,7 +484,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683468156192</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="schimbat culoarea cursorului pentru wildball">
+      <created>1683629935992</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1683629935992</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="indexFinalSir tine cont de wave-uri" />
     <MESSAGE value="numarBileIdentice tine cont de wave-uri" />
     <MESSAGE value="scor primitiv implementat" />
     <MESSAGE value="pierdere implementata" />
@@ -523,7 +533,8 @@
     <MESSAGE value="viteza de final devine progresiv mai mica" />
     <MESSAGE value="am facut nivelul o clasa abstracta si am imbunatatit repaintul de fundal pentru tun" />
     <MESSAGE value="abstractizare mica" />
-    <option name="LAST_COMMIT_MESSAGE" value="abstractizare mica" />
+    <MESSAGE value="schimbat culoarea cursorului pentru wildball" />
+    <option name="LAST_COMMIT_MESSAGE" value="schimbat culoarea cursorului pentru wildball" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -531,6 +542,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.util.ConcurrentModificationException" package="java.util" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="3" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

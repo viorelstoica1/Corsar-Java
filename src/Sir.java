@@ -47,19 +47,20 @@ public class Sir {
     public LinkedList<Bila> getListaBile(){
         return listaBile;
     }
+
     public int NrBileIdentice(Bila membru){
         int nrBileIdentice = 0;
         int index = listaBile.indexOf(membru);
-        while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+        while(index > 0 && listaBile.get(index-1).isSameColour(listaBile.get(index)) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             index--;
         }
         index++;
         nrBileIdentice++;
-        while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+        while(index < listaBile.size() && listaBile.get(index).isSameColour(listaBile.get(index-1)) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             nrBileIdentice++;
             index++;
         }
-        //System.out.println(nrBileIdentice+" bile identice");
+        System.out.println(nrBileIdentice+" bile identice");
         return nrBileIdentice;
     }//merge pe wave-uri
 
@@ -184,7 +185,7 @@ public class Sir {
                     //daca bila e la sfarsit, merge incet
                     if(listaBile.get(i).vitezaMax > 0){
                         listaBile.get(i).vitezaMax = viteza_min/2 + viteza_min * (float)(indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet);
-                        System.out.println(listaBile.get(i).viteza);
+                        //System.out.println(listaBile.get(i).viteza);
                     }
                 }
                 listaBile.get(i).calculeazaViteza();
@@ -248,10 +249,11 @@ public class Sir {
         return null;
     }
     public void StergeBileIdentice(Bila membru){
+        System.out.println("Stergere");
         int index = listaBile.indexOf(membru);
         //float viteza = membru.viteza;
         boolean waveLeader = false;
-        while(index > 0 && listaBile.get(index-1).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+        while(index > 0 && listaBile.get(index-1).isSameColour(listaBile.get(index)) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             index--;
         }
         if(listaBile.get(index).isWaveLeader){
@@ -259,10 +261,11 @@ public class Sir {
         }
         Level1.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
         listaBile.remove(index);
-        while(index < listaBile.size() && listaBile.get(index).isSameColour(membru) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
+        while(index < listaBile.size()-1 && listaBile.get(index).isSameColour(listaBile.get(index+1)) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
             Level1.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
             listaBile.remove(index);
         }
+        listaBile.remove(index);
         if(index < listaBile.size()){
             if(waveLeader){
                 listaBile.get(index).isWaveLeader = true;
@@ -291,7 +294,7 @@ public class Sir {
             }
             index++;
         }
-        System.out.println("Multiplier: "+multiplier);
+        //System.out.println("Multiplier: "+multiplier);
         return multiplier;
     }
     public int marime(){
@@ -319,7 +322,7 @@ public class Sir {
     }//merge pe wave-uri
     public boolean isCuloareInSir(BufferedImage culoare){
         for (Bila bila : listaBile) {
-            if (bila.GetTex() == culoare) {
+            if (bila.GetTex() == culoare || (culoare == ResourceManager.get().getTexturaBila("curcubeu").GetTex())) {
                 return true;
             }
         }

@@ -4,7 +4,7 @@ import java.awt.*;
 public class LoadingScreen extends JPanel {
     private static Textura FundalLoading = new Textura(ResourceManager.get().getLoadscreen().imagineRaw,(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
     public static boolean moveIn = false, moveOut = false;
-    public static float vitezaAnimatie = 0, acceleratieAnimatie = 0.1f;
+    public static float vitezaAnimatie = 0, acceleratieAnimatie = 0.4f;
     public static void Update(){
         FundalLoading.SetCoordX((float)Application.getScreenWidth()/2);
         float y = FundalLoading.GetCoordY();
