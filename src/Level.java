@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -222,5 +220,9 @@ public abstract class Level extends JPanel {
         cursorPrincipal.SetCoordY(0);
         cursorSecundar.SetCoordX(0);
         cursorSecundar.SetCoordY(0);
+        sirBile.lost = false;
+        //TODO vezi de ce dracu nu merge viteza dupa ce pierd
+        sirBile.viteza_min = sirBile.viteza_min_save;
+        sirBile.viteza_max = sirBile.viteza_max_save;
     }
 }

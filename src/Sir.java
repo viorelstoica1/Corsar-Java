@@ -7,7 +7,7 @@ public class Sir {
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0, scor = 0;
     public boolean lost = false;
     private final int indexRapid, indexIncet, indexFinal;
-    float viteza,acceleratie, viteza_max, viteza_min;
+    float viteza,acceleratie, viteza_max, viteza_min, viteza_max_save, viteza_min_save;
     GameObject[] traseu;
     public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal) {
         listaBile = new LinkedList<>();
@@ -19,6 +19,8 @@ public class Sir {
         this.indexIncet = indexIncet;
         this.indexRapid = indexRapid;
         this.indexFinal = indexFinal;
+        viteza_min_save = viteza_min;
+        viteza_max_save = viteza_max;
     }
     public void WaveNou(int numarBile){
         if(numarBile > 0){

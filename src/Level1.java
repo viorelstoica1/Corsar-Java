@@ -41,7 +41,7 @@ public class Level1 extends Level {
         }
         if(sirBile.marime() == 0){
             LoadingScreen.moveIn = true;
-            return -1;
+            status = 0;
         }
         return status;//cu asta poti returna ce scena sa se incarce
     }
