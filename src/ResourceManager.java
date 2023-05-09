@@ -79,9 +79,9 @@ public class ResourceManager {
             //wildball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
             texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
-            tex = ImageIO.read(new File(("src/resources/cursor/cursor_alb.png")));
+            tex = ImageIO.read(new File(("src/resources/cursor/cursor_rgb.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
-            tex = ImageIO.read(new File(("src/resources/cursor/craniu_alb.png")));
+            tex = ImageIO.read(new File(("src/resources/cursor/craniu_rgb.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Alb_Sheet.png")));
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
@@ -89,9 +89,9 @@ public class ResourceManager {
             //fireball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
             texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
-            tex = ImageIO.read(new File(("src/resources/cursor/cursor_rosu.png")));
+            tex = ImageIO.read(new File(("src/resources/cursor/cursor_foc.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
-            tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
+            tex = ImageIO.read(new File(("src/resources/cursor/craniu_foc.png")));
             texturiCursorSecundar.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/bile/Boom_Rosu_Sheet.png")));
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
