@@ -121,4 +121,8 @@ public class Tun extends Textura{
         super.SetUnghi(angel);
         tunJos.SetUnghi(angel);
     }
+    public void ResetTunar(){
+        tunJos.SetCadru(0);
+
+    }
 }

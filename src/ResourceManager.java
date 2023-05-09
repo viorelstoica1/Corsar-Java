@@ -8,7 +8,7 @@ public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2 = null, fundal3 = null, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Spritesheet selectiiMeniu;
+    private final Textura selectiiMeniu;
     private final Vector<String> nume;
     private ResourceManager(){
         try {
@@ -110,7 +110,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/FundalMeniu.png")));
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
             tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
-            selectiiMeniu = new Spritesheet(tex,1,1,0,0,0)/*.resize(900,864)*/;
+            selectiiMeniu = new Textura(tex,0,0,0).resize(500,500);
             //TODO fundal 2 si 3
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
@@ -206,6 +206,7 @@ public class ResourceManager {
                 return selectiiMeniu;
             }
         }
+        System.out.println("Nume textura nerecunoscut!");
         return null;
     }
 }

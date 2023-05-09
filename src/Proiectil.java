@@ -9,7 +9,6 @@ public abstract class Proiectil extends Spritesheet{
         super( sprite, poz_x, poz_y, angel);
         this.viteza_max = viteza_max;
         this.vitezaAnimatie = vitezaAnimatie;
-
     }
     public void UpdateProiectil() {
         viteza_x += acceleratie_x;

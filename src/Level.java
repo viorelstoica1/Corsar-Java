@@ -9,7 +9,6 @@ import java.util.List;
 public abstract class Level extends JPanel {
     public String FrameTime = "Frame: 0";
     protected boolean firstPaint = true;
-    protected int mousex, mousey;
     protected static int rezolutieX, rezolutieY;
     protected final Textura fundal, cursorPrincipal, cursorSecundar;
     protected static List<Proiectil> listaProiectile;
@@ -22,6 +21,8 @@ public abstract class Level extends JPanel {
     protected final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     protected final GameObject pozitieTun, pozitieCursor;
     protected final ResourceManager resurse = ResourceManager.get();
+    private int cooldownSwap = 0;
+
     public Level(int Width, int Height) {
         this.setLayout(null);
         pozitiiBile = new LinkedList<>();
@@ -33,43 +34,7 @@ public abstract class Level extends JPanel {
         ResourceManager.get();
         AlocareTraseuBile();
         fontScor = new Font("TimesRoman", Font.PLAIN, 25);
-        //mouse clicks
-        addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                if (e.getButton() == MouseEvent.BUTTON1) {
-                    System.out.println("Click stanga la coordonatele " + e.getX() + " " + e.getY());
-                    if(tunar.isGataDeTras()){
-                        listaProiectile.add(tunar.GetProiectilIncarcat());
-                        tunar.Trage();
-                    }
-                }
-                if (e.getButton() == MouseEvent.BUTTON2) {
-                    System.out.println("Middle mouse la coordonatele " + e.getX() + " " + e.getY());
-                    scena = 0;
-                }
-                if (e.getButton() == MouseEvent.BUTTON3) {
-                    if(tunar.isGataDeTras()){
-                        System.out.println("Click dreapta la coordonatele " + e.getX() + " " + e.getY());
-                        tunar.SchimbaOrdineProiectile();
-                        SoundManager.playSound("src/resources/sunete/bullet_swap.wav", -10, false);
-                    }
-                }
-            }
-        });
-        addMouseMotionListener(new MouseAdapter() {
-            public void mouseMoved(MouseEvent e) {
-                mousex = e.getX();
-                mousey = e.getY();
-            }
-
-            public void mouseDragged(MouseEvent e) {
-                mousex = e.getX();
-                mousey = e.getY();
-            }
-        });
-
-        tunar = new Tun(resurse.getTunJos().GetTex(), resurse.getTunSus().GetTex(), mousex, 0, 270, 20);
+        tunar = new Tun(resurse.getTunJos().GetTex(), resurse.getTunSus().GetTex(), MouseStatus.mousex, 0, 270, 20);
         fundal = new Textura(resurse.getFundal(1).GetTex(), 0, 0, 0);
         cursorPrincipal = new Textura(resurse.getTexturaCursorPrincipal().GetTex(),0,0,270);
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
@@ -97,7 +62,6 @@ public abstract class Level extends JPanel {
         if(marimeX > 0 && marimeY > 0){
             g.drawImage(fundal.GetTex().getSubimage(x,y,marimeX,marimeY),x,y,null);
         }
-        //System.out.println(x+" "+y+" "+marimeX+" "+marimeY);
     }
 
     public abstract void onStart();
@@ -117,7 +81,29 @@ public abstract class Level extends JPanel {
     }
 
     public int Actualizare() {
+        scena = 1;
         salvarePozitii();
+        //actualizari clickuri
+        if (MouseStatus.clickStanga) {
+            if(tunar.isGataDeTras()){
+                listaProiectile.add(tunar.GetProiectilIncarcat());
+                tunar.Trage();
+            }
+        }
+        if (MouseStatus.middleMouse) {
+            scena = 0;
+            LoadingScreen.moveIn = true;
+        }
+        if (MouseStatus.clickDreapta) {
+            if(tunar.isGataDeTras() && cooldownSwap == 0){
+                tunar.SchimbaOrdineProiectile();
+                SoundManager.playSound("src/resources/sunete/bullet_swap.wav", -10, false);
+                cooldownSwap = 10;
+            }
+        }
+        if(cooldownSwap !=0){
+            cooldownSwap--;
+        }
         //actualizari proiectile
         int index = 0;
         while (index < listaProiectile.size()) {
@@ -128,7 +114,6 @@ public abstract class Level extends JPanel {
                 proiectil.HitSir(sirBile);
             }
             if (proiectil.shouldDissapear) {
-                //iterator.remove();
                 listaProiectile.remove(proiectil);
                 index--;
             }
@@ -142,7 +127,7 @@ public abstract class Level extends JPanel {
             cursorSecundar.SetTexRaw(resurse.getTexturaCursorSecundar(tunar.GetProiectilRezerva()).GetTex());
         }
 
-        tunar.UpdateTun(mousex, mousey);
+        tunar.UpdateTun(MouseStatus.mousex, MouseStatus.mousey);
         //actualizari tunar
         Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
@@ -226,5 +211,16 @@ public abstract class Level extends JPanel {
     }
 
     protected abstract void AlocareTraseuBile();
-
+    public void ResetNivel(){
+        listaProiectile.clear();
+        sirBile.getListaBile().clear();
+        scor = 0;
+        tunar.ResetTunar();
+        tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+        tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+        cursorPrincipal.SetCoordX(0);
+        cursorPrincipal.SetCoordY(0);
+        cursorSecundar.SetCoordX(0);
+        cursorSecundar.SetCoordY(0);
+    }
 }

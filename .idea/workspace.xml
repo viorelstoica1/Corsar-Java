@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="schimbat culoarea cursorului pentru wildball">
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_foc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/craniu_rgb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_foc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/cursor/cursor_rgb.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat texturi pentru meniuri">
+      <change afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MouseStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tun.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +85,8 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\bile" />
     </key>
@@ -161,27 +160,6 @@
       <workItem from="1683298975883" duration="1877000" />
       <workItem from="1683441135536" duration="15569000" />
       <workItem from="1683473122434" duration="7578000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <created>1680938024667</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1680938024667</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Inserarea bilelor la inceput tine cont de pozitia primei bile">
-      <created>1680939108408</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1680939108408</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Traseu functional, bile randate frumos">
-      <created>1680987214453</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1680987214453</updated>
     </task>
     <task id="LOCAL-00004" summary="Resource manager primitiv implementat, cu functie de random">
       <created>1680991277844</created>
@@ -491,7 +469,42 @@
       <option name="project" value="LOCAL" />
       <updated>1683629935992</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="implementat powerup wildball cu greu, daca apar probleme la sir sunt sanse sa fie de la asta">
+      <created>1683635376441</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1683635376441</updated>
+    </task>
+    <task id="LOCAL-00049" summary="adaugat texturi de cursor pentru bile speciale">
+      <created>1683635400073</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1683635400073</updated>
+    </task>
+    <task id="LOCAL-00050" summary="adaugat un check pentru setarea unui index inexistent la spritesheet, si un warning cand incerci sa faci asta">
+      <created>1683635441976</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1683635441977</updated>
+    </task>
+    <task id="LOCAL-00051" summary="adaugat inapoi fundalul negru">
+      <created>1683646487444</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1683646487444</updated>
+    </task>
+    <task id="LOCAL-00052" summary="adaugat texturi pentru meniuri">
+      <created>1683646527670</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1683646527670</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,11 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="numarBileIdentice tine cont de wave-uri" />
-    <MESSAGE value="scor primitiv implementat" />
-    <MESSAGE value="pierdere implementata" />
-    <MESSAGE value="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir" />
-    <MESSAGE value="rescris codul pentru repaint, e mult mai rapid, hardcodat la sir" />
     <MESSAGE value="adaugat texturi pentru powerup si suport pentru resize de tun" />
     <MESSAGE value="implementare simpla pentru wildball, trebuie imbunatatita" />
     <MESSAGE value="adaugat sprite bile" />
@@ -534,7 +542,12 @@
     <MESSAGE value="am facut nivelul o clasa abstracta si am imbunatatit repaintul de fundal pentru tun" />
     <MESSAGE value="abstractizare mica" />
     <MESSAGE value="schimbat culoarea cursorului pentru wildball" />
-    <option name="LAST_COMMIT_MESSAGE" value="schimbat culoarea cursorului pentru wildball" />
+    <MESSAGE value="implementat powerup wildball cu greu, daca apar probleme la sir sunt sanse sa fie de la asta" />
+    <MESSAGE value="adaugat texturi de cursor pentru bile speciale" />
+    <MESSAGE value="adaugat un check pentru setarea unui index inexistent la spritesheet, si un warning cand incerci sa faci asta" />
+    <MESSAGE value="adaugat inapoi fundalul negru" />
+    <MESSAGE value="adaugat texturi pentru meniuri" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat texturi pentru meniuri" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

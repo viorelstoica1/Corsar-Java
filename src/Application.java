@@ -4,6 +4,7 @@ import java.awt.*;
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
     private static Level1 Nivel;//display-ul propriu zis
+    private static Meniu meniu;
     private static int refreshRate;
     private static int screenWidth,screenHeight;
     private static double frameTime;
@@ -52,16 +53,23 @@ public class Application implements Runnable {
         screenHeight = ScheletAplicatie.getHeight();
         //loading screen
         panouloading = new LoadingScreen();
-        ScheletAplicatie.add(panouloading);
-        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
-        ScheletAplicatie.remove(ecranNegru);
+        //ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         LoadingScreen.ResetLoadingDown();
         LoadingScreen.moveOut = true;
         System.out.println(screenWidth+" x "+screenHeight);
-        Nivel = new Level1(screenWidth, screenHeight);
         ScheletAplicatie.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        meniu = new Meniu();
+        ScheletAplicatie.add(meniu);
+        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
+
+        Nivel = new Level1(screenWidth, screenHeight);
         ScheletAplicatie.add(Nivel);
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
+        ScheletAplicatie.add(panouloading);
+        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
+        MouseStatus mouse = new MouseStatus();
+        ScheletAplicatie.add(mouse);
+        ScheletAplicatie.remove(ecranNegru);
         System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
         //ScheletAplicatie.createBufferStrategy(2);
         //ScheletAplicatie.setResizable(false);
@@ -83,33 +91,59 @@ public class Application implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("start");
+        System.out.println("start aplicatie");
         boolean game_is_running = true;
         double timp_incepere = System.nanoTime();
         double timp_trecut;
-        int scena = 1;
+        int scena = 0, scenaViitoare = 0;
         while(game_is_running){
             timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
             if(timp_trecut >= frameTime){
                 timp_incepere = System.nanoTime();
                 LoadingScreen.Update();
-                if(scena == 0 && LoadingScreen.isFinished()){
+                if(scena == -1 && LoadingScreen.isFinished()){
                     System.out.println("Iesire din joc!");
                     game_is_running = false;
                 }
                 if(LoadingScreen.isFinished()){
-                    scena = Nivel.Actualizare();
-                    Nivel.paintImmediately(0,0,screenWidth,screenHeight);
+                    //este ori sus de tot, ori jos de tot
+                    scena = scenaViitoare;
+                    if(LoadingScreen.bottomY() <= 0){//daca este complet ridicat
+                        if(scena == 1){//este in nivel
+                            scenaViitoare = Nivel.Actualizare();
+                            Nivel.paintImmediately(0,0,screenWidth,screenHeight);
+                        }else if(scena == 0){//este in meniu
+                            Nivel.firstPaint = true;
+                            scenaViitoare = meniu.UpdateMeniu();
+                            meniu.paintImmediately(0,0,screenWidth,screenHeight);
+                        }
+                    }
+                    else{//daca este complet coborat
+                        if(scena == 1){//este in nivel
+                            LoadingScreen.moveOut = true;
+                            Nivel.ResetNivel();
+                        }else if(scena == 0){//este in meniu
+                            Nivel.firstPaint = true;
+                            LoadingScreen.moveOut = true;
+                        }
+                    }
+
                 }
                 else{
-                    Nivel.firstPaint = true;
-                    Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
-                    panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                    if(scena == 0){//este in meniu
+                        meniu.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
+                        panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                    }else if(scena == 1){//este in nivel
+                        Nivel.firstPaint = true;
+                        Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
+                        panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                    }
                 }
-                //ContextAfisare.repaint(0,0,screenWidth,screenHeight);
                 timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
                 Nivel.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
-                //ContextAfisare.repaint();
+                //System.out.println("mousex "+ mouse.mousex +" mousey "+mouse.mousey);
+                //System.out.println("scena "+scena+" , scena viitoare "+scenaViitoare+" , move in "+LoadingScreen.moveIn+" , move out "+LoadingScreen.moveOut);
+                //MouseStatus.ResetMouseStatus();
             }
         }
     }
