@@ -3,16 +3,14 @@ import java.awt.*;
 
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
-    private static Level1 Nivel;//display-ul propriu zis
+    private static Level1 Nivel = null;//display-ul propriu zis
     private static Meniu meniu;
-    private static int refreshRate;
     private static int screenWidth,screenHeight;
     private static double frameTime;
     public static LoadingScreen panouloading;
-    private static Thread gameThread = new Thread(new Application());
+    private static final Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
         Initializare();
-        Nivel.onStart();
         /*boolean game_is_running = true;
         double timp_incepere = System.nanoTime();
         double timp_trecut;
@@ -41,7 +39,7 @@ public class Application implements Runnable {
     }
     private static synchronized void Initializare() {
         BlackScreen ecranNegru = new BlackScreen();
-        refreshRate = GetRefreshRate();
+        int refreshRate = GetRefreshRate();
         frameTime = (double) 1000 / refreshRate;
         System.out.println("Frecventa monitorului: "+ refreshRate);
         ScheletAplicatie = new JFrame("Test Game Engine");
@@ -62,9 +60,6 @@ public class Application implements Runnable {
         ScheletAplicatie.add(meniu);
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
 
-        Nivel = new Level1(screenWidth, screenHeight);
-        ScheletAplicatie.add(Nivel);
-        ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         ScheletAplicatie.add(panouloading);
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         MouseStatus mouse = new MouseStatus();
@@ -78,8 +73,8 @@ public class Application implements Runnable {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice[] gs = ge.getScreenDevices();
         int rate = 0;
-        for (int i = 0; i < gs.length; i++) {
-            DisplayMode dm = gs[i].getDisplayMode();
+        for (GraphicsDevice g : gs) {
+            DisplayMode dm = g.getDisplayMode();
             rate = dm.getRefreshRate();
             if (rate == DisplayMode.REFRESH_RATE_UNKNOWN) {
                 System.out.println("Unknown rate");
@@ -113,7 +108,7 @@ public class Application implements Runnable {
                             scenaViitoare = Nivel.Actualizare();
                             Nivel.paintImmediately(0,0,screenWidth,screenHeight);
                         }else if(scena == 0){//este in meniu
-                            Nivel.firstPaint = true;
+                            //Nivel.firstPaint = true;
                             scenaViitoare = meniu.UpdateMeniu();
                             meniu.paintImmediately(0,0,screenWidth,screenHeight);
                         }
@@ -121,7 +116,14 @@ public class Application implements Runnable {
                     else{//daca este complet coborat
                         if(scena == 1){//este in nivel
                             LoadingScreen.moveOut = true;
-                            Nivel.ResetNivel();
+                            if(Nivel != null){
+                                ScheletAplicatie.remove(Nivel);
+                            }
+                            Nivel = new Level1(screenWidth,screenHeight);
+                            Nivel.onStart();
+                            ScheletAplicatie.add(Nivel);
+                            ScheletAplicatie.setVisible(true);
+
                         }else if(scena == 0){//este in meniu
                             Nivel.firstPaint = true;
                             LoadingScreen.moveOut = true;
@@ -134,16 +136,16 @@ public class Application implements Runnable {
                         meniu.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
                         panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
                     }else if(scena == 1){//este in nivel
-                        Nivel.firstPaint = true;
                         Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
+                        Nivel.firstPaint = true;
                         panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+
                     }
                 }
                 timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
-                Nivel.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
-                //System.out.println("mousex "+ mouse.mousex +" mousey "+mouse.mousey);
-                //System.out.println("scena "+scena+" , scena viitoare "+scenaViitoare+" , move in "+LoadingScreen.moveIn+" , move out "+LoadingScreen.moveOut);
-                //MouseStatus.ResetMouseStatus();
+                if(Nivel != null){
+                    Nivel.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
+                }
             }
         }
     }

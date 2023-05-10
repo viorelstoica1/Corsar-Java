@@ -22,6 +22,7 @@ public class Sir {
         viteza_min_save = viteza_min;
         viteza_max_save = viteza_max;
     }
+
     public void WaveNou(int numarBile){
         if(numarBile > 0){
             listaBile.addFirst(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
@@ -186,7 +187,7 @@ public class Sir {
                 }else if(getBilaFinalSir(i).index > indexIncet){
                     //daca bila e la sfarsit, merge incet
                     if(listaBile.get(i).vitezaMax > 0){
-                        listaBile.get(i).vitezaMax = viteza_min/2 + viteza_min * (float)(indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet);
+                        listaBile.get(i).vitezaMax = viteza_min/2 + viteza_min * (indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet);
                         //System.out.println(listaBile.get(i).viteza);
                     }
                 }
