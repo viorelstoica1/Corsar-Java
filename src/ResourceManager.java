@@ -7,8 +7,8 @@ import java.util.Vector;
 public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
-    private final Textura fundal1, fundal2 = null, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu;
+    private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
+    private final Textura selectiiMeniu, capcana1, capcana2;
     private final Vector<String> nume;
     private ResourceManager(){
         try {
@@ -103,20 +103,25 @@ public class ResourceManager {
             fundal1 = new Textura(tex,0,0,0).resize(1536,864);
             tex = ImageIO.read(new File("src/resources/LoadScreen.png"));
             loadscreen = new Textura(tex, 0 , 0, 0).resize(1536, 864);
-            /*tex = ImageIO.read(new File(("src/resources/fundal2.png")));
-            fundal2 = new Textura(tex,0,0,0);*/
+            tex = ImageIO.read(new File(("src/resources/fundal2.png")));
+            fundal2 = new Textura(tex,0,0,0);
             tex = ImageIO.read(new File(("src/resources/fundal3.png")));
             fundal3 = new Textura(tex,0,0,0);
+            //Meniuri
             tex = ImageIO.read(new File(("src/resources/FundalMeniu.png")));
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
             tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
             selectiiMeniu = new Textura(tex,0,0,0).resize(500,500);
-            //TODO fundal 2
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
             tunSus = new Textura(tex,0,0,0);
             tex = ImageIO.read(new File(("src/resources/Cannon_explosion-sheet.png")));
             tunJos = new Spritesheet(tex,5,5,0,0,0);
+            //capcane
+            tex = ImageIO.read(new File(("src/resources/capcana1.png")));
+            capcana1 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
+            tex = ImageIO.read(new File(("src/resources/capcana2.png")));
+            capcana2 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -169,7 +174,6 @@ public class ResourceManager {
     }
 
     public Textura getTexturaBila(String numeTextura){
-        //System.out.println("textura "+ResourceManager.nume.indexOf(nume));
         return texturiBile.get(nume.indexOf(numeTextura));
     }
     public Textura getTexturaCursorSecundar(Textura bila){
@@ -206,7 +210,19 @@ public class ResourceManager {
                 return selectiiMeniu;
             }
         }
-        System.out.println("Nume textura nerecunoscut!");
+        System.out.println("Nume textura meniu nerecunoscut!");
+        return null;
+    }
+    public Textura getCapcana(int nrCapcana){
+        switch (nrCapcana){
+            case 1 ->{
+                return capcana1;
+            }
+            case 2 -> {
+                return capcana2;
+            }
+        }
+        System.out.println("Numar textura capcana nerecunoscut!");
         return null;
     }
 }
