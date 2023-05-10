@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat reset de nivel aproape bun">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="redus marime functie OnStart">
+      <change afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,21 +154,8 @@
       <workItem from="1683298975883" duration="1877000" />
       <workItem from="1683441135536" duration="15569000" />
       <workItem from="1683473122434" duration="7578000" />
-      <workItem from="1683709264244" duration="1544000" />
-    </task>
-    <task id="LOCAL-00008" summary="-adaugat bile noi">
-      <created>1681639792791</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1681639792791</updated>
-    </task>
-    <task id="LOCAL-00009" summary="dupa plansete si urlete am facut sirul mult mai destept">
-      <created>1681738774820</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1681738774820</updated>
+      <workItem from="1683709264244" duration="6267000" />
+      <workItem from="1683722894282" duration="6905000" />
     </task>
     <task id="LOCAL-00010" summary="reparat viteze, acum merge mai smooth">
       <created>1681742819193</created>
@@ -498,7 +486,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683660063814</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="schimbat incarcarea de nivele, se face mai usor">
+      <created>1683710875122</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1683710875123</updated>
+    </task>
+    <task id="LOCAL-00058" summary="redus marime functie OnStart">
+      <created>1683711344268</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1683711344268</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,8 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implementat animatie de spargere bile (o culoare)" />
-    <MESSAGE value="Boom la toate bilele" />
     <MESSAGE value="adaugat sunete de baza" />
     <MESSAGE value="modificat structura pentru proiectile" />
     <MESSAGE value="implementat bila de foc de baza" />
@@ -541,7 +541,9 @@
     <MESSAGE value="clasa de mouse pentru a putea lua statusul in orice meniu/nivel" />
     <MESSAGE value="adaugat MENIU la joc, animat, frumos executat, mandru de el" />
     <MESSAGE value="adaugat reset de nivel aproape bun" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat reset de nivel aproape bun" />
+    <MESSAGE value="schimbat incarcarea de nivele, se face mai usor" />
+    <MESSAGE value="redus marime functie OnStart" />
+    <option name="LAST_COMMIT_MESSAGE" value="redus marime functie OnStart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
-    private static Level1 Nivel = null;//display-ul propriu zis
+    private static Level3 Nivel = null;//display-ul propriu zis
     private static Meniu meniu;
     private static int screenWidth,screenHeight;
     private static double frameTime;
@@ -119,7 +119,7 @@ public class Application implements Runnable {
                             if(Nivel != null){
                                 ScheletAplicatie.remove(Nivel);
                             }
-                            Nivel = new Level1(screenWidth,screenHeight);
+                            Nivel = new Level3(screenWidth,screenHeight);
                             Nivel.onStart();
                             ScheletAplicatie.add(Nivel);
                             ScheletAplicatie.setVisible(true);

@@ -6,7 +6,7 @@ public class Sir {
     private final LinkedList<Bila> listaBile;
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0, scor = 0;
     public boolean lost = false;
-    private final int indexRapid, indexIncet, indexFinal;
+    public int indexRapid, indexIncet, indexFinal;
     float viteza,acceleratie, viteza_max, viteza_min, viteza_max_save, viteza_min_save;
     GameObject[] traseu;
     public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal) {
@@ -187,7 +187,7 @@ public class Sir {
                 }else if(getBilaFinalSir(i).index > indexIncet){
                     //daca bila e la sfarsit, merge incet
                     if(listaBile.get(i).vitezaMax > 0){
-                        listaBile.get(i).vitezaMax = viteza_min/2 + viteza_min * (indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet);
+                        listaBile.get(i).vitezaMax = viteza_min/*/2 + viteza_min * (indexFinal - getBilaFinalSir(i).index)/(float)(indexFinal-indexIncet)*/;
                         //System.out.println(listaBile.get(i).viteza);
                     }
                 }
@@ -203,25 +203,30 @@ public class Sir {
                 }else listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
                 //listaBile.get(i).index = listaBile.get(i-1).index+listaBile.get(i).GetMarimeSpriteX();
             }
+            listaBile.get(i).CresteCadru(listaBile.get(i).viteza);
 
-            if(listaBile.get(i).index >=0){//modificarea pozitiei efective a bilei
+            if(getBilaFinalSir(i).index > indexFinal){//a pierdut jocul
+                //listaBile.remove(getBilaFinalSir(i));
+                lost = true;
+                viteza_min = viteza_max;
+                viteza = viteza_max;
+            }
+
+            if(listaBile.get(i).index >=0 && listaBile.get(i).index < traseu.length){//modificarea pozitiei efective a bilei
                 if(!listaBile.get(i).isAnimating){
                     listaBile.get(i).Copiaza(traseu[(int) listaBile.get(i).index]);
                 }else{
                     listaBile.get(i).AnimatieInserare(traseu[(int) listaBile.get(i).index]);
                 }
             }
+            else if(listaBile.get(i).index >= traseu.length){
+                listaBile.remove(getBilaFinalSir(i));
+            }
             else{
                 listaBile.get(i).Copiaza(traseu[0]);
             }
-            listaBile.get(i).CresteCadru(listaBile.get(i).viteza);
-            if(getBilaFinalSir(i).index > indexFinal){//a pierdut jocul
-                listaBile.remove(getBilaFinalSir(i));
-                lost = true;
-                viteza_min = viteza_max;
-                viteza = viteza_max;
-            }
             i++;
+
         }
         return scor;
     }

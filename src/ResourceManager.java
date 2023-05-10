@@ -7,7 +7,7 @@ import java.util.Vector;
 public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
-    private final Textura fundal1, fundal2 = null, fundal3 = null, loadscreen, fundalMeniu, tunSus, tunJos;
+    private final Textura fundal1, fundal2 = null, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
     private final Textura selectiiMeniu;
     private final Vector<String> nume;
     private ResourceManager(){
@@ -104,14 +104,14 @@ public class ResourceManager {
             tex = ImageIO.read(new File("src/resources/LoadScreen.png"));
             loadscreen = new Textura(tex, 0 , 0, 0).resize(1536, 864);
             /*tex = ImageIO.read(new File(("src/resources/fundal2.png")));
-            fundal2 = new Textura(tex,0,0,0);
+            fundal2 = new Textura(tex,0,0,0);*/
             tex = ImageIO.read(new File(("src/resources/fundal3.png")));
-            fundal3 = new Textura(tex,0,0,0);*/
+            fundal3 = new Textura(tex,0,0,0);
             tex = ImageIO.read(new File(("src/resources/FundalMeniu.png")));
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
             tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
             selectiiMeniu = new Textura(tex,0,0,0).resize(500,500);
-            //TODO fundal 2 si 3
+            //TODO fundal 2
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
             tunSus = new Textura(tex,0,0,0);
