@@ -1,15 +1,16 @@
+import java.awt.*;
 import java.util.LinkedList;
 
-import static java.lang.System.exit;
-
 public class Level3 extends Level{
-
+    Capcana capcanaStanga, capcanaDreapta;
     public Level3(int Width, int Height) {
         super(Width, Height);
         fundal.SetTexRaw(ResourceManager.get().getFundal(3).GetTex());
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2850;
         sirBile.indexFinal = 3300;
+        capcanaStanga = new Capcana(ResourceManager.get().getCapcana(1).GetTex(),374,43,0,200, 2);
+        capcanaDreapta = new Capcana(ResourceManager.get().getCapcana(2).GetTex(),753,39,0,200, 2);
     }
 
     @Override
@@ -28,6 +29,20 @@ public class Level3 extends Level{
 
     public int Actualizare() {//in actualizare trebuie implementat cursorul
         int status = super.Actualizare();
+        //actualizari capcane
+        capcanaDreapta.Update();
+        capcanaStanga.Update();
+        if(capcanaDreapta.isReady()){
+            System.out.println("Capcana trage");
+            listaProiectile.add(capcanaDreapta.proiectilIncarcat);
+            capcanaDreapta.resetCapcana();
+        }
+        if(capcanaStanga.isReady()){
+            System.out.println("Capcana trage");
+            listaProiectile.add(capcanaStanga.proiectilIncarcat);
+            capcanaStanga.resetCapcana();
+        }
+        //actualizari cursor
         cursorPrincipal.SetCoordY(0);
         cursorPrincipal.SetCoordX(tunar.GetCoordX());
         cursorSecundar.SetCoordX(tunar.GetCoordX());
@@ -54,7 +69,11 @@ public class Level3 extends Level{
         }
         return status;//cu asta poti returna ce scena sa se incarce
     }
-
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        capcanaStanga.paintComponent(g);
+        capcanaDreapta.paintComponent(g);
+    }
     @Override
     protected void AlocareTraseuBile() {
         traseuBile = new GameObject[3404];//3404

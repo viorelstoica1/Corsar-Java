@@ -50,9 +50,8 @@ public class Meniu extends JPanel{
     public void paintComponent(Graphics g) {
         FundalMeniu.paintComponent(g);
         SelectiiMeniu.paintComponent(g);
-        g.drawString(Integer.toString(selectedButton),50,100);
-        g.drawRect(buton1.x,buton1.y,buton1.width,buton1.height);
+        /*g.drawRect(buton1.x,buton1.y,buton1.width,buton1.height);
         g.drawRect(buton2.x,buton2.y,buton2.width,buton2.height);
-        g.drawRect(buton3.x,buton3.y,buton3.width,buton3.height);
+        g.drawRect(buton3.x,buton3.y,buton3.width,buton3.height);*/
     }
 }
