@@ -18,9 +18,6 @@ public class ResourceManager {
                 GraphicsEnvironment ge =
                         GraphicsEnvironment.getLocalGraphicsEnvironment();
                 System.out.println(ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/resources/Blackpearl-vPxA.ttf"))));
-                for (Font font : ge.getAllFonts()){
-                    System.out.println(font.toString());
-                }
             } catch (IOException|FontFormatException e) {
                 e.printStackTrace();
             }
@@ -119,7 +116,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/fundal2.png")));
             fundal2 = new Textura(tex,0,0,0);
             tex = ImageIO.read(new File(("src/resources/fundal3.png")));
-            fundal3 = new Textura(tex,0,0,0);
+            fundal3 = new Textura(tex,0,0,0).resize(1536,864);
             //Meniuri
             tex = ImageIO.read(new File(("src/resources/FundalMeniu.png")));
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
@@ -167,8 +164,8 @@ public class ResourceManager {
     public Textura getTunJos(){
         return tunJos;
     }
-    public Textura getBilaRandom(){
-        return texturiBile.get((int) (Math.random()*6));
+    public Textura getBilaRandom(int numarBile){
+        return texturiBile.get((int) (Math.random()*numarBile));
     }
 
     public  Textura getTexturaCursorPrincipal(Textura bila){

@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 
 public class Level1 extends Level {
-    public Level1(int Width, int Height) {
-        super(Width, Height);
+    public Level1(int Width, int Height, int dificultate) {
+        super(Width, Height, dificultate);
     }
 
     public void onStart() {
@@ -34,7 +34,7 @@ public class Level1 extends Level {
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
 
         if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(15);// =)
+            sirBile.WaveNou(15, dificultate);// =)
         }
         if(sirBile.marime() == 0){
             LoadingScreen.moveIn = true;

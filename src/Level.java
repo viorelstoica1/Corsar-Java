@@ -19,10 +19,12 @@ public abstract class Level extends JPanel {
     protected final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     protected final GameObject pozitieTun, pozitieCursor;
     protected final ResourceManager resurse = ResourceManager.get();
+    protected final int dificultate;
     private int cooldownSwap = 0;
 
-    public Level(int Width, int Height) {
+    public Level(int Width, int Height, int dificultate) {
         this.setLayout(null);
+        this.dificultate = dificultate;
         pozitiiBile = new LinkedList<>();
         pozitiiProiectile = new LinkedList<>();
         pozitieTun = new GameObject();
@@ -41,8 +43,8 @@ public abstract class Level extends JPanel {
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
     }
     protected void repaintBackground(int x, int y, int marimeX, int marimeY, Graphics g){
         if(x+marimeX > rezolutieX){
@@ -135,7 +137,7 @@ public abstract class Level extends JPanel {
                 tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
             }
             else{
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
+                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav", -10, false);
             if(Math.random()>0.95){
@@ -172,7 +174,7 @@ public abstract class Level extends JPanel {
         }
         if(!pozitiiBile.isEmpty()){
             for (GameObject bila : pozitiiBile) {
-                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteY())-1,((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteX()*2+2, ((Spritesheet)resurse.getBilaRandom()).GetMarimeSpriteY()*2+2, g);
+                repaintBackground((int) (bila.GetCoordX()-((Spritesheet)resurse.getBilaRandom(dificultate)).GetMarimeSpriteX())-1,(int) (bila.GetCoordY()-((Spritesheet)resurse.getBilaRandom(dificultate)).GetMarimeSpriteY())-1,((Spritesheet)resurse.getBilaRandom(dificultate)).GetMarimeSpriteX()*2+2, ((Spritesheet)resurse.getBilaRandom(dificultate)).GetMarimeSpriteY()*2+2, g);
             }
         }
         pozitiiBile.clear();

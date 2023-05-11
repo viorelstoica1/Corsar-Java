@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="schimbat fontul jocului">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate, inca nu face nimic">
+      <change afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/ScanduraScor.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Capcana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Capcana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/fundal3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundal3.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +163,7 @@
       <workItem from="1683473122434" duration="7578000" />
       <workItem from="1683709264244" duration="6267000" />
       <workItem from="1683722894282" duration="20202000" />
-      <workItem from="1683787151552" duration="7374000" />
-    </task>
-    <task id="LOCAL-00014" summary="reparat erori in logica, animatia nu merge la sir leader si wave leader">
-      <created>1681894997965</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1681894997965</updated>
+      <workItem from="1683787151552" duration="17328000" />
     </task>
     <task id="LOCAL-00015" summary="reparat erori in logica">
       <created>1681897064710</created>
@@ -501,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683828731687</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="jucat cu pozitia butoanelor">
+      <created>1683830086876</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1683830086876</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,8 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele" />
-    <MESSAGE value="proiectilele din tun isi iau update" />
     <MESSAGE value="rezolvat exceptia cu bila de foc" />
     <MESSAGE value="am realizat o prostie" />
     <MESSAGE value="adaugat looping si volum la functia de sunete" />
@@ -544,7 +549,9 @@
     <MESSAGE value="adaugat texturi capcane" />
     <MESSAGE value="adaugat capcane tragatoare in nivelul 3" />
     <MESSAGE value="schimbat fontul jocului" />
-    <option name="LAST_COMMIT_MESSAGE" value="schimbat fontul jocului" />
+    <MESSAGE value="jucat cu pozitia butoanelor" />
+    <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate, inca nu face nimic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate, inca nu face nimic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

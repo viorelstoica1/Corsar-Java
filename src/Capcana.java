@@ -3,15 +3,16 @@ import java.awt.image.BufferedImage;
 
 public class Capcana extends Textura{
     private int timerCapcana;
-    private final int cooldownCapcana;
+    private final int cooldownCapcana, dificultate;
     private final float viteza;
-    public Proiectil proiectilIncarcat = null;
-    public Capcana(BufferedImage imagine, float poz_x, float poz_y, float angel, int cooldownCapcana, float viteza) {
+    public Proiectil proiectilIncarcat;
+    public Capcana(BufferedImage imagine, float poz_x, float poz_y, float angel, int cooldownCapcana, float viteza, int dificultate) {
         super(imagine, poz_x, poz_y, angel);
         this.cooldownCapcana = cooldownCapcana;
         timerCapcana = cooldownCapcana;
         this.viteza = viteza;
-        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza,120);
+        this.dificultate = dificultate;
+        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza,120);
         proiectilIncarcat.viteza_x = 0;
         proiectilIncarcat.viteza_y = viteza;
         marime_x = proiectilIncarcat.GetMarimeSpriteX();
@@ -27,7 +28,7 @@ public class Capcana extends Textura{
     }
     public void resetCapcana(){
         timerCapcana = cooldownCapcana;
-        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza,120);
+        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza,120);
         proiectilIncarcat.viteza_x = 0;
         proiectilIncarcat.viteza_y = viteza;
     }

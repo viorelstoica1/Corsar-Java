@@ -3,48 +3,45 @@ import java.awt.*;
 
 public class Meniu extends JPanel{
     private final Textura FundalMeniu;
-    private final Textura SelectiiMeniu;
     protected Font font;
-    private int selectedButton = 0;
-    Buton buton1, buton2, buton3;
+    private final MeniuSelectii selectii;
+    private int selectedButton = 0, timerCooldown = 0;
+    private final int cooldownButoane = 30;
+    private boolean butoanePregatite = true;
     public Meniu(){
         font = ResourceManager.get().font.deriveFont(75f);
         FundalMeniu = new Textura(ResourceManager.get().getMeniu("Fundal").GetTex(),(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
-        SelectiiMeniu = new Textura(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3,0);
-        buton1 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2, (int) ((int) SelectiiMeniu.GetCoordY()-SelectiiMeniu.GetMarimeTexY()*0.26),SelectiiMeniu.GetMarimeTexX(),100);
-        buton1.textButon = "Start";
-        buton2 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2, (int) ((int) SelectiiMeniu.GetCoordY()+SelectiiMeniu.GetMarimeTexY()*0.03),SelectiiMeniu.GetMarimeTexX(),100);
-        buton2.textButon = "Credite";
-        buton3 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2,(int) SelectiiMeniu.GetCoordY()+SelectiiMeniu.GetMarimeTexY()*3/10,SelectiiMeniu.GetMarimeTexX(),100);
-        buton3.textButon = "Iesire";
+        selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3,0);
     }
     public int UpdateMeniu(){
-        //System.out.println("mousex "+MouseStatus.mousex+" mousey "+MouseStatus.mousey);
-        if(buton1.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
+        if(!butoanePregatite){
+            timerCooldown++;
+            if(timerCooldown >= cooldownButoane){
+                timerCooldown = 0;
+                butoanePregatite = true;
+            }
+        }
+        if(selectii.buton1.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
             //cursorul e pe butonul de sus
             selectedButton = 1;
-            //System.out.println("cursorul e pe butonul de sus");
-            if(MouseStatus.clickStanga){
-                System.out.println("Buton Play");
-                LoadingScreen.moveIn = true;
-                return 1;
+            if(MouseStatus.clickStanga && butoanePregatite){
+                butoanePregatite = false;
+                return selectii.ApasaButonSus();
             }
-        }else if(buton2.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
+        }else if(selectii.buton2.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
             //cursorul e pe butonul din mijloc
             selectedButton = 2;
-            if(MouseStatus.clickStanga){
-                System.out.println("Buton Credite");
+            if(MouseStatus.clickStanga && butoanePregatite){
+                butoanePregatite = false;
+                return selectii.ApasaButonMijloc();
             }
-            //System.out.println("cursorul e pe butonul din mijloc");
-        }else if(buton3.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
+        }else if(selectii.buton3.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
             //cursorul e pe butonul de jos
             selectedButton = 3;
-            if(MouseStatus.clickStanga){
-                System.out.println("Buton iesire");
-                LoadingScreen.moveIn = true;
-                return -1;
+            if(MouseStatus.clickStanga && butoanePregatite){
+                butoanePregatite = false;
+                return selectii.ApasaButonJos();
             }
-            //System.out.println("cursorul e pe butonul de jos");
         }else{
             //cursorul e nu e niciun buton
             selectedButton = 0;
@@ -54,12 +51,9 @@ public class Meniu extends JPanel{
 
     public void paintComponent(Graphics g) {
         FundalMeniu.paintComponent(g);
-        SelectiiMeniu.paintComponent(g);
         g.setFont(font);
         g.setColor(Color.black);
         g.drawString("Corsar",100,300);
-        buton1.paintComponent(g);
-        buton2.paintComponent(g);
-        buton3.paintComponent(g);
+        selectii.paintComponent(g);
     }
 }

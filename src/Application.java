@@ -3,11 +3,12 @@ import java.awt.*;
 
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
-    private static Level3 Nivel = null;//display-ul propriu zis
+    private static Level Nivel = null;//display-ul propriu zis
     private static Meniu meniu;
     private static int screenWidth,screenHeight;
     private static double frameTime;
     public static LoadingScreen panouloading;
+    public static boolean game_is_running = true;
     private static final Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
         Initializare();
@@ -88,7 +89,6 @@ public class Application implements Runnable {
     public void run() {
         System.out.println("start aplicatie");
         SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
-        boolean game_is_running = true;
         double timp_incepere = System.nanoTime();
         double timp_trecut;
         int scena = 0, scenaViitoare = 0;
@@ -98,8 +98,7 @@ public class Application implements Runnable {
                 timp_incepere = System.nanoTime();
                 LoadingScreen.Update();
                 if(scena == -1 && LoadingScreen.isFinished()){
-                    System.out.println("Iesire din joc!");
-                    game_is_running = false;
+                    CloseGame();
                 }
                 if(LoadingScreen.isFinished()){
                     //este ori sus de tot, ori jos de tot
@@ -117,14 +116,7 @@ public class Application implements Runnable {
                     else{//daca este complet coborat
                         if(scena == 1){//este in nivel
                             LoadingScreen.moveOut = true;
-                            if(Nivel != null){
-                                ScheletAplicatie.remove(Nivel);
-                            }
-                            Nivel = new Level3(screenWidth,screenHeight);
-                            Nivel.onStart();
-                            ScheletAplicatie.add(Nivel);
-                            ScheletAplicatie.setVisible(true);
-
+                            //StartLevel(3,4);
                         }else if(scena == 0){//este in meniu
                             Nivel.firstPaint = true;
                             LoadingScreen.moveOut = true;
@@ -148,6 +140,28 @@ public class Application implements Runnable {
                     Nivel.FrameTime = "Frame: "+Math.floor(timp_trecut * 100) / 100;
                 }
             }
+        }
+    }
+    public static void CloseGame(){
+        System.out.println("Iesire din joc!");
+        game_is_running = false;
+    }
+    public static void StartLevel(int numarNivel, int dificultate){
+        if(Nivel != null){
+            ScheletAplicatie.remove(Nivel);
+        }
+        switch (numarNivel){
+            case 1 -> Nivel = new Level1(screenWidth,screenHeight, dificultate);
+            case 2 -> {
+                //Nivel = new Level2(screenWidth,screenHeight);
+            }
+            case 3 -> Nivel = new Level3(screenWidth,screenHeight, dificultate);
+            default -> System.out.println("Nu pot incarca nivelul "+numarNivel);
+        }
+        if(Nivel != null){
+            Nivel.onStart();
+            ScheletAplicatie.add(Nivel);
+            ScheletAplicatie.setVisible(true);
         }
     }
     public static int getScreenWidth(){

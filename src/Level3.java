@@ -3,14 +3,14 @@ import java.util.LinkedList;
 
 public class Level3 extends Level{
     Capcana capcanaStanga, capcanaDreapta;
-    public Level3(int Width, int Height) {
-        super(Width, Height);
+    public Level3(int Width, int Height, int dificultate) {
+        super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(3).GetTex());
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2850;
         sirBile.indexFinal = 3300;
-        capcanaStanga = new Capcana(ResourceManager.get().getCapcana(1).GetTex(),374,43,0,200, 2);
-        capcanaDreapta = new Capcana(ResourceManager.get().getCapcana(2).GetTex(),753,39,0,200, 2);
+        capcanaStanga = new Capcana(ResourceManager.get().getCapcana(1).GetTex(),374,43,0,200, 2, dificultate);
+        capcanaDreapta = new Capcana(ResourceManager.get().getCapcana(2).GetTex(),753,39,0,200, 2, dificultate);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Level3 extends Level{
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
 
         if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(15);// =)
+            sirBile.WaveNou(15, dificultate);// =)
         }
         if(sirBile.marime() == 0){
             LoadingScreen.moveIn = true;
