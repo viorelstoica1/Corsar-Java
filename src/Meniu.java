@@ -8,12 +8,15 @@ public class Meniu extends JPanel{
     private int selectedButton = 0;
     Buton buton1, buton2, buton3;
     public Meniu(){
-        font = new Font("BlackPearl", Font.PLAIN, 45);
+        font = ResourceManager.get().font.deriveFont(75f);
         FundalMeniu = new Textura(ResourceManager.get().getMeniu("Fundal").GetTex(),(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
-        SelectiiMeniu = new Textura(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/2,0);
-        buton1 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2,(int) SelectiiMeniu.GetCoordY()-SelectiiMeniu.GetMarimeTexY()*3/10,SelectiiMeniu.GetMarimeTexX(),100);
-        buton2 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2,(int) SelectiiMeniu.GetCoordY()+SelectiiMeniu.GetMarimeTexY()/20,SelectiiMeniu.GetMarimeTexX(),100);
+        SelectiiMeniu = new Textura(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3,0);
+        buton1 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2, (int) ((int) SelectiiMeniu.GetCoordY()-SelectiiMeniu.GetMarimeTexY()*0.26),SelectiiMeniu.GetMarimeTexX(),100);
+        buton1.textButon = "Start";
+        buton2 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2, (int) ((int) SelectiiMeniu.GetCoordY()+SelectiiMeniu.GetMarimeTexY()*0.03),SelectiiMeniu.GetMarimeTexX(),100);
+        buton2.textButon = "Credite";
         buton3 = new Buton((int) SelectiiMeniu.GetCoordX()-SelectiiMeniu.GetMarimeTexX()/2,(int) SelectiiMeniu.GetCoordY()+SelectiiMeniu.GetMarimeTexY()*3/10,SelectiiMeniu.GetMarimeTexX(),100);
+        buton3.textButon = "Iesire";
     }
     public int UpdateMeniu(){
         //System.out.println("mousex "+MouseStatus.mousex+" mousey "+MouseStatus.mousey);
@@ -55,8 +58,8 @@ public class Meniu extends JPanel{
         g.setFont(font);
         g.setColor(Color.black);
         g.drawString("Corsar",100,300);
-        /*g.drawRect(buton1.x,buton1.y,buton1.width,buton1.height);
-        g.drawRect(buton2.x,buton2.y,buton2.width,buton2.height);
-        g.drawRect(buton3.x,buton3.y,buton3.width,buton3.height);*/
+        buton1.paintComponent(g);
+        buton2.paintComponent(g);
+        buton3.paintComponent(g);
     }
 }

@@ -11,6 +11,7 @@ public class ResourceManager {
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
     private final Textura selectiiMeniu, capcana1, capcana2;
     private final Vector<String> nume;
+    public Font font;
     private ResourceManager(){
         try {
             try {
@@ -23,6 +24,7 @@ public class ResourceManager {
             } catch (IOException|FontFormatException e) {
                 e.printStackTrace();
             }
+            font = new Font("BlackPearl", Font.PLAIN, 25);
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();

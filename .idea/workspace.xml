@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat capcane tragatoare in nivelul 3">
-      <change afterPath="$PROJECT_DIR$/src/resources/Blackpearl-vPxA.ttf" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="schimbat fontul jocului">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +156,7 @@
       <workItem from="1683473122434" duration="7578000" />
       <workItem from="1683709264244" duration="6267000" />
       <workItem from="1683722894282" duration="20202000" />
-      <workItem from="1683787151552" duration="6127000" />
-    </task>
-    <task id="LOCAL-00013" summary="rescris logice de viteza iar, adaugat animatii de inserare">
-      <created>1681891824870</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1681891824870</updated>
+      <workItem from="1683787151552" duration="7374000" />
     </task>
     <task id="LOCAL-00014" summary="reparat erori in logica, animatia nu merge la sir leader si wave leader">
       <created>1681894997965</created>
@@ -504,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683752812289</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="schimbat fontul jocului">
+      <created>1683828731687</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1683828731687</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rezolvat bugul enervant cu sirul" />
     <MESSAGE value="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele" />
     <MESSAGE value="proiectilele din tun isi iau update" />
     <MESSAGE value="rezolvat exceptia cu bila de foc" />
@@ -547,7 +543,8 @@
     <MESSAGE value="adaugat al treilea nivel basic si schimbat logica de sfarsit de joc" />
     <MESSAGE value="adaugat texturi capcane" />
     <MESSAGE value="adaugat capcane tragatoare in nivelul 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat capcane tragatoare in nivelul 3" />
+    <MESSAGE value="schimbat fontul jocului" />
+    <option name="LAST_COMMIT_MESSAGE" value="schimbat fontul jocului" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
