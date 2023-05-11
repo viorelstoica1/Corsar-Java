@@ -24,7 +24,6 @@ public class Level3 extends Level{
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
         cursorSecundar.SetUnghi(0);
-        SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
     }
 
     public int Actualizare() {//in actualizare trebuie implementat cursorul

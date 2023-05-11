@@ -87,6 +87,7 @@ public class Application implements Runnable {
     @Override
     public void run() {
         System.out.println("start aplicatie");
+        SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
         boolean game_is_running = true;
         double timp_incepere = System.nanoTime();
         double timp_trecut;

@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,16 @@ public class ResourceManager {
     private final Vector<String> nume;
     private ResourceManager(){
         try {
+            try {
+                GraphicsEnvironment ge =
+                        GraphicsEnvironment.getLocalGraphicsEnvironment();
+                System.out.println(ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("src/resources/Blackpearl-vPxA.ttf"))));
+                for (Font font : ge.getAllFonts()){
+                    System.out.println(font.toString());
+                }
+            } catch (IOException|FontFormatException e) {
+                e.printStackTrace();
+            }
             texturiBile = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();

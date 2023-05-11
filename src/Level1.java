@@ -12,7 +12,6 @@ public class Level1 extends Level {
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
         tunar.vitezaTragere = 20;
         tunar.SetUnghi(270);
-        SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
     }
 
     public int Actualizare() {//in actualizare trebuie implementat cursorul
