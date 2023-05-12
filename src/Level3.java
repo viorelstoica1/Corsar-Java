@@ -19,7 +19,7 @@ public class Level3 extends Level{
         tunar.SetCoordX(rezolutieX - (float)rezolutieX / 2);
         tunar.SetCoordY(rezolutieY - (float)rezolutieY / 20);
 
-        tunar.SetLimite(rezolutieX / 20, rezolutieX - rezolutieX / 8, rezolutieY - rezolutieY / 19, rezolutieY - rezolutieY / 19);
+        tunar.SetLimite(rezolutieX / 20, rezolutieX - rezolutieX / 10, rezolutieY - rezolutieY / 19, rezolutieY - rezolutieY / 19);
         tunar.vitezaTragere = 20;
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
@@ -33,7 +33,6 @@ public class Level3 extends Level{
         while (index < listaProiectile.size()){
             Proiectil proiectil = listaProiectile.get(index);
             if(proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
-                //listaProiectile.add(listaProiectile.size(),new ProiectilEfect(proiectil.getSprite(),proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(),0,120));
                 Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0,16));
                 proiectil.shouldDissapear = true;
             }
