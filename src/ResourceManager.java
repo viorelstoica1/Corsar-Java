@@ -9,7 +9,7 @@ public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu, capcana1, capcana2;
+    private final Textura selectiiMeniu, capcana1, capcana2, scor;
     private final Vector<String> nume;
     public Font font;
     private ResourceManager(){
@@ -132,6 +132,9 @@ public class ResourceManager {
             capcana1 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
             tex = ImageIO.read(new File(("src/resources/capcana2.png")));
             capcana2 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
+            //scor
+            tex = ImageIO.read(new File(("src/resources/ScanduraScor.png")));
+            scor = new Textura(tex,0,0,0).resize(200,100);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -218,6 +221,9 @@ public class ResourceManager {
             }
             case "Selectii" ->{
                 return selectiiMeniu;
+            }
+            case "Scor" -> {
+                return scor;
             }
         }
         System.out.println("Nume textura meniu nerecunoscut!");
