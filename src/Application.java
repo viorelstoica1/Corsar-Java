@@ -132,7 +132,6 @@ public class Application implements Runnable {
                         Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
                         Nivel.firstPaint = true;
                         panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
-
                     }
                 }
                 timp_trecut = (System.nanoTime()- timp_incepere)/1000000;

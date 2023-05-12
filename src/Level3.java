@@ -7,8 +7,8 @@ public class Level3 extends Level{
         super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(3).GetTex());
         sirBile.indexRapid = 400;
-        sirBile.indexIncet = 2850;
-        sirBile.indexFinal = 3300;
+        sirBile.indexIncet = 2650;
+        sirBile.indexFinal = 3123;
         capcanaStanga = new Capcana(ResourceManager.get().getCapcana(1).GetTex(),373,36,0,200, 2, dificultate);
         capcanaDreapta = new Capcana(ResourceManager.get().getCapcana(2).GetTex(),753,34,0,200, 2, dificultate);
     }
@@ -28,6 +28,18 @@ public class Level3 extends Level{
 
     public int Actualizare() {//in actualizare trebuie implementat cursorul
         int status = super.Actualizare();
+        //actualizari proiectile
+        int index = 0;
+        while (index < listaProiectile.size()){
+            Proiectil proiectil = listaProiectile.get(index);
+            if(proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
+                //listaProiectile.add(listaProiectile.size(),new ProiectilEfect(proiectil.getSprite(),proiectil.GetCoordX(), proiectil.GetCoordY(), proiectil.GetUnghi(),0,120));
+                Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0,16));
+                proiectil.shouldDissapear = true;
+            }
+            index++;
+        }
+
         //actualizari capcane
         capcanaDreapta.Update();
         capcanaStanga.Update();
@@ -75,8 +87,8 @@ public class Level3 extends Level{
     }
     @Override
     protected void AlocareTraseuBile() {
-        traseuBile = new GameObject[3404];//3404
-        for (int i = 0; i < 3404; i++) {
+        traseuBile = new GameObject[3123];//3404
+        for (int i = 0; i < 3123; i++) {
             traseuBile[i] = new GameObject();
         }
         int i = 0;
@@ -155,34 +167,41 @@ public class Level3 extends Level{
             traseuBile[i].SetUnghi((float) (unghi + Math.PI));
             i++;
         }
-        for (float unghi = (float) Math.PI; unghi < (float) (Math.PI * 3 / 2); unghi = (float) (unghi + 0.0125)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 80 + 1080));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 80 + 548));
+        for (float unghi = (float) Math.PI; unghi < (float) (Math.PI * 3 / 2); unghi = (float) (unghi + 0.025)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 40 + 1040));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 40 + 548));
             traseuBile[i].SetUnghi(unghi);
             i++;
         }
-        for (int j = 1080; j < 1200; j++) {
+        for (int j = 1040; j < 1150; j++) {
             traseuBile[i].SetCoordX(j);
-            traseuBile[i].SetCoordY(468);
+            traseuBile[i].SetCoordY(508);
             traseuBile[i].SetUnghi((float) (Math.PI * 3 / 2));
             i++;
         }
-        for (float unghi = (float) (Math.PI * 3 / 2); unghi < Math.PI * 2; unghi = (float) (unghi + 0.005)) {
-            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 200 + 1200));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 200 + 668));
+        //aici am ramas
+        for (float unghi = (float) (Math.PI * 3 / 2); unghi < Math.PI * 2; unghi = (float) (unghi + 0.025)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 40 + 1150));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 40 + 548));
             traseuBile[i].SetUnghi(unghi);
             i++;
         }
-        for (int j = 668; j < 900; j++) {
-            traseuBile[i].SetCoordX(1400);
-            traseuBile[i].SetCoordY(j);
-            traseuBile[i].SetUnghi(0);
+        for (float unghi = (float) (Math.PI); unghi > Math.PI / 2; unghi = (float) (unghi - 0.0125)) {
+            traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 80 + 1270));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 80 + 548));
+            traseuBile[i].SetUnghi((float) (unghi + Math.PI));
+            i++;
+        }
+        for (int j = 1270; j < 1420; j++) {
+            traseuBile[i].SetCoordX(j);
+            traseuBile[i].SetCoordY(628);
+            traseuBile[i].SetUnghi((float) (Math.PI*3/2));
             i++;
         }
         System.out.println(i+" puncte are traseul");
         //aici a ramas
 
-        for (int j = 0; j < 3404; j++) {//3404
+        for (int j = 0; j < 3123; j++) {//3123
             traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()));
         }
         System.out.println("Traseul are " + i + " puncte");
