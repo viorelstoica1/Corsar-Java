@@ -8,7 +8,7 @@ public abstract class Level extends JPanel {
     public String FrameTime = "Frame: 0";
     protected boolean firstPaint = true;
     protected static int rezolutieX, rezolutieY;
-    protected final Textura fundal, cursorPrincipal, cursorSecundar;
+    protected final Textura fundal, cursorPrincipal, cursorSecundar, TexScor;
     protected static List<Proiectil> listaProiectile;
     protected int scena = 1, scor = 0;
     protected final Tun tunar;
@@ -38,6 +38,7 @@ public abstract class Level extends JPanel {
         fundal = new Textura(resurse.getFundal(1).GetTex(), 0, 0, 0);
         cursorPrincipal = new Textura(resurse.getTexturaCursorPrincipal().GetTex(),0,0,270);
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
+        TexScor = new Textura(resurse.getMeniu("Scor").GetTex(), 100,50, 0);
         listaProiectile = new ArrayList<>();
         sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2500,700,3075);
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
@@ -186,7 +187,7 @@ public abstract class Level extends JPanel {
         repaintBackground((int)(pozitieTun.GetCoordX() -tunar.marime_x/2 - 1 - Math.cos(Math.toRadians(tunjos.GetUnghi()+90))*tunar.GetMarimeTexX()/2.25),(int)(pozitieTun.GetCoordY() -tunar.marime_y/2 - 1- Math.sin(Math.toRadians(tunjos.GetUnghi()+90))*tunar.GetMarimeTexY()/2.25), tunjos.GetMarimeSpriteX() + 2,tunjos.GetMarimeSpriteY() + 2,g);
         //g.drawRect((int)(pozitieTun.GetCoordX() -tunar.marime_x/2 - Math.cos(Math.toRadians(tunjos.GetUnghi()+90))*tunar.GetMarimeTexX()/2.25), (int)(pozitieTun.GetCoordY() -tunar.marime_y/2 - Math.sin(Math.toRadians(tunjos.GetUnghi()+90))*tunar.GetMarimeTexY()/2.25), tunjos.GetMarimeSpriteX(), tunjos.GetMarimeTexY());
         //textul de debug
-        repaintBackground(0,0, 200, 200, g);
+        //repaintBackground(0,0, 200, 200, g);
         //textul de scor
         repaintBackground(rezolutieX/2,10, 120, 30, g);
         //restul
@@ -198,14 +199,15 @@ public abstract class Level extends JPanel {
         }
         cursorPrincipal.paintComponent(g);
         cursorSecundar.paintComponent(g);
-        g.drawString(FrameTime, 10, 20);
-        g.drawString("Proiectile: " + listaProiectile.size(), 10, 40);
-        g.drawString("Bile: " + sirBile.marime(), 10, 65);
-        g.drawString("Wave leaderi: " + sirBile.nrWaveLeaderi,10,90);
-        g.drawString("Sir leaderi: "+ sirBile.nrSirLeaderi,10,115);
+        TexScor.paintComponent(g);
+        //g.drawString(FrameTime, 10, 20);
+        //g.drawString("Proiectile: " + listaProiectile.size(), 10, 40);
+        //g.drawString("Bile: " + sirBile.marime(), 10, 65);
+        //g.drawString("Wave leaderi: " + sirBile.nrWaveLeaderi,10,90);
+        //g.drawString("Sir leaderi: "+ sirBile.nrSirLeaderi,10,115);
         //g.drawString("Animati: "+ sirBile.nrAnimate,10,140);
         //g.drawString("Instabile: "+sirBile.nrInstabile,10,165);
-        g.drawString("Scor: "+scor,rezolutieX/2,30);
+        g.drawString("Scor: "+scor, TexScor.CenterX()+30, TexScor.CenterY()+80);
     }
 
     public static void AdaugaEfect(Proiectil efect){
