@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat fundal de scor">
-      <change afterPath="$PROJECT_DIR$/src/resources/sticla_lv2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sticla_lv3.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="bilele din nivelul 3 se sparg daca ajung prea jos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,14 +155,8 @@
       <workItem from="1683709264244" duration="6267000" />
       <workItem from="1683722894282" duration="20202000" />
       <workItem from="1683787151552" duration="17418000" />
-      <workItem from="1683867853135" duration="5200000" />
-    </task>
-    <task id="LOCAL-00019" summary="cursor smart pe sir, deocamdata fara culori facute">
-      <created>1681939709949</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1681939709949</updated>
+      <workItem from="1683867853135" duration="5665000" />
+      <workItem from="1683874830370" duration="757000" />
     </task>
     <task id="LOCAL-00020" summary="cursor pe culori, adaugat texturi culori">
       <created>1681946239196</created>
@@ -502,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683871911662</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="bilele din nivelul 3 se sparg daca ajung prea jos">
+      <created>1683874099518</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1683874099518</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -520,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="imbunatatit update-ul vitezei" />
     <MESSAGE value="viteza de final devine progresiv mai mica" />
     <MESSAGE value="am facut nivelul o clasa abstracta si am imbunatatit repaintul de fundal pentru tun" />
     <MESSAGE value="abstractizare mica" />
@@ -545,7 +543,8 @@
     <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate" />
     <MESSAGE value="reparat pozitii capcane" />
     <MESSAGE value="adaugat fundal de scor" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat fundal de scor" />
+    <MESSAGE value="bilele din nivelul 3 se sparg daca ajung prea jos" />
+    <option name="LAST_COMMIT_MESSAGE" value="bilele din nivelul 3 se sparg daca ajung prea jos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
