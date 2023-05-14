@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 public class ProiectilFoc extends Proiectil{
-    float marimeZonaFoc;
+    public float marimeZonaFoc;
 
     public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, float marimeZonaFoc, int vitezaAnimatie) {
         super((Spritesheet) ResourceManager.get().getTexturaBila("fire"), poz_x, poz_y, angel, viteza_max, vitezaAnimatie);

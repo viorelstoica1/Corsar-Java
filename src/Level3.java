@@ -70,14 +70,7 @@ public class Level3 extends Level{
         }
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
 
-        if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(15, dificultate);// =)
-        }
-        if(sirBile.marime() == 0){
-            LoadingScreen.moveIn = true;
-            status = 0;
-        }
-        return status;//cu asta poti returna ce scena sa se incarce
+        return status;
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);

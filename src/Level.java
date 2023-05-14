@@ -10,7 +10,7 @@ public abstract class Level extends JPanel {
     protected static int rezolutieX, rezolutieY;
     protected final Textura fundal, cursorPrincipal, cursorSecundar, TexScor;
     protected static List<Proiectil> listaProiectile;
-    protected int scena = 1, scor = 0;
+    protected int scena = 1, scor = 0, nrBileMinim = 5;
     protected final Tun tunar;
     protected final int targetScreenX = 1920, targetScreenY = 1080;
     protected GameObject[] traseuBile;
@@ -153,6 +153,14 @@ public abstract class Level extends JPanel {
             tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 120));
         }
         scor += sirBile.Update();
+        if(sirBile.marime() < nrBileMinim && !sirBile.lost){
+            sirBile.WaveNou(15, dificultate);// =)
+            nrBileMinim++;
+        }
+        if(sirBile.marime() == 0){
+            LoadingScreen.moveIn = true;
+            scena = 0;
+        }
         return scena;//cu asta poti returna ce scena sa se incarce
     }
 
@@ -198,6 +206,11 @@ public abstract class Level extends JPanel {
             proiectil.paintComponent(g);
         }
         cursorPrincipal.paintComponent(g);
+        /*if(tunar.GetProiectilIncarcat() != null && tunar.GetProiectilIncarcat().getClass() == ProiectilFoc.class){
+            g.setColor(Color.red);
+            g.drawOval((int) cursorPrincipal.GetCoordX(), (int) cursorPrincipal.GetCoordY(), (int) ((ProiectilFoc)tunar.GetProiectilIncarcat()).marimeZonaFoc, (int) ((ProiectilFoc)tunar.GetProiectilIncarcat()).marimeZonaFoc);
+            g.setColor(Color.BLACK);
+        }*/
         cursorSecundar.paintComponent(g);
         TexScor.paintComponent(g);
         //g.drawString(FrameTime, 10, 20);

@@ -32,15 +32,7 @@ public class Level1 extends Level {
             cursorPrincipal.SetCoordX(-cursorPrincipal.GetMarimeTexX());
         }
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
-
-        if(sirBile.marime() < 5 && !sirBile.lost){
-            sirBile.WaveNou(15, dificultate);// =)
-        }
-        if(sirBile.marime() == 0){
-            LoadingScreen.moveIn = true;
-            status = 0;
-        }
-        return status;//cu asta poti returna ce scena sa se incarce
+        return status;
     }
 //linia asta de cod a fost scrisa de un domn anonim
 
