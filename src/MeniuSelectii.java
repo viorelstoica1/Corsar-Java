@@ -90,7 +90,7 @@ public class MeniuSelectii extends Textura{
         buton2.paintComponent(g);
         buton3.paintComponent(g);
     }
-    private void IncarcaStare(StariMeniu stare){
+    public void IncarcaStare(StariMeniu stare){
         switch (stare){
             case start ->{
                 stareMeniu = StariMeniu.start;

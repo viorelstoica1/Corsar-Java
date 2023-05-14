@@ -30,7 +30,7 @@ public class Meniu extends JPanel{
                     lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa3").imagineRaw);
                 }            }
             default -> {
-                if(selectii.stareMeniu == StariMeniu.start){
+                if(selectii.stareMeniu == StariMeniu.start || selectii.stareMeniu == StariMeniu.SelectiiNivele){
                     lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa0").imagineRaw);
                 }
             }
@@ -66,6 +66,9 @@ public class Meniu extends JPanel{
         }else{
             //cursorul e nu e niciun buton
             selectedButton = 0;
+        }
+        if(MouseStatus.middleMouse){
+            selectii.IncarcaStare(StariMeniu.start);
         }
         return 0;
     }
