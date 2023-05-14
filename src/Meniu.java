@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Meniu extends JPanel{
-    private final Textura FundalMeniu;
+    private final Textura FundalMeniu, lupa;
     protected Font font;
     private final MeniuSelectii selectii;
     private int selectedButton = 0, timerCooldown = 0;
@@ -11,9 +11,30 @@ public class Meniu extends JPanel{
     public Meniu(){
         font = ResourceManager.get().font.deriveFont(75f);
         FundalMeniu = new Textura(ResourceManager.get().getMeniu("Fundal").GetTex(),(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
-        selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3,0);
+        selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3.5f,0);
+        lupa = new Textura(ResourceManager.get().getMeniu("Lupa2").imagineRaw, 200, 690, 0);
     }
     public int UpdateMeniu(){
+        switch (selectedButton){
+            case 1 -> {
+                if(selectii.stareMeniu == StariMeniu.SelectiiNivele) {
+                    lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa1").imagineRaw);
+                }
+            }
+            case 2 -> {
+                if(selectii.stareMeniu == StariMeniu.SelectiiNivele) {
+                    lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa2").imagineRaw);
+                }            }
+            case 3 -> {
+                if(selectii.stareMeniu == StariMeniu.SelectiiNivele) {
+                    lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa3").imagineRaw);
+                }            }
+            default -> {
+                if(selectii.stareMeniu == StariMeniu.start){
+                    lupa.SetTexRaw(ResourceManager.get().getMeniu("Lupa0").imagineRaw);
+                }
+            }
+        }
         if(!butoanePregatite){
             timerCooldown++;
             if(timerCooldown >= cooldownButoane){
@@ -55,5 +76,6 @@ public class Meniu extends JPanel{
         g.setColor(Color.black);
         g.drawString("Corsar",100,300);
         selectii.paintComponent(g);
+        lupa.paintComponent(g);
     }
 }

@@ -9,7 +9,7 @@ public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu, capcana1, capcana2, scor;
+    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3;
     private final Vector<String> nume;
     public Font font;
     private ResourceManager(){
@@ -122,6 +122,8 @@ public class ResourceManager {
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
             tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
             selectiiMeniu = new Textura(tex,0,0,0).resize(500,500);
+            tex = ImageIO.read(new File(("src/resources/EcranAjutor.png")));
+            ajutorMeniu = new Textura(tex,0,0,0)/*.resize(1536,864)*/;
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
             tunSus = new Textura(tex,0,0,0);
@@ -135,6 +137,15 @@ public class ResourceManager {
             //scor
             tex = ImageIO.read(new File(("src/resources/ScanduraScor.png")));
             scor = new Textura(tex,0,0,0).resize(200,100);
+            //misc
+            tex = ImageIO.read(new File(("src/resources/Lupa1.png")));
+            lupa1 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
+            tex = ImageIO.read(new File(("src/resources/Lupa2.png")));
+            lupa2 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
+            tex = ImageIO.read(new File(("src/resources/Lupa3.png")));
+            lupa3 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
+            tex = ImageIO.read(new File(("src/resources/Lupa0.png")));
+            lupa0 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -224,6 +235,21 @@ public class ResourceManager {
             }
             case "Scor" -> {
                 return scor;
+            }
+            case "Ajutor" -> {
+                return ajutorMeniu;
+            }
+            case "Lupa1" ->  {
+                return lupa1;
+            }
+            case "Lupa2" -> {
+                return lupa2;
+            }
+            case "Lupa3" -> {
+                return lupa3;
+            }
+            case "Lupa0" -> {
+                return lupa0;
             }
         }
         System.out.println("Nume textura meniu nerecunoscut!");

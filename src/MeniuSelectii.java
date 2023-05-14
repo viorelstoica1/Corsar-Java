@@ -8,15 +8,15 @@ enum StariMeniu{
 }
 public class MeniuSelectii extends Textura{
     public Buton buton1, buton2, buton3;
-    private StariMeniu stareMeniu = StariMeniu.start;
+    public StariMeniu stareMeniu = StariMeniu.start;
     private int nivelSelectat;
     public MeniuSelectii(BufferedImage imagine, float poz_x, float poz_y, float angel) {
         super(imagine, poz_x, poz_y, angel);
-        buton1 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) ((int) GetCoordY()-GetMarimeTexY()*0.26),GetMarimeTexX(),100);
+        buton1 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.20),GetMarimeTexX(),100);
         buton1.textButon = "Start";
-        buton2 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) ((int) GetCoordY()+GetMarimeTexY()*0.03),GetMarimeTexX(),100);
+        buton2 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()+GetMarimeTexY()*0.03),GetMarimeTexX(),100);
         buton2.textButon = "Credite";
-        buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) GetCoordY()+GetMarimeTexY()*3/10,GetMarimeTexX(),100);
+        buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
         buton3.textButon = "Iesire";
 
     }

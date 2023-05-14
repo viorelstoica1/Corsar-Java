@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="reparat limita la tun pentru traseul nou">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="nivelele sunt progresiv mai grele">
+      <change afterPath="$PROJECT_DIR$/src/resources/EcranAjutor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Lupa0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Lupa1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Lupa2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/Lupa3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sticla_lv2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sticla_lv1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/LoadScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/LoadScreen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,14 +168,7 @@
       <workItem from="1683889718846" duration="34000" />
       <workItem from="1683903508946" duration="1195000" />
       <workItem from="1683913754630" duration="234000" />
-      <workItem from="1684048551119" duration="2342000" />
-    </task>
-    <task id="LOCAL-00022" summary="indexFinalSir tine cont de wave-uri">
-      <created>1682111936714</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1682111936714</updated>
+      <workItem from="1684048551119" duration="10267000" />
     </task>
     <task id="LOCAL-00023" summary="numarBileIdentice tine cont de wave-uri">
       <created>1682112489223</created>
@@ -508,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683875666463</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="nivelele sunt progresiv mai grele">
+      <created>1684051257268</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1684051257269</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="abstractizare mica" />
     <MESSAGE value="schimbat culoarea cursorului pentru wildball" />
     <MESSAGE value="implementat powerup wildball cu greu, daca apar probleme la sir sunt sanse sa fie de la asta" />
     <MESSAGE value="adaugat texturi de cursor pentru bile speciale" />
@@ -551,7 +555,8 @@
     <MESSAGE value="bilele din nivelul 3 se sparg daca ajung prea jos" />
     <MESSAGE value="era un efect lipsa" />
     <MESSAGE value="reparat limita la tun pentru traseul nou" />
-    <option name="LAST_COMMIT_MESSAGE" value="reparat limita la tun pentru traseul nou" />
+    <MESSAGE value="nivelele sunt progresiv mai grele" />
+    <option name="LAST_COMMIT_MESSAGE" value="nivelele sunt progresiv mai grele" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
