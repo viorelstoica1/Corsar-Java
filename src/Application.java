@@ -104,34 +104,42 @@ public class Application implements Runnable {
                     //este ori sus de tot, ori jos de tot
                     scena = scenaViitoare;
                     if(LoadingScreen.bottomY() <= 0){//daca este complet ridicat
-                        if(scena == 1){//este in nivel
-                            scenaViitoare = Nivel.Actualizare();
-                            Nivel.paintImmediately(0,0,screenWidth,screenHeight);
-                        }else if(scena == 0){//este in meniu
-                            //Nivel.firstPaint = true;
-                            scenaViitoare = meniu.UpdateMeniu();
-                            meniu.paintImmediately(0,0,screenWidth,screenHeight);
+                        switch(scena){
+                            case 0 -> {//este in meniu
+                                scenaViitoare = meniu.UpdateMeniu();
+                                meniu.paintImmediately(0,0,screenWidth,screenHeight);
+                            }
+                            case 1 -> {//este in nivel
+                                scenaViitoare = Nivel.Actualizare();
+                                Nivel.paintImmediately(0,0,screenWidth,screenHeight);
+                            }
+                            case 2 -> {//este in ajutor, nu intra in cazul asta
+                                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                                scenaViitoare = 0;
+                            }
                         }
                     }
                     else{//daca este complet coborat
-                        if(scena == 1){//este in nivel
+                        if(scena != 2){//este in meniu/ nivel
                             LoadingScreen.moveOut = true;
-                            //StartLevel(3,4);
-                        }else if(scena == 0){//este in meniu
-                            Nivel.firstPaint = true;
-                            LoadingScreen.moveOut = true;
+                        }else{//este in ajutor/credite
+                            if(MouseStatus.middleMouse){
+                                LoadingScreen.moveOut = true;
+                            }
                         }
                     }
-
                 }
                 else{
-                    if(scena == 0){//este in meniu
-                        meniu.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
-                        panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
-                    }else if(scena == 1){//este in nivel
-                        Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
-                        Nivel.firstPaint = true;
-                        panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                    switch(scena){
+                        case 0, 2 ->{
+                            meniu.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
+                            panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                        }
+                        case 1 -> {
+                            Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
+                            Nivel.firstPaint = true;
+                            panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                        }
                     }
                 }
                 timp_trecut = (System.nanoTime()- timp_incepere)/1000000;

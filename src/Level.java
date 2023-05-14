@@ -23,6 +23,7 @@ public abstract class Level extends JPanel {
     private int cooldownSwap = 0;
 
     public Level(int Width, int Height, int dificultate) {
+        firstPaint = true;
         this.setLayout(null);
         this.dificultate = dificultate;
         pozitiiBile = new LinkedList<>();

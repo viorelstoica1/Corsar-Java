@@ -4,7 +4,6 @@ enum StariMeniu{
     start,
     SelectiiNivele,
     SelectiiDificultate,
-    Credite
 }
 public class MeniuSelectii extends Textura{
     public Buton buton1, buton2, buton3;
@@ -18,7 +17,6 @@ public class MeniuSelectii extends Textura{
         buton2.textButon = "Credite";
         buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
         buton3.textButon = "Iesire";
-
     }
     public int ApasaButonSus(){
         switch(stareMeniu){
@@ -37,18 +35,16 @@ public class MeniuSelectii extends Textura{
                 LoadingScreen.moveIn = true;
                 return 1;
             }
-            case Credite -> {
-                return 0;
-            }
         }
         System.out.println("Stare necunoscuta pe buton sus !");
         return -1;
     }
     public int ApasaButonMijloc(){
         switch(stareMeniu){
-            case start -> {
-                IncarcaStare(StariMeniu.Credite);
-                return 0;
+            case start -> {//intrare credite
+                LoadingScreen.setTex(ResourceManager.get().getMeniu("Ajutor"));
+                LoadingScreen.moveIn = true;
+                return 2;
             }
             case SelectiiNivele -> {
                 IncarcaStare(StariMeniu.SelectiiDificultate);
@@ -60,9 +56,6 @@ public class MeniuSelectii extends Textura{
                 Application.StartLevel(nivelSelectat,5);
                 LoadingScreen.moveIn = true;
                 return 1;
-            }
-            case Credite -> {
-                return 0;
             }
         }
         System.out.println("Stare necunoscuta pe buton mijloc !");
@@ -85,10 +78,6 @@ public class MeniuSelectii extends Textura{
                 Application.StartLevel(nivelSelectat,6);
                 LoadingScreen.moveIn = true;
                 return 1;
-            }
-            case Credite -> {
-                IncarcaStare(StariMeniu.start);
-                return 0;
             }
         }
         System.out.println("Stare necunoscuta pe buton jos !");
@@ -120,12 +109,6 @@ public class MeniuSelectii extends Textura{
                 buton1.textButon = "Usor";
                 buton2.textButon = "Mediu";
                 buton3.textButon = "Greu";
-            }
-            case Credite -> {
-                stareMeniu = StariMeniu.Credite;
-                buton1.textButon = "Alex Plescan";
-                buton2.textButon = "Florin Alistar";
-                buton3.textButon = "Inapoi";
             }
         }
     }

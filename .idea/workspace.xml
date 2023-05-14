@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="nivelele sunt progresiv mai grele">
-      <change afterPath="$PROJECT_DIR$/src/resources/EcranAjutor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Lupa0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Lupa1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Lupa2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Lupa3.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="lupa se schimba in functie de nivelul selectat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/LoadScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/LoadScreen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sticla_lv1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sticla_lv3.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,14 +164,7 @@
       <workItem from="1683889718846" duration="34000" />
       <workItem from="1683903508946" duration="1195000" />
       <workItem from="1683913754630" duration="234000" />
-      <workItem from="1684048551119" duration="10267000" />
-    </task>
-    <task id="LOCAL-00023" summary="numarBileIdentice tine cont de wave-uri">
-      <created>1682112489223</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1682112489223</updated>
+      <workItem from="1684048551119" duration="15865000" />
     </task>
     <task id="LOCAL-00024" summary="scor primitiv implementat">
       <created>1682155711916</created>
@@ -513,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684051257269</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="lupa se schimba in functie de nivelul selectat">
+      <created>1684066553211</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1684066553211</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="schimbat culoarea cursorului pentru wildball" />
     <MESSAGE value="implementat powerup wildball cu greu, daca apar probleme la sir sunt sanse sa fie de la asta" />
     <MESSAGE value="adaugat texturi de cursor pentru bile speciale" />
     <MESSAGE value="adaugat un check pentru setarea unui index inexistent la spritesheet, si un warning cand incerci sa faci asta" />
@@ -556,7 +551,8 @@
     <MESSAGE value="era un efect lipsa" />
     <MESSAGE value="reparat limita la tun pentru traseul nou" />
     <MESSAGE value="nivelele sunt progresiv mai grele" />
-    <option name="LAST_COMMIT_MESSAGE" value="nivelele sunt progresiv mai grele" />
+    <MESSAGE value="lupa se schimba in functie de nivelul selectat" />
+    <option name="LAST_COMMIT_MESSAGE" value="lupa se schimba in functie de nivelul selectat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

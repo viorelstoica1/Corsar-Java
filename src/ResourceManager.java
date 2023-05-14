@@ -123,7 +123,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
             selectiiMeniu = new Textura(tex,0,0,0).resize(500,500);
             tex = ImageIO.read(new File(("src/resources/EcranAjutor.png")));
-            ajutorMeniu = new Textura(tex,0,0,0)/*.resize(1536,864)*/;
+            ajutorMeniu = new Textura(tex,0,0,0).resize(1536,864);
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
             tunSus = new Textura(tex,0,0,0);
