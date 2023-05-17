@@ -10,7 +10,7 @@ public class Buton extends Rectangle {
     }
     public void paintComponent(Graphics g){
         g.setFont(ResourceManager.get().font.deriveFont(40f));
-        g.drawRect(x,y,width,height);
+        //g.drawRect(x,y,width,height);
         if(textButon != null){
             g.drawString(textButon,x+width/2-ResourceManager.get().font.getSize()*textButon.length()*2/3,y+height/2+ResourceManager.get().font.getSize()/2);
         }

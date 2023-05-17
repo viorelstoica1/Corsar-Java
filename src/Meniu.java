@@ -6,7 +6,7 @@ public class Meniu extends JPanel{
     protected Font font;
     private final MeniuSelectii selectii;
     private int selectedButton = 0, timerCooldown = 0;
-    private final int cooldownButoane = 30;
+    private final int cooldownButoane = 20;
     private boolean butoanePregatite = true;
     public Meniu(){
         font = ResourceManager.get().font.deriveFont(75f);

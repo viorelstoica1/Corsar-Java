@@ -4,6 +4,8 @@ enum StariMeniu{
     start,
     SelectiiNivele,
     SelectiiDificultate,
+    SelectiiScoruri,
+    Scoruri
 }
 public class MeniuSelectii extends Textura{
     public Buton buton1, buton2, buton3, buton4;
@@ -37,6 +39,14 @@ public class MeniuSelectii extends Textura{
                 LoadingScreen.moveIn = true;
                 return 1;
             }
+            case SelectiiScoruri -> {
+                nivelSelectat = 1;
+                IncarcaStare(StariMeniu.Scoruri);
+                return 0;
+            }
+            case Scoruri -> {
+                return 0;
+            }
         }
         System.out.println("Stare necunoscuta pe buton 1 !");
         return -1;
@@ -59,6 +69,14 @@ public class MeniuSelectii extends Textura{
                 LoadingScreen.moveIn = true;
                 return 1;
             }
+            case SelectiiScoruri -> {
+                nivelSelectat = 2;
+                IncarcaStare(StariMeniu.Scoruri);
+                return 0;
+            }
+            case Scoruri -> {
+                return 0;
+            }
         }
         System.out.println("Stare necunoscuta pe buton 2 !");
         return -1;
@@ -67,6 +85,7 @@ public class MeniuSelectii extends Textura{
         switch(stareMeniu){
             case start -> {
                 //afisare scoruri
+                IncarcaStare(StariMeniu.SelectiiScoruri);
                 return 0;
             }
             case SelectiiNivele -> {
@@ -80,6 +99,14 @@ public class MeniuSelectii extends Textura{
                 LoadingScreen.moveIn = true;
                 return 1;
             }
+            case SelectiiScoruri -> {
+                nivelSelectat = 3;
+                IncarcaStare(StariMeniu.Scoruri);
+                return 0;
+            }
+            case Scoruri -> {
+                return 0;
+            }
         }
         System.out.println("Stare necunoscuta pe buton 3 !");
         return -1;
@@ -90,7 +117,7 @@ public class MeniuSelectii extends Textura{
                 LoadingScreen.moveIn = true;
                 return -1;
             }
-            case SelectiiNivele, SelectiiDificultate -> {
+            case SelectiiNivele, SelectiiDificultate, SelectiiScoruri, Scoruri -> {
                 IncarcaStare(StariMeniu.start);
                 return 0;
             }
@@ -127,6 +154,20 @@ public class MeniuSelectii extends Textura{
                 buton1.textButon = "Usor";
                 buton2.textButon = "Mediu";
                 buton3.textButon = "Greu";
+                buton4.textButon = "Inapoi";
+            }
+            case SelectiiScoruri -> {
+                stareMeniu = StariMeniu.SelectiiScoruri;
+                buton1.textButon = "Corabia";
+                buton2.textButon = "Nu ma apasa";
+                buton3.textButon = "Templul";
+                buton4.textButon = "Inapoi";
+            }
+            case Scoruri -> {
+                stareMeniu = StariMeniu.Scoruri;
+                buton1.textButon = Scoruri.get().getnumeScor(nivelSelectat-1,0) + ": "+Scoruri.get().getValoareScor(nivelSelectat-1,0);
+                buton2.textButon = Scoruri.get().getnumeScor(nivelSelectat-1,1) + ": "+Scoruri.get().getValoareScor(nivelSelectat-1,1);
+                buton3.textButon = Scoruri.get().getnumeScor(nivelSelectat-1,2) + ": "+Scoruri.get().getValoareScor(nivelSelectat-1,2);
                 buton4.textButon = "Inapoi";
             }
         }
