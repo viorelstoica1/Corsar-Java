@@ -11,7 +11,7 @@ public class Meniu extends JPanel{
     public Meniu(){
         font = ResourceManager.get().font.deriveFont(75f);
         FundalMeniu = new Textura(ResourceManager.get().getMeniu("Fundal").GetTex(),(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
-        selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/3.5f,0);
+        selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/2.5f,0);
         lupa = new Textura(ResourceManager.get().getMeniu("Lupa2").imagineRaw, 200, 690, 0);
     }
     public int UpdateMeniu(){
@@ -47,21 +47,28 @@ public class Meniu extends JPanel{
             selectedButton = 1;
             if(MouseStatus.clickStanga && butoanePregatite){
                 butoanePregatite = false;
-                return selectii.ApasaButonSus();
+                return selectii.ApasaButon1();
             }
         }else if(selectii.buton2.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
             //cursorul e pe butonul din mijloc
             selectedButton = 2;
             if(MouseStatus.clickStanga && butoanePregatite){
                 butoanePregatite = false;
-                return selectii.ApasaButonMijloc();
+                return selectii.ApasaButon2();
             }
         }else if(selectii.buton3.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
             //cursorul e pe butonul de jos
             selectedButton = 3;
             if(MouseStatus.clickStanga && butoanePregatite){
                 butoanePregatite = false;
-                return selectii.ApasaButonJos();
+                return selectii.ApasaButon3();
+            }
+        }else if(selectii.buton4.isSelected(MouseStatus.mousex,MouseStatus.mousey)){
+            //cursorul e pe butonul de jos
+            selectedButton = 4;
+            if(MouseStatus.clickStanga && butoanePregatite){
+                butoanePregatite = false;
+                return selectii.ApasaButon4();
             }
         }else{
             //cursorul e nu e niciun buton

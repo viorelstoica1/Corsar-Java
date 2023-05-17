@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="meniu frumos de credite si ajutor">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="middle mouse merge folosit sa revii la meniu mereu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,14 +163,9 @@
       <workItem from="1683889718846" duration="34000" />
       <workItem from="1683903508946" duration="1195000" />
       <workItem from="1683913754630" duration="234000" />
-      <workItem from="1684048551119" duration="16515000" />
-    </task>
-    <task id="LOCAL-00025" summary="pierdere implementata">
-      <created>1682156204623</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1682156204623</updated>
+      <workItem from="1684048551119" duration="16691000" />
+      <workItem from="1684164017872" duration="721000" />
+      <workItem from="1684338310838" duration="4975000" />
     </task>
     <task id="LOCAL-00026" summary="rescris codul pentru repaint, e mult mai rapid, dar mai are probleme la sir">
       <created>1682421356525</created>
@@ -505,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684072484328</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="middle mouse merge folosit sa revii la meniu mereu">
+      <created>1684072896361</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1684072896361</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adaugat texturi de cursor pentru bile speciale" />
     <MESSAGE value="adaugat un check pentru setarea unui index inexistent la spritesheet, si un warning cand incerci sa faci asta" />
     <MESSAGE value="adaugat inapoi fundalul negru" />
     <MESSAGE value="adaugat texturi pentru meniuri" />
@@ -548,7 +552,8 @@
     <MESSAGE value="nivelele sunt progresiv mai grele" />
     <MESSAGE value="lupa se schimba in functie de nivelul selectat" />
     <MESSAGE value="meniu frumos de credite si ajutor" />
-    <option name="LAST_COMMIT_MESSAGE" value="meniu frumos de credite si ajutor" />
+    <MESSAGE value="middle mouse merge folosit sa revii la meniu mereu" />
+    <option name="LAST_COMMIT_MESSAGE" value="middle mouse merge folosit sa revii la meniu mereu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

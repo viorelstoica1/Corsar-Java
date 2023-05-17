@@ -6,19 +6,21 @@ enum StariMeniu{
     SelectiiDificultate,
 }
 public class MeniuSelectii extends Textura{
-    public Buton buton1, buton2, buton3;
+    public Buton buton1, buton2, buton3, buton4;
     public StariMeniu stareMeniu = StariMeniu.start;
     private int nivelSelectat;
     public MeniuSelectii(BufferedImage imagine, float poz_x, float poz_y, float angel) {
         super(imagine, poz_x, poz_y, angel);
-        buton1 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.20),GetMarimeTexX(),100);
+        buton1 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.26),GetMarimeTexX(),100);
         buton1.textButon = "Start";
-        buton2 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()+GetMarimeTexY()*0.03),GetMarimeTexX(),100);
+        buton2 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.09),GetMarimeTexX(),100);
         buton2.textButon = "Credite";
-        buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
-        buton3.textButon = "Iesire";
+        buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.08),GetMarimeTexX(),100);
+        buton3.textButon = "Scoruri";
+        buton4 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
+        buton4.textButon = "Iesire";
     }
-    public int ApasaButonSus(){
+    public int ApasaButon1(){
         switch(stareMeniu){
             case start -> {
                 IncarcaStare(StariMeniu.SelectiiNivele);
@@ -36,10 +38,10 @@ public class MeniuSelectii extends Textura{
                 return 1;
             }
         }
-        System.out.println("Stare necunoscuta pe buton sus !");
+        System.out.println("Stare necunoscuta pe buton 1 !");
         return -1;
     }
-    public int ApasaButonMijloc(){
+    public int ApasaButon2(){
         switch(stareMeniu){
             case start -> {//intrare credite
                 LoadingScreen.setTex(ResourceManager.get().getMeniu("Ajutor"));
@@ -58,15 +60,14 @@ public class MeniuSelectii extends Textura{
                 return 1;
             }
         }
-        System.out.println("Stare necunoscuta pe buton mijloc !");
+        System.out.println("Stare necunoscuta pe buton 2 !");
         return -1;
     }
-    public int ApasaButonJos(){
+    public int ApasaButon3(){
         switch(stareMeniu){
             case start -> {
-                //Application.CloseGame();
-                LoadingScreen.moveIn = true;
-                return -1;
+                //afisare scoruri
+                return 0;
             }
             case SelectiiNivele -> {
                 IncarcaStare(StariMeniu.SelectiiDificultate);
@@ -80,7 +81,21 @@ public class MeniuSelectii extends Textura{
                 return 1;
             }
         }
-        System.out.println("Stare necunoscuta pe buton jos !");
+        System.out.println("Stare necunoscuta pe buton 3 !");
+        return -1;
+    }
+    public int ApasaButon4(){
+        switch(stareMeniu){
+            case start -> {
+                LoadingScreen.moveIn = true;
+                return -1;
+            }
+            case SelectiiNivele, SelectiiDificultate -> {
+                IncarcaStare(StariMeniu.start);
+                return 0;
+            }
+        }
+        System.out.println("Stare necunoscuta pe buton 4 !");
         return -1;
     }
 
@@ -89,6 +104,7 @@ public class MeniuSelectii extends Textura{
         buton1.paintComponent(g);
         buton2.paintComponent(g);
         buton3.paintComponent(g);
+        buton4.paintComponent(g);
     }
     public void IncarcaStare(StariMeniu stare){
         switch (stare){
@@ -96,19 +112,22 @@ public class MeniuSelectii extends Textura{
                 stareMeniu = StariMeniu.start;
                 buton1.textButon = "Start";
                 buton2.textButon = "Credite";
-                buton3.textButon = "Iesire";
+                buton3.textButon = "Scoruri";
+                buton4.textButon = "Iesire";
             }
             case SelectiiNivele -> {
                 stareMeniu = StariMeniu.SelectiiNivele;
                 buton1.textButon = "Corabia";
                 buton2.textButon = "Nu ma apasa";
                 buton3.textButon = "Templul";
+                buton4.textButon = "Inapoi";
             }
             case SelectiiDificultate -> {
                 stareMeniu = StariMeniu.SelectiiDificultate;
                 buton1.textButon = "Usor";
                 buton2.textButon = "Mediu";
                 buton3.textButon = "Greu";
+                buton4.textButon = "Inapoi";
             }
         }
     }
