@@ -69,7 +69,10 @@ public class Level3 extends Level{
             cursorPrincipal.SetCoordY(-cursorPrincipal.GetMarimeTexY());
         }
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
-
+        if(sirBile.marime() == 0){
+            //TODO numele
+            Scoruri.get().AdaugaScor(2,scor,"Levelul3");
+        }
         return status;
     }
     public void paintComponent(Graphics g){

@@ -32,6 +32,10 @@ public class Level1 extends Level {
             cursorPrincipal.SetCoordX(-cursorPrincipal.GetMarimeTexX());
         }
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
+        if(sirBile.marime() == 0){
+            //TODO numele
+            Scoruri.get().AdaugaScor(0,scor,"Levelul1");
+        }
         return status;
     }
 //linia asta de cod a fost scrisa de un domn anonim

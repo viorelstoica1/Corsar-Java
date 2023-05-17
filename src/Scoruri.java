@@ -37,6 +37,7 @@ public class Scoruri {
                 //baga scor nou in pozitia buna
                 scoruri[nivel][i] = scorNou;
                 this.nume[nivel][i] = nume;
+                break;
             }
         }
     }
