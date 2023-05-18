@@ -36,7 +36,8 @@ public class MeniuSelectii extends Textura{
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,4);
-                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
                 return stareAplicatie.nivel;
             }
@@ -55,7 +56,8 @@ public class MeniuSelectii extends Textura{
     public stareAplicatie ApasaButon2(){
         switch(stareMeniu){
             case start -> {//intrare credite
-                LoadingScreen.setTex(ResourceManager.get().getMeniu("Ajutor"));
+                //LoadingScreen.setTex(ResourceManager.get().getMeniu("Ajutor"));
+                LoadingScreen.stare = stariLoading.CreditScreen;
                 LoadingScreen.moveIn = true;
                 return stareAplicatie.credite;
             }
@@ -67,7 +69,8 @@ public class MeniuSelectii extends Textura{
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,5);
-                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
                 return stareAplicatie.nivel;
             }
@@ -98,7 +101,8 @@ public class MeniuSelectii extends Textura{
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,6);
-                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
                 return stareAplicatie.nivel;
             }
@@ -117,7 +121,8 @@ public class MeniuSelectii extends Textura{
     public stareAplicatie ApasaButon4(){
         switch(stareMeniu){
             case start -> {
-                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
                 return stareAplicatie.iesire;
             }

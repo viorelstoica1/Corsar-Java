@@ -1,10 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-
+enum stariLoading{
+    LoadScreen,
+    CreditScreen,
+    EndLevelScreen
+}
 public class LoadingScreen extends JPanel {
     private static final Textura FundalLoading = new Textura(ResourceManager.get().getLoadscreen().imagineRaw,(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
     public static boolean moveIn = false, moveOut = false;
     public static float vitezaAnimatie = 0, acceleratieAnimatie = 0.4f;
+    public static stariLoading stare = stariLoading.LoadScreen;
+    public static Buton butonInapoi = new Buton(FundalLoading.GetMarimeTexX() / 3, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY(),200,50);
     public static void Update(){
         FundalLoading.SetCoordX((float)Application.getScreenWidth()/2);
         float y = FundalLoading.GetCoordY();
@@ -26,6 +32,9 @@ public class LoadingScreen extends JPanel {
         }else{
             vitezaAnimatie = 0;
         }
+        if(butonInapoi.isSelected(MouseStatus.mousex, MouseStatus.mousey) && MouseStatus.clickStanga && !Scoruri.get().newHighScore && isFinished()){
+            moveOut = true;
+        }
     }
     public static void ResetLoadingUp(){
         FundalLoading.SetCoordY(-(float)Application.getScreenHeight()/2);
@@ -38,12 +47,31 @@ public class LoadingScreen extends JPanel {
     public void paintComponent(Graphics g) {
         g.setColor(Color.black);
         g.setFont(ResourceManager.get().font.deriveFont(65f));
-        FundalLoading.paintComponent(g);
-        g.drawString("Scorul tau: "+Scoruri.get().getScorSalvat(),FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 4 + FundalLoading.CenterY());
-        if(Scoruri.get().newHighScore) {
-            g.drawString("Introdu numele: ", FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY());
-            g.drawString(Scoruri.get().numeDeAfisat(), FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 2 + FundalLoading.CenterY());
+        switch (stare){
+            case LoadScreen -> {
+                setTex(ResourceManager.get().getLoadscreen());
+                FundalLoading.paintComponent(g);
+            }
+            case CreditScreen -> {
+                setTex(ResourceManager.get().getMeniu("Ajutor"));
+                FundalLoading.paintComponent(g);
+            }
+            case EndLevelScreen -> {
+                setTex(ResourceManager.get().getMeniu("Hartie"));
+                FundalLoading.paintComponent(g);
+                g.drawString("Scorul tau: "+Scoruri.get().getScorSalvat(),FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 4 + FundalLoading.CenterY());
+                if(Scoruri.get().newHighScore) {
+                    g.drawString("Introdu numele: ", FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY());
+                    g.drawString(Scoruri.get().numeDeAfisat(), FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 2 + FundalLoading.CenterY());
+                }
+                else{
+                    if(isFinished()){
+                        butonInapoi.paintComponent(g);
+                    }
+                }
+            }
         }
+
         /*g.drawString("Trage",550,  FundalLoading.CenterY()+130);
         g.drawString("Inapoi",550, FundalLoading.CenterY()+180);
         g.drawString("Schimba bila",550, FundalLoading.CenterY()+230);

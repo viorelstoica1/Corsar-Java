@@ -42,7 +42,7 @@ public abstract class Level extends JPanel {
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
         TexScor = new Textura(resurse.getMeniu("Scor").GetTex(), 100,50, 0);
         listaProiectile = new ArrayList<>();
-        sirBile = new Sir(traseuBile, 10, 5, 0.5f,0.2f,2500,700,3075);
+        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2500,700,3075);
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
@@ -160,7 +160,8 @@ public abstract class Level extends JPanel {
             nrBileMinim++;
         }
         if(sirBile.marime() == 0){
-            LoadingScreen.setTex(ResourceManager.get().getMeniu("Hartie"));
+            //LoadingScreen.setTex(ResourceManager.get().getMeniu("Hartie"));
+            LoadingScreen.stare = stariLoading.EndLevelScreen;
             LoadingScreen.moveIn = true;
             scena = stareAplicatie.endlevel;
         }

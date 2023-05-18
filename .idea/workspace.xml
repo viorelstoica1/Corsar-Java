@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat un key listener pentru input de la tastatura">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="introducere de nume si de scoruri de baza">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scoruri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scoruri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,13 +167,6 @@
       <workItem from="1684164017872" duration="721000" />
       <workItem from="1684338310838" duration="11138000" />
       <workItem from="1684391249336" duration="3702000" />
-    </task>
-    <task id="LOCAL-00029" summary="implementare simpla pentru wildball, trebuie imbunatatita">
-      <created>1682774511425</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1682774511425</updated>
     </task>
     <task id="LOCAL-00030" summary="adaugat sprite bile">
       <created>1682774532986</created>
@@ -515,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684355932233</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="introducere de nume si de scoruri de baza">
+      <created>1684426116360</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1684426116361</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clasa de buton pentru meniuri" />
     <MESSAGE value="clasa de mouse pentru a putea lua statusul in orice meniu/nivel" />
     <MESSAGE value="adaugat MENIU la joc, animat, frumos executat, mandru de el" />
     <MESSAGE value="adaugat reset de nivel aproape bun" />
@@ -558,7 +553,8 @@
     <MESSAGE value="buton pentru scoruri" />
     <MESSAGE value="interfata grafica pentru scoruri" />
     <MESSAGE value="salvare scoruri in clasa de scoruri doar cu valoarea" />
-    <option name="LAST_COMMIT_MESSAGE" value="salvare scoruri in clasa de scoruri doar cu valoarea" />
+    <MESSAGE value="introducere de nume si de scoruri de baza" />
+    <option name="LAST_COMMIT_MESSAGE" value="introducere de nume si de scoruri de baza" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

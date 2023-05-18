@@ -41,6 +41,7 @@ public class Application implements Runnable {
         screenHeight = ScheletAplicatie.getHeight();
         //loading screen
         panouloading = new LoadingScreen();
+        LoadingScreen.butonInapoi.textButon = "Inapoi";
         //ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         LoadingScreen.ResetLoadingDown();
         LoadingScreen.moveOut = true;
@@ -105,7 +106,8 @@ public class Application implements Runnable {
                                 Nivel.paintImmediately(0,0,screenWidth,screenHeight);
                             }
                             case credite, endlevel -> {//este in ajutor, nu intra in cazul asta
-                                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                                //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
+                                LoadingScreen.stare = stariLoading.LoadScreen;
                                 scenaViitoare = stareAplicatie.meniu;
                             }
                         }
