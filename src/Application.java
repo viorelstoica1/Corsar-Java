@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-
+enum stareAplicatie{
+    meniu,
+    nivel,
+    credite,
+    endlevel,
+    iesire
+}
 public class Application implements Runnable {
     private static JFrame ScheletAplicatie;//marginile aplicatiei
     private static Level Nivel = null;//display-ul propriu zis
@@ -76,13 +82,13 @@ public class Application implements Runnable {
         SoundManager.playSound("src/resources/sunete/Music1.wav", -5, true);
         double timp_incepere = System.nanoTime();
         double timp_trecut;
-        int scena = 0, scenaViitoare = 0;
+        stareAplicatie scena = stareAplicatie.meniu, scenaViitoare = stareAplicatie.meniu;
         while(game_is_running){
             timp_trecut = (System.nanoTime()- timp_incepere)/1000000;
             if(timp_trecut >= frameTime){
                 timp_incepere = System.nanoTime();
                 LoadingScreen.Update();
-                if(scena == -1 && LoadingScreen.isFinished()){
+                if(scena == stareAplicatie.iesire && LoadingScreen.isFinished()){
                     CloseGame();
                 }
                 if(LoadingScreen.isFinished()){
@@ -90,37 +96,45 @@ public class Application implements Runnable {
                     scena = scenaViitoare;
                     if(LoadingScreen.bottomY() <= 0){//daca este complet ridicat
                         switch(scena){
-                            case 0 -> {//este in meniu
+                            case meniu -> {//este in meniu
                                 scenaViitoare = meniu.UpdateMeniu();
                                 meniu.paintImmediately(0,0,screenWidth,screenHeight);
                             }
-                            case 1 -> {//este in nivel
+                            case nivel -> {//este in nivel
                                 scenaViitoare = Nivel.Actualizare();
                                 Nivel.paintImmediately(0,0,screenWidth,screenHeight);
                             }
-                            case 2 -> {//este in ajutor, nu intra in cazul asta
+                            case credite, endlevel -> {//este in ajutor, nu intra in cazul asta
                                 LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
-                                scenaViitoare = 0;
+                                scenaViitoare = stareAplicatie.meniu;
                             }
                         }
                     }
                     else{//daca este complet coborat
-                        if(scena != 2){//este in meniu/ nivel
-                            LoadingScreen.moveOut = true;
-                        }else{//este in ajutor/credite
-                            if(MouseStatus.middleMouse){
+                        switch(scena){
+                            case meniu, nivel ->{
                                 LoadingScreen.moveOut = true;
+                            }
+                            case credite ->{
+                                if(MouseStatus.middleMouse){
+                                    LoadingScreen.moveOut = true;
+                                }
+                            }
+                            case endlevel ->{
+                                scenaViitoare = Scoruri.get().Update();
+                                panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
+                                //logica de citit nume si salvat scor
                             }
                         }
                     }
                 }
                 else{
                     switch(scena){
-                        case 0, 2 ->{
+                        case meniu, credite, endlevel, iesire ->{
                             meniu.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
                             panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());
                         }
-                        case 1 -> {
+                        case nivel -> {
                             Nivel.paintImmediately(0,LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
                             Nivel.firstPaint = true;
                             panouloading.paintImmediately(0,0,screenWidth,LoadingScreen.bottomY());

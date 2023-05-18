@@ -14,8 +14,8 @@ public class Level1 extends Level {
         tunar.SetUnghi(270);
     }
 
-    public int Actualizare() {//in actualizare trebuie implementat cursorul
-        int status = super.Actualizare();
+    public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
+        stareAplicatie status = super.Actualizare();
         cursorPrincipal.SetCoordX(0);
         cursorPrincipal.SetCoordY(tunar.GetCoordY());
         cursorSecundar.SetCoordY(tunar.GetCoordY());
@@ -33,8 +33,7 @@ public class Level1 extends Level {
         }
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
         if(sirBile.marime() == 0){
-            //TODO numele
-            Scoruri.get().AdaugaScor(0,scor,"Levelul1");
+            Scoruri.get().SalvareScor(scor,0);
         }
         return status;
     }

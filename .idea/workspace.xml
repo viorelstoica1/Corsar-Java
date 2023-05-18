@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="salvare scoruri in clasa de scoruri doar cu valoarea">
-      <change afterPath="$PROJECT_DIR$/src/KeyStatus.java" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat un key listener pentru input de la tastatura">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scoruri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scoruri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

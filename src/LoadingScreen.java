@@ -37,8 +37,13 @@ public class LoadingScreen extends JPanel {
     }
     public void paintComponent(Graphics g) {
         g.setColor(Color.black);
-        g.setFont(ResourceManager.get().font.deriveFont(25f));
+        g.setFont(ResourceManager.get().font.deriveFont(65f));
         FundalLoading.paintComponent(g);
+        g.drawString("Scorul tau: "+Scoruri.get().getScorSalvat(),FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 4 + FundalLoading.CenterY());
+        if(Scoruri.get().newHighScore) {
+            g.drawString("Introdu numele: ", FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY());
+            g.drawString(Scoruri.get().numeDeAfisat(), FundalLoading.GetMarimeTexX() / 4, FundalLoading.GetMarimeTexY() / 2 + FundalLoading.CenterY());
+        }
         /*g.drawString("Trage",550,  FundalLoading.CenterY()+130);
         g.drawString("Inapoi",550, FundalLoading.CenterY()+180);
         g.drawString("Schimba bila",550, FundalLoading.CenterY()+230);

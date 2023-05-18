@@ -14,7 +14,7 @@ public class Meniu extends JPanel{
         selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/2.5f,0);
         lupa = new Textura(ResourceManager.get().getMeniu("Lupa2").imagineRaw, 200, 690, 0);
     }
-    public int UpdateMeniu(){
+    public stareAplicatie UpdateMeniu(){
         switch (selectedButton){
             case 1 -> {
                 if(selectii.stareMeniu == StariMeniu.SelectiiNivele) {
@@ -77,7 +77,7 @@ public class Meniu extends JPanel{
         if(MouseStatus.middleMouse){
             selectii.IncarcaStare(StariMeniu.start);
         }
-        return 0;
+        return stareAplicatie.meniu;
     }
 
     public void paintComponent(Graphics g) {

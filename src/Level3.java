@@ -26,8 +26,8 @@ public class Level3 extends Level{
         cursorSecundar.SetUnghi(0);
     }
 
-    public int Actualizare() {//in actualizare trebuie implementat cursorul
-        int status = super.Actualizare();
+    public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
+        stareAplicatie status = super.Actualizare();
         //actualizari proiectile
         int index = 0;
         while (index < listaProiectile.size()){
@@ -69,9 +69,8 @@ public class Level3 extends Level{
             cursorPrincipal.SetCoordY(-cursorPrincipal.GetMarimeTexY());
         }
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
-        if(sirBile.marime() == 0){
-            //TODO numele
-            Scoruri.get().AdaugaScor(2,scor,"Levelul3");
+        if(sirBile.marime() == 0) {
+            Scoruri.get().SalvareScor(scor, 2);
         }
         return status;
     }

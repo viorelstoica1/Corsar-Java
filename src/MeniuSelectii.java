@@ -22,108 +22,112 @@ public class MeniuSelectii extends Textura{
         buton4 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
         buton4.textButon = "Iesire";
     }
-    public int ApasaButon1(){
+    public stareAplicatie ApasaButon1(){
         switch(stareMeniu){
             case start -> {
                 IncarcaStare(StariMeniu.SelectiiNivele);
-                return 0;
+                return stareAplicatie.meniu;
             }
             case SelectiiNivele -> {
                 IncarcaStare(StariMeniu.SelectiiDificultate);
                 nivelSelectat = 1;
-                return 0;
+                return stareAplicatie.meniu;
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,4);
+                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.moveIn = true;
-                return 1;
+                return stareAplicatie.nivel;
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 1;
                 IncarcaStare(StariMeniu.Scoruri);
-                return 0;
+                return stareAplicatie.meniu;
             }
             case Scoruri -> {
-                return 0;
+                return stareAplicatie.meniu;
             }
         }
         System.out.println("Stare necunoscuta pe buton 1 !");
-        return -1;
+        return stareAplicatie.iesire;
     }
-    public int ApasaButon2(){
+    public stareAplicatie ApasaButon2(){
         switch(stareMeniu){
             case start -> {//intrare credite
                 LoadingScreen.setTex(ResourceManager.get().getMeniu("Ajutor"));
                 LoadingScreen.moveIn = true;
-                return 2;
+                return stareAplicatie.credite;
             }
             case SelectiiNivele -> {
                 IncarcaStare(StariMeniu.SelectiiDificultate);
                 nivelSelectat = 2;
-                return 0;
+                return stareAplicatie.meniu;
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,5);
+                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.moveIn = true;
-                return 1;
+                return stareAplicatie.nivel;
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 2;
                 IncarcaStare(StariMeniu.Scoruri);
-                return 0;
+                return stareAplicatie.meniu;
             }
             case Scoruri -> {
-                return 0;
+                return stareAplicatie.meniu;
             }
         }
         System.out.println("Stare necunoscuta pe buton 2 !");
-        return -1;
+        return stareAplicatie.iesire;
     }
-    public int ApasaButon3(){
+    public stareAplicatie ApasaButon3(){
         switch(stareMeniu){
             case start -> {
                 //afisare scoruri
                 IncarcaStare(StariMeniu.SelectiiScoruri);
-                return 0;
+                return stareAplicatie.meniu;
             }
             case SelectiiNivele -> {
                 IncarcaStare(StariMeniu.SelectiiDificultate);
                 nivelSelectat = 3;
-                return 0;
+                return stareAplicatie.meniu;
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
                 Application.StartLevel(nivelSelectat,6);
+                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.moveIn = true;
-                return 1;
+                return stareAplicatie.nivel;
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 3;
                 IncarcaStare(StariMeniu.Scoruri);
-                return 0;
+                return stareAplicatie.meniu;
             }
             case Scoruri -> {
-                return 0;
+                return stareAplicatie.meniu;
             }
         }
         System.out.println("Stare necunoscuta pe buton 3 !");
-        return -1;
+        return stareAplicatie.iesire;
     }
-    public int ApasaButon4(){
+    public stareAplicatie ApasaButon4(){
         switch(stareMeniu){
             case start -> {
+                LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.moveIn = true;
-                return -1;
+                return stareAplicatie.iesire;
             }
             case SelectiiNivele, SelectiiDificultate, SelectiiScoruri, Scoruri -> {
                 IncarcaStare(StariMeniu.start);
-                return 0;
+                return stareAplicatie.meniu;
             }
         }
         System.out.println("Stare necunoscuta pe buton 4 !");
-        return -1;
+        return stareAplicatie.iesire;
     }
 
     public void paintComponent(Graphics g){

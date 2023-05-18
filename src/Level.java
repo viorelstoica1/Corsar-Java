@@ -10,7 +10,8 @@ public abstract class Level extends JPanel {
     protected static int rezolutieX, rezolutieY;
     protected final Textura fundal, cursorPrincipal, cursorSecundar, TexScor;
     protected static List<Proiectil> listaProiectile;
-    protected int scena = 1, scor = 0, nrBileMinim = 5;
+    protected stareAplicatie scena = stareAplicatie.nivel;
+    protected int scor = 0, nrBileMinim = 5;
     protected final Tun tunar;
     protected final int targetScreenX = 1920, targetScreenY = 1080;
     protected GameObject[] traseuBile;
@@ -41,7 +42,7 @@ public abstract class Level extends JPanel {
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
         TexScor = new Textura(resurse.getMeniu("Scor").GetTex(), 100,50, 0);
         listaProiectile = new ArrayList<>();
-        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2500,700,3075);
+        sirBile = new Sir(traseuBile, 10, 5, 0.5f,0.2f,2500,700,3075);
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
@@ -84,8 +85,8 @@ public abstract class Level extends JPanel {
         }
     }
 
-    public int Actualizare() {
-        scena = 1;
+    public stareAplicatie Actualizare() {
+        scena = stareAplicatie.nivel;
         salvarePozitii();
         //actualizari clickuri
         if (MouseStatus.clickStanga) {
@@ -95,7 +96,7 @@ public abstract class Level extends JPanel {
             }
         }
         if (MouseStatus.middleMouse) {
-            scena = 0;
+            scena = stareAplicatie.meniu;
             LoadingScreen.moveIn = true;
         }
         if (MouseStatus.clickDreapta) {
@@ -159,8 +160,9 @@ public abstract class Level extends JPanel {
             nrBileMinim++;
         }
         if(sirBile.marime() == 0){
+            LoadingScreen.setTex(ResourceManager.get().getMeniu("Hartie"));
             LoadingScreen.moveIn = true;
-            scena = 0;
+            scena = stareAplicatie.endlevel;
         }
         return scena;//cu asta poti returna ce scena sa se incarce
     }
