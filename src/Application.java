@@ -12,23 +12,6 @@ public class Application implements Runnable {
     private static final Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
         Initializare();
-        /*boolean game_is_running = true;
-        double timp_incepere = System.nanoTime();
-        double timp_trecut;
-        int scena = 1;
-        while(game_is_running){
-            if(scena == 0){
-                game_is_running = false;
-            }
-                timp_incepere = System.nanoTime();
-                scena = ContextAfisare.Actualizare();
-                ContextAfisare.repaint();
-                timp_trecut = (System.nanoTime()-timp_incepere)/1000000;//system time e nanosecunde, frametime e milisecunde
-                if(timp_trecut < frameTime){
-                    ContextAfisare.cuvantAfisat = "Frame time: "+timp_trecut;
-                    Thread.sleep((long) (frameTime -timp_trecut));
-                }
-        }*/
         gameThread.start();
         gameThread.join();
         Inchidere();
@@ -65,10 +48,12 @@ public class Application implements Runnable {
         ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         MouseStatus mouse = new MouseStatus();
         ScheletAplicatie.add(mouse);
+
+        KeyStatus key = new KeyStatus();
+        ScheletAplicatie.add(key);
+        System.out.println(key.requestFocusInWindow());
         ScheletAplicatie.remove(ecranNegru);
         System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
-        //ScheletAplicatie.createBufferStrategy(2);
-        //ScheletAplicatie.setResizable(false);
     }
     private static int GetRefreshRate(){
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
