@@ -17,6 +17,8 @@ public class Application implements Runnable {
     public static boolean game_is_running = true;
     private static final Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
+        BazaDate.CitireScoruri();
+        //BazaDate.ScriereScor(2,20,"Da",2);
         Initializare();
         gameThread.start();
         gameThread.join();

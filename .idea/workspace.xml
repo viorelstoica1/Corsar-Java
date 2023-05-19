@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="introducere de nume si de scoruri de baza">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="sfarsit de nivel cu high score si nume">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BazaDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/sqlite-jdbc-3.7.2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proiect_PAOO.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proiect_PAOO.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Buton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadingScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scoruri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scoruri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,26 +56,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Viorel/IdeaProjects/Proiect_PAOO/src/resources/sqlite-jdbc-3.7.2.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
@@ -167,13 +173,7 @@
       <workItem from="1684164017872" duration="721000" />
       <workItem from="1684338310838" duration="11138000" />
       <workItem from="1684391249336" duration="3702000" />
-    </task>
-    <task id="LOCAL-00030" summary="adaugat sprite bile">
-      <created>1682774532986</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1682774532986</updated>
+      <workItem from="1684472605609" duration="6189000" />
     </task>
     <task id="LOCAL-00031" summary="cleanup incarcare texturi">
       <created>1682948363237</created>
@@ -511,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684426116361</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="sfarsit de nivel cu high score si nume">
+      <created>1684431836085</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1684431836085</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,7 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clasa de mouse pentru a putea lua statusul in orice meniu/nivel" />
     <MESSAGE value="adaugat MENIU la joc, animat, frumos executat, mandru de el" />
     <MESSAGE value="adaugat reset de nivel aproape bun" />
     <MESSAGE value="schimbat incarcarea de nivele, se face mai usor" />
@@ -554,7 +560,8 @@
     <MESSAGE value="interfata grafica pentru scoruri" />
     <MESSAGE value="salvare scoruri in clasa de scoruri doar cu valoarea" />
     <MESSAGE value="introducere de nume si de scoruri de baza" />
-    <option name="LAST_COMMIT_MESSAGE" value="introducere de nume si de scoruri de baza" />
+    <MESSAGE value="sfarsit de nivel cu high score si nume" />
+    <option name="LAST_COMMIT_MESSAGE" value="sfarsit de nivel cu high score si nume" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

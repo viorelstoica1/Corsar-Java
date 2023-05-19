@@ -12,8 +12,8 @@ public class Scoruri {
         nume = new String[nrNivele][nrScoruriSalvate];
         for(int i = 0; i< nrNivele; i++){
             for(int j = 0; j< nrScoruriSalvate; j++){
-                scoruri[i][j] = i;
-                nume[i][j] = "nimeni";
+                scoruri[i][j] = 0;
+                nume[i][j] = "Niciun scor";
             }
         }
     }
@@ -39,7 +39,10 @@ public class Scoruri {
             if(KeyStatus.enter){
                 //salvare nume si scor
                 KeyStatus.enter = false;
-                AdaugaScor(nivel, scorDeIntrodus, numeSalvat);
+                int pozitie = AdaugaScor(nivel, scorDeIntrodus, numeSalvat);
+                if(pozitie != -1){
+                    BazaDate.ScriereScor(nivel,scorDeIntrodus,numeSalvat,pozitie+1);
+                }
                 scorDeIntrodus = 0;
                 LoadingScreen.moveOut = true;
                 newHighScore = false;
@@ -72,9 +75,11 @@ public class Scoruri {
         this.nivel = nivel;
         scorDeIntrodus = scor;
     }
-    public void AdaugaScor(int nivel, int scorNou, String nume) {
+    public int AdaugaScor(int nivel, int scorNou, String nume) {
+        int pozitie = -1;
         for(int i=0; i< nrScoruriSalvate; i++){
             if(scoruri[nivel][i] <= scorNou){
+                pozitie = i;
                 //muta scorurile vechi mai jos
                 for(int j = nrScoruriSalvate-1; j > i; j--){
                     scoruri[nivel][j] = scoruri[nivel][j-1];
@@ -86,6 +91,7 @@ public class Scoruri {
                 break;
             }
         }
+        return pozitie;
     }
     public boolean isHighscore(int nivel, int scor){
         for(int i=0; i< nrScoruriSalvate; i++){
@@ -98,5 +104,9 @@ public class Scoruri {
     }
     public int getScorSalvat(){
         return scorDeIntrodus;
+    }
+    public void CitireScorBazaDate(int nivel, int pozitie, int scor, String nume){
+        this.scoruri[nivel][pozitie] = scor;
+        this.nume[nivel][pozitie] = nume;
     }
 }
