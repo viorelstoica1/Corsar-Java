@@ -2,7 +2,12 @@ public class ProiectilBani extends Proiectil{
 
     public ProiectilBani(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie) {
         super(sprite, poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
-        viteza_x = (float) (Math.random()*10);
+        if(Math.random() >= 0.5){
+            viteza_x = (float) (Math.random()*10);
+        }
+        else{
+            viteza_x = (float) (Math.random()*-10);
+        }
         viteza_y = (float) (Math.random()*-10);
         acceleratie_y = 0.2f;
     }

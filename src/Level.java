@@ -118,6 +118,11 @@ public abstract class Level extends JPanel {
             if (aux != null) {
                 proiectil.HitSir(sirBile);
             }
+            if(proiectil.getClass() == ProiectilBani.class && tunar.Coliziune(proiectil)){
+                SoundManager.playSound("src/resources/sunete/catch_coin.wav",-20,false);
+                scor+=2;
+                proiectil.shouldDissapear = true;
+            }
             if (proiectil.shouldDissapear) {
                 listaProiectile.remove(proiectil);
                 index--;

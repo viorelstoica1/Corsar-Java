@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="BAZE DE DATEE scor">
-      <change afterPath="$PROJECT_DIR$/src/ProiectilBani.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Bani.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/Butoi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/catch_coin.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sunete/spawn_coin.wav" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat bani collectible pentru scor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Textura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fundal1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundal1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,14 +174,7 @@
       <workItem from="1684585716926" duration="1875000" />
       <workItem from="1684650514580" duration="1198000" />
       <workItem from="1684688256550" duration="252000" />
-      <workItem from="1684695420890" duration="5539000" />
-    </task>
-    <task id="LOCAL-00032" summary="implementat animatie de spargere bile (o culoare)">
-      <created>1682954588119</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1682954588119</updated>
+      <workItem from="1684695420890" duration="6232000" />
     </task>
     <task id="LOCAL-00033" summary="Boom la toate bilele">
       <created>1683024736978</created>
@@ -531,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684479056741</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="adaugat bani collectible pentru scor">
+      <created>1684705678283</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1684705678283</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adaugat reset de nivel aproape bun" />
     <MESSAGE value="schimbat incarcarea de nivele, se face mai usor" />
     <MESSAGE value="redus marime functie OnStart" />
     <MESSAGE value="adaugat al treilea nivel basic si schimbat logica de sfarsit de joc" />
@@ -574,7 +561,8 @@
     <MESSAGE value="introducere de nume si de scoruri de baza" />
     <MESSAGE value="sfarsit de nivel cu high score si nume" />
     <MESSAGE value="BAZE DE DATEE scor" />
-    <option name="LAST_COMMIT_MESSAGE" value="BAZE DE DATEE scor" />
+    <MESSAGE value="adaugat bani collectible pentru scor" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat bani collectible pentru scor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

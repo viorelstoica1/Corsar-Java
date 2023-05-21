@@ -32,7 +32,7 @@ public class Level3 extends Level{
         int index = 0;
         while (index < listaProiectile.size()){
             Proiectil proiectil = listaProiectile.get(index);
-            if(proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
+            if(proiectil.getClass() == ProiectilBila.class && proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
                 Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0,16));
                 proiectil.shouldDissapear = true;
             }
