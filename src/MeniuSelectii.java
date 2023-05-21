@@ -16,7 +16,7 @@ public class MeniuSelectii extends Textura{
         buton1 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.26),GetMarimeTexX(),100);
         buton1.textButon = "Start";
         buton2 = new Buton((int) GetCoordX()-GetMarimeTexX()/2, (int) (GetCoordY()-GetMarimeTexY()*0.09),GetMarimeTexX(),100);
-        buton2.textButon = "Credite";
+        buton2.textButon = " Ajutor si Credite";
         buton3 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.08),GetMarimeTexX(),100);
         buton3.textButon = "Scoruri";
         buton4 = new Buton((int) GetCoordX()-GetMarimeTexX()/2,(int) (GetCoordY()+GetMarimeTexY()*0.25),GetMarimeTexX(),100);
@@ -147,7 +147,7 @@ public class MeniuSelectii extends Textura{
             case start ->{
                 stareMeniu = StariMeniu.start;
                 buton1.textButon = "Start";
-                buton2.textButon = "Credite";
+                buton2.textButon = " Ajutor si Credite";
                 buton3.textButon = "Scoruri";
                 buton4.textButon = "Iesire";
             }

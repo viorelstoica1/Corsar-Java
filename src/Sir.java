@@ -157,10 +157,19 @@ public class Sir {
             }
             if(!listaBile.get(i).isStable) {
                 //daca bila curenta nu e stabila
-                if(NrBileIdentice(listaBile.get(i))>=3){
+                int nrBileIdentice = NrBileIdentice(listaBile.get(i));
+                if(nrBileIdentice >= 3){
+                    scor+= nrBileIdentice * GetMultiplier(listaBile.get(i));
+                    if( nrBileIdentice > 3){
+                        while(nrBileIdentice > 0){
+                            SoundManager.playSound("src/resources/sunete/spawn_coin.wav",-20,false);
+                            Level.AdaugaEfect(new ProiectilBani((Spritesheet)ResourceManager.get().getCollectible("bani"),listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,10,90));
+                            nrBileIdentice--;
+                        }
+                    }
                     //daca sunt destule bile de aceeasi culoare
-                    scor+= NrBileIdentice(listaBile.get(i)) * GetMultiplier(listaBile.get(i));
-                    StergeBileIdentice(listaBile.get(i));
+                     StergeBileIdentice(listaBile.get(i));
+
                     if(i<listaBile.size()) {
                         while (!listaBile.get(i).isSirLeader && !listaBile.get(i).isWaveLeader) {
                             i--;

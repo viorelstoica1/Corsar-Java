@@ -9,7 +9,7 @@ public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu;
+    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi;
     private final Vector<String> nume;
     public Font font;
     private ResourceManager(){
@@ -148,6 +148,10 @@ public class ResourceManager {
             lupa3 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
             tex = ImageIO.read(new File(("src/resources/Lupa0.png")));
             lupa0 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
+            tex = ImageIO.read(new File(("src/resources/Bani.png")));
+            bani = new Spritesheet(tex,9,9,0,0,0).resize(324,36);
+            tex = ImageIO.read(new File(("src/resources/Butoi.png")));
+            butoi = new Textura(tex,0,0,0).resize(73,89);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -270,6 +274,18 @@ public class ResourceManager {
             }
         }
         System.out.println("Numar textura capcana nerecunoscut!");
+        return null;
+    }
+    public Textura getCollectible(String nume){
+        switch(nume){
+            case "bani" ->{
+                return bani;
+            }
+            case "butoi" ->{
+                return butoi;
+            }
+        }
+        System.out.println("Nume collectible necunoscut!");
         return null;
     }
 }

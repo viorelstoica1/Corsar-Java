@@ -1,8 +1,15 @@
+import java.awt.*;
 import java.util.LinkedList;
 
 public class Level1 extends Level {
+    private final Textura butoi;
+    private final GameObject pozitieButoi;
     public Level1(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
+        butoi = new Textura(ResourceManager.get().getCollectible("butoi").GetTex(),0,0,0);
+        butoi.SetCoordY(rezolutieY);
+        pozitieButoi = new GameObject();
+        pozitieButoi.Copiaza(butoi);
     }
 
     public void onStart() {
@@ -15,10 +22,19 @@ public class Level1 extends Level {
     }
 
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
+        for(Proiectil proiectil : listaProiectile){
+            if(proiectil.getClass() == ProiectilBani.class && butoi.Coliziune(proiectil)){
+                proiectil.shouldDissapear = true;
+                SoundManager.playSound("src/resources/sunete/catch_coin.wav",-20,false);
+                scor+=2;
+            }
+        }
         stareAplicatie status = super.Actualizare();
         cursorPrincipal.SetCoordX(0);
         cursorPrincipal.SetCoordY(tunar.GetCoordY());
         cursorSecundar.SetCoordY(tunar.GetCoordY());
+        pozitieButoi.Copiaza(butoi);
+        butoi.SetCoordX(MouseStatus.mousex);
         LinkedList<Bila> lista = sirBile.getListaBile();
         for(Bila iterator : lista){
             if(iterator.GetCoordY() > cursorPrincipal.GetCoordY()-iterator.GetMarimeSpriteX() && iterator.GetCoordY() < cursorPrincipal.GetCoordY()+iterator.GetMarimeSpriteX()/* && iterator.GetCoordX() > cursor.GetCoordX()*/){
@@ -37,11 +53,17 @@ public class Level1 extends Level {
         }
         return status;
     }
-//linia asta de cod a fost scrisa de un domn anonim
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        repaintBackground((int) (pozitieButoi.GetCoordX() - butoi.GetMarimeTexX()/2),butoi.CenterY(),butoi.GetMarimeTexX(),butoi.GetMarimeTexY(),g);
+        butoi.paintComponent(g);
+    }
 
-    public void AlocareTraseuBile() {
-        traseuBile = new GameObject[3300];//3089
-        for (int i = 0; i < 3300; i++) {
+    @Override
+    protected void AlocareTraseuBile() {
+        traseuBile = new GameObject[3089];//3089
+        for (int i = 0; i < 3089; i++) {
             traseuBile[i] = new GameObject();
         }
         int i = 0;
@@ -183,7 +205,7 @@ public class Level1 extends Level {
             traseuBile[i].SetUnghi((float) (Math.PI * 3 / 2));
             i++;
         }
-        for (int j = 0; j < 3300; j++) {
+        for (int j = 0; j < 3089; j++) {
             traseuBile[j].SetUnghi((float) Math.toDegrees(traseuBile[j].GetUnghi()));
         }
         System.out.println("Traseul are " + i + " puncte");

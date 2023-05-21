@@ -20,6 +20,10 @@ public class Textura extends GameObject {
         return imagineRaw;
     }
 
+    public boolean Coliziune(Spritesheet sprite){
+        return (sprite.GetCoordX() + (float) sprite.GetMarimeSpriteX() / 2 >= GetCoordX() - (float) GetMarimeTexX() / 2) && (sprite.GetCoordX() - (float) sprite.GetMarimeSpriteX() / 2 <= GetCoordX() + (float) GetMarimeTexX() / 2) && (sprite.GetCoordY() + (float) sprite.GetMarimeSpriteY() / 2 >= GetCoordY() - (float) GetMarimeTexY() / 2) && (sprite.GetCoordY() - (float) sprite.GetMarimeSpriteY() / 2 <= GetCoordY() + (float) GetMarimeTexY() / 2);
+    }
+
     public int GetMarimeTexX() {
         return marime_x;
     }
