@@ -4,38 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat bustean">
-      <change afterPath="$PROJECT_DIR$/src/resources/fundaluri/FrunzeStanga.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="formatat texturi">
+      <change afterPath="$PROJECT_DIR$/src/resources/fundaluri/FrunzeDreapta.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KeyStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MouseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MouseStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilFoc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Bustean.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/Bustean.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/CapSarpe.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/CapSarpe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/CrabRave.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/CrabRave.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/EcranAjutor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/EcranAjutor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/EcranAjutorGol.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/EcranAjutorGol.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/EcranHartie.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/EcranHartie.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/FundalMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/FundalMeniu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/LoadScreen.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/LoadScreen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Lupa0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/Lupa0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Lupa1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/Lupa1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Lupa2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/Lupa2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/Lupa3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/Lupa3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/ScanduraScor.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/ScanduraScor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/SelectiiMeniu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/meniuri/SelectiiMeniu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/capcana1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/capcana1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/capcana2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/capcana2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fundal1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/fundal1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fundal2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/fundal2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fundal3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundaluri/fundal3.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,9 +80,9 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\meniuri" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\fundaluri" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\meniuri" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
     </key>
@@ -205,21 +178,7 @@
       <workItem from="1684688256550" duration="252000" />
       <workItem from="1684695420890" duration="6667000" />
       <workItem from="1684732164430" duration="15428000" />
-      <workItem from="1684765024551" duration="11101000" />
-    </task>
-    <task id="LOCAL-00037" summary="rezolvat bugul enervant cu sirul">
-      <created>1683191233249</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1683191233249</updated>
-    </task>
-    <task id="LOCAL-00038" summary="schimbat logica pentru proiectile, acum sunt animate din baza, plus poti adauga proiectile la lista in timp ce iterezi prin ele">
-      <created>1683221081221</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1683221081221</updated>
+      <workItem from="1684765024551" duration="13973000" />
     </task>
     <task id="LOCAL-00039" summary="proiectilele din tun isi iau update">
       <created>1683222289551</created>
@@ -550,7 +509,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684758495355</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="dumnezeu sa ma ierte daca nu merge">
+      <created>1684781119033</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1684781119034</updated>
+    </task>
+    <task id="LOCAL-00087" summary="formatat texturi">
+      <created>1684781148049</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1684781148049</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,8 +541,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adaugat capcane tragatoare in nivelul 3" />
-    <MESSAGE value="schimbat fontul jocului" />
     <MESSAGE value="jucat cu pozitia butoanelor" />
     <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate, inca nu face nimic" />
     <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate" />
@@ -593,7 +564,9 @@
     <MESSAGE value="rezolvat bugul cu butonul de pe loading screen" />
     <MESSAGE value="adaugat al doilea nivel (doar traseu)" />
     <MESSAGE value="adaugat bustean" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat bustean" />
+    <MESSAGE value="dumnezeu sa ma ierte daca nu merge" />
+    <MESSAGE value="formatat texturi" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatat texturi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

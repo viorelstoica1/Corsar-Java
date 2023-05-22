@@ -2,15 +2,18 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Level2 extends Level{
-    private final Textura sarpe, bustean;
+    private final Textura sarpe, bustean, frunza1, frunza2;
     public Level2(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(2).GetTex());
         sarpe = new Textura(ResourceManager.get().getMisc("sarpe").GetTex(),174,181,0);
         bustean = new Textura(ResourceManager.get().getMisc("bustean").GetTex(),511,356,0);
+        frunza1 = new Textura(ResourceManager.get().getMisc("frunzaStanga").GetTex(), 697, 90,0);
+        frunza2 = new Textura(ResourceManager.get().getMisc("frunzaDreapta").GetTex(), 1435, 185,0);
+
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2600;
-        sirBile.indexFinal = 3300;
+        sirBile.indexFinal = 3285;
     }
     @Override
     public void onStart() {
@@ -22,7 +25,6 @@ public class Level2 extends Level{
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
         cursorSecundar.SetUnghi(0);
-        sirBile.viteza = 0.5f;
     }
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
         stareAplicatie status = super.Actualizare();
@@ -190,5 +192,7 @@ public class Level2 extends Level{
     protected void MiddlePaint(Graphics g) {
         sarpe.paintComponent(g);
         bustean.paintComponent(g);
+        frunza1.paintComponent(g);
+        frunza2.paintComponent(g);
     }
 }
