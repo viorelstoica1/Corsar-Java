@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat bugul cu butonul de pe loading screen">
-      <change afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/CrabRave.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat al doilea nivel (doar traseu)">
+      <change afterPath="$PROJECT_DIR$/src/resources/Bustean.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProiectilBila.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fundal2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundal2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sir.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,14 +180,7 @@
       <workItem from="1684650514580" duration="1198000" />
       <workItem from="1684688256550" duration="252000" />
       <workItem from="1684695420890" duration="6667000" />
-      <workItem from="1684732164430" duration="8348000" />
-    </task>
-    <task id="LOCAL-00035" summary="modificat structura pentru proiectile">
-      <created>1683044613570</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1683044613570</updated>
+      <workItem from="1684732164430" duration="14200000" />
     </task>
     <task id="LOCAL-00036" summary="implementat bila de foc de baza">
       <created>1683051683476</created>
@@ -527,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684733539736</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="adaugat al doilea nivel (doar traseu)">
+      <created>1684751467608</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1684751467608</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adaugat al treilea nivel basic si schimbat logica de sfarsit de joc" />
     <MESSAGE value="adaugat texturi capcane" />
     <MESSAGE value="adaugat capcane tragatoare in nivelul 3" />
     <MESSAGE value="schimbat fontul jocului" />
@@ -570,7 +567,8 @@
     <MESSAGE value="adaugat bani collectible pentru scor" />
     <MESSAGE value="facut banii sa mearga colectati cu tunul" />
     <MESSAGE value="rezolvat bugul cu butonul de pe loading screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="rezolvat bugul cu butonul de pe loading screen" />
+    <MESSAGE value="adaugat al doilea nivel (doar traseu)" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat al doilea nivel (doar traseu)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

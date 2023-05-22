@@ -2,10 +2,12 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Level2 extends Level{
-
+    private Textura sarpe, bustean;
     public Level2(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(2).GetTex());
+        sarpe = new Textura(ResourceManager.get().getMisc("sarpe").GetTex(),174,181,0);
+        bustean = new Textura(ResourceManager.get().getMisc("bustean").GetTex(),511,356,0);
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2650;
         sirBile.indexFinal = 3123;
@@ -20,6 +22,7 @@ public class Level2 extends Level{
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
         cursorSecundar.SetUnghi(0);
+        //sirBile.viteza = 0.5f;
     }
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
         stareAplicatie status = super.Actualizare();
@@ -32,6 +35,17 @@ public class Level2 extends Level{
                 float coordonataY = (float) (iterator.GetCoordY() + (Math.sqrt(Math.pow(iterator.GetMarimeSpriteX(),2)-Math.pow((tunar.GetCoordX()-iterator.GetCoordX()),2))));
                 if(cursorPrincipal.GetCoordY() < coordonataY){
                     cursorPrincipal.SetCoordY(coordonataY );
+                }
+                iterator.canInsertRight = true;
+                iterator.canInsertLeft = true;
+                //bustean
+                if(iterator.index > 635 && iterator.index < 655){
+                    iterator.canInsertRight = false;
+                }else if(iterator.index >= 655 && iterator.index <= 830){
+                    iterator.canInsertRight = false;
+                    iterator.canInsertLeft = false;
+                }else if(iterator.index >= 830 && iterator.index <= 850){
+                    iterator.canInsertLeft = false;
                 }
             }
         }
@@ -55,7 +69,7 @@ public class Level2 extends Level{
         int i = 0;
         for (float unghi = (float) (Math.PI*3/4); unghi > Math.PI / 2; unghi = (float) (unghi - 0.0033)) {
             traseuBile[i].SetCoordX((float) (Math.cos(unghi) * 300 + 400));
-            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 300 + 20));
+            traseuBile[i].SetCoordY((float) (Math.sin(unghi) * 300 -20));
             traseuBile[i].SetUnghi((float) (unghi + Math.PI));
             i++;
         }
@@ -75,6 +89,8 @@ public class Level2 extends Level{
             traseuBile[i].SetCoordX(j);
             traseuBile[i].SetCoordY(360);
             traseuBile[i].SetUnghi((float) (Math.PI/2));
+            //incepe la 615 si se termina la 944
+            System.out.println(i);
             i++;
         }
         for (float unghi = (float) (Math.PI * 3 / 2); unghi > Math.PI/2; unghi = (float) (unghi - 0.02)) {
@@ -153,6 +169,7 @@ public class Level2 extends Level{
 
     @Override
     protected void MiddlePaint(Graphics g) {
-
+        sarpe.paintComponent(g);
+        bustean.paintComponent(g);
     }
 }

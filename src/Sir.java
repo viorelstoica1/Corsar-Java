@@ -86,16 +86,29 @@ public class Sir {
         de_introdus.index = membru.index-membru.GetMarimeSpriteX();
     }
     //verifica daca trebuie adaugat in stanga sau in dreapta si adauga
-    public void adaugaPeBila(Bila membru, Bila de_introdus){
+    public boolean adaugaPeBila(Bila membru, Bila de_introdus){
         if (membru.DirectieColiziune(de_introdus)) {
-            adaugaLaDreaptaBilei(membru, de_introdus);
+            if(membru.canInsertRight){
+                adaugaLaDreaptaBilei(membru, de_introdus);
+            }
+            else if(membru.canInsertLeft){
+                adaugaLaStangaBilei(membru, de_introdus);
+            }else return false;
         }
         else {
-            adaugaLaStangaBilei(membru, de_introdus);
+            if(membru.canInsertLeft){
+                adaugaLaStangaBilei(membru, de_introdus);
+            }
+            else if(membru.canInsertRight){
+                adaugaLaDreaptaBilei(membru, de_introdus);
+
+            }
+            else return false;
         }
         de_introdus.isAnimating = true;
         de_introdus.viteza = membru.viteza;
         getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
+        return true;
     }
 
     public void paintComponent(Graphics g){
@@ -163,7 +176,7 @@ public class Sir {
                     if( nrBileIdentice > 3){
                         while(nrBileIdentice > 0){
                             SoundManager.playSound("src/resources/sunete/spawn_coin.wav",-20,false);
-                            Level.AdaugaEfect(new ProiectilBani((Spritesheet)ResourceManager.get().getCollectible("bani"),listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,10,90));
+                            Level.AdaugaEfect(new ProiectilBani((Spritesheet)ResourceManager.get().getMisc("bani"),listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,10,90));
                             nrBileIdentice--;
                         }
                     }

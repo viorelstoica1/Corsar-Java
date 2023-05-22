@@ -4,7 +4,7 @@ public class Bila extends Spritesheet{
     private final int marimeAnimatie = 16;
     public int frameAnimatie = marimeAnimatie, scoreMultiplier = 1;
     public float acceleratie, viteza = 0, vitezaMax = 0;
-    public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable;
+    public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable, canInsertLeft = true, canInsertRight = true;
 
     public Bila(Spritesheet imagine, float poz_x, float poz_y, float angel, float acceleratie) {
         super(imagine, poz_x, poz_y, angel);

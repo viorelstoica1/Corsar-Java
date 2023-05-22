@@ -6,7 +6,7 @@ public class Level1 extends Level {
     private final GameObject pozitieButoi;
     public Level1(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
-        butoi = new Textura(ResourceManager.get().getCollectible("butoi").GetTex(),0,0,0);
+        butoi = new Textura(ResourceManager.get().getMisc("butoi").GetTex(),0,0,0);
         butoi.SetCoordY(rezolutieY);
         pozitieButoi = new GameObject();
         pozitieButoi.Copiaza(butoi);
