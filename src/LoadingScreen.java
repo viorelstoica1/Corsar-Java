@@ -32,7 +32,7 @@ public class LoadingScreen extends JPanel {
         }else{
             vitezaAnimatie = 0;
         }
-        if(butonInapoi.isSelected(MouseStatus.mousex, MouseStatus.mousey) && MouseStatus.clickStanga && !Scoruri.get().newHighScore && isFinished()){
+        if(bottomY() == Application.getScreenHeight() && butonInapoi.isSelected(MouseStatus.mousex, MouseStatus.mousey) && MouseStatus.clickStanga && !Scoruri.get().newHighScore && isFinished()){
             moveOut = true;
         }
     }
