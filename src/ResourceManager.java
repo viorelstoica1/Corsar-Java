@@ -109,22 +109,22 @@ public class ResourceManager {
             nume.add("fire");
 
             //fundaluri
-            tex = ImageIO.read(new File(("src/resources/fundal1.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/fundal1.png")));
             fundal1 = new Textura(tex,0,0,0).resize(1536,864);
-            tex = ImageIO.read(new File("src/resources/LoadScreen.png"));
+            tex = ImageIO.read(new File("src/resources/meniuri/LoadScreen.png"));
             loadscreen = new Textura(tex, 0 , 0, 0).resize(1536, 864);
-            tex = ImageIO.read(new File(("src/resources/fundal2.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/fundal2.png")));
             fundal2 = new Textura(tex,0,0,0).resize(1536, 864);
-            tex = ImageIO.read(new File(("src/resources/fundal3.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/fundal3.png")));
             fundal3 = new Textura(tex,0,0,0).resize(1536,864);
             //Meniuri
-            tex = ImageIO.read(new File(("src/resources/FundalMeniu.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/FundalMeniu.png")));
             fundalMeniu = new Textura(tex,0,0,0).resize(1536,864);
-            tex = ImageIO.read(new File(("src/resources/SelectiiMeniu.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/SelectiiMeniu.png")));
             selectiiMeniu = new Textura(tex,0,0,0)/*.resize(500,500)*/;
-            tex = ImageIO.read(new File(("src/resources/EcranAjutor.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/EcranAjutor.png")));
             ajutorMeniu = new Textura(tex,0,0,0).resize(1536,864);
-            tex = ImageIO.read(new File(("src/resources/EcranHartie.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/EcranHartie.png")));
             hartieMeniu = new Textura(tex,0,0,0).resize(1536,864);
             //tun
             tex = ImageIO.read(new File(("src/resources/Cannon_no_shade.png")));
@@ -132,29 +132,29 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/Cannon_explosion-sheet.png")));
             tunJos = new Spritesheet(tex,5,5,0,0,0);
             //capcane
-            tex = ImageIO.read(new File(("src/resources/capcana1.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/capcana1.png")));
             capcana1 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
-            tex = ImageIO.read(new File(("src/resources/capcana2.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/capcana2.png")));
             capcana2 = new Textura(tex,0,0,0)/*.resize(500,500)*/;
             //scor
-            tex = ImageIO.read(new File(("src/resources/ScanduraScor.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/ScanduraScor.png")));
             scor = new Textura(tex,0,0,0).resize(200,100);
             //misc
-            tex = ImageIO.read(new File(("src/resources/Lupa1.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/Lupa1.png")));
             lupa1 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
-            tex = ImageIO.read(new File(("src/resources/Lupa2.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/Lupa2.png")));
             lupa2 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
-            tex = ImageIO.read(new File(("src/resources/Lupa3.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/Lupa3.png")));
             lupa3 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
-            tex = ImageIO.read(new File(("src/resources/Lupa0.png")));
+            tex = ImageIO.read(new File(("src/resources/meniuri/Lupa0.png")));
             lupa0 = new Textura(tex,0,0,0)/*.resize(200,100)*/;
             tex = ImageIO.read(new File(("src/resources/Bani.png")));
             bani = new Spritesheet(tex,9,9,0,0,0).resize(324,36);
             tex = ImageIO.read(new File(("src/resources/Butoi.png")));
             butoi = new Textura(tex,0,0,0).resize(73,89);
-            tex = ImageIO.read(new File(("src/resources/Bustean.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/Bustean.png")));
             bustean = new Spritesheet(tex,9,9,0,0,0).resize(170,100);
-            tex = ImageIO.read(new File(("src/resources/CapSarpe.png")));
+            tex = ImageIO.read(new File(("src/resources/fundaluri/CapSarpe.png")));
             sarpe = new Textura(tex,0,0,0).resize(120,120);
         } catch (IOException e) {
             throw new RuntimeException(e);

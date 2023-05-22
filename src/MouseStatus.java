@@ -11,30 +11,30 @@ public class MouseStatus extends JPanel {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    System.out.println("Click stanga apasat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Click stanga apasat la coordonatele " + e.getX() + " " + e.getY());
                     clickStanga = true;
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
-                    System.out.println("Middle mouse apasat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Middle mouse apasat la coordonatele " + e.getX() + " " + e.getY());
                     middleMouse = true;
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    System.out.println("Click dreapta apasat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Click dreapta apasat la coordonatele " + e.getX() + " " + e.getY());
                     clickDreapta = true;
                 }
             }
             @Override
             public void mouseReleased(MouseEvent e){
                 if (e.getButton() == MouseEvent.BUTTON1) {
-                    System.out.println("Click stanga eliberat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Click stanga eliberat la coordonatele " + e.getX() + " " + e.getY());
                     clickStanga = false;
                 }
                 if (e.getButton() == MouseEvent.BUTTON2) {
-                    System.out.println("Middle mouse eliberat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Middle mouse eliberat la coordonatele " + e.getX() + " " + e.getY());
                     middleMouse = false;
                 }
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    System.out.println("Click dreapta eliberat la coordonatele " + e.getX() + " " + e.getY());
+                    //System.out.println("Click dreapta eliberat la coordonatele " + e.getX() + " " + e.getY());
                     clickDreapta = false;
                 }
             }

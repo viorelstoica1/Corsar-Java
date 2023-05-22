@@ -12,7 +12,7 @@ public class Meniu extends JPanel{
         font = ResourceManager.get().font.deriveFont(75f);
         FundalMeniu = new Textura(ResourceManager.get().getMeniu("Fundal").GetTex(),(float)Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
         selectii = new MeniuSelectii(ResourceManager.get().getMeniu("Selectii").GetTex(),(float)Application.getScreenWidth()*2/3,(float)Application.getScreenHeight()/2.5f,0);
-        lupa = new Textura(ResourceManager.get().getMeniu("Lupa2").imagineRaw, 200, 690, 0);
+        lupa = new Textura(ResourceManager.get().getMeniu("Lupa0").imagineRaw, 200, 690, 0);
     }
     public stareAplicatie UpdateMeniu(){
         switch (selectedButton){
