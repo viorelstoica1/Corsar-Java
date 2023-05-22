@@ -115,7 +115,7 @@ public abstract class Level extends JPanel {
             Proiectil proiectil = listaProiectile.get(index);
             proiectil.UpdateProiectil();
             Bila aux = sirBile.TestColiziune(proiectil);
-            if (aux != null) {
+            if (aux != null && (aux.canInsertRight || aux.canInsertLeft)) {
                 proiectil.HitSir(sirBile);
             }
             if(proiectil.getClass() == ProiectilBani.class && tunar.Coliziune(proiectil)){

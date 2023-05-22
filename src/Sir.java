@@ -63,7 +63,7 @@ public class Sir {
             nrBileIdentice++;
             index++;
         }
-        System.out.println(nrBileIdentice+" bile identice");
+        //System.out.println(nrBileIdentice+" bile identice");
         return nrBileIdentice;
     }//merge pe wave-uri
 
@@ -101,10 +101,10 @@ public class Sir {
             }
             else if(membru.canInsertRight){
                 adaugaLaDreaptaBilei(membru, de_introdus);
-
             }
             else return false;
         }
+        SoundManager.playSound("src/resources/sunete/collide_spheres_shot.wav", -10, false);
         de_introdus.isAnimating = true;
         de_introdus.viteza = membru.viteza;
         getBilaFinalSir(listaBile.indexOf(de_introdus)).index+=de_introdus.GetMarimeSpriteX();
@@ -279,7 +279,7 @@ public class Sir {
         return null;
     }
     public void StergeBileIdentice(Bila membru){
-        System.out.println("Stergere");
+        //System.out.println("Stergere");
         int index = listaBile.indexOf(membru);
         //float viteza = membru.viteza;
         boolean waveLeader = false;
@@ -295,8 +295,10 @@ public class Sir {
             Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
             listaBile.remove(index);
         }
-        Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
-        listaBile.remove(index);
+        if(!(listaBile.get(index).isSirLeader || listaBile.get(index).isWaveLeader)){
+            Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
+            listaBile.remove(index);
+        }
         if(index < listaBile.size()){
             if(waveLeader){
                 listaBile.get(index).isWaveLeader = true;

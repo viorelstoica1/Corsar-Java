@@ -12,7 +12,6 @@ public class ProiectilFoc extends Proiectil{
     public void HitSir(Sir sir) {
         int index = 0;
         LinkedList<Bila> listaBile = sir.getListaBile();
-
         while(index < listaBile.size()){
             if(listaBile.get(index).DistantaPatrat(this) <= marimeZonaFoc*marimeZonaFoc){
                 Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index)),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0,16));
