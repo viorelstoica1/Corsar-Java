@@ -9,7 +9,7 @@ public class ResourceManager {
     private static ResourceManager instanta = null;
     private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi, bustean, sarpe, frunza1, frunza2, gauraNava;
+    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi, bustean, sarpe, frunza1, frunza2, gauraNava, raci;
     private final Vector<String> nume;
     public Font font;
     private ResourceManager(){
@@ -162,6 +162,8 @@ public class ResourceManager {
             frunza2 = new Textura(tex,0,0,0)/*.resize(120,120)*/;
             tex = ImageIO.read(new File(("src/resources/fundaluri/gauraNava.png")));
             gauraNava = new Textura(tex,0,0,0)/*.resize(120,120)*/;
+            tex = ImageIO.read(new File(("src/resources/fundaluri/CrabRave.png")));
+            raci = new Spritesheet(tex,4,4,0,0,0).resize(256,64);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -308,6 +310,9 @@ public class ResourceManager {
             }
             case "gauraNava" -> {
                 return gauraNava;
+            }
+            case "rac" -> {
+                return raci;
             }
         }
         System.out.println("Nume misc necunoscut!");

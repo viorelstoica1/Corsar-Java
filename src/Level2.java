@@ -3,6 +3,8 @@ import java.util.LinkedList;
 
 public class Level2 extends Level{
     private final Textura sarpe, bustean, frunza1, frunza2, gaura;
+    private final Spritesheet rac1, rac2, rac3;
+    private int frameRac = 0;
     public Level2(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(2).GetTex());
@@ -11,6 +13,11 @@ public class Level2 extends Level{
         frunza1 = new Textura(ResourceManager.get().getMisc("frunzaStanga").GetTex(), 697, 90,0);
         frunza2 = new Textura(ResourceManager.get().getMisc("frunzaDreapta").GetTex(), 1435, 185,0);
         gaura = new Textura(ResourceManager.get().getMisc("gauraNava").GetTex(),1457,714,0);
+        rac1 = new Spritesheet((Spritesheet)ResourceManager.get().getMisc("rac"),1250,300,0);
+        rac2 = new Spritesheet((Spritesheet)ResourceManager.get().getMisc("rac"),1330,400,0);
+        rac2.SetCadru(1);
+        rac3 = new Spritesheet((Spritesheet)ResourceManager.get().getMisc("rac"),1450,290,0);
+        rac3.SetCadru(2);
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2600;
         sirBile.indexFinal = 3285;
@@ -27,6 +34,15 @@ public class Level2 extends Level{
         cursorSecundar.SetUnghi(0);
     }
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
+        frameRac++;
+        switch(frameRac){
+            case 20 -> rac1.CresteCadru(-1);
+            case 40 -> rac2.CresteCadru(1);
+            case 60 -> {
+                frameRac = 0;
+                rac3.CresteCadru(1);
+            }
+        }
         stareAplicatie status = super.Actualizare();
         cursorPrincipal.SetCoordY(0);
         cursorPrincipal.SetCoordX(tunar.GetCoordX());
@@ -60,11 +76,6 @@ public class Level2 extends Level{
                     iterator.canInsertRight = false;
                     iterator.canInsertLeft = false;
                 }
-                //frunze2
-                /*if(iterator.index > 635 && iterator.index < 655){
-                    iterator.canInsertLeft = false;
-                    iterator.canInsertRight = false;
-                }*/
             }
         }
         if(cursorPrincipal.GetCoordY() == 0){
@@ -195,5 +206,11 @@ public class Level2 extends Level{
         frunza1.paintComponent(g);
         frunza2.paintComponent(g);
         gaura.paintComponent(g);
+        super.repaintBackground(rac1.CenterX(),rac1.CenterY(),rac1.GetMarimeSpriteX(),rac1.GetMarimeSpriteY(),g);
+        rac1.paintComponent(g);
+        super.repaintBackground(rac2.CenterX(),rac2.CenterY(),rac2.GetMarimeSpriteX(),rac2.GetMarimeSpriteY(),g);
+        rac2.paintComponent(g);
+        super.repaintBackground(rac3.CenterX(),rac3.CenterY(),rac3.GetMarimeSpriteX(),rac3.GetMarimeSpriteY(),g);
+        rac3.paintComponent(g);
     }
 }
