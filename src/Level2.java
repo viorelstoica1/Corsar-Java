@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class Level2 extends Level{
-    private final Textura sarpe, bustean, frunza1, frunza2;
+    private final Textura sarpe, bustean, frunza1, frunza2, gaura;
     public Level2(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
         fundal.SetTexRaw(ResourceManager.get().getFundal(2).GetTex());
@@ -10,7 +10,7 @@ public class Level2 extends Level{
         bustean = new Textura(ResourceManager.get().getMisc("bustean").GetTex(),511,356,0);
         frunza1 = new Textura(ResourceManager.get().getMisc("frunzaStanga").GetTex(), 697, 90,0);
         frunza2 = new Textura(ResourceManager.get().getMisc("frunzaDreapta").GetTex(), 1435, 185,0);
-
+        gaura = new Textura(ResourceManager.get().getMisc("gauraNava").GetTex(),1457,714,0);
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2600;
         sirBile.indexFinal = 3285;
@@ -72,7 +72,7 @@ public class Level2 extends Level{
         }
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
         if(sirBile.marime() == 0) {
-            Scoruri.get().SalvareScor(scor, 2);
+            Scoruri.get().SalvareScor(scor, 1);
         }
         return  status;
     }
@@ -194,5 +194,6 @@ public class Level2 extends Level{
         bustean.paintComponent(g);
         frunza1.paintComponent(g);
         frunza2.paintComponent(g);
+        gaura.paintComponent(g);
     }
 }

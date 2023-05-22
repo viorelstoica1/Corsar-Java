@@ -208,9 +208,9 @@ public abstract class Level extends JPanel {
         //textul de scor
         repaintBackground(rezolutieX/2,10, 120, 30, g);
         //restul
-        tunar.paintComponent(g);
         sirBile.paintComponent(g);
         MiddlePaint(g);
+        tunar.paintComponent(g);
         LinkedList<Proiectil> listaRandare  = new LinkedList<>(listaProiectile);
         for (Proiectil proiectil : listaRandare) {
             proiectil.paintComponent(g);

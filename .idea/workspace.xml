@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="formatat texturi">
-      <change afterPath="$PROJECT_DIR$/src/resources/fundaluri/FrunzeDreapta.png" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat gaura in nava">
+      <change afterPath="$PROJECT_DIR$/src/resources/fundaluri/gauraNava.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +180,7 @@
       <workItem from="1684688256550" duration="252000" />
       <workItem from="1684695420890" duration="6667000" />
       <workItem from="1684732164430" duration="15428000" />
-      <workItem from="1684765024551" duration="13973000" />
-    </task>
-    <task id="LOCAL-00039" summary="proiectilele din tun isi iau update">
-      <created>1683222289551</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1683222289551</updated>
+      <workItem from="1684765024551" duration="16564000" />
     </task>
     <task id="LOCAL-00040" summary="rezolvat exceptia cu bila de foc">
       <created>1683222308011</created>
@@ -523,7 +518,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684781148049</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="adaugat frunze">
+      <created>1684784561404</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1684784561404</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,8 +543,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="jucat cu pozitia butoanelor" />
-    <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate, inca nu face nimic" />
     <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate" />
     <MESSAGE value="reparat pozitii capcane" />
     <MESSAGE value="adaugat fundal de scor" />
@@ -566,7 +566,9 @@
     <MESSAGE value="adaugat bustean" />
     <MESSAGE value="dumnezeu sa ma ierte daca nu merge" />
     <MESSAGE value="formatat texturi" />
-    <option name="LAST_COMMIT_MESSAGE" value="formatat texturi" />
+    <MESSAGE value="adaugat frunze" />
+    <MESSAGE value="adaugat gaura in nava" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat gaura in nava" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
