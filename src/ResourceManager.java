@@ -114,7 +114,7 @@ public class ResourceManager {
             tex = ImageIO.read(new File("src/resources/LoadScreen.png"));
             loadscreen = new Textura(tex, 0 , 0, 0).resize(1536, 864);
             tex = ImageIO.read(new File(("src/resources/fundal2.png")));
-            fundal2 = new Textura(tex,0,0,0);
+            fundal2 = new Textura(tex,0,0,0).resize(1536, 864);
             tex = ImageIO.read(new File(("src/resources/fundal3.png")));
             fundal3 = new Textura(tex,0,0,0).resize(1536,864);
             //Meniuri
@@ -226,7 +226,7 @@ public class ResourceManager {
         return ((Spritesheet)texturiBile.get(0)).GetMarimeSpriteX();
     }
     public int getMarimeBilaSparta(){
-        return texturiBileSparte.get(0).marime_x;
+        return ((Spritesheet)texturiBileSparte.get(0)).GetMarimeSpriteX();
     }
     public Textura getLoadscreen(){
         return loadscreen;

@@ -200,4 +200,7 @@ public class Level3 extends Level{
         }
         System.out.println("Traseul are " + i + " puncte");
     }
+    protected void MiddlePaint(Graphics g){
+
+    }
 }

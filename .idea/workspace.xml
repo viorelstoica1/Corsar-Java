@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="facut banii sa mearga colectati cu tunul">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="rezolvat bugul cu butonul de pe loading screen">
+      <change afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/CrabRave.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/fundal2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fundal2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,8 +86,8 @@
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources" />
+      <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\sunete" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\cursor" />
       <recent name="C:\Users\Viorel\IdeaProjects\Proiect_PAOO\src\resources\bile" />
     </key>
@@ -174,14 +182,7 @@
       <workItem from="1684650514580" duration="1198000" />
       <workItem from="1684688256550" duration="252000" />
       <workItem from="1684695420890" duration="6667000" />
-      <workItem from="1684732164430" duration="1180000" />
-    </task>
-    <task id="LOCAL-00034" summary="adaugat sunete de baza">
-      <created>1683034141773</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1683034141773</updated>
+      <workItem from="1684732164430" duration="8348000" />
     </task>
     <task id="LOCAL-00035" summary="modificat structura pentru proiectile">
       <created>1683044613570</created>
@@ -519,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684706379048</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="rezolvat bugul cu butonul de pe loading screen">
+      <created>1684733539735</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1684733539736</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +545,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="redus marime functie OnStart" />
     <MESSAGE value="adaugat al treilea nivel basic si schimbat logica de sfarsit de joc" />
     <MESSAGE value="adaugat texturi capcane" />
     <MESSAGE value="adaugat capcane tragatoare in nivelul 3" />
@@ -562,7 +569,8 @@
     <MESSAGE value="BAZE DE DATEE scor" />
     <MESSAGE value="adaugat bani collectible pentru scor" />
     <MESSAGE value="facut banii sa mearga colectati cu tunul" />
-    <option name="LAST_COMMIT_MESSAGE" value="facut banii sa mearga colectati cu tunul" />
+    <MESSAGE value="rezolvat bugul cu butonul de pe loading screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="rezolvat bugul cu butonul de pe loading screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

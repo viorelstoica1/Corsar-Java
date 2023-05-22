@@ -154,7 +154,7 @@ public class MeniuSelectii extends Textura{
             case SelectiiNivele -> {
                 stareMeniu = StariMeniu.SelectiiNivele;
                 buton1.textButon = "Corabia";
-                buton2.textButon = "Nu ma apasa";
+                buton2.textButon = "Insula";
                 buton3.textButon = "Templul";
                 buton4.textButon = "Inapoi";
             }
@@ -168,7 +168,7 @@ public class MeniuSelectii extends Textura{
             case SelectiiScoruri -> {
                 stareMeniu = StariMeniu.SelectiiScoruri;
                 buton1.textButon = "Corabia";
-                buton2.textButon = "Nu ma apasa";
+                buton2.textButon = "Insula";
                 buton3.textButon = "Templul";
                 buton4.textButon = "Inapoi";
             }

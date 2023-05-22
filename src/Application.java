@@ -161,10 +161,7 @@ public class Application implements Runnable {
         }
         switch (numarNivel){
             case 1 -> Nivel = new Level1(screenWidth,screenHeight, dificultate);
-            case 2 -> {
-                //TODO nivel 2
-                //Nivel = new Level2(screenWidth,screenHeight);
-            }
+            case 2 -> Nivel = new Level2(screenWidth,screenHeight, dificultate);
             case 3 -> Nivel = new Level3(screenWidth,screenHeight, dificultate);
             default -> System.out.println("Nu pot incarca nivelul "+numarNivel);
         }

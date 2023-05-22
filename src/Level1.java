@@ -211,4 +211,9 @@ public class Level1 extends Level {
         System.out.println("Traseul are " + i + " puncte");
     }
 
+    @Override
+    protected void MiddlePaint(Graphics g) {
+
+    }
+
 }
