@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Spritesheet extends Textura{
-    private final int numar_cadre;
+    protected final int numar_cadre;
     float cadru_curent;
     private final Rectangle[] pozitii_cadre;
     public Spritesheet(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel) {

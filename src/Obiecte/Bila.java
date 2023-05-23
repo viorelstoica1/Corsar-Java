@@ -9,17 +9,32 @@ public class Bila extends Spritesheet {
     public int frameAnimatie = marimeAnimatie, scoreMultiplier = 1;
     public float acceleratie, viteza = 0, vitezaMax = 0;
     public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable, canInsertLeft = true, canInsertRight = true;
-
-    public Bila(Spritesheet imagine, float poz_x, float poz_y, float angel, float acceleratie) {
+    private boolean reversedRotation = false;
+    public Bila(Spritesheet imagine, float poz_x, float poz_y, float angel, float acceleratie, int nivel) {
         super(imagine, poz_x, poz_y, angel);
         this.acceleratie = acceleratie;
+        if(nivel != 2)
+            this.reversedRotation = true;
         isStable = true;
     }
+
 
     public boolean isSameColour(Bila bila){
         return (this.imagineRaw == bila.imagineRaw) || (this.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu", Level.numarNivel).GetTex()) || (bila.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu", Level.numarNivel).GetTex());
     }
-
+    @Override
+    public void CresteCadru(float x){
+        if(reversedRotation){
+            cadru_curent -= x;
+        }else cadru_curent += x;
+        if (cadru_curent > numar_cadre - 1)
+        {
+            cadru_curent = 0;
+        }
+        if (cadru_curent < 0) {
+            cadru_curent = numar_cadre-1;
+        }
+    }
     public void calculeazaViteza(){
         if(Math.abs(vitezaMax - viteza)<acceleratie){
             viteza = vitezaMax;

@@ -25,7 +25,7 @@ public abstract class Level extends JPanel {
     protected final Textura fundal, cursorPrincipal, cursorSecundar, TexScor;
     protected static List<Proiectil> listaProiectile;
     protected stareAplicatie scena = stareAplicatie.nivel;
-    protected int scor = 0, nrBileMinim = 5;
+    protected int scor = 0, nrBileMinim = 5, nrbileWaveNou = 15;
     protected final Tun tunar;
     protected final int targetScreenX = 1920, targetScreenY = 1080;
     protected GameObject[] traseuBile;
@@ -177,8 +177,9 @@ public abstract class Level extends JPanel {
         }
         scor += sirBile.Update();
         if(sirBile.marime() < nrBileMinim && !sirBile.lost){
-            sirBile.WaveNou(15, dificultate);// =)
+            sirBile.WaveNou(nrbileWaveNou, dificultate);// =)
             nrBileMinim++;
+            nrbileWaveNou += 5;
         }
         if(sirBile.marime() == 0){
             //LoadingScreen.setTex(ResourceManager.get().getMeniu("Hartie"));

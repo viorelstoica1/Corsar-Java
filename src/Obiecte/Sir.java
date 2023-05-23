@@ -34,13 +34,13 @@ public class Sir {
 
     public void WaveNou(int numarBile, int dificultate){
         if(numarBile > 0){
-            listaBile.addFirst(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            listaBile.addFirst(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie, Level.numarNivel));
             listaBile.get(0).isWaveLeader = true;
             numarBile--;
             SoundManager.playSound("src/resources/sunete/spheres_roll.wav", -15, false);
         }
         while(numarBile != 0){
-            adaugaLaWave(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie));
+            adaugaLaWave(new Bila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),traseu[0].GetCoordX(), traseu[0].GetCoordY(), traseu[0].GetUnghi(), acceleratie, Level.numarNivel));
             numarBile--;
         }
     }
