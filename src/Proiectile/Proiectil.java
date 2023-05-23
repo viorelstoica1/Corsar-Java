@@ -8,7 +8,7 @@ public abstract class Proiectil extends Spritesheet {
     public boolean shouldDissapear = false;
     public float viteza_x,viteza_y,acceleratie_x,acceleratie_y, viteza_max;
     protected int cadruAnimatie = 0;
-    protected final int vitezaAnimatie;
+    protected int vitezaAnimatie = 20;
 
     public Proiectil(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie){
         super( sprite, poz_x, poz_y, angel);
@@ -31,17 +31,19 @@ public abstract class Proiectil extends Spritesheet {
         SetCoordX(GetCoordX()+viteza_x);
         SetCoordY(GetCoordY()+viteza_y);
 
-        if(cadruAnimatie >= vitezaAnimatie-1){
+        UpdateCadru();
+        if (isOutOfBounds(Application.getScreenWidth(), Application.getScreenHeight())) {
+            shouldDissapear = true;
+        }
+    }
+    protected void UpdateCadru(){
+        if(cadruAnimatie >= vitezaAnimatie){
             cadruAnimatie = 0;
         }
         else{
             cadruAnimatie++;
         }
-
-        SetCadru((int) Math.floor((float)cadruAnimatie/(float)(vitezaAnimatie/GetNrCadre())));
-        if (isOutOfBounds(Application.getScreenWidth(), Application.getScreenHeight())) {
-            shouldDissapear = true;
-        }
+        CresteCadru((float)numar_cadre/vitezaAnimatie);
     }
     public boolean isOutOfBounds(int ecranX,int ecranY){
         return GetCoordX() <= (float) GetMarimeTexX() / (-2) ||

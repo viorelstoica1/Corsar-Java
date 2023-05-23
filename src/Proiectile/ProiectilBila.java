@@ -8,8 +8,8 @@ import Obiecte.Spritesheet;
 import javax.swing.text.AbstractDocument;
 
 public class ProiectilBila extends Proiectil{
-    public ProiectilBila(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie){
-        super( sprite, poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
+    public ProiectilBila(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max){
+        super( sprite, poz_x, poz_y, angel, viteza_max, 60);
     }
 
     @Override

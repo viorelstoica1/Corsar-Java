@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class Spritesheet extends Textura{
     protected final int numar_cadre;
-    float cadru_curent;
+    protected float cadru_curent;
     private final Rectangle[] pozitii_cadre;
     public Spritesheet(BufferedImage imagine, int nrcadre, int coloane, float poz_x, float poz_y, float angel) {
         super(imagine, poz_x, poz_y, angel);
@@ -86,7 +86,7 @@ public class Spritesheet extends Textura{
     }
     public void CresteCadru(float x) {
         cadru_curent+=x;
-        if (cadru_curent > numar_cadre - 1)
+        if (Math.floor(cadru_curent) > numar_cadre - 1)
         {
             cadru_curent = 0;
         }

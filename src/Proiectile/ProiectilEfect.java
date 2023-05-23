@@ -4,16 +4,19 @@ import Obiecte.Sir;
 import Obiecte.Spritesheet;
 
 public class ProiectilEfect extends Proiectil{
-    private int lastFrame = 0;
-    public ProiectilEfect(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie) {
-        super(sprite, poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
+    public ProiectilEfect(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max) {
+        super(sprite, poz_x, poz_y, angel, viteza_max, 20);
     }
-    @Override public void UpdateProiectil(){
-        super.UpdateProiectil();
-        if(lastFrame > cadruAnimatie){
+    @Override protected void UpdateCadru(){
+        if(cadruAnimatie >= vitezaAnimatie-1){
+            cadruAnimatie = vitezaAnimatie-1;
             shouldDissapear = true;
         }
-        lastFrame = cadruAnimatie;
+        else{
+            cadruAnimatie++;
+        }
+        System.out.println((float)numar_cadre/vitezaAnimatie);
+        CresteCadru((float)numar_cadre/vitezaAnimatie);
     }
     @Override
     public void HitSir(Sir sir) {

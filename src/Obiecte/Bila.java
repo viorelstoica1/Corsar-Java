@@ -4,9 +4,11 @@ import Manageri.ResourceManager;
 import Nivele.Level;
 
 public class Bila extends Spritesheet {
+    private static final int targetCadre = 60;
     public float index = 0;
     private final int marimeAnimatie = 16;
-    public int frameAnimatie = marimeAnimatie, scoreMultiplier = 1;
+    public float frameAnimatie = marimeAnimatie;
+    public int scoreMultiplier = 1;
     public float acceleratie, viteza = 0, vitezaMax = 0;
     public boolean isWaveLeader = false, isSirLeader = false, isAnimating = false, isStable, canInsertLeft = true, canInsertRight = true;
     private boolean reversedRotation = false;
@@ -25,8 +27,8 @@ public class Bila extends Spritesheet {
     @Override
     public void CresteCadru(float x){
         if(reversedRotation){
-            cadru_curent -= x;
-        }else cadru_curent += x;
+            cadru_curent -= x * numar_cadre/targetCadre;
+        }else cadru_curent += x * numar_cadre/targetCadre;
         if (cadru_curent > numar_cadre - 1)
         {
             cadru_curent = 0;

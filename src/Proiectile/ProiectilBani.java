@@ -6,8 +6,8 @@ import Obiecte.Spritesheet;
 
 public class ProiectilBani extends Proiectil{
 
-    public ProiectilBani(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie) {
-        super(sprite, poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
+    public ProiectilBani(Spritesheet sprite, float poz_x, float poz_y, float angel, float viteza_max) {
+        super(sprite, poz_x, poz_y, angel, viteza_max, 20);
         if(Math.random() >= 0.5){
             viteza_x = (float) (Math.random()*10);
         }
