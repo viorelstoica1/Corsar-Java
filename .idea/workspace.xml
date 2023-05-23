@@ -4,10 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat gaura in nava">
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="terminat nivelul 2">
+      <change afterPath="$PROJECT_DIR$/src/Backbone/stareAplicatie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/StariMeniu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/stariLoading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BazaDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/BazaDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Bila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BlackScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/BlackScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Buton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniuri/Buton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Capcana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Capcana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KeyStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/KeyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniuri/LoadingScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniuri/Meniu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MeniuSelectii.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniuri/MeniuSelectii.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MouseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/MouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proiectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/Proiectil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBani.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilBani.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilBila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilBila.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilEfect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilEfect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilFoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/ResourceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scoruri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/Scoruri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/SoundManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Textura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Textura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Tun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +119,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Application" />
+      <option name="MAIN_CLASS_NAME" value="Backbone.Application" />
       <module name="Proiect_PAOO" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -177,14 +208,8 @@
       <workItem from="1684688256550" duration="252000" />
       <workItem from="1684695420890" duration="6667000" />
       <workItem from="1684732164430" duration="15428000" />
-      <workItem from="1684765024551" duration="17622000" />
-    </task>
-    <task id="LOCAL-00041" summary="am realizat o prostie">
-      <created>1683222852209</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1683222852209</updated>
+      <workItem from="1684765024551" duration="18257000" />
+      <workItem from="1684820077038" duration="7281000" />
     </task>
     <task id="LOCAL-00042" summary="adaugat looping si volum la functia de sunete">
       <created>1683448193981</created>
@@ -522,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684786810905</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="terminat nivelul 2">
+      <created>1684788416566</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1684788416566</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adaugat meniu mai complex si incarcare de nivele pe baza de dificultate" />
     <MESSAGE value="reparat pozitii capcane" />
     <MESSAGE value="adaugat fundal de scor" />
     <MESSAGE value="bilele din nivelul 3 se sparg daca ajung prea jos" />
@@ -565,7 +596,8 @@
     <MESSAGE value="formatat texturi" />
     <MESSAGE value="adaugat frunze" />
     <MESSAGE value="adaugat gaura in nava" />
-    <option name="LAST_COMMIT_MESSAGE" value="adaugat gaura in nava" />
+    <MESSAGE value="terminat nivelul 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="terminat nivelul 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
