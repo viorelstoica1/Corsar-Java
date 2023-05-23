@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class ResourceManager {
     private static ResourceManager instanta = null;
-    private final Vector<Textura> texturiBile, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
+    private final Vector<Textura> texturiBile1, texturiBile2, texturiBile3, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
     private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
     private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi, bustean, sarpe, frunza1, frunza2, gauraNava, raci;
     private final Vector<String> nume;
@@ -27,14 +27,20 @@ public class ResourceManager {
                 e.printStackTrace();
             }
             font = new Font("BlackPearl", Font.PLAIN, 25);
-            texturiBile = new Vector<>();
+            texturiBile1 = new Vector<>();
+            texturiBile2 = new Vector<>();
+            texturiBile3 = new Vector<>();
             texturiCursorPrincipal = new Vector<>();
             texturiCursorSecundar = new Vector<>();
             texturiBileSparte = new Vector<>();
             nume = new Vector<>();
             //galben
-            BufferedImage tex = ImageIO.read(new File("src/resources/bile/BILE_GALBENE.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            BufferedImage tex = ImageIO.read(new File("src/resources/bile/bile_galbene1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_galbene2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_galbene3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_galben.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_galben.png")));
@@ -43,8 +49,12 @@ public class ResourceManager {
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("galben");
             //albastru
-            tex = ImageIO.read(new File("src/resources/bile/BILE_ALBASTRE.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albastre1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albastre2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albastre3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_albastru.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_albastru.png")));
@@ -53,8 +63,12 @@ public class ResourceManager {
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("albastru");
             //alb
-            tex = ImageIO.read(new File("src/resources/bile/BILE_ALBE.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albe1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albe2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_albe3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_alb.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_alb.png")));
@@ -63,8 +77,12 @@ public class ResourceManager {
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("alb");
             //mov
-            tex = ImageIO.read(new File("src/resources/bile/BILE_MOV.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_mov1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_mov2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_mov3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_mov.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_mov.png")));
@@ -73,8 +91,12 @@ public class ResourceManager {
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("mov");
             //rosu
-            tex = ImageIO.read(new File("src/resources/bile/BILE_ROSII.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_rosii1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_rosii2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_rosii3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_rosu.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_rosu.png")));
@@ -83,8 +105,12 @@ public class ResourceManager {
             texturiBileSparte.add( new Spritesheet(tex,4,4,0,0,0).resize(360,72));
             nume.add("rosu");
             //verde
-            tex = ImageIO.read(new File("src/resources/bile/BILE_VERZI.png"));
-            texturiBile.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_verzi1.png"));
+            texturiBile1.add(new Spritesheet(tex,32,6,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_verzi2.png"));
+            texturiBile2.add(new Spritesheet(tex,60,10,0,0,0));
+            tex = ImageIO.read(new File("src/resources/bile/bile_verzi3.png"));
+            texturiBile3.add(new Spritesheet(tex,32,6,0,0,0));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_verde.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_verde.png")));
@@ -94,7 +120,11 @@ public class ResourceManager {
             nume.add("verde");
             //wildball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
-            texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
+            texturiBile1.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
+            tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
+            texturiBile2.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
+            tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
+            texturiBile3.add(new Spritesheet(tex,16,6,6,0,0,0, 0).resize(216,216));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_rgb.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_rgb.png")));
@@ -104,7 +134,11 @@ public class ResourceManager {
             nume.add("curcubeu");
             //fireball
             tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
-            texturiBile.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
+            texturiBile1.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
+            tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
+            texturiBile2.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
+            tex = ImageIO.read(new File("src/resources/bile/bile_curcubeu.png"));
+            texturiBile3.add(new Spritesheet(tex,16,6,6,0,0,0,16).resize(216,216));
             tex = ImageIO.read(new File(("src/resources/cursor/cursor_foc.png")));
             texturiCursorPrincipal.add( new Textura(tex,0,0,0).resize(36,36));
             tex = ImageIO.read(new File(("src/resources/cursor/craniu_foc.png")));
@@ -201,16 +235,44 @@ public class ResourceManager {
     public Textura getTunJos(){
         return tunJos;
     }
-    public Textura getBilaRandom(int numarBile){
-        return texturiBile.get((int) (Math.random()*numarBile));
+    public Textura getBilaRandom(int numarBile, int nivel){
+        switch(nivel){
+            case 1 -> {
+                return texturiBile1.get((int) (Math.random()*numarBile));}
+            case 2 -> {
+                return texturiBile2.get((int) (Math.random()*numarBile));}
+            case 3 -> {
+                return texturiBile3.get((int) (Math.random()*numarBile));}
+        }
+        System.out.println("Nu pot returna bila random pentru nivelul "+nivel);
+        return null;
     }
 
-    public Textura getTexturaCursorPrincipal(Textura bila){
-        for(Textura textura: texturiBile){
-            if(textura.GetTex() == bila.GetTex()){
-                return texturiCursorPrincipal.get(texturiBile.indexOf(textura));
+    public Textura getTexturaCursorPrincipal(Textura bila, int nivel){
+        switch (nivel){
+            case 1 -> {
+                for(Textura textura: texturiBile1){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorPrincipal.get(texturiBile1.indexOf(textura));
+                    }
+                }
+            }
+            case 2 -> {
+                for(Textura textura: texturiBile2){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorPrincipal.get(texturiBile2.indexOf(textura));
+                    }
+                }
+            }
+            case 3 -> {
+                for(Textura textura: texturiBile3){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorPrincipal.get(texturiBile3.indexOf(textura));
+                    }
+                }
             }
         }
+        System.out.println("Nu pot returna cursorul principal pentru nivelul "+nivel);
         return null;
     }
     public Textura getTexturaCursorPrincipal(){
@@ -220,27 +282,77 @@ public class ResourceManager {
         return texturiCursorSecundar.get(0);
     }
 
-    public Textura getTexturaBila(String numeTextura){
-        return texturiBile.get(nume.indexOf(numeTextura));
-    }
-    public Textura getTexturaCursorSecundar(Textura bila){
-        for(Textura textura: texturiBile){
-            if(textura.GetTex() == bila.GetTex()){
-                return texturiCursorSecundar.get(texturiBile.indexOf(textura));
+    public Textura getTexturaBila(String numeTextura, int nivel){
+        switch (nivel){
+            case 1 -> {
+                return texturiBile1.get(nume.indexOf(numeTextura));
+            }
+            case 2 -> {
+                return texturiBile2.get(nume.indexOf(numeTextura));
+            }
+            case 3 -> {
+                return texturiBile3.get(nume.indexOf(numeTextura));
             }
         }
+        System.out.println("Nu pot returna bila specifica pentru nivelul "+nivel);
         return null;
     }
-    public Textura getTexturaBilaSparta(Textura bila){
-        for (Textura textura: texturiBile){
-            if(textura.GetTex() == bila.GetTex()){
-                return texturiBileSparte.get(texturiBile.indexOf(textura));
+    public Textura getTexturaCursorSecundar(Textura bila, int nivel){
+        switch (nivel){
+            case 1 -> {
+                for(Textura textura: texturiBile1){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorSecundar.get(texturiBile1.indexOf(textura));
+                    }
+                }
+            }
+            case 2 -> {
+                for(Textura textura: texturiBile2){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorSecundar.get(texturiBile2.indexOf(textura));
+                    }
+                }
+            }
+            case 3 -> {
+                for(Textura textura: texturiBile3){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiCursorSecundar.get(texturiBile3.indexOf(textura));
+                    }
+                }
             }
         }
+        System.out.println("Nu pot returna cursorul secundar pentru nivelul "+nivel);
+        return null;
+    }
+    public Textura getTexturaBilaSparta(Textura bila, int nivel){
+        switch (nivel){
+            case 1 -> {
+                for(Textura textura: texturiBile1){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiBileSparte.get(texturiBile1.indexOf(textura));
+                    }
+                }
+            }
+            case 2 -> {
+                for(Textura textura: texturiBile2){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiBileSparte.get(texturiBile2.indexOf(textura));
+                    }
+                }
+            }
+            case 3 -> {
+                for(Textura textura: texturiBile3){
+                    if(textura.GetTex() == bila.GetTex()){
+                        return texturiBileSparte.get(texturiBile3.indexOf(textura));
+                    }
+                }
+            }
+        }
+        System.out.println("Nu pot returna bila sparta pentru nivelul "+nivel);
         return null;
     }
     public int getMarimeBila(){
-        return ((Spritesheet)texturiBile.get(0)).GetMarimeSpriteX();
+        return ((Spritesheet) texturiBile1.get(0)).GetMarimeSpriteX();
     }
     public int getMarimeBilaSparta(){
         return ((Spritesheet)texturiBileSparte.get(0)).GetMarimeSpriteX();

@@ -18,6 +18,7 @@ public class Level3 extends Level{
     Capcana capcanaStanga, capcanaDreapta;
     public Level3(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
+        numarNivel = 3;
         fundal.SetTexRaw(ResourceManager.get().getFundal(3).GetTex());
         sirBile.indexRapid = 400;
         sirBile.indexIncet = 2650;
@@ -28,6 +29,7 @@ public class Level3 extends Level{
 
     @Override
     public void onStart() {
+        super.onStart();
         firstPaint = true;
         tunar.SetCoordX(rezolutieX - (float)rezolutieX / 2);
         tunar.SetCoordY(rezolutieY - (float)rezolutieY / 20);
@@ -46,7 +48,7 @@ public class Level3 extends Level{
         while (index < listaProiectile.size()){
             Proiectil proiectil = listaProiectile.get(index);
             if(proiectil.getClass() == ProiectilBila.class && proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
-                Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0,16));
+                Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil, numarNivel),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0,16));
                 proiectil.shouldDissapear = true;
             }
             index++;

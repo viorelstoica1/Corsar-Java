@@ -19,6 +19,7 @@ public class Level1 extends Level {
     private final GameObject pozitieButoi;
     public Level1(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
+        numarNivel = 1;
         butoi = new Textura(ResourceManager.get().getMisc("butoi").GetTex(),0,0,0);
         butoi.SetCoordY(rezolutieY);
         pozitieButoi = new GameObject();
@@ -26,6 +27,7 @@ public class Level1 extends Level {
     }
 
     public void onStart() {
+        super.onStart();
         firstPaint = true;
         tunar.SetCoordX(rezolutieX - (float)rezolutieX / 20);
         tunar.SetCoordY(rezolutieY - (float)rezolutieY / 10);

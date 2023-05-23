@@ -1,6 +1,7 @@
 package Obiecte;
 
 import Manageri.ResourceManager;
+import Nivele.Level;
 
 public class Bila extends Spritesheet {
     public float index = 0;
@@ -16,7 +17,7 @@ public class Bila extends Spritesheet {
     }
 
     public boolean isSameColour(Bila bila){
-        return (this.imagineRaw == bila.imagineRaw) || (this.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu").GetTex()) || (bila.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu").GetTex());
+        return (this.imagineRaw == bila.imagineRaw) || (this.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu", Level.numarNivel).GetTex()) || (bila.imagineRaw == ResourceManager.get().getTexturaBila("curcubeu", Level.numarNivel).GetTex());
     }
 
     public void calculeazaViteza(){

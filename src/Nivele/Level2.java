@@ -14,6 +14,7 @@ public class Level2 extends Level{
     private int frameRac = 0;
     public Level2(int Width, int Height, int dificultate) {
         super(Width, Height, dificultate);
+        numarNivel = 2;
         fundal.SetTexRaw(ResourceManager.get().getFundal(2).GetTex());
         sarpe = new Textura(ResourceManager.get().getMisc("sarpe").GetTex(),174,181,0);
         bustean = new Textura(ResourceManager.get().getMisc("bustean").GetTex(),511,356,0);
@@ -31,6 +32,7 @@ public class Level2 extends Level{
     }
     @Override
     public void onStart() {
+        super.onStart();
         firstPaint = true;
         tunar.SetCoordX(rezolutieX - (float)rezolutieX / 2);
         tunar.SetCoordY(rezolutieY - (float)rezolutieY / 20);
