@@ -15,7 +15,7 @@ public class ProiectilEfect extends Proiectil{
         else{
             cadruAnimatie++;
         }
-        System.out.println((float)numar_cadre/vitezaAnimatie);
+        //System.out.println((float)numar_cadre/vitezaAnimatie);
         CresteCadru((float)numar_cadre/vitezaAnimatie);
     }
     @Override

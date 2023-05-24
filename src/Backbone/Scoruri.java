@@ -44,16 +44,23 @@ public class Scoruri {
             }
             if(KeyManager.enter){
                 //salvare nume si scor
-                KeyManager.enter = false;
-                int pozitie = AdaugaScor(nivel, scorDeIntrodus, numeSalvat);
-                if(pozitie != -1){
-                    BazaDate.ScriereScor(nivel,scorDeIntrodus,numeSalvat,pozitie+1);
+                try{
+                    int pozitie = AdaugaScor(nivel, scorDeIntrodus, numeSalvat);
+                    if(pozitie != -1){
+                        BazaDate.ScriereScor(nivel,scorDeIntrodus,numeSalvat,pozitie+1);
+                    }
+                    scorDeIntrodus = 0;
+                    LoadingScreen.moveOut = true;
+                    newHighScore = false;
+                    numeSalvat = "";
+                    return stareAplicatie.meniu;
                 }
-                scorDeIntrodus = 0;
-                LoadingScreen.moveOut = true;
-                newHighScore = false;
-                numeSalvat = "";
-                return stareAplicatie.meniu;
+                catch(EmptyNameException e){
+                    System.out.println(e.getMessage());
+                }
+                finally{
+                    KeyManager.enter = false;
+                }
             }
             return stareAplicatie.endlevel;
         }
@@ -81,23 +88,28 @@ public class Scoruri {
         this.nivel = nivel;
         scorDeIntrodus = scor;
     }
-    public int AdaugaScor(int nivel, int scorNou, String nume) {
-        int pozitie = -1;
-        for(int i=0; i< nrScoruriSalvate; i++){
-            if(scoruri[nivel][i] <= scorNou){
-                pozitie = i;
-                //muta scorurile vechi mai jos
-                for(int j = nrScoruriSalvate-1; j > i; j--){
-                    scoruri[nivel][j] = scoruri[nivel][j-1];
-                    this.nume[nivel][j] = this.nume[nivel][j-1];
-                }
-                //baga scor nou in pozitia buna
-                scoruri[nivel][i] = scorNou;
-                this.nume[nivel][i] = nume;
-                break;
-            }
+    public int AdaugaScor(int nivel, int scorNou, String nume) throws EmptyNameException {
+        if(nume.isEmpty()){
+            throw new EmptyNameException();
         }
-        return pozitie;
+        else{
+            int pozitie = -1;
+            for(int i=0; i< nrScoruriSalvate; i++){
+                if(scoruri[nivel][i] <= scorNou){
+                    pozitie = i;
+                    //muta scorurile vechi mai jos
+                    for(int j = nrScoruriSalvate-1; j > i; j--){
+                        scoruri[nivel][j] = scoruri[nivel][j-1];
+                        this.nume[nivel][j] = this.nume[nivel][j-1];
+                    }
+                    //baga scor nou in pozitia buna
+                    scoruri[nivel][i] = scorNou;
+                    this.nume[nivel][i] = nume;
+                    break;
+                }
+            }
+            return pozitie;
+        }
     }
     public boolean isHighscore(int nivel, int scor){
         for(int i=0; i< nrScoruriSalvate; i++){
