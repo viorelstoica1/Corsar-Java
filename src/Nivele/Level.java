@@ -8,10 +8,7 @@ import Manageri.SoundManager;
 import Meniuri.LoadingScreen;
 import Meniuri.stariLoading;
 import Obiecte.*;
-import Proiectile.Proiectil;
-import Proiectile.ProiectilBani;
-import Proiectile.ProiectilBila;
-import Proiectile.ProiectilFoc;
+import Proiectile.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -84,8 +81,10 @@ public abstract class Level extends JPanel {
     }
 
     public void onStart(){
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        //tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilCurent(ProiectilFactory.getProiectil("bila", null, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel,dificultate));
+        //tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(ProiectilFactory.getProiectil("bila", null, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel, dificultate));
         nrBileMinim = (int) SetariManager.get().getNumarMinimBile(numarNivel);
         nrbileWaveNou = (int) SetariManager.get().getNumarBileSirNou(numarNivel);
         sirBile = new Sir(traseuBile, SetariManager.get().getVitezaMaxima(numarNivel), SetariManager.get().getVitezaGeneralaSir(numarNivel), SetariManager.get().getVitezaMinima(numarNivel), SetariManager.get().getAcceleratieBile(numarNivel), (int)SetariManager.get().getIndexIncet(numarNivel),(int)SetariManager.get().getIndexRapid(numarNivel),(int)SetariManager.get().getIndexFinal(numarNivel));
@@ -163,22 +162,27 @@ public abstract class Level extends JPanel {
         Spritesheet bilaDinSir = sirBile.getTexturaBilaRandom();
         if(tunar.isGataDeTras() && (tunar.GetProiectilIncarcat() == null)){
             if(bilaDinSir != null){
-                tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                //tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(ProiectilFactory.getProiectil("bila", ResourceManager.get().nameOf(bilaDinSir), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel, dificultate));
             }
             else{
-                tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                //tunar.CicleazaProiectil(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.CicleazaProiectil(ProiectilFactory.getProiectil("bila", null, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel, dificultate));
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav", -10, false);
             if(Math.random()>0.95){
-                tunar.SetProiectilRezerva(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere,32));
+                //tunar.SetProiectilRezerva(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere,32));
+                tunar.SetProiectilRezerva(ProiectilFactory.getProiectil("foc",null,tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), 0, 0));
             }
             if(Math.random()>0.85){
-                tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet)ResourceManager.get().getTexturaBila("curcubeu", numarNivel),tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                //tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet)ResourceManager.get().getTexturaBila("curcubeu", numarNivel),tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+                tunar.SetProiectilRezerva(ProiectilFactory.getProiectil("bila","curcubeu",tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel, dificultate));
             }
         }
         if(tunar.isGataDeTras() && bilaDinSir != null && !sirBile.isCuloareInSir(tunar.GetProiectilIncarcat().GetTex()) && (tunar.GetProiectilIncarcat().getClass() == ProiectilBila.class)){
             bilaDinSir = sirBile.getTexturaBilaRandom();
-            tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            //tunar.CicleazaProiectil(new ProiectilBila(bilaDinSir, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+            tunar.CicleazaProiectil(ProiectilFactory.getProiectil("bila",ResourceManager.get().nameOf(bilaDinSir), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(),numarNivel,dificultate));
         }
         scor += sirBile.Update();
         if(sirBile.marime() < nrBileMinim && !sirBile.lost){

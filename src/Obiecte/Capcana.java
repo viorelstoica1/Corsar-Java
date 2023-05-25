@@ -1,14 +1,13 @@
 package Obiecte;
 
-import Manageri.ResourceManager;
 import Manageri.SetariManager;
 import Proiectile.Proiectil;
-import Proiectile.ProiectilBila;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import Nivele.Level;
+import Proiectile.ProiectilFactory;
 
 public class Capcana extends Textura {
     private int timerCapcana;
@@ -21,7 +20,8 @@ public class Capcana extends Textura {
         timerCapcana = cooldownCapcana;
         this.viteza = SetariManager.get().getVitezatragereCapcana();
         this.dificultate = dificultate;
-        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza);
+        //proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza);
+        proiectilIncarcat = ProiectilFactory.getProiectil("bila",null,GetCoordX()+5,GetCoordY(),GetUnghi(),Level.numarNivel,dificultate);
         proiectilIncarcat.viteza_x = 0;
         proiectilIncarcat.viteza_y = viteza;
         marime_x = proiectilIncarcat.GetMarimeSpriteX();
@@ -37,7 +37,8 @@ public class Capcana extends Textura {
     }
     public void resetCapcana(){
         timerCapcana = cooldownCapcana;
-        proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza);
+        //proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza);
+        proiectilIncarcat = ProiectilFactory.getProiectil("bila",null,GetCoordX()+5,GetCoordY(),GetUnghi(),Level.numarNivel,dificultate);
         proiectilIncarcat.viteza_x = 0;
         proiectilIncarcat.viteza_y = viteza;
     }

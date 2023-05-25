@@ -6,10 +6,9 @@ import Manageri.ResourceManager;
 import Obiecte.Bila;
 import Obiecte.Capcana;
 import Obiecte.GameObject;
-import Obiecte.Spritesheet;
 import Proiectile.Proiectil;
 import Proiectile.ProiectilBila;
-import Proiectile.ProiectilEfect;
+import Proiectile.ProiectilFactory;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -39,8 +38,10 @@ public class Level3 extends Level{
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
         cursorSecundar.SetUnghi(0);
-        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        //tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        //tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilCurent(ProiectilFactory.getProiectil("bila", null, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel,dificultate));
+        tunar.SetProiectilRezerva(ProiectilFactory.getProiectil("bila", null, tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), numarNivel, dificultate));
     }
 
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
@@ -50,7 +51,8 @@ public class Level3 extends Level{
         while (index < listaProiectile.size()){
             Proiectil proiectil = listaProiectile.get(index);
             if(proiectil.getClass() == ProiectilBila.class && proiectil.viteza_y >0 && proiectil.GetCoordY()>700){
-                Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil, numarNivel),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0));
+                //Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(proiectil, numarNivel),proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),0));
+                Level.AdaugaEfect(ProiectilFactory.getProiectil("efect", ResourceManager.get().nameOf(proiectil), proiectil.GetCoordX(),proiectil.GetCoordY(),proiectil.GetUnghi(),3, 0));
                 proiectil.shouldDissapear = true;
             }
             index++;

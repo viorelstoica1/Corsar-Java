@@ -4,8 +4,7 @@ import Manageri.ResourceManager;
 import Manageri.SoundManager;
 import Nivele.Level;
 import Proiectile.Proiectil;
-import Proiectile.ProiectilBani;
-import Proiectile.ProiectilEfect;
+import Proiectile.ProiectilFactory;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -185,7 +184,8 @@ public class Sir {
                     if( nrBileIdentice > 3){
                         while(nrBileIdentice > 0){
                             SoundManager.playSound("src/resources/sunete/spawn_coin.wav",-20,false);
-                            Level.AdaugaEfect(new ProiectilBani((Spritesheet)ResourceManager.get().getMisc("bani"),listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,10));
+                            //Level.AdaugaEfect(new ProiectilBani((Spritesheet)ResourceManager.get().getMisc("bani"),listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,10));
+                            Level.AdaugaEfect(ProiectilFactory.getProiectil("bani",null,listaBile.get(i).GetCoordX(),listaBile.get(i).GetCoordY(),0,0, 0));
                             nrBileIdentice--;
                         }
                     }
@@ -298,14 +298,17 @@ public class Sir {
         if(listaBile.get(index).isWaveLeader){
             waveLeader = true;
         }
-        Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+        //Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+        Level.AdaugaEfect(ProiectilFactory.getProiectil("efect", ResourceManager.get().nameOf(listaBile.get(index)), listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(), 0, 0));
         listaBile.remove(index);
         while(index < listaBile.size()-1 && listaBile.get(index).isSameColour(listaBile.get(index+1)) && !listaBile.get(index).isSirLeader && !listaBile.get(index).isWaveLeader){
-            Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+            //Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+            Level.AdaugaEfect(ProiectilFactory.getProiectil("efect", ResourceManager.get().nameOf(listaBile.get(index)), listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(), 0, 0));
             listaBile.remove(index);
         }
         if(!(listaBile.get(index).isSirLeader || listaBile.get(index).isWaveLeader)){
-            Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+            //Level.AdaugaEfect(new ProiectilEfect((Spritesheet) ResourceManager.get().getTexturaBilaSparta(listaBile.get(index), Level.numarNivel),listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(),0));
+            Level.AdaugaEfect(ProiectilFactory.getProiectil("efect", ResourceManager.get().nameOf(listaBile.get(index)), listaBile.get(index).GetCoordX(),listaBile.get(index).GetCoordY(),listaBile.get(index).GetUnghi(), 0, 0));
             listaBile.remove(index);
         }
         if(index < listaBile.size()){

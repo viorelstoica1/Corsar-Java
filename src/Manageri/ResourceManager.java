@@ -250,7 +250,25 @@ public class ResourceManager {
         System.out.println("Nu pot returna bila random pentru nivelul "+nivel);
         return null;
     }
-
+    public String nameOf(Textura bila){
+        for(Textura textura: texturiBile1){
+            if(textura.GetTex() == bila.GetTex()){
+                return nume.get(texturiBile1.indexOf(textura));
+            }
+        }
+        for(Textura textura: texturiBile2){
+            if(textura.GetTex() == bila.GetTex()){
+                return nume.get(texturiBile2.indexOf(textura));
+            }
+        }
+        for(Textura textura: texturiBile3){
+            if(textura.GetTex() == bila.GetTex()){
+                return nume.get(texturiBile3.indexOf(textura));
+            }
+        }
+        System.out.println("Nu am gasit numele!");
+        return null;
+    }
     public Textura getTexturaCursorPrincipal(Textura bila, int nivel){
         switch (nivel){
             case 1 -> {
@@ -326,6 +344,9 @@ public class ResourceManager {
         }
         System.out.println("Nu pot returna cursorul secundar pentru nivelul "+nivel);
         return null;
+    }
+    public Textura getTexturaBilaSparta(String culoare){
+        return texturiBileSparte.get(nume.indexOf(culoare));
     }
     public Textura getTexturaBilaSparta(Textura bila, int nivel){
         switch (nivel){
