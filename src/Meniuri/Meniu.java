@@ -4,6 +4,7 @@ import Backbone.Application;
 import Backbone.stareAplicatie;
 import Manageri.MouseManager;
 import Manageri.ResourceManager;
+import Manageri.SoundManager;
 import Obiecte.Textura;
 
 import javax.swing.*;
@@ -55,6 +56,7 @@ public class Meniu extends JPanel{
             selectedButton = 1;
             if(MouseManager.clickStanga && butoanePregatite){
                 butoanePregatite = false;
+                SoundManager.playSound("src/resources/sunete/button_click.wav",-5,false);
                 return selectii.ApasaButon1();
             }
         }else if(selectii.buton2.isSelected(MouseManager.mousex, MouseManager.mousey)){
@@ -62,6 +64,7 @@ public class Meniu extends JPanel{
             selectedButton = 2;
             if(MouseManager.clickStanga && butoanePregatite){
                 butoanePregatite = false;
+                SoundManager.playSound("src/resources/sunete/button_click.wav",-5,false);
                 return selectii.ApasaButon2();
             }
         }else if(selectii.buton3.isSelected(MouseManager.mousex, MouseManager.mousey)){
@@ -69,6 +72,7 @@ public class Meniu extends JPanel{
             selectedButton = 3;
             if(MouseManager.clickStanga && butoanePregatite){
                 butoanePregatite = false;
+                SoundManager.playSound("src/resources/sunete/button_click.wav",-5,false);
                 return selectii.ApasaButon3();
             }
         }else if(selectii.buton4.isSelected(MouseManager.mousex, MouseManager.mousey)){
@@ -76,6 +80,7 @@ public class Meniu extends JPanel{
             selectedButton = 4;
             if(MouseManager.clickStanga && butoanePregatite){
                 butoanePregatite = false;
+                SoundManager.playSound("src/resources/sunete/button_click.wav",-5,false);
                 return selectii.ApasaButon4();
             }
         }else{

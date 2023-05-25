@@ -118,6 +118,7 @@ public abstract class Level extends JPanel {
         if (MouseManager.middleMouse) {
             scena = stareAplicatie.meniu;
             LoadingScreen.moveIn = true;
+            LoadingScreen.stare = stariLoading.LoadScreen;
         }
         if (MouseManager.clickDreapta) {
             if(tunar.isGataDeTras() && cooldownSwap == 0){
@@ -261,4 +262,7 @@ public abstract class Level extends JPanel {
     protected abstract void AlocareTraseuBile();
     protected abstract void MiddlePaint(Graphics g);
 
+    public int getDificultate(){
+        return dificultate;
+    }
 }

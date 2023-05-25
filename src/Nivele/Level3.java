@@ -87,7 +87,11 @@ public class Level3 extends Level{
         }
         cursorSecundar.SetCoordY((cursorPrincipal.GetCoordY()));
         if(sirBile.marime() == 0) {
-            Scoruri.get().SalvareScor(scor, 2);
+            switch(dificultate){
+                case 4 -> Scoruri.get().SalvareScor(scor, 2, 1);
+                case 5 -> Scoruri.get().SalvareScor(scor, 2, 1.5f);
+                case 6 -> Scoruri.get().SalvareScor(scor, 2, 2);
+            }
         }
         return status;
     }

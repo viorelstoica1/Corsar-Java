@@ -36,16 +36,16 @@ public class KeyManager extends JPanel {
                     if((e.getKeyChar() >= KeyEvent.VK_A && e.getKeyChar() <= KeyEvent.VK_Z) || (e.getKeyChar() >= 'a' && e.getKeyChar() <= 'z')){
                         //litera
                         litera = 0;
-                        //System.out.println("Tasta eliberata");
+                        System.out.println("Tasta eliberata");
                     }
                     if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
                         //backspace
                         backspace = false;
-                        //System.out.println("Backspace eliberat");
+                        System.out.println("Backspace eliberat");
                     } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                         //enter
                         enter = false;
-                        //System.out.println("Enter eliberat");
+                        System.out.println("Enter eliberat");
                     }
                 }
             }

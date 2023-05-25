@@ -36,11 +36,10 @@ public class MeniuSelectii extends Textura {
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
-                Application.StartLevel(nivelSelectat,4);
                 //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
-                return stareAplicatie.nivel;
+                return Application.StartLevel(nivelSelectat,4);
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 1;
@@ -69,11 +68,10 @@ public class MeniuSelectii extends Textura {
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
-                Application.StartLevel(nivelSelectat,5);
                 //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
-                return stareAplicatie.nivel;
+                return Application.StartLevel(nivelSelectat,5);
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 2;
@@ -101,11 +99,10 @@ public class MeniuSelectii extends Textura {
             }
             case SelectiiDificultate -> {
                 IncarcaStare(StariMeniu.start);
-                Application.StartLevel(nivelSelectat,6);
                 //LoadingScreen.setTex(ResourceManager.get().getLoadscreen());
                 LoadingScreen.stare = stariLoading.LoadScreen;
                 LoadingScreen.moveIn = true;
-                return stareAplicatie.nivel;
+                return Application.StartLevel(nivelSelectat,6);
             }
             case SelectiiScoruri -> {
                 nivelSelectat = 3;

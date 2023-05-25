@@ -3,5 +3,6 @@ package Meniuri;
 public enum stariLoading {
     LoadScreen,
     CreditScreen,
-    EndLevelScreen
+    EndLevelScreen,
+    SavedGameScreen
 }

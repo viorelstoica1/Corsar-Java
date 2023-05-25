@@ -5,6 +5,7 @@ import Backbone.Scoruri;
 import Manageri.MouseManager;
 import Manageri.ResourceManager;
 import Manageri.SetariManager;
+import Manageri.SoundManager;
 import Obiecte.Textura;
 
 import javax.swing.*;
@@ -16,6 +17,8 @@ public class LoadingScreen extends JPanel {
     public static float vitezaAnimatie = 0, acceleratieAnimatie = SetariManager.get().getVitezaLoadingScreen();
     public static stariLoading stare = stariLoading.LoadScreen;
     public static Buton butonInapoi = new Buton(FundalLoading.GetMarimeTexX() / 3, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY(),200,50);
+    public static Buton butonDa = new Buton(FundalLoading.GetMarimeTexX()/3,FundalLoading.GetMarimeTexY() *2/ 5 + FundalLoading.CenterY(),200,50);
+    public static Buton butonNu = new Buton(FundalLoading.GetMarimeTexX()*2/3,FundalLoading.GetMarimeTexY() *2/ 5 + FundalLoading.CenterY(),200,50);
     public static void Update(){
         FundalLoading.SetCoordX((float)Application.getScreenWidth()/2);
         float y = FundalLoading.GetCoordY();
@@ -26,6 +29,7 @@ public class LoadingScreen extends JPanel {
             }else{
                 FundalLoading.SetCoordY((float)Application.getScreenHeight()/2);
                 moveIn = false;
+                vitezaAnimatie = 0;
             }
         }else if(moveOut){
             if(y > -(float)Application.getScreenHeight()/2){
@@ -33,11 +37,13 @@ public class LoadingScreen extends JPanel {
             }else{
                 FundalLoading.SetCoordY(-(float)Application.getScreenHeight()/2);
                 moveOut = false;
+                vitezaAnimatie = 0;
             }
         }else{
             vitezaAnimatie = 0;
         }
         if(bottomY() == Application.getScreenHeight() && butonInapoi.isSelected(MouseManager.mousex, MouseManager.mousey) && MouseManager.clickStanga && !Scoruri.get().newHighScore && isFinished()){
+            SoundManager.playSound("src/resources/sunete/button_click.wav",-5,false);
             moveOut = true;
         }
     }
@@ -73,6 +79,16 @@ public class LoadingScreen extends JPanel {
                     if(isFinished()){
                         butonInapoi.paintComponent(g);
                     }
+                }
+            }
+            case SavedGameScreen -> {
+                setTex(ResourceManager.get().getMeniu("Hartie"));
+                FundalLoading.paintComponent(g);
+                g.drawString("Joc in desfasurare", FundalLoading.GetMarimeTexX() / 8, FundalLoading.GetMarimeTexY() / 4 + FundalLoading.CenterY());
+                g.drawString("Continuati?", FundalLoading.GetMarimeTexX() / 8, FundalLoading.GetMarimeTexY() * 3 / 8 + FundalLoading.CenterY());
+                if(isFinished()){
+                    butonDa.paintComponent(g);
+                    butonNu.paintComponent(g);
                 }
             }
         }

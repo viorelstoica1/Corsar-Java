@@ -68,7 +68,11 @@ public class Level1 extends Level {
         }
         cursorSecundar.SetCoordX((cursorPrincipal.GetCoordX()));
         if(sirBile.marime() == 0){
-            Scoruri.get().SalvareScor(scor,0);
+            switch(dificultate){
+                case 4 -> Scoruri.get().SalvareScor(scor, 0, 1);
+                case 5 -> Scoruri.get().SalvareScor(scor, 0, 1.5f);
+                case 6 -> Scoruri.get().SalvareScor(scor, 0, 2);
+            }
         }
         return status;
     }

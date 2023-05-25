@@ -85,9 +85,9 @@ public class Scoruri {
     public String getnumeScor(int nivel, int pozitie){
         return nume[nivel][pozitie];
     }
-    public void SalvareScor(int scor, int nivel){
+    public void SalvareScor(int scor, int nivel, float multiplier){
         this.nivel = nivel;
-        scorDeIntrodus = scor;
+        scorDeIntrodus = (int) (scor * multiplier);
     }
     public int AdaugaScor(int nivel, int scorNou, String nume) throws EmptyNameException {
         if(nume.isEmpty()){

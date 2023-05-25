@@ -5,5 +5,6 @@ public enum stareAplicatie {
     nivel,
     credite,
     endlevel,
-    iesire
+    iesire,
+    selectieNivelIncarcat
 }

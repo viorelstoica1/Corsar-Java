@@ -3,10 +3,7 @@ package Manageri;
 import Backbone.VolumPreaMareException;
 import Backbone.VolumPreaMicException;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.*;
 import java.io.File;
 
 public class SoundManager {
@@ -36,6 +33,9 @@ public class SoundManager {
             System.out.println(e.getMessage());
             System.out.println("Play la volum normal");
             playSound(path, (int) (decibeli - SetariManager.get().getVolum()), loop);
+        }
+        catch(UnsupportedAudioFileException e){
+            System.out.println("Fisierul audio "+path+" nu exista sau nu e valid!");
         }
         catch(Exception e){
             e.printStackTrace();

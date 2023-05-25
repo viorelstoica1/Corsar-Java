@@ -49,6 +49,8 @@ public class Application implements Runnable {
         //loading screen
         panouloading = new LoadingScreen();
         LoadingScreen.butonInapoi.textButon = "Inapoi";
+        LoadingScreen.butonDa.textButon = "Da";
+        LoadingScreen.butonNu.textButon = "Nu";
         //ScheletAplicatie.setVisible(true);//face aplicatia sa apara
         LoadingScreen.ResetLoadingDown();
         LoadingScreen.moveOut = true;
@@ -65,7 +67,7 @@ public class Application implements Runnable {
 
         KeyManager key = new KeyManager();
         ScheletAplicatie.add(key);
-        //System.out.println(key.requestFocusInWindow());
+        System.out.println(key.requestFocusInWindow());//NU MAI STERGE ASTA
         ScheletAplicatie.remove(ecranNegru);
         //System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
     }
@@ -124,20 +126,53 @@ public class Application implements Runnable {
                             case meniu, nivel -> LoadingScreen.moveOut = true;
                             case credite ->{
                                 if(MouseManager.middleMouse){
+                                    LoadingScreen.stare = stariLoading.LoadScreen;
                                     LoadingScreen.moveOut = true;
                                 }
                             }
                             case endlevel ->{
+                                Nivel = null;
                                 scenaViitoare = Scoruri.get().Update();
                                 panouloading.paintImmediately(0,0,screenWidth, LoadingScreen.bottomY());
                                 //logica de citit nume si salvat scor
+                            }
+                            case selectieNivelIncarcat -> {
+                                panouloading.paintImmediately(0,0,screenWidth, LoadingScreen.bottomY());
+                                if(LoadingScreen.butonDa.isSelected(MouseManager.mousex, MouseManager.mousey) && MouseManager.clickStanga){
+                                    MouseManager.clickStanga = false;
+                                    scenaViitoare = stareAplicatie.nivel;
+                                }
+                                else if(LoadingScreen.butonNu.isSelected(MouseManager.mousex, MouseManager.mousey) && MouseManager.clickStanga){
+                                    MouseManager.clickStanga = false;
+                                    scenaViitoare = stareAplicatie.nivel;
+                                    if(Nivel.getClass() == Level1.class){
+                                        Nivel = new Level1(screenWidth,screenHeight, Nivel.getDificultate());
+                                        ScheletAplicatie.add(Nivel);
+                                        ScheletAplicatie.setVisible(true);
+                                        Nivel.onStart();
+                                        Nivel.setVisible(true);
+                                    }else if(Nivel.getClass() == Level2.class){
+                                        Nivel = new Level2(screenWidth,screenHeight, Nivel.getDificultate());
+                                        ScheletAplicatie.add(Nivel);
+                                        ScheletAplicatie.setVisible(true);
+                                        Nivel.onStart();
+                                        Nivel.setVisible(true);
+                                    }else if(Nivel.getClass() == Level3.class){
+                                        Nivel = new Level3(screenWidth,screenHeight, Nivel.getDificultate());
+                                        ScheletAplicatie.add(Nivel);
+                                        ScheletAplicatie.setVisible(true);
+                                        Nivel.onStart();
+                                        Nivel.setVisible(true);
+                                    }
+                                }
+                                //else scenaViitoare = stareAplicatie.selectieNivelIncarcat;
                             }
                         }
                     }
                 }
                 else{
                     switch(scena){
-                        case meniu, credite, endlevel, iesire ->{
+                        case meniu, credite, endlevel, iesire, selectieNivelIncarcat ->{
                             meniu.paintImmediately(0, LoadingScreen.bottomY(),screenWidth,screenHeight- LoadingScreen.bottomY());
                             panouloading.paintImmediately(0,0,screenWidth, LoadingScreen.bottomY());
                         }
@@ -159,21 +194,30 @@ public class Application implements Runnable {
         System.out.println("Iesire din joc!");
         game_is_running = false;
     }
-    public static void StartLevel(int numarNivel, int dificultate){
-        if(Nivel != null){
+    public static stareAplicatie StartLevel(int numarNivel, int dificultate){
+        /*if(Nivel != null){
             ScheletAplicatie.remove(Nivel);
+        }*/
+        if(Nivel != null && ((Nivel.getClass() == Level1.class && numarNivel == 1) || (Nivel.getClass() == Level2.class && numarNivel == 2) || (Nivel.getClass() == Level3.class && numarNivel == 3))){
+            System.out.println("Nivel salvat");
+            LoadingScreen.stare = stariLoading.SavedGameScreen;
+            LoadingScreen.moveIn = true;
+            return stareAplicatie.selectieNivelIncarcat;
         }
-        switch (numarNivel){
-            case 1 -> Nivel = new Level1(screenWidth,screenHeight, dificultate);
-            case 2 -> Nivel = new Level2(screenWidth,screenHeight, dificultate);
-            case 3 -> Nivel = new Level3(screenWidth,screenHeight, dificultate);
-            default -> System.out.println("Nu pot incarca nivelul "+numarNivel);
+        else{
+            switch (numarNivel){
+                case 1 -> Nivel = new Level1(screenWidth,screenHeight, dificultate);
+                case 2 -> Nivel = new Level2(screenWidth,screenHeight, dificultate);
+                case 3 -> Nivel = new Level3(screenWidth,screenHeight, dificultate);
+                default -> System.out.println("Nu pot incarca nivelul "+numarNivel);
+            }
+            if(Nivel != null){
+                Nivel.onStart();
+                ScheletAplicatie.add(Nivel);
+                ScheletAplicatie.setVisible(true);
+            }
         }
-        if(Nivel != null){
-            Nivel.onStart();
-            ScheletAplicatie.add(Nivel);
-            ScheletAplicatie.setVisible(true);
-        }
+        return stareAplicatie.nivel;
     }
     public static int getScreenWidth(){
         return screenWidth;
