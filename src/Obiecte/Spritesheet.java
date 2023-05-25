@@ -51,7 +51,7 @@ public class Spritesheet extends Textura{
                     pozitii_cadre[i*coloane+j-inceputTex].y = (int)Math.floor((float)this.GetMarimeTexY()*(i) / liniiComplet);
                     pozitii_cadre[i*coloane+j-inceputTex].width = this.GetMarimeTexX()/coloane;
                     pozitii_cadre[i*coloane+j-inceputTex].height = this.GetMarimeTexY()/liniiComplet;
-                    System.out.print("("+pozitii_cadre[i*coloane+j-inceputTex].x+","+pozitii_cadre[i*coloane+j-inceputTex].y+")");
+                    //System.out.print("("+pozitii_cadre[i*coloane+j-inceputTex].x+","+pozitii_cadre[i*coloane+j-inceputTex].y+")");
                     //System.out.print("W:"+pozitii_cadre[i*coloane+j-inceputTex].width+","+pozitii_cadre[i*coloane+j-inceputTex].height);
                 }
             }

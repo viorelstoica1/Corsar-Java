@@ -1,5 +1,6 @@
 package Manageri;
 
+import Backbone.Application;
 import Obiecte.Spritesheet;
 import Obiecte.Textura;
 
@@ -12,10 +13,10 @@ import java.util.Vector;
 
 public class ResourceManager {
     private static ResourceManager instanta = null;
-    private final Vector<Textura> texturiBile1, texturiBile2, texturiBile3, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
-    private final Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
-    private final Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi, bustean, sarpe, frunza1, frunza2, gauraNava, raci;
-    private final Vector<String> nume;
+    private Vector<Textura> texturiBile1, texturiBile2, texturiBile3, texturiCursorPrincipal, texturiCursorSecundar, texturiBileSparte;
+    private Textura fundal1, fundal2, fundal3, loadscreen, fundalMeniu, tunSus, tunJos;
+    private Textura selectiiMeniu, capcana1, capcana2, scor, ajutorMeniu, lupa0, lupa1, lupa2, lupa3, hartieMeniu, bani, butoi, bustean, sarpe, frunza1, frunza2, gauraNava, raci;
+    private Vector<String> nume;
     public Font font;
     private ResourceManager(){
         try {
@@ -204,7 +205,9 @@ public class ResourceManager {
             tex = ImageIO.read(new File(("src/resources/fundaluri/CrabRave.png")));
             raci = new Spritesheet(tex,4,4,0,0,0).resize(256,64);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Nu pot incarca toate texturile!");
+            Application.CloseGame();
+            //throw new RuntimeException(e);
         }
     }
     public static synchronized ResourceManager get(){
