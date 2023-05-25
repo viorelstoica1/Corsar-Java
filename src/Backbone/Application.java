@@ -126,7 +126,7 @@ public class Application implements Runnable {
                             case meniu, nivel -> LoadingScreen.moveOut = true;
                             case credite ->{
                                 if(MouseManager.middleMouse){
-                                    LoadingScreen.stare = stariLoading.LoadScreen;
+                                    //LoadingScreen.stare = stariLoading.LoadScreen;
                                     LoadingScreen.moveOut = true;
                                 }
                             }

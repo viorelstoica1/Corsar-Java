@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="nivelul poate fi continuat">
-      <change afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilFactory.java" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="adaugat factory de proiectile">
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/CreditState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/EndLevelState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/LoadScreenState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/SavedGameState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Meniuri/StateLoadingScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manageri/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nivele/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Nivele/Level3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obiecte/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Sir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proiectile/ProiectilFoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proiectile/ProiectilFoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backbone/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meniuri/LoadingScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meniuri/LoadingScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,14 +185,7 @@
       <workItem from="1684765024551" duration="18257000" />
       <workItem from="1684820077038" duration="24870000" />
       <workItem from="1684954656521" duration="27480000" />
-      <workItem from="1685027172367" duration="9491000" />
-    </task>
-    <task id="LOCAL-00052" summary="adaugat texturi pentru meniuri">
-      <created>1683646527670</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1683646527670</updated>
+      <workItem from="1685027172367" duration="11039000" />
     </task>
     <task id="LOCAL-00053" summary="clasa de buton pentru meniuri">
       <created>1683658182989</created>
@@ -529,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685037878268</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="adaugat factory de proiectile">
+      <created>1685041362889</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1685041362889</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -547,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="salvare scoruri in clasa de scoruri doar cu valoarea" />
     <MESSAGE value="introducere de nume si de scoruri de baza" />
     <MESSAGE value="sfarsit de nivel cu high score si nume" />
     <MESSAGE value="BAZE DE DATEE scor" />
@@ -572,7 +572,8 @@
     <MESSAGE value="setari de nivele incarcate din baza de date" />
     <MESSAGE value="setari generale incarcate din baza de date + rotatie proiectile reparate in tun" />
     <MESSAGE value="nivelul poate fi continuat" />
-    <option name="LAST_COMMIT_MESSAGE" value="nivelul poate fi continuat" />
+    <MESSAGE value="adaugat factory de proiectile" />
+    <option name="LAST_COMMIT_MESSAGE" value="adaugat factory de proiectile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

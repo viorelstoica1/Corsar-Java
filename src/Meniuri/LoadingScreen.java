@@ -13,6 +13,7 @@ import java.awt.*;
 
 public class LoadingScreen extends JPanel {
     private static final Textura FundalLoading = new Textura(ResourceManager.get().getLoadscreen().imagineRaw,(float) Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
+    private static StateLoadingScreen starePaint = new LoadScreenState();
     public static boolean moveIn = false, moveOut = false;
     public static float vitezaAnimatie = 0, acceleratieAnimatie = SetariManager.get().getVitezaLoadingScreen();
     public static stariLoading stare = stariLoading.LoadScreen;
@@ -20,6 +21,12 @@ public class LoadingScreen extends JPanel {
     public static Buton butonDa = new Buton(FundalLoading.GetMarimeTexX()/3,FundalLoading.GetMarimeTexY() *2/ 5 + FundalLoading.CenterY(),200,50);
     public static Buton butonNu = new Buton(FundalLoading.GetMarimeTexX()*2/3,FundalLoading.GetMarimeTexY() *2/ 5 + FundalLoading.CenterY(),200,50);
     public static void Update(){
+        switch (stare){
+            case CreditScreen -> starePaint = new CreditState();
+            case LoadScreen -> starePaint = new LoadScreenState();
+            case EndLevelScreen -> starePaint = new EndLevelState();
+            case SavedGameScreen -> starePaint = new SavedGameState();
+        }
         FundalLoading.SetCoordX((float)Application.getScreenWidth()/2);
         float y = FundalLoading.GetCoordY();
         vitezaAnimatie += acceleratieAnimatie;
@@ -58,7 +65,8 @@ public class LoadingScreen extends JPanel {
     public void paintComponent(Graphics g) {
         g.setColor(Color.black);
         g.setFont(ResourceManager.get().font.deriveFont(65f));
-        switch (stare){
+        starePaint.paintComponent(g);
+        /*switch (stare){
             case LoadScreen -> {
                 setTex(ResourceManager.get().getLoadscreen());
                 FundalLoading.paintComponent(g);
@@ -91,7 +99,7 @@ public class LoadingScreen extends JPanel {
                     butonNu.paintComponent(g);
                 }
             }
-        }
+        }*/
 
         /*g.drawString("Trage",550,  FundalLoading.CenterY()+130);
         g.drawString("Inapoi",550, FundalLoading.CenterY()+180);
@@ -123,5 +131,8 @@ public class LoadingScreen extends JPanel {
     }
     public static void setTex(Textura tex){
         FundalLoading.SetTexRaw(tex.imagineRaw);
+    }
+    public static Textura getTex(){
+        return FundalLoading;
     }
 }
