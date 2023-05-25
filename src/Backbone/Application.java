@@ -65,9 +65,9 @@ public class Application implements Runnable {
 
         KeyManager key = new KeyManager();
         ScheletAplicatie.add(key);
-        System.out.println(key.requestFocusInWindow());
+        //System.out.println(key.requestFocusInWindow());
         ScheletAplicatie.remove(ecranNegru);
-        System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
+        //System.out.println(ScheletAplicatie.getWidth()+" x "+ScheletAplicatie.getHeight());
     }
     private static int GetRefreshRate(){
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();

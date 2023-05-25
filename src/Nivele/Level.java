@@ -52,7 +52,7 @@ public abstract class Level extends JPanel {
         ResourceManager.get();
         AlocareTraseuBile();
         fontScor = new Font("BlackPearl", Font.PLAIN, 25);
-        tunar = new Tun(resurse.getTunJos().GetTex(), resurse.getTunSus().GetTex(), MouseManager.mousex, 0, 270, 20);
+        tunar = new Tun(resurse.getTunJos().GetTex(), resurse.getTunSus().GetTex(), MouseManager.mousex, 0, 270);
         fundal = new Textura(resurse.getFundal(1).GetTex(), 0, 0, 0);
         cursorPrincipal = new Textura(resurse.getTexturaCursorPrincipal().GetTex(),0,0,270);
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
@@ -140,7 +140,7 @@ public abstract class Level extends JPanel {
             }
             if(proiectil.getClass() == ProiectilBani.class && tunar.Coliziune(proiectil)){
                 SoundManager.playSound("src/resources/sunete/catch_coin.wav",-20,false);
-                scor+=2;
+                scor+=SetariManager.get().getValoareBani();
                 proiectil.shouldDissapear = true;
             }
             if (proiectil.shouldDissapear) {
@@ -169,7 +169,7 @@ public abstract class Level extends JPanel {
             }
             SoundManager.playSound("src/resources/sunete/bullet_reload.wav", -10, false);
             if(Math.random()>0.95){
-                tunar.SetProiectilRezerva(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere, 100, 32));
+                tunar.SetProiectilRezerva(new ProiectilFoc(tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere,32));
             }
             if(Math.random()>0.85){
                 tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet)ResourceManager.get().getTexturaBila("curcubeu", numarNivel),tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));

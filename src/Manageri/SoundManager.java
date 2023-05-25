@@ -18,13 +18,13 @@ public class SoundManager {
 
             FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             try{
-                volume.setValue(decibeli);
+                volume.setValue(decibeli + SetariManager.get().getVolum());
             }
             catch(IllegalArgumentException e){
-                if(decibeli < 0){
-                    throw new VolumPreaMicException(decibeli);
+                if(decibeli + SetariManager.get().getVolum() < 0){
+                    throw new VolumPreaMicException((int) (decibeli + SetariManager.get().getVolum()));
                 }
-                else throw new VolumPreaMareException(decibeli);
+                else throw new VolumPreaMareException((int) (decibeli + SetariManager.get().getVolum()));
             }
             if(loop){
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
@@ -35,7 +35,7 @@ public class SoundManager {
         catch(VolumPreaMareException | VolumPreaMicException e){
             System.out.println(e.getMessage());
             System.out.println("Play la volum normal");
-            playSound(path, 0, loop);
+            playSound(path, (int) (decibeli - SetariManager.get().getVolum()), loop);
         }
         catch(Exception e){
             e.printStackTrace();

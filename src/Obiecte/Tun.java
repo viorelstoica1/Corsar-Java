@@ -1,5 +1,6 @@
 package Obiecte;
 
+import Manageri.SetariManager;
 import Manageri.SoundManager;
 import Proiectile.Proiectil;
 
@@ -14,15 +15,15 @@ public class Tun extends Textura {
     private final Spritesheet tunJos;
     private int cadruAnimatie;
     private final int vitezaAnimatie;
-    public Tun(BufferedImage imagine, BufferedImage imagineSus, float poz_x, float poz_y, float angel, int viteza) {
+    public Tun(BufferedImage imagine, BufferedImage imagineSus, float poz_x, float poz_y, float angel) {
         super(imagineSus,poz_x, poz_y, angel);
         tunJos = new Spritesheet(imagine,5,5,poz_x,poz_y,angel);
-        vitezaTragere = viteza;
+        vitezaTragere = (int) SetariManager.get().getVitezaTragereTun();
         proiectilIncarcat = null;
         proiectilRezerva = null;
         gataDeTras = true;
         cadruAnimatie = 0;
-        vitezaAnimatie = 30;
+        vitezaAnimatie = (int) SetariManager.get().getVitezaAnimatieTun();
     }
     public void SetLimite( int stangaX, int dreaptaX, int josY, int susY){
         limitaDreapta = dreaptaX;

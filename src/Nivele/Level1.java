@@ -7,9 +7,11 @@ import Manageri.ResourceManager;
 import Manageri.SoundManager;
 import Obiecte.Bila;
 import Obiecte.GameObject;
+import Obiecte.Spritesheet;
 import Obiecte.Textura;
 import Proiectile.Proiectil;
 import Proiectile.ProiectilBani;
+import Proiectile.ProiectilBila;
 
 import java.awt.*;
 import java.util.LinkedList;
@@ -34,6 +36,8 @@ public class Level1 extends Level {
         tunar.SetLimite(rezolutieX - rezolutieX / 20, rezolutieX - rezolutieX / 20, rezolutieY - rezolutieY / 10, rezolutieY / 10);
         tunar.vitezaTragere = 20;
         tunar.SetUnghi(270);
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
     }
 
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul

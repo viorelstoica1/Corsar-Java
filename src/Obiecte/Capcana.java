@@ -1,6 +1,7 @@
 package Obiecte;
 
 import Manageri.ResourceManager;
+import Manageri.SetariManager;
 import Proiectile.Proiectil;
 import Proiectile.ProiectilBila;
 
@@ -16,9 +17,9 @@ public class Capcana extends Textura {
     public Proiectil proiectilIncarcat;
     public Capcana(BufferedImage imagine, float poz_x, float poz_y, float angel, int cooldownCapcana, float viteza, int dificultate) {
         super(imagine, poz_x, poz_y, angel);
-        this.cooldownCapcana = cooldownCapcana;
+        this.cooldownCapcana = (int) SetariManager.get().getCooldownCapcana();
         timerCapcana = cooldownCapcana;
-        this.viteza = viteza;
+        this.viteza = SetariManager.get().getVitezatragereCapcana();
         this.dificultate = dificultate;
         proiectilIncarcat = new ProiectilBila((Spritesheet) ResourceManager.get().getBilaRandom(dificultate, Level.numarNivel),GetCoordX()+5,GetCoordY(),GetUnghi(), viteza);
         proiectilIncarcat.viteza_x = 0;

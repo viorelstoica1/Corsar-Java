@@ -39,6 +39,8 @@ public class Level3 extends Level{
         tunar.SetUnghi(0);
         cursorPrincipal.SetUnghi(0);
         cursorSecundar.SetUnghi(0);
+        tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
+        tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
     }
 
     public stareAplicatie Actualizare() {//in actualizare trebuie implementat cursorul
@@ -58,12 +60,12 @@ public class Level3 extends Level{
         capcanaDreapta.Update();
         capcanaStanga.Update();
         if(capcanaDreapta.isReady()){
-            System.out.println("Capcana trage");
+            //System.out.println("Capcana trage");
             listaProiectile.add(capcanaDreapta.proiectilIncarcat);
             capcanaDreapta.resetCapcana();
         }
         if(capcanaStanga.isReady()){
-            System.out.println("Capcana trage");
+            //System.out.println("Capcana trage");
             listaProiectile.add(capcanaStanga.proiectilIncarcat);
             capcanaStanga.resetCapcana();
         }

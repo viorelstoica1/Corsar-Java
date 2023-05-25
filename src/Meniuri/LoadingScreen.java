@@ -4,6 +4,7 @@ import Backbone.Application;
 import Backbone.Scoruri;
 import Manageri.MouseManager;
 import Manageri.ResourceManager;
+import Manageri.SetariManager;
 import Obiecte.Textura;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ import java.awt.*;
 public class LoadingScreen extends JPanel {
     private static final Textura FundalLoading = new Textura(ResourceManager.get().getLoadscreen().imagineRaw,(float) Application.getScreenWidth()/2,(float)Application.getScreenHeight()/2,0);
     public static boolean moveIn = false, moveOut = false;
-    public static float vitezaAnimatie = 0, acceleratieAnimatie = 0.4f;
+    public static float vitezaAnimatie = 0, acceleratieAnimatie = SetariManager.get().getVitezaLoadingScreen();
     public static stariLoading stare = stariLoading.LoadScreen;
     public static Buton butonInapoi = new Buton(FundalLoading.GetMarimeTexX() / 3, FundalLoading.GetMarimeTexY() / 3 + FundalLoading.CenterY(),200,50);
     public static void Update(){

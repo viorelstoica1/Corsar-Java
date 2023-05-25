@@ -1,6 +1,7 @@
 package Proiectile;
 
 import Manageri.ResourceManager;
+import Manageri.SetariManager;
 import Manageri.SoundManager;
 import Nivele.Level;
 import Obiecte.Bila;
@@ -12,9 +13,9 @@ import java.util.LinkedList;
 public class ProiectilFoc extends Proiectil{
     public float marimeZonaFoc;
 
-    public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, float marimeZonaFoc, int vitezaAnimatie) {
+    public ProiectilFoc(float poz_x, float poz_y, float angel, float viteza_max, int vitezaAnimatie) {
         super((Spritesheet) ResourceManager.get().getTexturaBila("fire", Level.numarNivel), poz_x, poz_y, angel, viteza_max, vitezaAnimatie);
-        this.marimeZonaFoc = marimeZonaFoc;
+        this.marimeZonaFoc = SetariManager.get().getRazaProiectilFoc();
     }
 
     @Override
