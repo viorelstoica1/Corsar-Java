@@ -1,8 +1,6 @@
 package Backbone;
 
-import Manageri.KeyManager;
-import Manageri.MouseManager;
-import Manageri.SoundManager;
+import Manageri.*;
 import Meniuri.LoadingScreen;
 import Meniuri.Meniu;
 import Meniuri.stariLoading;
@@ -24,7 +22,8 @@ public class Application implements Runnable {
     public static boolean game_is_running = true;
     private static final Thread gameThread = new Thread(new Application());
     public static void main(String[] args) throws InterruptedException {
-        BazaDate.CitireScoruri();
+        BazaDateManager.CitireScoruri();
+        SetariManager.get();
         Initializare();
         gameThread.start();
         gameThread.join();
@@ -122,9 +121,7 @@ public class Application implements Runnable {
                     }
                     else{//daca este complet coborat
                         switch(scena){
-                            case meniu, nivel ->{
-                                LoadingScreen.moveOut = true;
-                            }
+                            case meniu, nivel -> LoadingScreen.moveOut = true;
                             case credite ->{
                                 if(MouseManager.middleMouse){
                                     LoadingScreen.moveOut = true;

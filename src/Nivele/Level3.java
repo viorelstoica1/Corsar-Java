@@ -20,9 +20,9 @@ public class Level3 extends Level{
         super(Width, Height, dificultate);
         numarNivel = 3;
         fundal.SetTexRaw(ResourceManager.get().getFundal(3).GetTex());
-        sirBile.indexRapid = 400;
+        /*sirBile.indexRapid = 400;
         sirBile.indexIncet = 2650;
-        sirBile.indexFinal = 3123;
+        sirBile.indexFinal = 3123;*/
         capcanaStanga = new Capcana(ResourceManager.get().getCapcana(1).GetTex(),373,36,0,200, 2, dificultate);
         capcanaDreapta = new Capcana(ResourceManager.get().getCapcana(2).GetTex(),753,34,0,200, 2, dificultate);
     }

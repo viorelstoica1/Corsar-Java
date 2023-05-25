@@ -1,5 +1,6 @@
 package Backbone;
 
+import Manageri.BazaDateManager;
 import Manageri.KeyManager;
 import Manageri.MouseManager;
 import Meniuri.LoadingScreen;
@@ -47,7 +48,7 @@ public class Scoruri {
                 try{
                     int pozitie = AdaugaScor(nivel, scorDeIntrodus, numeSalvat);
                     if(pozitie != -1){
-                        BazaDate.ScriereScor(nivel,scorDeIntrodus,numeSalvat,pozitie+1);
+                        BazaDateManager.ScriereScor(nivel,scorDeIntrodus,numeSalvat,pozitie+1);
                     }
                     scorDeIntrodus = 0;
                     LoadingScreen.moveOut = true;

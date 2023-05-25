@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="uitasem bilele noi">
-      <change afterPath="$PROJECT_DIR$/src/Backbone/VolumPreaMareException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backbone/VolumPreaMicException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Manageri/SetariManager.java" afterDir="false" />
+    <list default="true" id="65a7484c-ab49-461f-96fa-e6436670cfe9" name="Changes" comment="imbunatatit exception handlingul">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manageri/ResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/ResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Manageri/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/SoundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Obiecte/Spritesheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Spritesheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backbone/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backbone/BazaDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/BazaDateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backbone/Scoruri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backbone/Scoruri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Manageri/SetariManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manageri/SetariManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Nivele/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Nivele/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Obiecte/Sir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obiecte/Sir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BazaDate.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/BazaDate.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,14 +185,7 @@
       <workItem from="1684732164430" duration="15428000" />
       <workItem from="1684765024551" duration="18257000" />
       <workItem from="1684820077038" duration="24870000" />
-      <workItem from="1684954656521" duration="5638000" />
-    </task>
-    <task id="LOCAL-00048" summary="implementat powerup wildball cu greu, daca apar probleme la sir sunt sanse sa fie de la asta">
-      <created>1683635376441</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1683635376441</updated>
+      <workItem from="1684954656521" duration="16086000" />
     </task>
     <task id="LOCAL-00049" summary="adaugat texturi de cursor pentru bile speciale">
       <created>1683635400073</created>
@@ -528,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684913162756</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="imbunatatit exception handlingul">
+      <created>1684999893020</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1684999893020</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +548,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lupa se schimba in functie de nivelul selectat" />
     <MESSAGE value="meniu frumos de credite si ajutor" />
     <MESSAGE value="middle mouse merge folosit sa revii la meniu mereu" />
     <MESSAGE value="buton pentru scoruri" />
@@ -571,7 +572,8 @@
     <MESSAGE value="viteza animatii aproximativ consistente + reparat cadru lipsa din spritesheet" />
     <MESSAGE value="clasa de exceptii pentru nume" />
     <MESSAGE value="uitasem bilele noi" />
-    <option name="LAST_COMMIT_MESSAGE" value="uitasem bilele noi" />
+    <MESSAGE value="imbunatatit exception handlingul" />
+    <option name="LAST_COMMIT_MESSAGE" value="imbunatatit exception handlingul" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

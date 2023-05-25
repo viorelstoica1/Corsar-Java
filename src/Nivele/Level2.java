@@ -26,9 +26,9 @@ public class Level2 extends Level{
         rac2.SetCadru(1);
         rac3 = new Spritesheet((Spritesheet)ResourceManager.get().getMisc("rac"),1450,290,0);
         rac3.SetCadru(2);
-        sirBile.indexRapid = 400;
+        /*sirBile.indexRapid = 400;
         sirBile.indexIncet = 2600;
-        sirBile.indexFinal = 3285;
+        sirBile.indexFinal = 3285;*/
     }
     @Override
     public void onStart() {

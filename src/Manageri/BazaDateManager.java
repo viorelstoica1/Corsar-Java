@@ -1,8 +1,11 @@
-package Backbone;
+package Manageri;
+
+import Backbone.Application;
+import Backbone.Scoruri;
 
 import java.sql.*;
 
-public class BazaDate {
+public class BazaDateManager {
     private static final String DB_URL = "jdbc:sqlite:src/resources/BazaDate.db";
     private static final String USER = "guest";
     private static final String PASS = "guest123";
@@ -25,6 +28,29 @@ public class BazaDate {
             conn.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            Application.CloseGame();
+        }
+    }
+    public static void CitireSetariNivele(float[][] setariNivele){
+        try
+        {
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM SetariNivele");
+            for(int i=1; i<= 3;i++){
+                rs.next();
+                for(int j=1; j<=10; j++){
+                    //System.out.print(rs.getFloat(j) + " ");
+                    setariNivele[i-1][j-1] = rs.getFloat(j);
+                }
+                //System.out.println(" ");
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            Application.CloseGame();
         }
     }
     public static void ScriereScor(int nivel, int scor, String nume, int pozitie){
@@ -58,6 +84,7 @@ public class BazaDate {
             conn.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+            Application.CloseGame();
         }
     }
 }

@@ -3,6 +3,7 @@ package Nivele;
 import Backbone.stareAplicatie;
 import Manageri.MouseManager;
 import Manageri.ResourceManager;
+import Manageri.SetariManager;
 import Manageri.SoundManager;
 import Meniuri.LoadingScreen;
 import Meniuri.stariLoading;
@@ -25,11 +26,11 @@ public abstract class Level extends JPanel {
     protected final Textura fundal, cursorPrincipal, cursorSecundar, TexScor;
     protected static List<Proiectil> listaProiectile;
     protected stareAplicatie scena = stareAplicatie.nivel;
-    protected int scor = 0, nrBileMinim = 5, nrbileWaveNou = 15;
+    protected int scor = 0, nrBileMinim, nrbileWaveNou;
     protected final Tun tunar;
     protected final int targetScreenX = 1920, targetScreenY = 1080;
     protected GameObject[] traseuBile;
-    protected final Sir sirBile;
+    protected Sir sirBile;
     protected Font fontScor;
     protected final LinkedList<GameObject> pozitiiProiectile, pozitiiBile;
     protected final GameObject pozitieTun, pozitieCursor;
@@ -39,6 +40,7 @@ public abstract class Level extends JPanel {
     public static int numarNivel;
     public Level(int Width, int Height, int dificultate) {
         firstPaint = true;
+
         this.setLayout(null);
         this.dificultate = dificultate;
         pozitiiBile = new LinkedList<>();
@@ -56,7 +58,6 @@ public abstract class Level extends JPanel {
         cursorSecundar = new Textura(resurse.getTexturaCursorSecundar().GetTex(), 0,0,270);
         TexScor = new Textura(resurse.getMeniu("Scor").GetTex(), 100,50, 0);
         listaProiectile = new ArrayList<>();
-        sirBile = new Sir(traseuBile, 10, 1, 0.5f,0.2f,2500,700,3075);
         tunar.resizeTun( rezolutieX * tunar.GetTex().getWidth() / targetScreenX,rezolutieY * tunar.GetTex().getHeight() / targetScreenY);
         fundal.SetCoordX((float) rezolutieX / 2);
         fundal.SetCoordY((float) rezolutieY / 2);
@@ -85,7 +86,10 @@ public abstract class Level extends JPanel {
     public void onStart(){
         tunar.SetProiectilCurent(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
         tunar.SetProiectilRezerva(new ProiectilBila((Spritesheet) resurse.getBilaRandom(dificultate, numarNivel), tunar.GetCoordX(), tunar.GetCoordY(), tunar.GetUnghi(), tunar.vitezaTragere));
-    };
+        nrBileMinim = (int) SetariManager.get().getNumarMinimBile(numarNivel);
+        nrbileWaveNou = (int) SetariManager.get().getNumarBileSirNou(numarNivel);
+        sirBile = new Sir(traseuBile, SetariManager.get().getVitezaMaxima(numarNivel), SetariManager.get().getVitezaGeneralaSir(numarNivel), SetariManager.get().getVitezaMinima(numarNivel), SetariManager.get().getAcceleratieBile(numarNivel), (int)SetariManager.get().getIndexIncet(numarNivel),(int)SetariManager.get().getIndexRapid(numarNivel),(int)SetariManager.get().getIndexFinal(numarNivel));
+    }
 
     protected void salvarePozitii(){
         pozitieTun.Copiaza(tunar);
@@ -179,7 +183,7 @@ public abstract class Level extends JPanel {
         if(sirBile.marime() < nrBileMinim && !sirBile.lost){
             sirBile.WaveNou(nrbileWaveNou, dificultate);// =)
             nrBileMinim++;
-            nrbileWaveNou += 5;
+            nrbileWaveNou += SetariManager.get().getFactorCrestereSir(numarNivel);
         }
         if(sirBile.marime() == 0){
             //LoadingScreen.setTex(ResourceManager.get().getMeniu("Hartie"));

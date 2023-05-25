@@ -16,14 +16,14 @@ public class Sir {
     public int nrWaveLeaderi = 0, nrSirLeaderi = 0, nrAnimate = 0, nrInstabile = 0, scor = 0;
     public boolean lost = false;
     public int indexRapid, indexIncet, indexFinal;
-    float viteza,acceleratie, viteza_max, viteza_min, viteza_max_save, viteza_min_save;
+    float viteza_generala,acceleratie, viteza_max, viteza_min, viteza_max_save, viteza_min_save;
     GameObject[] traseu;
     public Sir(GameObject[] s, float viteza_sir_intrare, float viteza_max_generala,float viteza_min, float acceleratie_bile, int indexIncet, int indexRapid ,int indexFinal) {
         listaBile = new LinkedList<>();
         traseu = s;
         viteza_max = viteza_sir_intrare;
         acceleratie = acceleratie_bile;
-        viteza = viteza_max_generala;
+        viteza_generala = viteza_max_generala;
         this.viteza_min = viteza_min;
         this.indexIncet = indexIncet;
         this.indexRapid = indexRapid;
@@ -145,7 +145,7 @@ public class Sir {
                     getBilaInceputSir(i-1).viteza = (listaBile.get(i).viteza+listaBile.get(i-1).viteza)/2;
                     SoundManager.playSound("src/resources/sunete/collide_spheres_path.wav", -10, false);
                 }
-                listaBile.get(i).vitezaMax = viteza;
+                listaBile.get(i).vitezaMax = viteza_generala;
             }
             else if(listaBile.get(i).isSirLeader){//daca este sir leader
                 if(listaBile.get(i).CheckColiziuneBila(listaBile.get(i-1))){
@@ -240,7 +240,7 @@ public class Sir {
                 //listaBile.remove(getBilaFinalSir(i));
                 lost = true;
                 viteza_min = viteza_max;
-                viteza = viteza_max;
+                viteza_generala = viteza_max;
             }
 
             if(listaBile.get(i).index >=0 && listaBile.get(i).index < traseu.length){//modificarea pozitiei efective a bilei
